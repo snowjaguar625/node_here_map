@@ -1,0 +1,68 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require jquery-ui
+ *= require fancybox
+ *= require bootstrap-datetimepicker
+
+ *= require main
+
+ *= require_self
+ */
+ 
+/*
+@font-face {
+	font-family: 'Fira Sans';
+	src:font-url('assets/FiraSans-Regular.eot');
+	src:font-url('assets/FiraSans-Regular.eot?#iefix') format('embedded-opentype'),
+		font-url('assets/FiraSans-Regular.ttf') format('truetype'),
+		font-url('assets/FiraSans-Regular.woff') format('woff'),
+	font-weight: normal;
+	font-style: normal;
+}
+*/
+
+@font-face {
+    font-family: 'FiraSans Light';
+    font-style: normal;
+    font-weight: normal;
+    src: url('assets/FiraSans-Light.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'FiraSans Book';
+    font-style: normal;
+    font-weight: normal;
+    src: url('assets/FiraSans-Book.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'FiraSans Medium';
+    font-style: normal;
+    font-weight: normal;
+    src: url('assets/FiraSans-Medium.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'FiraSans Bold';
+    font-style: normal;
+    font-weight: normal;
+    src: url('assets/FiraSans-Bold.ttf') format('truetype');
+  }
+   
+  
+  //jquery-ui doesn't support themed sass pipeline
+  .ui-widget {
+      font-family: 'Fira Sans';
+  }
+  
+  .ui-widget button {
+      font-family: 'Fira Sans';
+  }
+  
