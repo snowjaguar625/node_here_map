@@ -12,3 +12,8 @@ var app_id = "inCUge3uprAQEtRaruyaZ8",
 				api_key_geocode = "cF1MCUW-j-ThP4xHja2a7Y_x_Bq6tg6Nz_2CFSR4IwI",
 				center = {lat:"50.13", lng:"8.34"},
 				zoom = "10";
+
+$(function(){
+	if($('title').text())
+		$('.header-text').text($('title').text());
+})
