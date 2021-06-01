@@ -10,5 +10,5 @@ var app_id = "inCUge3uprAQEtRaruyaZ8",
 				app_code_new = "zKCsydHYhOY17rbzvhq4KQ",
 				api_key_new = "3lKmytJ9qwM22dCKUNNbu2C6zab5zWXYPy5lGKGdYM4",
 				api_key_geocode = "cF1MCUW-j-ThP4xHja2a7Y_x_Bq6tg6Nz_2CFSR4IwI",
-				center = "52.504005584517834, 13.375259926563832",
-				zoom = "9";
+				center = {lat:"50.13", lng:"8.34"},
+				zoom = "10";
