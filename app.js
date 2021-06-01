@@ -7,11 +7,12 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var example31Route = require('./routes/example31');
+var examplesV31SimpleMap = require('./routes/examples/v31/simple_map');
 
 var app = express();
 
 // view engine setup
-app.set('views', [path.join(__dirname, 'views'), path.join(__dirname, 'views/examples')]);
+app.set('views', [path.join(__dirname, 'views'), path.join(__dirname, 'views/examples'), path.join(__dirname, 'views/examples/v31') ]);
 app.set('view engine', 'pug');
 
 app.use(logger('dev'));
@@ -24,6 +25,7 @@ app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/examples/v3.1', example31Route);
+app.use('/examples/v3.1/simple_map', examplesV31SimpleMap);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
