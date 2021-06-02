@@ -3,6 +3,11 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var connect = require('connect');
+var sassMiddleware = require('node-sass-middleware')
+
+var srcPath = __dirname + '/sass/base';
+var destPath = __dirname + '/public/stylesheets';
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -23,6 +28,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
+app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/'));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -31,6 +37,14 @@ app.use('/examples/v3.1/simple_routing', examplesV31SimpleRoute);
 app.use('/examples/v3.1/simple_map', examplesV31SimpleMap);
 app.use('/examples/v3.1/simple_geocoding', examplesV31SimpleGeoCoding);
 
+app.use(sassMiddleware({
+      src: srcPath,
+      dest: destPath,
+      debug: true,
+      outputStyle: 'expanded',
+  })
+);
+//app.use('/styles', express.static(path.join(__dirname, '/public/stylesheets/base')));
 
 
 // catch 404 and forward to error handler

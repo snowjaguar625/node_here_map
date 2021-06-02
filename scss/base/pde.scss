@@ -1,0 +1,73 @@
+.pde_table {
+	table-layout: fixed;
+	margin-bottom: 30px;
+	background: $white;
+
+	.center{
+		text-align: center;
+	}
+
+	th {
+		background: #48dad0;
+		padding: 5px;
+	}
+
+	td {
+		word-wrap: break-word;
+		padding: 5px;
+		font-size: 0.9em;
+		text-align: left;
+	}
+
+	td.merged {
+		text-align: center;
+		background: #eee;
+	}
+
+	td.right {
+		text-align: right;
+	}
+
+	td.empty {
+		text-align: center;
+		font-weight: bold;
+		color: #FF0000;
+		font-size: 1em;
+		font-family: "NokiaPureHeadlineLight","Segoe UI",Arial,Helvetica,sans-serif;
+	}
+
+	a {
+		color: #124191;
+		text-decoration: none;
+		font-weight: bold;
+	}
+
+	a.small {
+		font-size: 0.7em;
+		margin-left: 10px;
+	}
+
+	.small {
+		font-size: 0.7em;
+		margin-left: 10px;
+	}
+
+	a:hover {
+		color: #48dad0;
+		cursor: pointer;
+	}
+}
+
+a.pde {
+	color: $white;
+	text-decoration: none;
+	font-weight: bold;
+}
+a.pde:hover {
+	color: #48dad0;
+	cursor: pointer;
+}
+a.pde.small {
+	font-size: 0.7em;
+	margin-left: 10px;
+}

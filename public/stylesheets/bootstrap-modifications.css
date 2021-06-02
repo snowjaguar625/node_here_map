@@ -1,0 +1,9 @@
+body{
+    @font-family-sans-serif: "Fira Sans";
+@font-family-serif: "Fira Sans";
+@font-family-monospace: "Fira Sans";
+@font-family-base: @font-family-sans-serif;
+@font-size-base: 20px;
+
+}
+

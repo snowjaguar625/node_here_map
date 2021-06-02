@@ -1,0 +1,362 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+ 
+html {
+	height: 100%;
+	background-color: $here_dark_grey;
+}
+body {
+	font-family: $font_1;
+	height: 100%;
+	background-color: $here_dark_grey;
+}
+.header-text {
+	color: $grey2;
+	background-color: $here_dark_grey;
+	font-size: 4.5rem;
+	letter-spacing: 2px;
+	line-height: 80px;
+	text-align: center;
+}
+.footer{
+   white-space: nowrap;
+    width : 100%;
+    height : 50px;
+	color : $aqua;
+}
+.footer div{
+	padding : 20px; 
+}
+.footer a{
+	color : $aqua;
+}
+.footer a:hover{
+	color : white;
+}
+.footer a:visited{
+	color : $aqua;
+}
+.list-no-style {
+	list-style-type: none;
+	padding: 0;
+}
+.content-text {
+	color: $white;
+}
+#content-padder {
+	float: left;
+	// height: calc(100% - 80px);
+	min-width: 0px;
+}
+#content-real {
+	background-color : $here_dark_grey;
+	margin: 60px 30px 0 30px;
+	float: left;
+	width: calc(100% - 80px);
+}
+.subheader {
+	color: $white;
+	font-size: 1.1em;
+	margin-bottom: 15px;
+}
+.bb {
+	border-bottom: 1px solid $white;
+}
+table {
+	border-spacing: 0;
+	width: 91%;
+}
+hr {
+	margin: 10px 0;
+}
+.thumb {
+	display: block;
+	height: 240px;
+	width: 320px;
+}
+.thumb-longer {
+	display: block;
+	height: 286px;
+	width: 161px;
+}
+.nospace {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+.navbar {
+	border: 0;
+	background-color: $here_dark_grey;
+	margin-bottom: 0;
+	min-width : 700px;
+}
+.navbar-brand {
+	padding: 0;
+	margin-top: 1em;
+    margin-left: 0.3em;
+}
+.form-group {
+	clear: both;
+}
+.ctrl-panel .plus-minus-widget {
+	width: 120px;
+	input, button {
+		color: $white;
+		height: 30px;
+		overflow: hidden;
+		text-align: center;
+	}
+	input.here_green{
+		color : $green;
+	}
+}
+.btn-file {
+	position: relative;
+	overflow: hidden;
+}
+.btn-file input[type=file] {
+	position: absolute;
+	top: 0;
+	right: 0;
+	min-width: 100%;
+	min-height: 100%;
+	font-size: 100px;
+	text-align: right;
+	filter: alpha(opacity=0);
+	opacity: 0;
+	background: red;
+	cursor: inherit;
+	display: block;
+}
+input[readonly] {
+	background-color: white !important;
+	cursor: text !important;
+	margin-left: -1px;
+}
+[class^="hvr-"] {
+	background:#F5F5F5;
+	cursor: pointer;
+	margin: 0.4em;
+	padding:20px;
+	text-decoration: none;
+}
+[class^="hvr-"]:hover 
+{
+	background:#F1F1F1;
+	color: #000000;
+	cursor: pointer;
+	margin: 0.4em;
+	padding:20px;
+	text-decoration: none;
+}
+.hvr-overline-reveal {
+	display: block;
+	vertical-align: middle;
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-moz-osx-font-smoothing: grayscale;
+	position: relative;
+	overflow: hidden;
+}
+.hvr-overline-reveal:before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	left: 0;
+	right: 0;
+	top: 0;
+	background: $aqua;
+	height: 6px;
+	-webkit-transform: translateY(-4px);
+	transform: translateY(-4px);
+	-webkit-transition-property: transform;
+	transition-property: transform;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+}
+.hvr-overline-reveal:hover:before, .hvr-overline-reveal:focus:before, .hvr-overline-reveal:active:before {
+	-webkit-transform: translateY(0);
+	transform: translateY(0);
+}
+ul.here-menu-modern
+{
+	width: 100%;
+	display: table;
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+ul.here-menu-modern li {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+.wrapper {
+	max-width: 1440px;
+	min-width: 1200px;
+	margin: 30px auto;
+	position: relative;
+}
+#cookie-welcome {
+	display: none;
+	position: relative;
+	background-color: #f3f3f3;
+	color: #000;
+	padding: 1% 2% 1% 2%;
+	margin: margin 0 auto;
+	font-size: 14px;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:active {
+	text-decoration: none;
+}
+
+.container {
+    width: 100%;
+}
+.item {
+	float: left;
+	position: relative;
+	-webkit-transition: all .5s ease-in-out;
+	-moz-transition: all .5s ease-in-out;
+	-o-transition: all .5s ease-in-out;
+	transition: all .5s ease-in-out;
+}
+.hide {
+	width: 0;
+	height: 0;
+	opacity: 0;
+	margin: 0;
+	padding: 0;
+}
+[class^="hvr2-"] {
+	background:#F5F5F5;
+	cursor: pointer;
+	padding:20px;
+	text-decoration: none;
+	width: 25%;
+	min-width: 360px;
+	float: left;
+}
+[class^="hvr2-"]:hover 
+{
+	background:#F1F1F1;
+	color: $aqua;
+	cursor: pointer;
+	padding:20px;
+	text-decoration: none;
+	width: 25%;
+	float: left;	
+}
+.hvr2-overline-reveal {
+	border: 5px solid $here_dark_grey;
+	display: block;
+	vertical-align: middle;
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-moz-osx-font-smoothing: grayscale;
+	position: relative;
+	overflow: hidden;
+}
+.hvr2-overline-reveal:before {
+	content: "";
+	position: absolute;
+	z-index: -1;
+	left: 0;
+	right: 0;
+	top: 0;
+	background: $aqua;
+	height: 6px;
+	-webkit-transform: translateY(-4px);
+	transform: translateY(-4px);
+	-webkit-transition-property: transform;
+	transition-property: transform;
+	-webkit-transition-duration: 0.3s;
+	transition-duration: 0.3s;
+	-webkit-transition-timing-function: ease-out;
+	transition-timing-function: ease-out;
+}
+.hvr2-overline-reveal:hover:before, .hvr2-overline-reveal:focus:before, .hvr2-overline-reveal:active:before {
+	-webkit-transform: translateY(0);
+	transform: translateY(0);
+}
+a[href^="mailto:"]
+{ 
+	font-family: sans-serif;
+	color: $white;
+}
+a[href^="mailto:"]:hover {
+	font-family: sans-serif;
+	color: $aqua;
+	cursor: pointer;
+}
+.ui-tabs{
+	background :none;
+	background-color: $grey5;
+	border : 0px;
+}
+.ui-tabs-nav{
+	background :none;
+	background-color: $grey5;
+	border : 0px;
+	border-bottom: 1px solid $white;
+}
+.ui-tabs .ui-tabs-nav li{
+	background:none;
+	border : 0px;
+	padding :0px;
+}
+
+.ui-tabs .ui-tabs-nav .ui-tabs-active a{
+	color : $white;
+}
+.ui-tabs .ui-tabs-nav  a{
+	color : $aqua;
+}
+.ui-tabs .ui-tabs-nav  a:focus{
+	outline : none;
+}
+.ui-corner-all{
+	border-bottom-left-radius :0px;
+	border-bottom-right-radius :0px;
+}
+#box
+{
+	width: 650px;
+	height: 120px;
+	background: $grey1;
+	border: $aqua  solid 5px;
+	text-align: center;
+	position: absolute;
+	margin-left: -75px;
+	margin-top: -75px;
+	left: 38%;
+	top: 50%;
+	z-index: 20;
+	display: none;
+}
+
+.screen
+{
+	position: absolute;
+	left: 0;
+	top: 0;
+	background: #000000;
+}

@@ -12,8 +12,12 @@
     "morgan": "~1.9.1"
   },
   "devDependencies": {
+    "bootstrap": "^5.0.1",
+    "connect": "^3.7.0",
     "http-errors": "^1.8.0",
     "jquery": "^3.6.0",
+    "node-sass": "^6.0.0",
+    "node-sass-middleware": "^0.11.0",
     "pug": "^3.0.2"
   }
 }
