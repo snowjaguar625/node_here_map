@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var example31Route = require('./routes/example31');
 var examplesV31SimpleMap = require('./routes/examples/v31/simple_map');
 var examplesV31SimpleRoute = require('./routes/examples/v31/simple_routing');
+var examplesV31SimpleGeoCoding = require('./routes/examples/v31/simple_geocoding');
 
 var app = express();
 
@@ -28,6 +29,8 @@ app.use('/users', usersRouter);
 app.use('/examples/v3.1', example31Route);
 app.use('/examples/v3.1/simple_routing', examplesV31SimpleRoute);
 app.use('/examples/v3.1/simple_map', examplesV31SimpleMap);
+app.use('/examples/v3.1/simple_geocoding', examplesV31SimpleGeoCoding);
+
 
 
 // catch 404 and forward to error handler
