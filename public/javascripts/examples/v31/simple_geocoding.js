@@ -6,6 +6,7 @@ $(function(){
 	*/
 
 	// check if the site was loaded via secure connection
+    
 	var secure = (location.protocol === 'https:') ? true : false;
 	
 	// Create a platform object to communicate with the HERE REST APIs
@@ -121,6 +122,7 @@ $(function(){
 			anchor: new H.math.Point(24, 57)
 		});
 	};
+    $('#reverseGeoCode').on('click', reverseGeocode() );
 
 
 })
