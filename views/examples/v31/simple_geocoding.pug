@@ -3,20 +3,21 @@ extends ../../layout
 block content
     title= title
     script(src='/javascripts/examples/v31/simple_geocoding.js')
-    script(src='/javascripts/examples/v31/defaults.js')
-    .ctrl-panel
-        span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
-            p
-                | In this example we demonstrate how to
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+                p
+                    | In this example we demonstrate how to
+                    br
+                    |  perform a search and how to handle the results
+                p
+                    | Search allows you to perform geocode
+                    br
+                    | (address to position) and reverse geocode
+                    br
+                    | (position to address) searches.
+                input#geoCode.btn.btn-default.btn-sm(type='button' value='geocode' onclick='geocode();')
                 br
-                |  perform a search and how to handle the results
-            p
-                | Search allows you to perform geocode
-                br
-                | (address to position) and reverse geocode
-                br
-                | (position to address) searches.
-            input#geoCode.btn.btn-default.btn-sm(type='button' value='geocode' onclick='geocode();')
-            br
-            input#reverseGeoCode.btn.btn-default.btn-sm(type='button' value='reverse geocode')
-    #mapContainer
+                input#reverseGeoCode.btn.btn-default.btn-sm(type='button' value='reverse geocode')
+        #mapContainer

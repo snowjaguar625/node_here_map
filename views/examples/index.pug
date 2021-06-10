@@ -1,20 +1,23 @@
 extends ../layout
 block content
+    <script src="https://qa.rd.account.here.com/js/sdk/sso.min.js"></script>
     script(src='/javascripts/examples/index.js')
     - var objExamples = JSON.stringify(examples31)
     - var examples = JSON.parse(objExamples).examples
     title= title
-    .content-block(style='margin-top: 49px;')
-    .wrapper
-    .subheader.bb(style='display: block;')
-      p
-        | These examples are provided by HERE Technical Customer Support to demonstrate features of the JS API and the Platform Web services.
-    .form-group
-      .search-container.form-inline
-        select#operator-select.form-control
-          option(value='and' selected='selected') AND
-          option(value='or') OR
-        input#search.form-control(type='text' placeholder='Add text to filter results (geocoder, marker etc.)')
+    #content-padder
+    #content-real
+      .content-block(style='margin-top: 49px;')
+        .wrapper
+          .subheader.bb(style='display: block;')
+            p
+              | These examples are provided by HERE Technical Customer Support to demonstrate features of the JS API and the Platform Web services.
+          .form-group
+            .search-container.form-inline
+              select#operator-select.form-control
+                option(value='and' selected='selected') AND
+                option(value='or') OR
+              input#search.form-control(type='text' style='margin-left: 4px' placeholder='Add text to filter results (geocoder, marker etc.)')
         .container
             each example,index in examples 
                 div(id = 'item' +index class = 'hvr2-overline-reveal hvr2-overline-reveal-min-height' data-type=example['description'] + example['tags'])

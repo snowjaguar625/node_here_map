@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<gpx version="1.1" creator="ADTF rb_auto_classification_gps filter">
+<trk>
+<name>\\abtvdfs2.de.bosch.com\ismdfs\ida\abt\video\AZM_VideoGen3\02_restricted\Training_RS20\2018\06\29\LB-UH_103_20180629_114441.dat</name>
+<trkseg>
+<trkpt lat="46.539287" lon="13.987310"><time>2018-06-29T09:45:19Z</time></trkpt>
+</trkseg>
+<trkseg>
+<trkpt lat="46.539337" lon="13.987443"><time>2018-06-29T09:45:20Z</time></trkpt>
+</trkseg>
+</trk>
+</gpx>

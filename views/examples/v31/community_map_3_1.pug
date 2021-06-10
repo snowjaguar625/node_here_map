@@ -1,0 +1,19 @@
+extends ../../layout
+
+block content
+    title= title
+    link(rel='stylesheet' href='/stylesheets/extension3_1.css' media='screen' data-turbolinks-track='true')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            form#form-address(action='')
+                input#input-address.form-control(type='text' style='width: 97.5%;' placeholder="e.g. 16 Place de l'Iris, Courbevoie..." onkeydown='if (event.keyCode == 13) geocode(this.value);')
+                input.here-btn.here-btn-1(type='submit' value='GO!')
+            table
+                tr
+                    td HLP Service releases which are used in this demo:
+                    td
+                        #releaseInfoTxt(style='left:0; top:0; z-index: 0;')
+        #mapContainer
+    script(src='/javascripts/examples/v31/community_map_3_1.js')

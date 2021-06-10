@@ -1,0 +1,59 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/v31/jszip.min.js')
+    script(src='/javascripts/examples/v31/polyline.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            h5 Please provide a trace to match with RME by either:
+            ul
+                li Drag &amp; drop a trace file (CSV, GPX, KML, NMEA or GeoJSON) into below box
+                li Draw a trace by directly clicking onto the map 
+                li
+                    | Examples:
+                    input#example1.btn.btn-default.btn-sm(type='button' value='Sheffield (CSV)' onclick="loadFromFile('sample_sheffield.csv');")
+                    input#example2.btn.btn-default.btn-sm(type='button' value='Rome (GPX)' onclick="loadFromFile('sample_rome.gpx');")
+                    input#example3.btn.btn-default.btn-sm(type='button' value='Frankfurt (KML)' onclick="loadFromFile('sample_frankfurt.kml');")
+                    input#example4.btn.btn-default.btn-sm(type='button' value='MTK (GeoJson)' onclick="loadFromFile('sample_mtk.geojson');")
+            h5 Input trace
+            textarea#tracetextarea.form-control(rows='10')
+            input.btn.btn-default.btn-sm(type='button' value='Reset' onclick='reset();')
+            input#submittracebutton.btn.btn-default.btn-sm(type='button' value='Submit')
+            | &#x9;&#x9;to 
+            input#rmeUrl(type='text' value='https://fleet.api.here.com/2/calculateroute.json?routeMatch=1&mode=fastest;car;traffic:disabled' autocomplete='off' size='40')
+            h5 Customize view
+            ul
+                li(style='color: black;')
+                    input#inputCheckbox(type='checkbox' checked='checked' autocomplete='off' onclick='toggleShowInputTracePoints(this)')
+                    |  Input trace points
+                li(style='color: green;')
+                    input#matchedCheckbox(type='checkbox' checked='checked' autocomplete='off' onclick='toggleShowRmeMatchedTraceAndPoints(this)')
+                    |  Display Matched Points and route
+                li(style='color: black;')
+                    input#showResponse(type='checkbox' autocomplete='off' onclick='toggleShowResponse(this)')
+                    |  Show/Display Response
+                li(style='color: red;')
+                    input#geocodedWithHeadingCheckbox(type='checkbox' autocomplete='off' onclick='toggleReverseGeocodeWithHeading(this)')
+                    |  Display Reverse geocoding (trackPosition with heading)
+                li(style='color: blue;')
+                    input#geocodedWithoutHeadingCheckbox(type='checkbox' autocomplete='off' onclick='toggleReverseGeocodeWithoutHeading(this)')
+                    |  Display Reverse geocoding (trackPosition without heading)
+                li(style='color: black;')
+                    input#filterByConfidenceCheckbox(type='checkbox' autocomplete='off' onclick='filterLinksByConfidence()')
+                    |  Filter links by confidence
+            p#confidenceControl(style='display: none')
+                label(for='confidenceFilter') Filter links by confidence
+                br
+                | &#x9;&#x9;(Green is higher confidence, red is lower confidence)
+                br
+                input#confidenceFilter(type='range' min='0.0' max='0.90' step='0.05' value='0.0' onchange='filterLinksByConfidence();')
+                br
+            h5 Warnings &amp; Comments
+            textarea#warningstextarea.form-control(autocomplete='off' rows='5') Please submit...
+            h5#responseHeadline(style='display: none') RME Response
+            textarea#responsetextarea.form-control(rows='3' style='display: none' onkeyup='displayRmeResponse();')
+        #mapContainer
+    script(src='/javascripts/examples/v31/rme_basic.js')

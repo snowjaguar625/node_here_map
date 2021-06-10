@@ -1,0 +1,245 @@
+extends ../../layout
+
+block content
+    title= title
+    link(rel='stylesheet' href='/stylesheets/extension3_1.css' media='screen' data-turbolinks-track='true')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p#mapReleaseTxt
+                | The cost optimized route is retrieved from Toll Cost Extension Service and displayed.
+            p The start and destination can be geocoded or selected via long click in map.
+            hr.separator
+            .form-horizontal
+                .form-group
+                    label.control-label.col-sm-3(for='start') Start:
+                    .col-sm-9
+                        input#start.form-control.input-wide(type='text' value='am Kronberger Hang 8, Schwalbach' onkeydown='if (event.keyCode == 13)startRouteCalculation();')
+                .form-group
+                    label.control-label.col-sm-3(for='dest') Destination:
+                    .col-sm-9
+                        input#dest.form-control.input-wide(type='text' size='40' value='Frankfurt am Main' onkeydown='if (event.keyCode == 13)startRouteCalculation();')
+            .form-group
+                .checkbox
+                    label
+                        input#chkEnableDTFiltering(type='checkbox' name='chkEnableDTFiltering' onclick='handleDateTimeFilteringClicked()')
+                        | Enable datetime filtering
+            #trStartRouteDate.form-horizontal(style='display:none')
+                .form-group
+                    label.control-label.col-sm-4(for='startRouteDate') Route start date:
+                    .col-sm-8
+                        input#startRouteDate.form-control.input-wide(type='text' name='startRouteDate')
+                        | (yyyy-MM-dd)
+            #trStartRouteTime.form-horizontal(style='display:none')
+                .form-group
+                    label.control-label.col-sm-4(for='startRouteTime') Route start time:
+                    .col-sm-8
+                        input#startRouteTime.form-control.input-wide(type='text' name='startRouteTime')
+                        | (HH:mm:ss)
+            #trStartRouteActions(style='display:none')
+                .form-group
+                    input.btn.btn-default.btn-sm(type='button' name='btStartRouteApplyNow' value='Apply current datetime' onclick='applyNowToStartRoute()')
+            hr.separator
+            h5 Toll Cost Parameters
+            table(border='0')
+                tr
+                    td Vehicle Cost per Km
+                    td
+                        input#hourVehicleCost.form-control(type='text' style='width:85px;' value='0.50' onkeydown='if (event.keyCode == 13)startRouteCalculation();')
+                    td Driver Cost per Hour
+                    td
+                        input#hourDriverCost.form-control(type='text' style='width:85px;' value='10' onkeydown='if (event.keyCode == 13)startRouteCalculation();')
+                tr
+                    td Currency
+                    td
+                        input#currency.form-control(type='text' style='width:85px;' value='EUR' onkeydown='if (event.keyCode == 13)startRouteCalculation();')
+            hr.separator
+            h5 Router Parameters
+            table.form-group(border='0')
+                tr
+                    td Route Alternatives:
+                    td(colspan='3')
+                        select#routeAlternatives.form-control(style='width:312px;' onkeydown='if (event.keyCode == 13)startRouteCalculation();')
+                            option(value='0') 0
+                            option(value='1' selected='true') 1
+                            option(value='2') 2
+                tr
+                    td Vehicle Specification:
+                    td(colspan='3')
+                        select#predefinedVehSpec.form-control(style='width:312px;' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='handleVehicleSpecChanged()')
+                            option(value='0' selected='true') Car
+                            option(value='1') Transporter
+                            option(value='2') Truck (7.5t)
+                            option(value='3') Truck (11t)
+                            option(value='4') Truck with one trailer (38t)
+                            option(value='5') Trailer Truck (40t)
+                            option(value='6') Car with Trailer
+                            //
+                                option value="7">Bus</option>
+                                <option value="8">Motor Home</option
+                            option(value='99' disabled='' style='display:none;') User defined
+                tr
+                    td Custom Parameters:
+                    td(colspan='2')
+                        input#routerParamsValue.form-control(type='text' style='width:212px;' value='' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange="document.getElementById('routerParams').selectedIndex = 2;document.getElementById('routerParams').value=this.value;")
+                    td
+                        select#routerParams.form-control(style='width:89px;' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange="document.getElementById('routerParamsValue').value=this.value;")
+                            option(value='' selected='') Empty
+                            option(value='verbosemode=0&metricsystem=metric&maneuverAttributes=none&mode=shortest;car&jsonattributes=41&combinechange=true&linkAttributes=none,sh&legAttributes=none,li&language=en-us&alternatives=3')
+                                | Managed
+                            option(value='') Custom
+                            // option value="param1=value1&param2=value2" selected>Example</option
+                tr
+                    td Vehicle
+                    td
+                        select#vehicles.form-control(style='width:89px;' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
+                            // option value="1">Motorcycle</option
+                            option(value='2' selected='true') Car
+                            option(value='3') Truck
+                            //
+                                option value="4">Motor Home</option>
+                                <option value="5">Minibus</option>
+                                <option value="6">Bus</option>
+                                <option value="7">Motorcycle Sidecar</option>
+                                <option value="8">Tricycle</option>
+                                <option value="9">Delivery Truck</option>
+                                <option value="10">Snowmobile</option>
+                                <option value="11">Pick-Up</option>
+                                <option value="12">Tractor</option
+                                <option value="13">Taxi</option>
+                                <option value="14">HCM/EME</option>
+                    td Total Number Of Tires
+                    td
+                        input#nrOfTotalTires.form-control(type='text' style='width:85px;' value='4' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
+                tr
+                    td Trailer Type
+                    td
+                        select#trailerType.form-control(style='width:89px;' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
+                            option(value='0' selected='true') None
+                            option(value='1') Caravan
+                            option(value='2') Trailer
+                td Trailer Number
+                td
+                    select#trailerNr.form-control(style='width:89px;' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
+                        option(value='0' selected='true') 0
+                        option(value='1') 1
+                        option(value='2') 2
+                        option(value='3') 3 or more
+                tr
+                    td Vehicle Number Of Axles
+                    td
+                        input#nrOfAxlesVehicle.form-control(type='text' style='width:85px;' value='2' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
+                    td Trailer Number Of Axles
+                    td
+                        input#nrOfAxlesTrailer.form-control(type='text' style='width:85px;' value='0' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
+                tr
+                    td Hybrid
+                    td
+                        select#hybrid.form-control(style='width:89px;' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
+                            option(value='0' selected='true') No Hybrid
+                            option(value='1') Hybrid
+                td Emission Type
+                td
+                    select#emissionType.form-control(style='width:89px;' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
+                        option(value='1') EURO I
+                        option(value='2') EURO II
+                        option(value='3') EURO III
+                        option(value='4') EURO IV
+                        option(value='5' selected='true') EURO V
+                        option(value='6') EURO VI
+                        option(value='7') EURO EEV
+                        option(value='8') Electric Vehicle
+                tr
+                    td Vehicle Height
+                    td
+                        input#vehHeight.form-control(type='text' style='width:85px;' value='167' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
+                    td Trailer Height
+                    td
+                        input#trailerHeight.form-control(type='text' style='width:85px;' value='0' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
+                tr
+                    td Vehicle Weight
+                    td
+                        input#vehWeight.form-control(type='text' style='width:85px;' value='1739' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
+                    td Total Weight
+                    td
+                        input#totalWeight.form-control(type='text' style='width:85px;' value='1739' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
+                tr
+                    td Total Width
+                    td
+                        input#totalWidth.form-control(type='text' style='width:85px;' value='180' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
+                    td Total Length
+                    td
+                        input#totalLength.form-control(type='text' style='width:85px;' value='441' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
+                tr
+                    td Disabled Equipped
+                    td
+                        select#disabledEquipped.form-control(style='width:89px;' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
+                            option(value='0' selected='true') No
+                            option(value='1') Yes
+                    td Min Pollution
+                    td
+                        select#minPollution.form-control(style='width:89px;' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
+                            option(value='0' selected='true') No
+                            option(value='1') Yes
+                tr
+                    td HOV
+                    td
+                        select#hov.form-control(style='width:89px;' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
+                            option(value='0' selected='true') No
+                            option(value='1') Yes
+                    td Number Passengers
+                    td
+                        input#nrPassengers.form-control(type='text' style='width:85px;' value='2' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
+                tr
+                    td Commercial
+                    td
+                        select#commercial.form-control(style='width:89px;' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
+                            option(value='0' selected='true') No
+                            option(value='1') Yes
+                    td Hazardous Type
+                    td
+                        select#hazardousType.form-control(style='width:89px;' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
+                            option(value='0' selected='true') None
+                            option(value='1') Explosives
+                            option(value='2') Any Hazardous Material
+                tr
+                    td Height above 1st axle
+                    td
+                        input#heightAbove1stAxle.form-control(type='text' style='width:85px;' value='100' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
+                    td Fuel Type
+                    td
+                        select#fuelType.form-control(style='width:89px;' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
+                            option(value='petrol' selected='true') Petrol
+                            option(value='diesel') Diesel
+                            option(value='lng') LNG
+                            option(value='lpg') LPG
+                            option(value='cng') CNG
+                            option(value='ethanol') Ethanol
+                            option(value='propane') Propane
+                            option(value='hydrogen') Hydrogen
+                            option(value='electric') Electric
+            p All length and weight settings must be in centimeter and kilograms.
+            .form-group
+                .checkbox
+                    label
+                        input#chkEnableCalculateOptimizedRoute(type='checkbox' checked='true' name='chkEnableCalculateOptimizedRoute' onclick='handleEnableCalculateOptimizedRouteClicked()')
+                        | Enable/Disable optimized route calculation
+            table.form-group(border='0')
+                tr
+                    td
+                        input#routeButton.btn.btn-default.btn-sm(type='submit' value='Calculate Cost Optimized Route')
+                    td
+                        input#cloneButton.btn.btn-default.btn-sm(type='submit' value='Clone Settings in new Window' onclick='cloneSettingsInNewWindow();')
+            table(border='0')
+                tr
+                    td Server URL
+                    td
+                        input#serverURL.form-control(type='text' style='width:420px;' value='https://fleet.ls.hereapi.com/2/calculateroute.json?' onkeydown='if (event.keyCode == 13)startRouteCalculation();')
+            br
+            #feedbackTxt.form-group
+            div HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+        #mapContainer
+    script(src='/javascripts/examples/v31/release-requests.js')
+    script(src='/javascripts/examples/v31/cost_optimized_route.js')

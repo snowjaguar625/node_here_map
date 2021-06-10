@@ -1,0 +1,17 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            | &#x9;
+            #log(style='height: 150px; overflow-y: auto; overflow-x: hidden; border: 1px solid grey; border-radius: 5px; padding: 10px; color: black;')
+            | &#x9;
+            div HLP Service releases which are used in this demo:
+            | &#x9;
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;')
+        #mapContainer
+    script(src='/javascripts/examples/v31/release-requests.js')
+    script(src='/javascripts/examples/v31/geofencing.js')

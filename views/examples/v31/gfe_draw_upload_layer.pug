@@ -1,0 +1,50 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/v31/geofence-extension.js')
+    script(src='/javascripts/examples/v31/jszip.min.js')
+    script(src='/javascripts/examples/v31/center-utils.js')
+    script(src='/javascripts/examples/v31/strip2wkt.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            h3 Draw and Upload Geo Fencing Layer
+            p
+                | Start drawing a polygon with 
+                strong right click
+                |  on the map.
+                br
+                |     Any additional right click will add a point to the current polygon.
+                br
+                |     When done, 
+                strong double right click
+                |  will finalize current polygon. 
+                br
+                |     Once the polygon is finalized, it can be dragged from the body, while vertices can be moved dragging respective
+                |     markers.
+                br
+                |     Multiple polygons can be added to the map subsequently.
+                br
+                |     Double 
+                strong left click
+                |  to add a POI.
+            .form-horizontal
+                .form-group
+                label.control-label.col-sm-4(for='geocodeInput') Geocode to Location
+                .col-sm-8
+                    input#geocodeInput.form-control.input-wide(type='text' size='25' value='Rome, Italy' onkeyup='event.keyCode === 13 && geocode(this.value);')
+                    div (press Enter to Geocode to location)
+                h4 Upload Layer to Geo Fencing Extension
+                .form-group
+                    label.control-label.col-sm-4(for='layerId') Layer Id
+                    .col-sm-8
+                        input#layerId.form-control.input-wide(maxlength='10' value='' type='number' autocomplete='off')
+                        div (this is unique per app_id/app_code)
+                        input#layerIdSubmit.btn.btn-default.btn-info.input-wide(type='submit' value='Upload Layer' onclick='saveCurrentLayer();')
+                        div (existing layer will be overriden)
+                        input#layerIdSubmit.btn.btn-default.btn-info.input-wide(type='submit' value='Use Layer in Check Asset Position Demo' onclick='openCheckPositionDemo();')
+                        div (will open demo in a new window)
+        #mapContainer
+    script(src='/javascripts/examples/v31/gfe_draw_upload_layer.js')

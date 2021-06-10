@@ -1,0 +1,17 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/v31/distance-measurement31.js')
+    script(src='/javascripts/examples/v31/overview31.js')
+    script(src='/javascripts/examples/v31/zoom-control31.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | With Behavior Control &amp; UI &amp; Custom Overview / Distance Measurement / Zoom Control Component
+            div HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+        #mapContainer
+    script(src='/javascripts/examples/v31/custom_components.js')

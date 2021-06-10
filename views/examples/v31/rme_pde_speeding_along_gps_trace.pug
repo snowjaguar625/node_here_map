@@ -1,0 +1,36 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/v31/gpx-parser.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p#mapReleaseTxt Please choose a GPS Trace file to submit (GPX, NMEA or CSV)
+            p
+                input(type='File' onchange='readInputTraceFile(this.files[0]);')
+            p
+                | Get a data sample:
+                a(href='/sample_data/sample_rome.gpx' style='color: #00ACDC' download='sample_rome.gpx') Rome
+                a(href='/sample_data/sample_sheffield.csv' style='color: #00ACDC' download='sample_sheffield.csv') Sheffield
+                a(href='/sample_data/sample_sheffieldspeed.gpx' style='color: #00ACDC' download='sample_sheffieldspeed.gpx') Sheffield GPX with Speed
+            #renderResult(style='margin: 3px;')
+                input#renderAll(type='checkbox' name='renderAll' unchecked='' onchange='handleRender();')
+                label(for='renderAll') Render Matched Results
+            #colors(style='margin: 5px 0; display:none')
+                span.colorbox(style='margin-left: 5px; background: #000000')
+                | Unmatched
+                span.colorbox(style='margin-left: 5px; background: #0000FF')
+                | Matched
+                span.colorbox(style='margin-left: 5px; background: #00FF00')
+                | Speed Ok
+                span.colorbox(style='margin-left: 5px; background: #FF0000')
+                | Speeding [km/h]
+            h5 Warnings
+            textarea#warningstextarea.form-control(autocomplete='off' rows='5') Please submit...
+            | &#x9;HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index:0;')
+        #mapContainer
+    script(src='/javascripts/examples/v31/release-requests.js')
+    script(src='/javascripts/examples/v31/rme_pde_speeding_along_gps_trace.js')

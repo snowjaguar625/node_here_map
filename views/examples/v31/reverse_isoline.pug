@@ -1,0 +1,85 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            | &#x9;
+            .form-group
+                input#start.form-control(type='text', value='Am Kronberger Hang 8, Schwalbach', onkeydown="if (event.keyCode == 13) geocode(document.getElementById('start').value);", autofocus='')
+            | &#x9;
+            .form-group
+                select#rangetype(onchange="document.getElementById('rangeunit').innerHTML = this.value == 'time' ? 'min' : 'KM'; calculateReverseFlow(document.getElementById('rangevalue').value); return false;")
+                    option(value='time', selected='') Time
+                    | &#x9;&#x9;&#x9;
+                    option(value='distance') Distance
+                    | &#x9;&#x9;
+                select#rangevalue(size='1', onchange="calculateReverseFlow(document.getElementById('rangevalue').value);")
+                    option 1
+                    | &#x9;&#x9;&#x9;
+                    option 2
+                    | &#x9;&#x9;&#x9;
+                    option 3
+                    | &#x9;&#x9;&#x9;
+                    option 4
+                    | &#x9;&#x9;&#x9;
+                    option 5
+                    | &#x9;&#x9;&#x9;
+                    option 6
+                    | &#x9;&#x9;&#x9;
+                    option 7
+                    | &#x9;&#x9;&#x9;
+                    option 8
+                    | &#x9;&#x9;&#x9;
+                    option 9
+                    | &#x9;&#x9;&#x9;
+                    option(selected='') 10
+                    | &#x9;&#x9;&#x9;
+                    option 11
+                    | &#x9;&#x9;&#x9;
+                    option 12
+                    | &#x9;&#x9;&#x9;
+                    option 13
+                    | &#x9;&#x9;&#x9;
+                    option 14
+                    | &#x9;&#x9;&#x9;
+                    option 15
+                    | &#x9;&#x9;&#x9;
+                    option 15
+                    | &#x9;&#x9;&#x9;
+                    option 16
+                    | &#x9;&#x9;&#x9;
+                    option 17
+                    | &#x9;&#x9;&#x9;
+                    option 18
+                    | &#x9;&#x9;&#x9;
+                    option 19
+                    | &#x9;&#x9;&#x9;
+                    option 20
+                    | &#x9;&#x9;&#x9;
+                    option 21
+                    | &#x9;&#x9;&#x9;
+                    option 22
+                    | &#x9;&#x9;&#x9;
+                    option 23
+                    | &#x9;&#x9;&#x9;
+                    option 24
+                    | &#x9;&#x9;&#x9;
+                    option 25
+                    | &#x9;&#x9;
+                span#rangeunit min
+                | &#x9;
+            div
+                label
+                input#traffic(type='checkbox', onchange="calculateReverseFlow(document.getElementById('rangevalue').value); return false;", checked='')
+                |  Traffic Enabled?
+            | &#x9;
+            | &#x9;&#x9;HLP Service releases which are used in this demo:
+            | &#x9;&#x9;
+            | &#x9;&#x9;&#x9;
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;', value='Used Service Releases:/n')
+        #mapContainer
+    script(src='/javascripts/examples/v31/release-requests.js')
+    script(src='/javascripts/examples/v31/reverse_isoline.js')

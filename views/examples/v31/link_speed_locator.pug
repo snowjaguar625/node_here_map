@@ -1,0 +1,36 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | Use Coordinates field to enter Lat,Lon. Then press Load Button
+                br
+                | &#x9;0 - Original Input Coordinate
+                br
+                | &#x9;1 - Matched Coordinate
+            h5 Coordinates
+            .form-group
+                textarea#coord-input.form-control(rows='1' placeholder='')
+            h5 Speed
+            .form-group
+                textarea#speed-output.form-control(rows='2' placeholder='')
+            .form-group
+                .checkbox(style='display:none')
+                    label
+                        input#clear-checkbox(type='checkbox' checked='')
+                        | Clear objects before load?
+            .form-group
+                button#btn-load.btn.btn-default(type='button') Load
+            #error-message-container.alert.alert-danger(style='display: none')
+                span.glyphicon.glyphicon-exclamation-sign(aria-hidden='true')
+                span.sr-only Error:
+                span#error-message Links not found or incorrect input provided.
+        #mapContainer
+        #spinner
+        #pageblock
+    script(src='/javascripts/examples/v31/pde-manager-tiles.js')
+    script(src='/javascripts/examples/v31/link_speed_locator.js')

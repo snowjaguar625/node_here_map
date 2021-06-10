@@ -1,0 +1,21 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | Standard Map Display with the Meta Layer on Top, 
+                br
+                |  if mouse pointer changed click on the map
+            tr
+                td HLP Service releases which are used in this demo:
+                td
+                    #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+            hr.separator
+            #locationsContainer
+        #mapContainer
+    script(src='/javascripts/examples/v31/release-requests.js')
+    script(src='/javascripts/examples/v31/meta_layer.js')

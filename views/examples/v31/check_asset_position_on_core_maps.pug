@@ -1,0 +1,68 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/v31/geofence-extension.js')
+    script(src='/javascripts/examples/v31/jszip.min.js')
+    script(src='/javascripts/examples/v31/center-utils.js')
+    script(src='/javascripts/examples/v31/wellknown.js')
+    #content-padder 
+    #content-real
+        style.
+            li {
+            list-style-type: square;
+            font-size: large;
+            }
+            .caption {
+            background: rgba(0, 85, 170, 0.6);
+            border: 0.1em solid white;
+            border-radius: 0.2em;
+            color: white;
+            font-family: sans-serif;
+            font-size: medium;
+            font-weight: bold;
+            padding: 0.2em;
+            }
+            .distance {
+            background: rgba(0, 85, 170, 0.6);
+            border: 0.05em solid white;
+            border-radius: 0.1em;
+            color: white;
+            font-style: italic;
+            font-family: sans-serif;
+            font-size: smaller;
+            padding: 0.1em;
+            }
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p Click into the map to check for fences...
+            .form-horizontal
+                .form-group
+                    label.control-label.col-sm-4(for='layerId') Map Layer
+                    .col-sm-8
+                        select#layerId.form-control.input-wide(onchange='setAvailableKeyAttributes(this.options[this.selectedIndex].$attributes);')
+                        div
+                        | (only geometry layers,
+                        a(href='http://tcs.ext.here.com/pde/layers?region=&release=&url_root=pde.api.here.com')
+                            | documentation
+                            | available
+                        | )
+                .form-group
+                    label.control-label.col-sm-4(for='maxDistance') Search Radius:
+                    .col-sm-8
+                        input#maxDistance.form-control.input-wide(type='number' value='2500')
+                        div (meters)
+                .form-group
+                    label.control-label.col-sm-4(for='keyAttributeName') Key Attribute:
+                    .col-sm-8
+                        select#keyAttributeName.form-control.input-wide
+                        div (depends on layer, will show on map)
+            .form-group
+                label(for='logArea') Response Log:
+                textarea#logArea.form-control(cols='60' autocomplete='off' rows='10')
+            ul
+                li(style='color: rgba(  0, 150, 0, 1)') Asset in Fence (border outside search radius)
+                li(style='color: rgba(  0, 255, 0, 1)') Asset in Fence (border within search radius)
+                li(style='color: rgba(230, 200, 0, 1)') Nearby Fence (distance &lt; search radius)
+        #mapContainer
+    script(src='/javascripts/examples/v31/check_asset_position_on_core_maps.js')

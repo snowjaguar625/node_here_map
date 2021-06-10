@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<gpx version="1.1" creator="ADTF rb_auto_classification_gps filter">
+<trk>
+<name>\\abtvdfs2.de.bosch.com\ismdfs\ida\abt\video\AZM_VideoGen3\02_restricted\Training_RS20\2018\02\21\VW-ALLSPORT_DTN5362_20180221_130119.dat</name>
+<trkseg>
+<trkpt lat="42.392193" lon="-83.438150"><time>2018-02-21T18:01:23Z</time></trkpt>
+</trkseg>
+<trkseg>
+<trkpt lat="42.392207" lon="-83.438160"><time>2018-02-21T18:01:24Z</time></trkpt>
+</trkseg>
+<trkseg>
+<trkpt lat="42.392230" lon="-83.438170"><time>2018-02-21T18:01:25Z</time></trkpt>
+</trkseg>
+<trkseg>
+<trkpt lat="42.392268" lon="-83.438133"><time>2018-02-21T18:01:28Z</time></trkpt>
+</trkseg>
+<trkseg>
+<trkpt lat="42.392270" lon="-83.438122"><time>2018-02-21T18:01:29Z</time></trkpt>
+</trkseg>
+<trkseg>
+<trkpt lat="42.392323" lon="-83.438100"><time>2018-02-21T18:01:30Z</time></trkpt>
+</trkseg>
+<trkseg>
+<trkpt lat="42.391380" lon="-83.436940"><time>2018-02-21T18:01:37Z</time></trkpt>
+</trkseg>
+</trk>
+</gpx>

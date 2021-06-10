@@ -1,5 +1,5 @@
 /*
-	author domschuette
+	author Mykyta
 	(C) HERE 2019
 	*/
 $(function(){

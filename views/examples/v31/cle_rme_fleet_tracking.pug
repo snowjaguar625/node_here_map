@@ -1,0 +1,51 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/v31/jszip.min.js')
+    script(src='/javascripts/examples/v31/parallel.js')
+    script(src='https://js.api.here.com/v3/3.1/mapsjs-clustering.js"  type="text/javascript" charset="utf-8')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p#mapReleaseTxt
+                | This demo retrieves 1-day vehicle traces filtered by timestamp from the HERE CLE, computes related vehicle routes via the HERE RME and display markers and polylines via the HERE JavaScript API.
+            h3 Update view
+            form#form-location.form-inline(name='form-location')
+                .form-group
+                    input#input-location.form-control(placeholder='Zoom to Address' type='text' value='Pittsburgh, PA')
+                .checkbox
+                    label
+                        input#input-mylocation(onchange='onCheckboxChange(this)' type='checkbox')
+                        |  Use my location
+                button.btn.btn-default(type='submit') Zoom to ...
+            hr
+            h3 Set date filter
+            .form-horizontal
+                .form-group
+                    label.col-sm-2.control-label(for='input-date-start') Start
+                    #input-date-start.col-sm-7.input-group.date
+                        input.form-control(type='text')
+                        span.input-group-addon
+                            span.glyphicon.glyphicon-time
+                .form-group
+                    label.col-sm-2.control-label(for='input-date-end') End
+                    #input-date-end.col-sm-7.input-group.date
+                        input.form-control(type='text')
+                        span.input-group-addon
+                            span.glyphicon.glyphicon-time
+            hr
+            h3 Fetch options
+            label
+                input#input-checkbox-auto-reload(type='checkbox')
+                |  Refresh data on map change?
+            hr
+            div
+                span HERE API releases used in this demo:
+                #releaseInfoTxt(style='left:0; top:0; z-index:0;')
+        #spinner
+        #pageblock
+        #mapContainer
+    script(src='/javascripts/examples/v31/scripts.js')
+    script(src='/javascripts/examples/v31/cle_rme_fleet_tracking.js')

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gte="http://www.gpstrackeditor.com/xmlschemas/General/1" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" targetNamespace="http://www.topografix.com/GPX/1/1" elementFormDefault="qualified" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+<metadata>
+	<name>sample_oberammergau.gpx</name>
+	<desc>Sample data collected in Oberammergau to Farchant</desc>
+</metadata>
+<trk>
+	<name>Oberammergau</name>
+	<trkseg>
+		<trkpt lat="47.59839" lon="11.0645"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.59827" lon="11.06449"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.59811" lon="11.0645"> <extensions><speed>30</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.59794" lon="11.06474"> <extensions><speed>30</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.59769" lon="11.06514"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.5973" lon="11.06531"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.59672" lon="11.06541"> <extensions><speed>30</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.59608" lon="11.06535"> <extensions><speed>100</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.59513" lon="11.06677"> <extensions><speed>100</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.59326" lon="11.06849"> <extensions><speed>80</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.59138" lon="11.06929"> <extensions><speed>40</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.59063" lon="11.0718"> <extensions><speed>70</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.59042" lon="11.07316"> <extensions><speed>35</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.57792" lon="11.0777"> <extensions><speed>45</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.56196" lon="11.10144"> <extensions><speed>100</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.56188" lon="11.11899"> <extensions><speed>48</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.56466" lon="11.12897"> <extensions><speed>35</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.56634" lon="11.13108"> <extensions><speed>35</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.56596" lon="11.13162"> <extensions><speed>40</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.5649" lon="11.13106"> <extensions><speed>38</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.56254" lon="11.12683"> <extensions><speed>100</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.56007" lon="11.12934"> <extensions><speed>38</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.55814" lon="11.13696"> <extensions><speed>100</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.54724" lon="11.12711"> <extensions><speed>50</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.54195" lon="11.11903"> <extensions><speed>22</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.53675" lon="11.1147"> <extensions><speed>80</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.53397" lon="11.11242"> <extensions><speed>40</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.53157" lon="11.11306"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="47.52992" lon="11.11214"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+	</trkseg>
+</trk>
+</gpx>

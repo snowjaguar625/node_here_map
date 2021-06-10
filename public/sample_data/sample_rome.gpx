@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:gte="http://www.gpstrackeditor.com/xmlschemas/General/1" xmlns:gpxtpx="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns:gpxx="http://www.garmin.com/xmlschemas/GpxExtensions/v3" targetNamespace="http://www.topografix.com/GPX/1/1" elementFormDefault="qualified" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+<metadata>
+	<name>sample_rome.gpx</name>
+	<desc>Sample data collected in Rome: showing finding main roads, ignored waypoints, illegal one ways( near #45, #81), gate traversal(near #72), passing  no-through-traffic zone (near #79)</desc>
+</metadata>
+<trk>
+	<name>Rome</name>
+	<trkseg>
+		<trkpt lat="41.899689" lon="12.419250"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.900890" lon="12.420505"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.901105" lon="12.420495"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.901373" lon="12.420548"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.901694" lon="12.420763"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.902758" lon="12.421590"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.902498" lon="12.422412"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.902398" lon="12.424197"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.901784" lon="12.424932"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.900987" lon="12.425445"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.900124" lon="12.426025"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.898879" lon="12.426917"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.897649" lon="12.427926"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.896877" lon="12.428280"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.895945" lon="12.428755"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.894721" lon="12.429073"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.893806" lon="12.430303"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.893078" lon="12.432636"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.892890" lon="12.434591"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.893125" lon="12.436326"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.893594" lon="12.437430"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.894325" lon="12.438300"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.895009" lon="12.439426"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.895861" lon="12.440644"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.896433" lon="12.441301"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.896486" lon="12.442067"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.895819" lon="12.442839"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.896052" lon="12.443810"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.896697" lon="12.444670"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.897230" lon="12.445381"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.896517" lon="12.445471"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.894906" lon="12.445136"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.896199" lon="12.445760"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.895461" lon="12.446030"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.895268" lon="12.448141"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.896166" lon="12.449570"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.897114" lon="12.450511"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.897883" lon="12.451013"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.898466" lon="12.452049"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.899488" lon="12.454525"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.900019" lon="12.455818"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.900198" lon="12.457024"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.899729" lon="12.462604"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.899842" lon="12.464830"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.900148" lon="12.465438"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.900488" lon="12.465753"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.901104" lon="12.466234"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.901110" lon="12.467582"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.901323" lon="12.469636"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.901856" lon="12.470789"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.902255" lon="12.471936"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.902825" lon="12.473195"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.903636" lon="12.474232"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.904508" lon="12.474829"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.905560" lon="12.475126"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.906456" lon="12.475166"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.907552" lon="12.474802"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.908549" lon="12.474821"> <extensions><speed>30</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.909803" lon="12.474025"> <extensions><speed>30</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.910819" lon="12.473747"> <extensions><speed>30</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.913791" lon="12.472580"> <extensions><speed>30</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.914860" lon="12.471799"> <extensions><speed>30</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.916411" lon="12.471638"> <extensions><speed>30</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.917860" lon="12.471892"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.918811" lon="12.472281"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.918944" lon="12.473725"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.919007" lon="12.475770"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.918682" lon="12.477521"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.918282" lon="12.479179"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.917385" lon="12.479861"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.916722" lon="12.481350"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.916177" lon="12.482584"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.916086" lon="12.483804"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.916605" lon="12.485054"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.916808" lon="12.485910"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.916824" lon="12.487418"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.917369" lon="12.489202"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.918335" lon="12.489717"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.918775" lon="12.489964"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.918833" lon="12.490502"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.918418" lon="12.491238"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.917525" lon="12.491219"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+		<trkpt lat="41.917275" lon="12.491694"> <extensions><speed>10</speed></extensions>
+		</trkpt>
+	</trkseg>
+</trk>
+</gpx>

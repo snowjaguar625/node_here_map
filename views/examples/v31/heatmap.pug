@@ -1,0 +1,25 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='https://js.api.here.com/v3/3.1/mapsjs-data.js')
+    #content-padder 
+    #content-real
+        style(type='text/css').
+            .onoffswitch-inner:before {
+            content: "Value";
+            }
+            .onoffswitch-inner:after {
+            content: "Density";
+            }
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p Display a Heatmap based POI Category Restaurant (5800)
+            .onoffswitch
+                input#type.onoffswitch-checkbox(type='checkbox' name='onoffswitch' checked='')
+                label.onoffswitch-label(for='type')
+                    span.onoffswitch-inner
+                    span.onoffswitch-switch
+        #mapContainer
+    script(src='/javascripts/examples/v31/pde-manager-tiles.js')
+    script(src='/javascripts/examples/v31/heatmap.js')

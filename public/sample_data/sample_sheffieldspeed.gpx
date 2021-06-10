@@ -1,0 +1,722 @@
+<?xml version="1.0"?>
+<gpx version="1.0" creator="GPS Visualizer http://www.gpsvisualizer.com/" xmlns="http://www.topografix.com/GPX/1/0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">
+<trk>
+  <name>sample_sheffield&amp;speed2</name>
+  <trkseg>
+    <trkpt lat="53.3737131" lon="-1.4704939">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.3742428" lon="-1.4677477">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.3745646" lon="-1.467576">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.3758092" lon="-1.4665675">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.3765066" lon="-1.4645076">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.3750689" lon="-1.4637029">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.3745968" lon="-1.4630377">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.3738351" lon="-1.4672971">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37275319" lon="-1.473253781">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37296063" lon="-1.473458358">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37317601" lon="-1.473573578">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.3734015" lon="-1.473591359">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37364231" lon="-1.473555407">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37382051" lon="-1.473525778">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37398259" lon="-1.473544385">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37424653" lon="-1.473552796">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37444054" lon="-1.473323957">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37461894" lon="-1.472965559">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37560366" lon="-1.471516545">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37612036" lon="-1.471082224">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37664992" lon="-1.471201825">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37702013" lon="-1.471195299">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37725988" lon="-1.47097831">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37737117" lon="-1.470668778">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37855999" lon="-1.469833729">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37852091" lon="-1.469329573">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37862204" lon="-1.468927756">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37876223" lon="-1.468789212">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37892666" lon="-1.468780348">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.38020745" lon="-1.46563088">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37937367" lon="-1.467046193">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37962673" lon="-1.465272589">
+      <speed>13.89</speed>
+    </trkpt>
+    <trkpt lat="53.37988833" lon="-1.465201122">
+      <speed>13.89</speed>
+    </trkpt>
+    <trkpt lat="53.37988833" lon="-1.465201122">
+      <speed>13.89</speed>
+    </trkpt>
+    <trkpt lat="53.37988744" lon="-1.466035798">
+      <speed>13.89</speed>
+    </trkpt>
+    <trkpt lat="53.37989308" lon="-1.466140205">
+      <speed>13.89</speed>
+    </trkpt>
+    <trkpt lat="53.37987924" lon="-1.466296083">
+      <speed>13.89</speed>
+    </trkpt>
+    <trkpt lat="53.38021984" lon="-1.466613191">
+      <speed>13.89</speed>
+    </trkpt>
+    <trkpt lat="53.38033388" lon="-1.466708518">
+      <speed>13.89</speed>
+    </trkpt>
+    <trkpt lat="53.38051677" lon="-1.466619881">
+      <speed>13.89</speed>
+    </trkpt>
+    <trkpt lat="53.38113146" lon="-1.466989795">
+      <speed>13.89</speed>
+    </trkpt>
+    <trkpt lat="53.38123316" lon="-1.467038024">
+      <speed>13.89</speed>
+    </trkpt>
+    <trkpt lat="53.38153622" lon="-1.466477674">
+      <speed>13.89</speed>
+    </trkpt>
+    <trkpt lat="53.38158782" lon="-1.466302653">
+      <speed>13.89</speed>
+    </trkpt>
+    <trkpt lat="53.38251095" lon="-1.465818564">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.38298113" lon="-1.465874184">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.38304442" lon="-1.464368113">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.3835912" lon="-1.462213339">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.38379501" lon="-1.461524376">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.38384597" lon="-1.461352135">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.38298303" lon="-1.461404355">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.38298303" lon="-1.461404355">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.38291056" lon="-1.460939075">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.3834613" lon="-1.46002664">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.38362895" lon="-1.45980327">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.38581311" lon="-1.454714986">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.38621015" lon="-1.45366744">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.38611098" lon="-1.452903798">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.38594202" lon="-1.452053937">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.38519774" lon="-1.450501035">
+      <speed>13.89</speed>
+    </trkpt>
+    <trkpt lat="53.38479571" lon="-1.448931066">
+      <speed>16.67</speed>
+    </trkpt>
+    <trkpt lat="53.38508797" lon="-1.447869498">
+      <speed>19.44</speed>
+    </trkpt>
+    <trkpt lat="53.3851793" lon="-1.444602035">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.38518862" lon="-1.443343417">
+      <speed>23.33</speed>
+    </trkpt>
+    <trkpt lat="53.38540872" lon="-1.442138396">
+      <speed>24.44</speed>
+    </trkpt>
+    <trkpt lat="53.38572578" lon="-1.441075194">
+      <speed>25.56</speed>
+    </trkpt>
+    <trkpt lat="53.3856506" lon="-1.440157115">
+      <speed>23.61</speed>
+    </trkpt>
+    <trkpt lat="53.3856361" lon="-1.43904574">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.38599026" lon="-1.438096717">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.38607861" lon="-1.437426907">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.38492453" lon="-1.435473631">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.38398324" lon="-1.434658524">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.38297012" lon="-1.433734446">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.38192398" lon="-1.432783435">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.381128" lon="-1.432123754">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.38063728" lon="-1.431370137">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.38040278" lon="-1.43064398">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.37977442" lon="-1.429375782">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.37932024" lon="-1.428097859">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.37919253" lon="-1.426740077">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.37901671" lon="-1.425840758">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.37878959" lon="-1.425212409">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.37832762" lon="-1.424001417">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.37804731" lon="-1.422887416">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.3780715" lon="-1.421671331">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.3782049" lon="-1.420396052">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.37826947" lon="-1.41880314">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.37804084" lon="-1.417608088">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.3777233" lon="-1.416780466">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.37703922" lon="-1.415331125">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.37666984" lon="-1.41438555">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.37605681" lon="-1.412757487">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.37565805" lon="-1.411067507">
+      <speed>21.67</speed>
+    </trkpt>
+    <trkpt lat="53.3757031" lon="-1.410168132">
+      <speed>21.67</speed>
+    </trkpt>
+    <trkpt lat="53.37632971" lon="-1.408898639">
+      <speed>19.44</speed>
+    </trkpt>
+    <trkpt lat="53.37655397" lon="-1.407053591">
+      <speed>18.06</speed>
+    </trkpt>
+    <trkpt lat="53.37645725" lon="-1.406252134">
+      <speed>18.06</speed>
+    </trkpt>
+    <trkpt lat="53.37613565" lon="-1.403222861">
+      <speed>18.06</speed>
+    </trkpt>
+    <trkpt lat="53.37618398" lon="-1.402273186">
+      <speed>16.67</speed>
+    </trkpt>
+    <trkpt lat="53.37636517" lon="-1.400760853">
+      <speed>16.67</speed>
+    </trkpt>
+    <trkpt lat="53.37640607" lon="-1.400166605">
+      <speed>13.89</speed>
+    </trkpt>
+    <trkpt lat="53.37743334" lon="-1.398656843">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37824316" lon="-1.397875269">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.38100842" lon="-1.396609561">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37858999" lon="-1.396313222">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37869475" lon="-1.396037204">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37875311" lon="-1.395547361">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37817551" lon="-1.39563568">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37706612" lon="-1.395492728">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37671546" lon="-1.394930707">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37637523" lon="-1.394257027">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37611516" lon="-1.3937833">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37543979" lon="-1.392939858">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37503768" lon="-1.392648303">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37422757" lon="-1.392992764">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37412369" lon="-1.392746819">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37403159" lon="-1.392472579">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37397218" lon="-1.39224043">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.3737625" lon="-1.391337675">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37368077" lon="-1.391044872">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37332964" lon="-1.389362175">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37301738" lon="-1.388437333">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37267261" lon="-1.387859733">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37236904" lon="-1.38740273">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37193037" lon="-1.386647191">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37129225" lon="-1.384238612">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37134426" lon="-1.383886647">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37136579" lon="-1.383646626">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37142889" lon="-1.383181869">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37175257" lon="-1.382472228">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37206239" lon="-1.38181243">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37225243" lon="-1.381315268">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37238787" lon="-1.380843675">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37251624" lon="-1.380530476">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37265131" lon="-1.380516489">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37270608" lon="-1.380542426">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37280923" lon="-1.380487769">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.3731075" lon="-1.376916974">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37292772" lon="-1.376302878">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37257667" lon="-1.375566414">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37227731" lon="-1.374810359">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37199514" lon="-1.374156262">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.37175777" lon="-1.373222757">
+      <speed>13.89</speed>
+    </trkpt>
+    <trkpt lat="53.37118279" lon="-1.371136476">
+      <speed>15.28</speed>
+    </trkpt>
+    <trkpt lat="53.3709025" lon="-1.370407782">
+      <speed>16.67</speed>
+    </trkpt>
+    <trkpt lat="53.37072501" lon="-1.369237018">
+      <speed>19.44</speed>
+    </trkpt>
+    <trkpt lat="53.37060678" lon="-1.368522852">
+      <speed>19.44</speed>
+    </trkpt>
+    <trkpt lat="53.37030124" lon="-1.367414909">
+      <speed>18.06</speed>
+    </trkpt>
+    <trkpt lat="53.36898517" lon="-1.36611688">
+      <speed>18.06</speed>
+    </trkpt>
+    <trkpt lat="53.36808508" lon="-1.365690177">
+      <speed>18.06</speed>
+    </trkpt>
+    <trkpt lat="53.36624388" lon="-1.364365021">
+      <speed>18.06</speed>
+    </trkpt>
+    <trkpt lat="53.36522829" lon="-1.359931111">
+      <speed>16.67</speed>
+    </trkpt>
+    <trkpt lat="53.36471813" lon="-1.358320201">
+      <speed>13.89</speed>
+    </trkpt>
+    <trkpt lat="53.36482523" lon="-1.355891944">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.36469072" lon="-1.355349272">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.36454581" lon="-1.354807646">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.36403949" lon="-1.354729893">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.36338281" lon="-1.354596677">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.36304635" lon="-1.354295832">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.36427269" lon="-1.356283303">
+      <speed>12.50</speed>
+    </trkpt>
+    <trkpt lat="53.3668482" lon="-1.347483118">
+      <speed>13.89</speed>
+    </trkpt>
+    <trkpt lat="53.36789268" lon="-1.345138418">
+      <speed>15.28</speed>
+    </trkpt>
+    <trkpt lat="53.36833206" lon="-1.344195529">
+      <speed>16.67</speed>
+    </trkpt>
+    <trkpt lat="53.36873653" lon="-1.342446659">
+      <speed>18.06</speed>
+    </trkpt>
+    <trkpt lat="53.3687447" lon="-1.340857846">
+      <speed>18.06</speed>
+    </trkpt>
+    <trkpt lat="53.36856747" lon="-1.339618388">
+      <speed>18.06</speed>
+    </trkpt>
+    <trkpt lat="53.36834764" lon="-1.338624182">
+      <speed>18.06</speed>
+    </trkpt>
+    <trkpt lat="53.3684188" lon="-1.338571832">
+      <speed>18.06</speed>
+    </trkpt>
+    <trkpt lat="53.36845421" lon="-1.339256635">
+      <speed>18.06</speed>
+    </trkpt>
+    <trkpt lat="53.36799767" lon="-1.340508119">
+      <speed>18.06</speed>
+    </trkpt>
+    <trkpt lat="53.36719985" lon="-1.340949285">
+      <speed>19.44</speed>
+    </trkpt>
+    <trkpt lat="53.36595425" lon="-1.340984968">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.36496067" lon="-1.34041126">
+      <speed>25.00</speed>
+    </trkpt>
+    <trkpt lat="53.36399461" lon="-1.339441485">
+      <speed>26.39</speed>
+    </trkpt>
+    <trkpt lat="53.36351119" lon="-1.338650392">
+      <speed>26.39</speed>
+    </trkpt>
+    <trkpt lat="53.36271968" lon="-1.33759218">
+      <speed>26.39</speed>
+    </trkpt>
+    <trkpt lat="53.36187692" lon="-1.336340439">
+      <speed>28.06</speed>
+    </trkpt>
+    <trkpt lat="53.36102966" lon="-1.335171519">
+      <speed>28.06</speed>
+    </trkpt>
+    <trkpt lat="53.35998291" lon="-1.333671155">
+      <speed>28.06</speed>
+    </trkpt>
+    <trkpt lat="53.35923555" lon="-1.332494091">
+      <speed>28.06</speed>
+    </trkpt>
+    <trkpt lat="53.35747844" lon="-1.329379586">
+      <speed>27.22</speed>
+    </trkpt>
+    <trkpt lat="53.35733834" lon="-1.328541875">
+      <speed>27.22</speed>
+    </trkpt>
+    <trkpt lat="53.35728112" lon="-1.327719808">
+      <speed>27.22</speed>
+    </trkpt>
+    <trkpt lat="53.35733332" lon="-1.326855701">
+      <speed>27.22</speed>
+    </trkpt>
+    <trkpt lat="53.35740029" lon="-1.326530527">
+      <speed>26.39</speed>
+    </trkpt>
+    <trkpt lat="53.35763753" lon="-1.326285908">
+      <speed>26.39</speed>
+    </trkpt>
+    <trkpt lat="53.35787222" lon="-1.325902098">
+      <speed>26.39</speed>
+    </trkpt>
+    <trkpt lat="53.35810425" lon="-1.325983823">
+      <speed>26.39</speed>
+    </trkpt>
+    <trkpt lat="53.35849468" lon="-1.325694973">
+      <speed>26.39</speed>
+    </trkpt>
+    <trkpt lat="53.35857755" lon="-1.325477714">
+      <speed>26.39</speed>
+    </trkpt>
+    <trkpt lat="53.35869326" lon="-1.325275331">
+      <speed>26.39</speed>
+    </trkpt>
+    <trkpt lat="53.35861794" lon="-1.323463172">
+      <speed>26.39</speed>
+    </trkpt>
+    <trkpt lat="53.35858366" lon="-1.321853415">
+      <speed>26.39</speed>
+    </trkpt>
+    <trkpt lat="53.35734894" lon="-1.319659531">
+      <speed>26.39</speed>
+    </trkpt>
+    <trkpt lat="53.35678801" lon="-1.318385893">
+      <speed>26.39</speed>
+    </trkpt>
+    <trkpt lat="53.3558338" lon="-1.316753504">
+      <speed>26.39</speed>
+    </trkpt>
+    <trkpt lat="53.35465702" lon="-1.315211726">
+      <speed>26.39</speed>
+    </trkpt>
+    <trkpt lat="53.3541172" lon="-1.314270534">
+      <speed>26.39</speed>
+    </trkpt>
+    <trkpt lat="53.35349498" lon="-1.312840122">
+      <speed>26.39</speed>
+    </trkpt>
+    <trkpt lat="53.35309341" lon="-1.311609291">
+      <speed>26.39</speed>
+    </trkpt>
+    <trkpt lat="53.35258832" lon="-1.310378397">
+      <speed>26.39</speed>
+    </trkpt>
+    <trkpt lat="53.35233763" lon="-1.309444084">
+      <speed>26.39</speed>
+    </trkpt>
+    <trkpt lat="53.3525013" lon="-1.308071638">
+      <speed>26.39</speed>
+    </trkpt>
+    <trkpt lat="53.35271578" lon="-1.306759366">
+      <speed>27.78</speed>
+    </trkpt>
+    <trkpt lat="53.35274711" lon="-1.30597618">
+      <speed>27.78</speed>
+    </trkpt>
+    <trkpt lat="53.35284857" lon="-1.304620329">
+      <speed>29.17</speed>
+    </trkpt>
+    <trkpt lat="53.35301144" lon="-1.303879936">
+      <speed>29.17</speed>
+    </trkpt>
+    <trkpt lat="53.35326826" lon="-1.302705599">
+      <speed>30.56</speed>
+    </trkpt>
+    <trkpt lat="53.35342523" lon="-1.301801622">
+      <speed>30.56</speed>
+    </trkpt>
+    <trkpt lat="53.35352721" lon="-1.301237769">
+      <speed>31.94</speed>
+    </trkpt>
+    <trkpt lat="53.35374523" lon="-1.300274269">
+      <speed>31.94</speed>
+    </trkpt>
+    <trkpt lat="53.35402738" lon="-1.299512878">
+      <speed>33.33</speed>
+    </trkpt>
+    <trkpt lat="53.3542809" lon="-1.299036171">
+      <speed>33.33</speed>
+    </trkpt>
+    <trkpt lat="53.35484646" lon="-1.298337012">
+      <speed>33.33</speed>
+    </trkpt>
+    <trkpt lat="53.35569428" lon="-1.29738956">
+      <speed>33.33</speed>
+    </trkpt>
+    <trkpt lat="53.35620952" lon="-1.296472347">
+      <speed>31.94</speed>
+    </trkpt>
+    <trkpt lat="53.35675371" lon="-1.295652379">
+      <speed>30.56</speed>
+    </trkpt>
+    <trkpt lat="53.35755461" lon="-1.294709461">
+      <speed>29.17</speed>
+    </trkpt>
+    <trkpt lat="53.3580521" lon="-1.294084313">
+      <speed>27.78</speed>
+    </trkpt>
+    <trkpt lat="53.35817648" lon="-1.293928026">
+      <speed>27.78</speed>
+    </trkpt>
+    <trkpt lat="53.3626284" lon="-1.286125352">
+      <speed>26.39</speed>
+    </trkpt>
+    <trkpt lat="53.36266626" lon="-1.285915747">
+      <speed>25.00</speed>
+    </trkpt>
+    <trkpt lat="53.36258867" lon="-1.285617433">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.36253554" lon="-1.285095052">
+      <speed>21.67</speed>
+    </trkpt>
+    <trkpt lat="53.36254661" lon="-1.284574554">
+      <speed>21.67</speed>
+    </trkpt>
+    <trkpt lat="53.36257088" lon="-1.28407155">
+      <speed>21.67</speed>
+    </trkpt>
+    <trkpt lat="53.36257762" lon="-1.283945941">
+      <speed>21.67</speed>
+    </trkpt>
+    <trkpt lat="53.3625704" lon="-1.283482697">
+      <speed>21.67</speed>
+    </trkpt>
+    <trkpt lat="53.36257322" lon="-1.283063481">
+      <speed>21.67</speed>
+    </trkpt>
+    <trkpt lat="53.36253624" lon="-1.281924556">
+      <speed>21.67</speed>
+    </trkpt>
+    <trkpt lat="53.3625913" lon="-1.2814736">
+      <speed>21.67</speed>
+    </trkpt>
+    <trkpt lat="53.3627307" lon="-1.2803793">
+      <speed>21.67</speed>
+    </trkpt>
+    <trkpt lat="53.3627522" lon="-1.2802613">
+      <speed>21.67</speed>
+    </trkpt>
+    <trkpt lat="53.3629453" lon="-1.2803471">
+      <speed>21.67</speed>
+    </trkpt>
+    <trkpt lat="53.362999" lon="-1.2804759">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.3630419" lon="-1.2816989">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.3664536" lon="-1.2782764">
+      <speed>22.22</speed>
+    </trkpt>
+    <trkpt lat="53.3690855" lon="-1.2771076">
+      <speed>22.22</speed>
+    </trkpt>
+  </trkseg>
+</trk>
+</gpx>

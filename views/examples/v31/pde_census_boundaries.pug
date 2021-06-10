@@ -1,0 +1,32 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p#infoTxt
+                | This demo shows the census boundaries available via PDE. They will be shown in lower zoomlevels only.
+            .form-horizontal
+                .form-group
+                    label.control-label.col-sm-3(for='censusLayers') Census layer:
+                    .col-sm-9
+                        select#censusLayers.form-control.input-wide(onchange='onViewBoundsChange();')
+                .form-group
+                    label.control-label.col-sm-3(for='location') Center map in:
+                    .col-sm-9
+                        input#location.form-control.input-wide(type='text' size='50' value='Los Angeles' onkeydown='if(event.keyCode == 13) geocode();')
+                input.btn.btn-default.btn-sm(type='button' value='Geocode' onclick='geocode();')
+                p Boundary center is calculated approximately, might be misplaced
+                div HLP Service releases which are used in this demo:
+                #releaseInfoTxt(style='left:0; top:0; z-index: 0;')
+        #mapContainer
+        #pageblock
+        #spinner
+        #bubbleContent
+            label(for='detailsTextarea') Census DATA:
+            textarea#detailsTextarea(cols='40' rows='10' style='color: #000;' readonly='')
+    script(src='/javascripts/examples/v31/release-requests.js')
+    script(src='/javascripts/examples/v31/pde-manager-tiles.js')
+    script(src='/javascripts/examples/v31/pde_census_boundaries.js')

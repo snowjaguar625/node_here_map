@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" creator="GPX Logger" version="1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+	<trk>
+		<name>Frankfurt - Controlled Access</name>
+		<trkseg>
+			<trkpt lat="49.988476" lon="8.69379">
+				<time>2017-09-24T09:02:42Z</time>
+			</trkpt>
+			<trkpt lat="49.9891" lon="8.692835">
+				<time>2017-09-24T09:02:42Z</time>
+			</trkpt>
+			<trkpt lat="49.991011" lon="8.691188">
+				<time>2017-09-24T09:02:43Z</time>
+			</trkpt>
+			<trkpt lat="49.991611" lon="8.690781">
+				<time>2017-09-24T09:02:44Z</time>
+			</trkpt>
+			<trkpt lat="49.991929" lon="8.691054">
+				<time>2017-09-24T09:02:45Z</time>
+			</trkpt>
+			<trkpt lat="49.992332" lon="8.691537">
+				<time>2017-09-24T09:02:47Z</time>
+			</trkpt>
+			<trkpt lat="49.991994" lon="8.690872">
+				<time>2017-09-24T09:02:48Z</time>
+			</trkpt>
+			<trkpt lat="49.992522" lon="8.690089">
+				<time>2017-09-24T09:02:49Z</time>
+			</trkpt>
+			<trkpt lat="49.993293" lon="8.68926">
+				<time>2017-09-24T09:02:50Z</time>
+			</trkpt>
+			<trkpt lat="49.993627" lon="8.688926">
+				<time>2017-09-24T09:02:51Z</time>
+			</trkpt>
+			<trkpt lat="49.995041" lon="8.688714">
+				<time>2017-09-24T09:02:52Z</time>
+			</trkpt>
+			<trkpt lat="49.997289" lon="8.688982">
+				<time>2017-09-24T09:02:53Z</time>
+			</trkpt>
+			<trkpt lat="49.999655" lon="8.690114">
+				<time>2017-09-24T09:02:54Z</time>
+			</trkpt>
+			<trkpt lat="50.006758" lon="8.697972">
+				<time>2017-09-24T09:02:55Z</time>
+			</trkpt>
+			<trkpt lat="50.010012" lon="8.701791">
+				<time>2017-09-24T09:02:56Z</time>
+			</trkpt>
+			<trkpt lat="50.019954" lon="8.708958">
+				<time>2017-09-24T09:02:57Z</time>
+			</trkpt>
+			<trkpt lat="50.030568" lon="8.712134">
+				<time>2017-09-24T09:02:58Z</time>
+			</trkpt>
+			<trkpt lat="50.032409" lon="8.7137">
+				<time>2017-09-24T09:02:59Z</time>
+			</trkpt>
+			<trkpt lat="50.030212" lon="8.717415">
+				<time>2017-09-24T09:03:00Z</time>
+			</trkpt>
+			<trkpt lat="50.028628" lon="8.719829">
+				<time>2017-09-24T09:03:01Z</time>
+			</trkpt>
+			<trkpt lat="50.026237" lon="8.721835">
+				<time>2017-09-24T09:03:02Z</time>
+			</trkpt>
+		</trkseg>
+	</trk>
+</gpx>

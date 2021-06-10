@@ -1,0 +1,98 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            | &#x9;
+            p#explanation
+                | After route calculation, JunctionView info is retrieved from PDE Web
+                br
+                | Service and displayed.
+                | &#x9;&#x9;
+                br
+                | The start and destination can be geocoded or selected via long click in map.
+            | &#x9;
+            table(border='0')
+                tbody
+                tr
+                    td Start
+                    | &#x9;&#x9;&#x9;
+                    td
+                        input#start.form-control(type='text', size='35', value='Chicago', onkeydown='if (event.keyCode == 13) startRouteCalculationAndGetJvImagesLocations();')
+                | &#x9;&#x9;
+                tr
+                    td Destination
+                    | &#x9;&#x9;&#x9;
+                    td
+                        input#dest.form-control(type='text', size='35', value='South Barrington', onkeydown='if (event.keyCode == 13) startRouteCalculationAndGetJvImagesLocations();')
+                | &#x9;&#x9;
+                tr
+                    td View
+                    | &#x9;&#x9;&#x9;
+                    td
+                        select#view.form-control(onchange='handleViewChanged();')
+                            option(value='D', selected='true') Driver View
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;
+                            option(value='B') Bird View
+                | &#x9;&#x9;
+                tr
+                    td MultiArrow
+                    | &#x9;&#x9;&#x9;
+                    td
+                        input#multiArrow(type='checkbox', checked='', onchange='handleArrowChanged();')
+                | &#x9;&#x9;
+                tr
+                    td Ratio
+                    | &#x9;&#x9;&#x9;
+                    td
+                        input#ratio(type='radio', name='ratio', value='4x3', onchange='handleRatioChanged();')
+                    | 4x3
+                    br
+                    | &#x9;&#x9;&#x9;&#x9;
+                    input#ratio(type='radio', name='ratio', value='5x3', onchange='handleRatioChanged();')
+                    | 5x3
+                    br
+                    | &#x9;&#x9;&#x9;&#x9;
+                    input#ratio(type='radio', name='ratio', value='3x5', onchange='handleRatioChanged();')
+                    | 3x5
+                    br
+                    | &#x9;&#x9;&#x9;&#x9;
+                    input#ratio(type='radio', name='ratio', value='16x9', onchange='handleRatioChanged();', checked='')
+                    | 16x9
+                    br
+                | &#x9;&#x9;
+                tr
+                    td DayNight
+                    | &#x9;&#x9;&#x9;
+                    td
+                        select#dayNight.form-control(onchange='handleDayNight();')
+                            option(value='NIGHT', selected='true') Day
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;
+                            option(value='DAY') Night
+                | &#x9;&#x9;
+                tr
+                    td
+                    | &#x9;&#x9;&#x9;
+                    td
+                        input#routeButton.btn.btn-default.btn-sm(type='submit', value='Calculate Route', onclick='startRouteCalculationAndGetJvImagesLocations();')
+                | &#x9;&#x9;
+                tr
+                    td
+                    | &#x9;&#x9;&#x9;
+                    td
+                        input#simulateRouteButton.btn.btn-default.btn-sm(type='submit', value='Simulate Route', onclick='startStopRouteSimulation();', disabled='')
+            | &#x9;
+            #feedbackTxt(style='left:0; top:0; z-index: 0;')
+            | &#x9;
+            #jvContainer
+            | &#x9;
+            div HLP Service releases which are used in this demo:
+            | &#x9;
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;', value='Used Service Releases:/n')
+        #mapContainer
+    script(src='/javascripts/examples/v31/release-requests.js')
+    script(src='/javascripts/examples/v31/pde-manager-tiles.js')
+    script(src='/javascripts/examples/v31/pde_junction_view_along_route.js')

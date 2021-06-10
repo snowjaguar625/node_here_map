@@ -1,0 +1,1569 @@
+{
+  "id": "problem_id",
+  "plan": {
+    "jobs": [
+      {
+        "id": "delivery1",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77150686419254,
+              9.163940664782475
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery2",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77773597874679,
+              9.130594560480997
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery3",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77395353041059,
+              9.178534076785665
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery4",
+        "places": {
+          "delivery": {
+            "location": [
+              48.79749688032285,
+              9.228757911203376
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery5",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77587007593456,
+              9.176921794048152
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery6",
+        "places": {
+          "delivery": {
+            "location": [
+              48.825243157859404,
+              9.2345457763147
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery7",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77548579820218,
+              9.1837801528571
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery8",
+        "places": {
+          "delivery": {
+            "location": [
+              48.82332306252145,
+              9.222691337808202
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery9",
+        "places": {
+          "delivery": {
+            "location": [
+              48.81258898863745,
+              9.161834590880087
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery10",
+        "places": {
+          "delivery": {
+            "location": [
+              48.72994706869606,
+              9.106212073682121
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery11",
+        "places": {
+          "delivery": {
+            "location": [
+              48.69894381798654,
+              9.219103330650006
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery12",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77502094918533,
+              9.17266165518633
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery13",
+        "places": {
+          "delivery": {
+            "location": [
+              48.83681925880912,
+              9.15941376955369
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery14",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77350183380521,
+              9.20226076785405
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery15",
+        "places": {
+          "delivery": {
+            "location": [
+              48.82019433604003,
+              9.20387324222601
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery16",
+        "places": {
+          "delivery": {
+            "location": [
+              48.81908789427019,
+              9.108175902366819
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery17",
+        "places": {
+          "delivery": {
+            "location": [
+              48.80740844669118,
+              9.249522520227199
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery18",
+        "places": {
+          "delivery": {
+            "location": [
+              48.7799798123863,
+              9.168655462500652
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery19",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77588556839241,
+              9.178738062004822
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery20",
+        "places": {
+          "delivery": {
+            "location": [
+              48.80343628991602,
+              9.148519349348906
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery21",
+        "places": {
+          "delivery": {
+            "location": [
+              48.833345307546345,
+              9.198164025567655
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery22",
+        "places": {
+          "delivery": {
+            "location": [
+              48.73314452849787,
+              9.11142787749483
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery23",
+        "places": {
+          "delivery": {
+            "location": [
+              48.80262862267035,
+              9.227894563588613
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery24",
+        "places": {
+          "delivery": {
+            "location": [
+              48.803219567693006,
+              9.214928340306964
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery25",
+        "places": {
+          "delivery": {
+            "location": [
+              48.700578723286235,
+              9.196378723567285
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery26",
+        "places": {
+          "delivery": {
+            "location": [
+              48.78430434420306,
+              9.20247435325419
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery27",
+        "places": {
+          "delivery": {
+            "location": [
+              48.78180388700702,
+              9.122549040413249
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery28",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77417297058775,
+              9.183941464089957
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery29",
+        "places": {
+          "delivery": {
+            "location": [
+              48.81941287055449,
+              9.200337692054223
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery30",
+        "places": {
+          "delivery": {
+            "location": [
+              48.719746323441385,
+              9.128870408220491
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery31",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77921298477206,
+              9.171373192593613
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery32",
+        "places": {
+          "delivery": {
+            "location": [
+              48.82487504953257,
+              9.106419907285296
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery33",
+        "places": {
+          "delivery": {
+            "location": [
+              48.81218443218049,
+              9.16539296734823
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery34",
+        "places": {
+          "delivery": {
+            "location": [
+              48.75337765257971,
+              9.242914173049947
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery35",
+        "places": {
+          "delivery": {
+            "location": [
+              48.75654964102395,
+              9.142514291937559
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery36",
+        "places": {
+          "delivery": {
+            "location": [
+              48.7485485767815,
+              9.219480468787566
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery37",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77241019742848,
+              9.171916387208917
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery38",
+        "places": {
+          "delivery": {
+            "location": [
+              48.7706208511265,
+              9.17382489475248
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery39",
+        "places": {
+          "delivery": {
+            "location": [
+              48.80683891974297,
+              9.209217730112504
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery40",
+        "places": {
+          "delivery": {
+            "location": [
+              48.73968016584953,
+              9.166082176267578
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery41",
+        "places": {
+          "delivery": {
+            "location": [
+              48.72134966948691,
+              9.12851114330781
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery42",
+        "places": {
+          "delivery": {
+            "location": [
+              48.73762065823072,
+              9.095222678894457
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery43",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77097708135786,
+              9.27454823704797
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery44",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77148294669491,
+              9.24706839957284
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery45",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77071503856814,
+              9.180281585966304
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery46",
+        "places": {
+          "delivery": {
+            "location": [
+              48.818824900476464,
+              9.16828129280315
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery47",
+        "places": {
+          "delivery": {
+            "location": [
+              48.81630832404849,
+              9.238070897063768
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery48",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77367706201573,
+              9.177034312151166
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery49",
+        "places": {
+          "delivery": {
+            "location": [
+              48.834655515404954,
+              9.14087228640493
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery50",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77750617511441,
+              9.234530364742852
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery51",
+        "places": {
+          "delivery": {
+            "location": [
+              48.81800839317365,
+              9.251150349065197
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery52",
+        "places": {
+          "delivery": {
+            "location": [
+              48.82191112211979,
+              9.108014409492519
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery53",
+        "places": {
+          "delivery": {
+            "location": [
+              48.72065971687737,
+              9.169732297110802
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery54",
+        "places": {
+          "delivery": {
+            "location": [
+              48.723119351781165,
+              9.122093693717359
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery55",
+        "places": {
+          "delivery": {
+            "location": [
+              48.82062952463488,
+              9.096476009627345
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery56",
+        "places": {
+          "delivery": {
+            "location": [
+              48.75850416189855,
+              9.267454742474444
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery57",
+        "places": {
+          "delivery": {
+            "location": [
+              48.72286561397539,
+              9.14753600870321
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery58",
+        "places": {
+          "delivery": {
+            "location": [
+              48.7371394922011,
+              9.166720435127212
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery59",
+        "places": {
+          "delivery": {
+            "location": [
+              48.81158132824981,
+              9.152048659774026
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery60",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77398814648297,
+              9.17709051130579
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery61",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77603523777541,
+              9.237261940862592
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery62",
+        "places": {
+          "delivery": {
+            "location": [
+              48.795206509802895,
+              9.228706241568467
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery63",
+        "places": {
+          "delivery": {
+            "location": [
+              48.78364485248173,
+              9.170014136189183
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery64",
+        "places": {
+          "delivery": {
+            "location": [
+              48.83101681605262,
+              9.156586147577036
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery65",
+        "places": {
+          "delivery": {
+            "location": [
+              48.80123810423725,
+              9.212819637513965
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery66",
+        "places": {
+          "delivery": {
+            "location": [
+              48.78068376144709,
+              9.179531163162755
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery67",
+        "places": {
+          "delivery": {
+            "location": [
+              48.760290418170854,
+              9.266624858980427
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery68",
+        "places": {
+          "delivery": {
+            "location": [
+              48.729846763389794,
+              9.100144862160436
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery69",
+        "places": {
+          "delivery": {
+            "location": [
+              48.81112503472792,
+              9.238790310473856
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery70",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77878311325305,
+              9.234652453332679
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery71",
+        "places": {
+          "delivery": {
+            "location": [
+              48.79127806378494,
+              9.176403556121851
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery72",
+        "places": {
+          "delivery": {
+            "location": [
+              48.7175589679693,
+              9.109927683258512
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery73",
+        "places": {
+          "delivery": {
+            "location": [
+              48.81432498494101,
+              9.234434722173837
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery74",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77938465189529,
+              9.229909071502822
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery75",
+        "places": {
+          "delivery": {
+            "location": [
+              48.720591759711276,
+              9.125592240352386
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery76",
+        "places": {
+          "delivery": {
+            "location": [
+              48.80844884299709,
+              9.203343831928532
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery77",
+        "places": {
+          "delivery": {
+            "location": [
+              48.80000217476353,
+              9.164746400565212
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery78",
+        "places": {
+          "delivery": {
+            "location": [
+              48.80240510791425,
+              9.218864887797254
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery79",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77436214482604,
+              9.176651013178267
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery80",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77623587057322,
+              9.23899145457252
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery81",
+        "places": {
+          "delivery": {
+            "location": [
+              48.81779383951359,
+              9.202319388611825
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery82",
+        "places": {
+          "delivery": {
+            "location": [
+              48.73975240168047,
+              9.106887094016432
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery83",
+        "places": {
+          "delivery": {
+            "location": [
+              48.81234628614867,
+              9.160082238902817
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery84",
+        "places": {
+          "delivery": {
+            "location": [
+              48.81242434969299,
+              9.172451144575575
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery85",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77595625566534,
+              9.176778633679497
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery86",
+        "places": {
+          "delivery": {
+            "location": [
+              48.8426122688808,
+              9.19514453892945
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery87",
+        "places": {
+          "delivery": {
+            "location": [
+              48.70662549202351,
+              9.201471621802334
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery88",
+        "places": {
+          "delivery": {
+            "location": [
+              48.7435931434873,
+              9.169215446735757
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery89",
+        "places": {
+          "delivery": {
+            "location": [
+              48.82321123340488,
+              9.105802934898263
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery90",
+        "places": {
+          "delivery": {
+            "location": [
+              48.737257733228624,
+              9.177660604572818
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery91",
+        "places": {
+          "delivery": {
+            "location": [
+              48.72159327607234,
+              9.12060614583107
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery92",
+        "places": {
+          "delivery": {
+            "location": [
+              48.741305276821464,
+              9.152424232561557
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery93",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77096630964136,
+              9.174730461473136
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery94",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77550395239639,
+              9.17493119743996
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery95",
+        "places": {
+          "delivery": {
+            "location": [
+              48.82300525646094,
+              9.110060420000906
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery96",
+        "places": {
+          "delivery": {
+            "location": [
+              48.81451144309558,
+              9.120178097843874
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery97",
+        "places": {
+          "delivery": {
+            "location": [
+              48.79157707947119,
+              9.216339829355766
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery98",
+        "places": {
+          "delivery": {
+            "location": [
+              48.80915328802365,
+              9.151387905615918
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery99",
+        "places": {
+          "delivery": {
+            "location": [
+              48.79516019178338,
+              9.242383636518946
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      },
+      {
+        "id": "delivery100",
+        "places": {
+          "delivery": {
+            "location": [
+              48.77307908911553,
+              9.172683121319345
+            ],
+            "duration": 180
+          }
+        },
+        "demand": [
+          1
+        ]
+      }
+    ]
+  },
+  "fleet": {
+    "types": [
+      {
+        "id": "Vito",
+        "profile": "car",
+        "costs": {
+          "distance": 0.0002,
+          "time": 0.004805555555556,
+          "fixed": 22
+        },
+        "shifts": [{
+          "start": {
+            "time": "2018-11-19T08:00:00.000Z",
+            "location": [
+              48.845921,
+              9.133917
+            ]
+          },
+          "end": {
+            "time": "2018-11-19T20:00:00.000Z",
+            "location": [
+              48.845921,
+              9.133917
+            ]
+          }
+        }],
+        "capacity": [
+          80
+        ],
+        "amount": 10
+      },
+      {
+        "id": "Sprinter",
+        "profile": "car",
+        "costs": {
+          "distance": 0.0002,
+          "time": 0.004805555555556,
+          "fixed": 33
+        },
+        "shifts": [{
+          "start": {
+            "time": "2018-11-19T08:00:00.000Z",
+            "location": [
+              48.845921,
+              9.133917
+            ]
+          },
+          "end": {
+            "time": "2018-11-19T20:00:00.000Z",
+            "location": [
+              48.845921,
+              9.133917
+            ]
+          }
+        }],
+        "capacity": [
+          120
+        ],
+        "amount": 10
+      }
+    ]
+  }
+}

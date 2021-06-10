@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/kml/2.2 ogckml22.xsd">
+<Document>
+	<name>Sample Frankfurt KML Trace</name>
+	<Placemark><Point><coordinates>8.64965,50.20365,0.0 </coordinates></Point></Placemark>
+	<Placemark><Point><coordinates>8.64914,50.20346,0.0 </coordinates></Point></Placemark>
+	<Placemark><Point><coordinates>8.64861,50.20319,0.0 </coordinates></Point></Placemark>
+	<Placemark><Point><coordinates>8.64838,50.20307,0.0 </coordinates></Point></Placemark>		
+	<Placemark><Point><coordinates>8.58431,50.13361,0.0 </coordinates></Point></Placemark>
+	<Placemark><Point><coordinates>8.58344,50.13323,0.0 </coordinates></Point></Placemark>
+	<Placemark><Point><coordinates>8.58269,50.13287,0.0 </coordinates></Point></Placemark>
+	<Placemark><Point><coordinates>8.58245,50.13276,0.0 </coordinates></Point></Placemark>
+	<Placemark><Point><coordinates>8.47759,50.07499,0.0 </coordinates></Point></Placemark>
+	<Placemark><Point><coordinates>8.47625,50.074,0.0 </coordinates></Point></Placemark>	
+</Document>
+</kml>

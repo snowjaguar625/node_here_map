@@ -1,0 +1,149 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        style.
+            .consumtion-container {
+                display: none;
+            }
+            .consumtion-speeds {
+                margin: 10px 0 0 0;
+                max-width: 240px;
+            }
+            .consumtion-container input {
+                max-height: 25px;
+                max-width: 122px;
+            }
+            input.consumtion,
+            input.speed {
+                max-width: 100px;
+            }
+            .consumtion-container label {
+                display: inline-block;
+                width: 100px;
+            }
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            | &#x9;
+            .form-group.form-inline
+                | Address: 
+                input#input-start.form-control.input-wide(value='Am Kronberger Hang 8, Schwalbach', type='text')
+            | &#x9;
+            div
+                | Unit: 
+                select#unit
+                    option(value='1') KM
+                    option(value='2') Meters
+                    option(value='3') Minute
+                | &#x9;&#x9;
+                span Type: 
+                select#rangetype
+                    option(value='distance') Distance
+                    option(value='consumption') Consumption
+            | &#x9;
+            .isoline-dist
+                #bar1(style='position:relative')
+                    #text1 distance: 0 km
+                br
+                | &#x9;&#x9;
+                #bar2(style='position:relative')
+                    #text2 distance: 0 km
+                br
+                | &#x9;&#x9;
+                #bar3(style='position:relative')
+                    #text3 distance: 0 km
+                br
+            | &#x9;
+            .consumtion-container
+                label Ascent:
+                input#ascent(type='number', value='30')
+                br
+                | &#x9;&#x9;
+                label Descent:
+                input#descent(type='number', value='10')
+                br
+                | &#x9;&#x9;
+                label Fuel/energy level:
+                input#range(type='number', value='5')
+                | &#x9;&#x9;
+                table.consumtion-speeds
+                    tbody
+                        tr
+                            th Vehicle speed, kph
+                            | &#x9;&#x9;&#x9;&#x9;
+                            th Consumption
+                        | &#x9;&#x9;&#x9;
+                        tr
+                            td
+                                input.speed(type='number', value='0')
+                            td
+                                input.consumtion(type='number', value='1.7')
+                        | &#x9;&#x9;&#x9;
+                        tr
+                            td
+                                input.speed(type='number', value='10')
+                            td
+                                input.consumtion(type='number', value='1.4')
+                        | &#x9;&#x9;&#x9;
+                        tr
+                            td
+                                input.speed(type='number', value='30')
+                            td
+                                input.consumtion(type='number', value='1.1')
+                        | &#x9;&#x9;&#x9;
+                        tr
+                            td
+                                input.speed(type='number', value='50')
+                            td
+                                input.consumtion(type='number', value='1.0')
+                        | &#x9;&#x9;&#x9;
+                        tr
+                            td
+                                input.speed(type='number', value='70')
+                            td
+                                input.consumtion(type='number', value='1.1')
+                        | &#x9;&#x9;&#x9;
+                        tr
+                            td
+                                input.speed(type='number', value='100')
+                            td
+                                input.consumtion(type='number', value='1.2')
+                        | &#x9;&#x9;&#x9;
+                        tr
+                            td
+                                input.speed(type='number', value='120')
+                            td
+                                input.consumtion(type='number', value='1.4')
+                        | &#x9;&#x9;&#x9;
+                        tr
+                            td
+                                input.speed(type='number', value='140')
+                            td
+                                input.consumtion(type='number', value='1.8')
+            | &#x9;
+            div
+                | Mode:
+                select#mode
+                    option(value='1') Car
+                    option(value='2') Pedestrian
+            | &#x9;
+            div
+                input#reverseisoline(type='checkbox', value='Reverse Isoline', checked='')
+                |  Reverse Isoline
+            | &#x9;
+            div
+                input#traffic(type='checkbox', value='Enable traffic', checked='')
+                |  Enable traffic
+            | &#x9;
+            | &#x9;
+            input#routing.btn.btn-default.btn-sm(type='button', value='Search')
+            br
+            | &#x9;
+            div HLP Service releases which are used in this demo:
+            | &#x9;
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;')
+        #mapContainer
+    script(src='/javascripts/examples/v31/release-requests.js')
+    script(src='/javascripts/examples/v31/isoline_routing.js')

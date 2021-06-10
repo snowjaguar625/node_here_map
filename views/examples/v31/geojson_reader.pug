@@ -1,0 +1,19 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='https://js.api.here.com/v3/3.1/mapsjs-data.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            | &#x9;
+            p
+                | This demo how to display objects from GeoJSON file on the map using built in parser
+            | &#x9;
+            div HLP Service releases which are used in this demo:
+            | &#x9;
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;')
+        #mapContainer
+    script(src='/javascripts/examples/v31/release-requests.js')
+    script(src='/javascripts/examples/v31/geojson_reader.js')

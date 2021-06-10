@@ -1,0 +1,27 @@
+extends ../../layout
+
+block content
+    title= title
+    link(rel='stylesheet' href='/stylesheets/extension3_1.css' media='screen' data-turbolinks-track='true')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            .form-group
+                .input-group
+                    span.input-group-btn
+                        span.btn.btn-default.btn-sm.btn-file
+                            | Browse&mldr; 
+                            input.form-control(type='file')
+                input.form-control(type='text' placeholder='Choose KML Files to Load' value='sample.kml' readonly='')
+            .form-group
+                .checkbox
+                    label
+                        input#clear-checkbox(type='checkbox')
+                        | Clear objects before load?
+                div
+                    button#btn-load.here-btn.here-btn-1.btn-sm(type='button') Load
+        #mapContainer
+        #spinner
+        #pageblock
+    script(src='/javascripts/examples/v31/draggable_kml_shapes_3_1.js')

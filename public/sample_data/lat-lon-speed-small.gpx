@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx version="1.1" creator="RDFViewer" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <trk>
+    <name>Sample Trace for Real Time Tracking</name>
+	<trkseg>
+    <trkpt lat="44.44941" lon="-0.81003"><speed>22.2</speed></trkpt>
+    <trkpt lat="44.46805" lon="-0.82004"><speed>23.2</speed></trkpt>
+    <trkpt lat="44.4826" lon="-0.83264"><speed>21.6</speed></trkpt>
+    <trkpt lat="44.50362" lon="-0.84147"><speed>23.8</speed></trkpt>
+    <trkpt lat="44.51705" lon="-0.83978"><speed>17.4</speed></trkpt>
+    <trkpt lat="44.53312" lon="-0.83587"><speed>13.2</speed></trkpt>
+    <trkpt lat="44.52953" lon="-0.81947"><speed>17.0</speed></trkpt>
+    <trkpt lat="44.51707" lon="-0.79494"><speed>17.9</speed></trkpt>
+    <trkpt lat="44.53125" lon="-0.79255"><speed>16.6</speed></trkpt>
+    <trkpt lat="44.5518" lon="-0.78623"><speed>16.5</speed></trkpt>
+    <trkpt lat="44.57435" lon="-0.77946"><speed>12.8</speed></trkpt>
+    <trkpt lat="44.59756" lon="-0.77247"><speed>17.2</speed></trkpt>
+    <trkpt lat="44.61219" lon="-0.77527"><speed>16.1</speed></trkpt>
+    <trkpt lat="44.63017" lon="-0.79309"><speed>16.3</speed></trkpt>
+    <trkpt lat="44.64771" lon="-0.81044"><speed>16.9</speed></trkpt>
+    <trkpt lat="44.66052" lon="-0.82302"><speed>16.4</speed></trkpt>
+    <trkpt lat="44.66663" lon="-0.81522"><speed>22.2</speed></trkpt>
+    <trkpt lat="44.67842" lon="-0.79532"><speed>22.2</speed></trkpt>
+    <trkpt lat="44.68792" lon="-0.77583"><speed>22.4</speed></trkpt>
+    <trkpt lat="44.6989" lon="-0.76032"><speed>22.3</speed></trkpt>
+    <trkpt lat="44.71642" lon="-0.74251"><speed>22.4</speed></trkpt>
+    <trkpt lat="44.72487" lon="-0.73299"><speed>22.7</speed></trkpt>
+    <trkpt lat="44.73571" lon="-0.71829"><speed>22.1</speed></trkpt>
+    <trkpt lat="44.74513" lon="-0.70303"><speed>21.7</speed></trkpt>
+    <trkpt lat="44.75364" lon="-0.68976"><speed>22.6</speed></trkpt>
+    <trkpt lat="44.76174" lon="-0.67738"><speed>22.5</speed></trkpt>
+    <trkpt lat="44.76899" lon="-0.66472"><speed>22.9</speed></trkpt>
+    <trkpt lat="44.77605" lon="-0.64853"><speed>24.0</speed></trkpt>
+    <trkpt lat="44.78344" lon="-0.63155"><speed>25.0</speed></trkpt>
+    <trkpt lat="44.78983" lon="-0.62414"><speed>13.3</speed></trkpt>
+    <trkpt lat="44.78838" lon="-0.64199"><speed>20.3</speed></trkpt>
+    <trkpt lat="44.80061" lon="-0.65608"><speed>26.3</speed></trkpt>
+    <trkpt lat="44.81243" lon="-0.67197"><speed>26.3</speed></trkpt>
+    <trkpt lat="44.82767" lon="-0.67525"><speed>25.6</speed></trkpt>
+    <trkpt lat="44.84068" lon="-0.67432"><speed>25.1</speed></trkpt>
+    <trkpt lat="44.85921" lon="-0.66057"><speed>24.9</speed></trkpt>
+    <trkpt lat="44.87445" lon="-0.63654"><speed>23.8</speed></trkpt>
+    <trkpt lat="44.88712" lon="-0.62056"><speed>22.8</speed></trkpt>
+    <trkpt lat="44.88901" lon="-0.59848"><speed>22.2</speed></trkpt>
+    <trkpt lat="44.88756" lon="-0.57716"><speed>22.3</speed></trkpt>
+    <trkpt lat="44.88436" lon="-0.55983"><speed>20.7</speed></trkpt>
+    <trkpt lat="44.87921" lon="-0.53375"><speed>19.4</speed></trkpt>
+    <trkpt lat="44.88071" lon="-0.52437"><speed>22.3</speed></trkpt>
+    <trkpt lat="44.8845" lon="-0.51322"><speed>13.7</speed></trkpt>
+    <trkpt lat="44.87561" lon="-0.50799"><speed>20.9</speed></trkpt>
+    <trkpt lat="44.86789" lon="-0.50603"><speed>13.9</speed></trkpt>
+    <trkpt lat="44.86853" lon="-0.49727"><speed>22.1</speed></trkpt>
+    <trkpt lat="44.86611" lon="-0.47997"><speed>22.3</speed></trkpt>
+    <trkpt lat="44.86944" lon="-0.46404"><speed>22.4</speed></trkpt>
+    <trkpt lat="44.86909" lon="-0.44231"><speed>23.1</speed></trkpt>
+    <trkpt lat="44.87642" lon="-0.42522"><speed>21.9</speed></trkpt>
+    <trkpt lat="44.87566" lon="-0.4032"><speed>22.7</speed></trkpt>
+    <trkpt lat="44.87854" lon="-0.38152"><speed>22.3</speed></trkpt>
+    <trkpt lat="44.88271" lon="-0.34158"><speed>23.1</speed></trkpt>
+    <trkpt lat="44.88133" lon="-0.31074"><speed>23.1</speed></trkpt>
+    <trkpt lat="44.8828" lon="-0.31161"><speed>13.8</speed></trkpt>
+    <trkpt lat="44.8808" lon="-0.30268"><speed>15.4</speed></trkpt>
+    <trkpt lat="44.88525" lon="-0.29851"><speed>13.1</speed></trkpt>
+    <trkpt lat="44.88572" lon="-0.29188"><speed>13.3</speed></trkpt>
+    <trkpt lat="44.8896" lon="-0.28005"><speed>12.8</speed></trkpt>
+    <trkpt lat="44.9091" lon="-0.25893"><speed>13.0</speed></trkpt>
+    <trkpt lat="44.91299" lon="-0.24823"><speed>5.2</speed></trkpt>
+    <trkpt lat="44.91508" lon="-0.24062"><speed>1</speed></trkpt>
+	</trkseg>
+  </trk>
+</gpx>

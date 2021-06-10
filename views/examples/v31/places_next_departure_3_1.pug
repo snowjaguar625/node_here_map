@@ -1,0 +1,66 @@
+extends ../../layout
+
+block content
+    title= title
+    link(rel='stylesheet' href='/stylesheets/extension3_1.css' media='screen' data-turbolinks-track='true')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            .form-group
+                p Provide an address and find next departure at nearby Public Transits
+            .form-group
+                input#address.form-control(type='text' value='Frankfurt am Main')
+                input#location(type='hidden' value='52.4903,13.3520' onkeypress='handleKeyPress(event)')
+            .form-group
+                input.here-btn.here-btn-1(type='button' value='Public Transits' onclick='geocode(); ')
+            .form-group
+                label.checkbox-label.rectangular
+                    input#checkbox(type='checkbox' onchange='setCredentials()')
+                    span.checkbox-custom
+                p
+                    | Public Transit data access has to be enabled for credentials seperately.
+                    | You can set credentials already enabled for Transit using the checkbox provided
+                table#credentials.onoffswitch-checkbox(border='0')
+                    tr
+                        td App Id
+                        td
+                            input#appIdExt.form-control(type='text' size='50' value='app_id')
+                    tr
+                        td App Code
+                        td
+                            input#appCodeExt.form-control(type='text' size='50' value='app_code')
+                    tr
+                        td(colspan='2')
+            #result.form-group
+            .form-group
+                div HLP Service releases which are used in this demo:
+                #releaseInfoTxt(style='left:0; top:0; z-index: 0;')
+        style(type='text/css').
+            .H_ib_body {
+            border: 1px solid #fff;
+            }
+            .uiMapBox3 {
+            background-color: #000;
+            width: 350px;
+            font-size: 12px;
+            }
+            .uiMapBox3 span {
+            padding :5px;
+            white-space: nowrap;
+            }
+            .uiMapBox3{
+            width : auto;
+            padding :5px;
+            }
+            ul li {
+            margin-top: 12px;
+            white-space: nowrap;
+            }
+        #uiMapBox2.noteContainer(style='display:none')
+            | Click on any link to display next departures
+        #bubbleContent(style='display:none')
+            #uiMapBox3
+        #mapContainer
+    script(src='/javascripts/examples/v31/release-requests.js')
+    script(src='/javascripts/examples/v31/places_next_departure_3_1.js')

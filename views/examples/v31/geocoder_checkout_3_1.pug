@@ -1,0 +1,18 @@
+extends ../../layout
+
+block content
+    title= title
+    link(rel='stylesheet' href='/stylesheets/extension3_1.css' media='screen' data-turbolinks-track='true')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | This example shows how to use Geocoder API to verify an address at checkout and allow the user to fix the resulting pin via drag-n-drop when relevant.
+            .form-group
+                input#search.form-control.input-wide(autocomplete='off' type='text' placeholder='Type in your full address, e.g. 701 Pike St, Seattle')
+            div HLP Service releases which are used in this demo:
+            #releaseInfoTxt(value='Used Service Releases:/n')
+        #mapContainer
+    script(src='/javascripts/examples/v31/release-requests.js')
+    script(src='/javascripts/examples/v31/geocoder_checkout_3_1.js')

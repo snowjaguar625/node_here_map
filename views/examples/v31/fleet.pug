@@ -1,0 +1,339 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/v31/release-requests.js')
+    script(src='/javascripts/examples/v31/fleet.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            | &#x9;
+            table.searchBar
+                tbody
+                tr
+                    td
+                    h5 Region
+                    | &#x9;&#x9;&#x9;
+                    td
+                    select#country.form-control(onchange='switchRegion(country.options[country.options.selectedIndex].value)')
+                        option(value='EU', selected='selected') Europe
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        option(value='NA') North America
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        option(value='BR') Brazil
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        option(value='MEA') MEA
+                | &#x9;&#x9;
+                tr
+                    td
+                    h5 Start:
+                    | &#x9;&#x9;&#x9;
+                    td
+                    input#input-from.form-control(type='text', value='Frankfurt')
+                | &#x9;&#x9;
+                tr
+                    td
+                    h5 Destination:
+                    | &#x9;&#x9;&#x9;
+                    td
+                    input#input-to.form-control(type='text', value='Elly-Beinhorn-Straße Eschborn')
+                | &#x9;&#x9;
+                tr
+                    td
+                    .checkbox.nospace
+                        label
+                        input#useCar(type='checkbox', value='')
+                        | Show Car Routing Only
+                    | &#x9;&#x9;&#x9;
+                    td
+                    .checkbox.nospace
+                        label
+                        input#showMultipleRoutes(type='checkbox', value='')
+                        | Keep Previous Routes Displayed
+            | &#x9;
+            table
+                tbody
+                tr
+                    td
+                    h5 Truck Attributes:
+                | &#x9;&#x9;
+                tr
+                    td(colspan='2')
+                    table(border='0')
+                        tbody
+                        tr
+                            td TrailersCount
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;
+                            td
+                            select#trailersCount
+                                option(value='0', selected='selected') 0
+                                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                option(value='1') 1
+                                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                option(value='2') 2
+                                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                option(value='3') 3
+                                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                                option(value='4') 4
+                        tr
+                            td(colspan='3')
+                            h5 shipped Hazardous Goods
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        tr
+                            td
+                            .checkbox.nospace
+                                label
+                                input#explosive(type='checkbox', value='')
+                                | explosive
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                            td
+                            .checkbox.nospace
+                                label
+                                input#gas(type='checkbox', value='')
+                                | gas
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                            td
+                            .checkbox.nospace
+                                label
+                                input#flammable(type='checkbox', value='')
+                                | flammable
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                            td
+                            .checkbox.nospace
+                                label
+                                input#combustible(type='checkbox', value='')
+                                | combustible
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        tr
+                            td
+                            .checkbox.nospace
+                                label
+                                input#organic(type='checkbox', value='')
+                                | organic
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                            td
+                            .checkbox.nospace
+                                label
+                                input#poison(type='checkbox', value='')
+                                | poison
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                            td
+                            .checkbox.nospace
+                                label
+                                input#radioActive(type='checkbox', value='')
+                                | radioActive
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                            td
+                            .checkbox.nospace
+                                label
+                                input#corrosive(type='checkbox', value='')
+                                | corrosive
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        tr
+                            td
+                            .checkbox.nospace
+                                label
+                                input#poisonousInhalation(type='checkbox', value='')
+                                | poisonousInh.
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                            td
+                            .checkbox.nospace
+                                label
+                                input#harmfulToWater(type='checkbox', value='')
+                                | water harm.
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                            td
+                            .checkbox.nospace
+                                label
+                                input#other(type='checkbox', value='')
+                                | other
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        tr
+                            td(colspan='2')
+                            h5 height / weight etc. 
+                    | &#x9;&#x9;&#x9;&#x9;
+                    select#metric
+                        option(value='1') Metric
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                        option(value='2') Imperial
+                    table(border='0')
+                        tbody
+                        tr
+                            td limited weight
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                            td
+                            input#limitedWeight.form-control(type='text', style='width:35px;', value='')
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                            td weight p. axle
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                            td
+                            input#weightPerAxel.form-control(type='text', style='width:35px;', value='')
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                            td height
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                            td
+                            input#height.form-control(type='text', style='width:35px;', value='')
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                            td Alternatives
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                            td
+                            input#alt.form-control(type='text', style='width:35px;', value='1')
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        tr
+                            td width 
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                            td
+                            input#width.form-control(type='text', style='width:35px;', value='')
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                            td length 
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                            td
+                            input#length.form-control(type='text', style='width:35px;', value='')
+            | &#x9;
+            table
+                tbody
+                tr
+                    td(colspan='2')
+                    h5 Options
+                | &#x9;&#x9;
+                tr
+                    td Tollroads
+                    | &#x9;&#x9;&#x9;
+                    td
+                    select#tollroads
+                        option(value='-3') Strict Exclude
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        option(value='-2') Soft Exclude
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        option(value='-1') Avoid
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        option(value='0', selected='selected') Default
+                    | &#x9;&#x9;&#x9;
+                    td Motorways
+                    | &#x9;&#x9;&#x9;
+                    td
+                    select#motorways
+                        option(value='-3') Strict Exclude
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        option(value='-2') Soft Exclude
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        option(value='-1') Avoid
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        option(value='0', selected='selected') Default
+                | &#x9;&#x9;
+                tr
+                    td Boat Ferries
+                    | &#x9;&#x9;&#x9;
+                    td
+                    select#boatFerries
+                        option(value='-3') Strict Exclude
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        option(value='-2') Soft Exclude
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        option(value='-1') Avoid
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        option(value='0', selected='selected') Default
+                    | &#x9;&#x9;&#x9;
+                    td Rail Ferries
+                    | &#x9;&#x9;&#x9;
+                    td
+                    select#railFerries
+                        option(value='-3') Strict Exclude
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        option(value='-2') Soft Exclude
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        option(value='-1') Avoid
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        option(value='0', selected='selected') Default
+                | &#x9;&#x9;
+                tr
+                    td Tunnels
+                    | &#x9;&#x9;&#x9;
+                    td
+                    select#tunnels
+                        option(value='-3') Strict Exclude
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        option(value='-2') Soft Exclude
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        option(value='-1') Avoid
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        option(value='0', selected='selected') Default
+                    | &#x9;&#x9;&#x9;
+                    td Dirt Roads
+                    | &#x9;&#x9;&#x9;
+                    td
+                    select#dirtRoads
+                        option(value='-3') Strict Exclude
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        option(value='-2') Soft Exclude
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        option(value='-1') Avoid
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        option(value='0', selected='selected') Default
+                | &#x9;&#x9;
+                tr
+                    td Route option
+                    | &#x9;&#x9;&#x9;
+                    td
+                    select#routeOption
+                        option(value='fastest', selected='selected') Fastet
+                    | &#x9;&#x9;&#x9;
+                    td Traffic
+                    | &#x9;&#x9;&#x9;
+                    td
+                    select#traffic
+                        option(value='enabled', selected='selected') enabled
+                        | &#x9;&#x9;&#x9;&#x9;&#x9;
+                        option(value='disabled') disabled
+            | &#x9;
+            table(border='0')
+                tbody
+                tr
+                    td
+                    h5 Layers
+                | &#x9;&#x9;
+                tr
+                    td
+                    .checkbox.nospace
+                        label
+                        input#Transport(onchange='handleTransport(this);', type='checkbox', value='')
+                        | Transport Data
+                    | &#x9;&#x9;&#x9;
+                    td
+                    .checkbox.nospace
+                        label
+                        input#Traffic(onchange='handleTraffic(this);', type='checkbox', value='')
+                        | Traffic Flow Data
+                | &#x9;&#x9;
+                tr
+                    td
+                    .checkbox.nospace
+                        label
+                        input#showFence(onchange='handleFence(this);', type='checkbox', value='')
+                        | Show Route Fence
+                | &#x9;&#x9;
+                tr
+                    td
+                    input#startRouting.btn.btn-default.btn-xm(type='button', value='route', onclick='removeAndStartRouting()')
+                    | &#x9;&#x9;&#x9;
+                    td
+                    input#capture.btn.btn-default.btn-xm(type='button', value='Capture', onclick='startCapture()')
+                | &#x9;&#x9;
+                tr
+                    td#distance
+                    | &#x9;&#x9;&#x9;
+                    td#time
+            | &#x9;
+            | &#x9;&#x9;HLP Service releases which are used in this demo:
+            | &#x9;&#x9;
+            | &#x9;&#x9;&#x9;
+            #releaseInfoTxt(value='Used Service Releases:/n')
+            | &#x9;&#x9;
+            | &#x9;
+            | &#x9;
+            | &#x9;&#x9;Snapshot Container
+            | &#x9;&#x9;
+            | &#x9;&#x9;&#x9;
+            #snapshotContainer(value='Used Service Releases:/n')
+        #mapContainer

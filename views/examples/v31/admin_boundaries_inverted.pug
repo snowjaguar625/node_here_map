@@ -1,0 +1,48 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            | &#x9;
+            p#mapReleaseTxt
+                | After selection, additional info is retrieved from PDE Web Service and displayed.
+            | &#x9;
+            .form-horizontal
+                .form-group
+                .col-sm-9
+                    p
+                    | In this example we demonstrate how to 
+                    br
+                    |  perform a search and how to handle the results including 
+                    | &#x9;&#x9;&#x9;&#x9;
+                    br
+                    |  the shape of the AdminBoundary
+                    | &#x9;&#x9;&#x9;&#x9;
+                    p
+                    | Search allows you to perform geocode (address to position) 
+                    br
+                    | and reverse geocode (position to address) searches.
+                    | &#x9;&#x9;&#x9;&#x9;
+                    p
+                    | The polygon will show the next admin level. If the Address is on MatchLevel 
+                    br
+                    | Search for an address:
+                    | &#x9;&#x9;&#x9;
+                    | &#x9;&#x9;&#x9;&#x9;
+                    input#geoCode(type='text', size='25', value='Schwalbach Taunus DE', onkeyup='if (event.keyCode == 13) geocode();')
+                    |    
+                    br
+                    |   
+                    | &#x9;&#x9;&#x9;&#x9;
+                    br
+                    | Or do for 50.1802815,8.474503934 a: 
+                    p
+                    |  &#x9;
+                    | &#x9;&#x9;&#x9;&#x9;
+                    input#reverseGeoCode(type='button', value='ReverseGeocode', onclick='reverseGeocode();')
+    #mapContainer
+    script(src='/javascripts/examples/v31/InvertedPolygon.js')
+    script(src='/javascripts/examples/v31/admin_boundaries_inverted.js')

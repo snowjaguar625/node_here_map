@@ -1,0 +1,70 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            | &#x9;
+            p#mapReleaseTxt
+                | After route calculation, additional info is retrieved from PDE Web Service and displayed.
+            | &#x9;
+            table(border='0')
+                tbody
+                tr
+                    td Start
+                    td
+                    input#start.form-control(type='text', size='50', value='Am Kronberger Hang 8, Schwalbach')
+                | &#x9;&#x9;
+                tr
+                    td Destination
+                    td
+                    input#dest.form-control(type='text', size='50', value='Frankfurt am Main', onkeydown='if (event.keyCode == 13) routeButton.onclick();')
+                    | &#x9;&#x9;&#x9;&#x9;
+                    input#routeButton.btn.btn-default.btn-sm(type='submit', value='Calculate Route')
+                | &#x9;&#x9;
+                tr
+                    td
+            | &#x9;
+            #feedbackTxt(style='left:0; top:0; z-index: 0;')
+            | &#x9;
+            #colors(style='display: none; margin: 5px 0')
+                table(border='0')
+                tbody
+                    tr
+                    td
+                        span.colorbox(style='margin-left: 5px; background: #9999FF')
+                        | Inter* Motorway (1)
+                    | &#x9;&#x9;&#x9;&#x9;
+                    td
+                        span.colorbox(style='margin-left: 5px; background: #0000FF')
+                        | Motorway (2)
+                    | &#x9;&#x9;&#x9;&#x9;
+                    td
+                        span.colorbox(style='margin-left: 5px; background: #FF9900')
+                        | Express Highway (3)
+                    | &#x9;&#x9;&#x9;
+                    tr
+                    td
+                        span.colorbox(style='margin-left: 5px; background: #00FF00')
+                        | Highway (4)
+                    | &#x9;&#x9;&#x9;&#x9;
+                    td
+                        span.colorbox(style='margin-left: 5px; background: #FF0000')
+                        | Urban (5)
+                    | &#x9;&#x9;&#x9;&#x9;
+                    td
+                        span.colorbox(style='margin-left: 5px; background: #CCCCCC')
+                        | Other (6)
+                | &#x9;&#x9;
+                a(target='_blank', href='https://tcs.ext.here.com/pde/layer?region=NA&release=16111&url_root=pde.api.here.com&layer=LINK_ATTRIBUTE_FC1') See ROUTE_TYPES per country
+                | &#x9;
+                div HLP Service releases which are used in this demo:
+                | &#x9;
+                #releaseInfoTxt(style='left:0; top:0; z-index: 0;', value='Used Service Releases:/n')
+        #mapContainer
+        #pageblock
+        #spinner
+    script(src='/javascripts/examples/v31/release-requests.js')
+    script(src='/javascripts/examples/v31/road_types_along_route.js')

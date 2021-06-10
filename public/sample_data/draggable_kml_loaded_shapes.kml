@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+	<Document>
+		<name>Berlin-Schönefeld</name>
+		<Style id="globalStyles">
+			<LineStyle id="line">
+				<color>7fff0000</color>
+				<width>3</width>
+			</LineStyle>
+			<PolyStyle id="poly">
+				<color>7d00ffff</color>
+				<fill>0</fill>
+				<outline>1</outline>
+			</PolyStyle>
+			<BalloonStyle>
+				<textColor>99ffa000</textColor>
+				<!-- 
+					Styling of the balloon text. $[geDirections] part should be replaced by empty string. 
+					The only supported wilde cards are $[text] and $[description]. Other wild cards are
+					replaced with empty string.
+				-->
+				<text>
+					<![CDATA[
+						<span style="color:#1080DD; font-size:16px; font-weight:bold;">$[name]</span>
+						<br/><br/>
+						<span style="font-family:Courier; font-size:12px;">$[description]</span>
+						<br/><br/>
+						<a target="_blank" href="http://www.berlin-airport.de/EN/index2.php">www.berlin-airport.de</a>
+						<br/><br/>
+						<!-- insert the to/from hyperlinks in google earth -->
+						$[geDirections]
+					]]>
+				</text>
+			</BalloonStyle>
+		</Style>
+		<Style id="terminalA">
+			<PolyStyle>
+				<color>7d00ff00</color>
+				<fill>1</fill>
+				<outline>0</outline>
+			</PolyStyle>
+			<BalloonStyle>
+				<displayMode>normal</displayMode>
+				<text>
+					<![CDATA[
+						<span style="color:#1080DD; font-size:16px; font-weight:bold;">$[name]</span><br/><br/>
+						<img src="../../res/kml/berlin_airport/images/terminalA.jpg"></img><br/><br/>
+						<span style="font-size:10px">source: <a target="_blank" href="http://www.berlin-airport.de">www.berlin-airport.de</a></span>
+					]]>
+				</text>
+			</BalloonStyle>
+		</Style>
+
+		<!-- 
+			This should show standard placemark(blue color) with info bubble attached to it.
+			Info bubble should below mentioned name, description and should also show official 
+			web site URL. Styling of the info bubble is declared in globalStyles section.
+		-->
+		<Placemark>
+			<name>Berlin-Schönefeld</name>
+			<description>Flughafen, 12529, Schönefeld, Germany</description>
+			<styleUrl>#globalStyles</styleUrl>
+			<Point>
+				<coordinates>13.505812,52.375318,0</coordinates>
+			</Point>
+		</Placemark>
+
+		<!-- This folder groups surroundings of the main runway. -->
+		<Folder>
+			<name>Surroundings near main runway</name>
+			<!-- 
+				This should draw a blue transparent line with fixed 16px width over the main runway.
+				This example shows how geometry can extend styles and override them via inner styles.
+				Due to that fact width of the runway should be 16px instead of 4px(see globalStyles).
+			-->	
+			<Placemark>
+				<name>Runway</name>
+				<styleUrl>#globalStyles</styleUrl>
+				<Style>
+					<LineStyle>
+						<!--
+						Coloring is implicitly merged from the global style, width is explicitly overridden.
+						-->
+						<width>16</width>
+					</LineStyle>
+					<BalloonStyle>
+						<displayMode>hide</displayMode>	
+					</BalloonStyle>
+				</Style>
+				<LineString>
+					<tessellate>1</tessellate>
+					<coordinates>13.480122,52.366528 13.531041,52.378607</coordinates>
+				</LineString>
+			</Placemark>
+		</Folder>
+
+		<!-- This folder groups terminals. -->
+		<Folder>
+			<name>Airport Terminals</name>
+			<Placemark>
+				<name>Schönefeld Terminal A</name>
+				<styleUrl>#terminalA</styleUrl>
+				<MultiGeometry>
+					<Polygon>
+						<outerBoundaryIs>
+							<LinearRing>
+								<coordinates>
+									13.519812,52.388373
+									13.520453,52.388528
+									13.520828,52.388612
+									13.521212,52.388694
+									13.521236,52.388718
+									13.521252,52.388757
+									13.521250,52.388828
+									13.521043,52.388820
+									13.521032,52.388831
+									13.520898,52.388800
+									13.520922,52.388774
+									13.520389,52.388638
+									13.520383,52.388648
+									13.519737,52.388489
+								</coordinates>
+							</LinearRing>
+						</outerBoundaryIs>
+					</Polygon>
+					<Polygon>
+						<outerBoundaryIs>
+							<LinearRing>
+								<coordinates>
+									13.520908,52.390065
+									13.520865,52.390064
+									13.520865,52.390060
+									13.520854,52.390057
+									13.520854,52.390052
+									13.520867,52.390051
+									13.521028,52.388833
+									13.521044,52.388821
+									13.521251,52.388826
+									13.521232,52.388965
+									13.521243,52.388970
+									13.521232,52.389000
+									13.521221,52.389001
+									13.521162,52.389416
+									13.521170,52.389422
+									13.521168,52.389470
+									13.521160,52.389474
+									13.521074,52.390075
+									13.520916,52.390069
+									13.520908,52.390062
+									13.520865,52.390062
+								</coordinates>
+							</LinearRing>
+						</outerBoundaryIs>
+					</Polygon>
+					<Polygon>
+						<outerBoundaryIs>
+							<LinearRing>
+								<coordinates>
+									13.519623,52.388884
+									13.519542,52.388866
+									13.519596,52.388779
+									13.519682,52.388799
+									13.519800,52.388632
+									13.519883,52.388643
+									13.519950,52.388563
+									13.519996,52.388571
+									13.519977,52.388611
+									13.520127,52.388648
+									13.520100,52.388691
+									13.520130,52.388702
+									13.520159,52.388648
+									13.520419,52.388716
+									13.520393,52.388758
+									13.520629,52.388820
+									13.520422,52.389138
+									13.519599,52.388940
+									13.519625,52.388889
+									13.519537,52.388869
+								</coordinates>
+							</LinearRing>
+						</outerBoundaryIs>
+					</Polygon>
+				</MultiGeometry>
+			</Placemark>
+			<Placemark>
+				<name>Schönefeld Terminal D</name>
+				<Style>
+					<PolyStyle>
+						<color>7d0000ff</color>
+						<fill>1</fill>
+						<outline>0</outline>
+					</PolyStyle>
+					<BalloonStyle>
+						<text>
+							<![CDATA[
+								<span style="color:#1080DD; font-size:16px; font-weight:bold;">$[name]</span><br/><br/>
+								<img src="../../res/kml/berlin_airport/images/terminalD.jpg"></img>
+								<br/><br/>
+								<span style="font-size:10px">source: <a target="_blank" href="http://www.berlin-airport.de">www.berlin-airport.de</a></span>
+							]]>
+						</text>
+					</BalloonStyle>
+				</Style>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>
+								13.518208,52.388608
+								13.518184,52.388643
+								13.518125,52.388623
+								13.518146,52.388590
+								13.518135,52.388587
+								13.518468,52.388065
+								13.519812,52.388371
+								13.519474,52.388901
+							</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>	
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Schönefeld Terminal C</name>
+				<Style>
+					<PolyStyle>
+						<color>bb00FFFF</color>
+						<fill>1</fill>
+						<outline>0</outline>
+					</PolyStyle>
+					<BalloonStyle>
+						<text>
+							<![CDATA[
+								<span style="color:#1080DD; font-size:16px; font-weight:bold;">$[name]</span><br/>
+							]]>
+						</text>
+					</BalloonStyle>
+				</Style>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>
+								13.517449,52.387945
+								13.517484,52.387878
+								13.517767,52.387942
+								13.517798,52.387898
+								13.518066,52.387963
+								13.518035,52.388018
+								13.518386,52.388100
+								13.518417,52.388052
+								13.518468,52.388066
+								13.518397,52.388175
+								13.517452,52.387947
+							</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>	
+				</Polygon>
+			</Placemark>
+			<Placemark>
+				<name>Schönefeld Terminal B</name>
+				<Style>
+					<PolyStyle>
+						<color>aaFF00FF</color>
+						<fill>1</fill>
+						<outline>0</outline>
+					</PolyStyle>
+					<BalloonStyle>
+						<text><![CDATA[<span style="color:#1080DD; font-size:16px; font-weight:bold;">$[name]</span>]]>
+					</text>
+					</BalloonStyle>
+				</Style>
+				<Polygon>
+					<outerBoundaryIs>
+						<LinearRing>
+							<coordinates>
+								13.520597,52.388871
+								13.520660,52.388884
+								13.520674,52.388869
+								13.520706,52.388874
+								13.520707,52.388883
+								13.520748,52.388892
+								13.520753,52.388888
+								13.520876,52.388917
+								13.520879,52.388923
+								13.520919,52.388933
+								13.520925,52.388928
+								13.520937,52.388932
+								13.520942,52.388943
+								13.520811,52.389153
+								13.520549,52.389087
+								13.520636,52.388950
+								13.520557,52.388930
+							</coordinates>
+						</LinearRing>
+					</outerBoundaryIs>
+				</Polygon>
+			</Placemark>
+		</Folder>
+	</Document>
+</kml>

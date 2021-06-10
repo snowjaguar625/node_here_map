@@ -90,7 +90,7 @@ input[type=submit], input[type=button]{
 	font-size: 12px;
 	overflow: auto;
 }
-.ctrl-panel select.form-control, input.form-control {
+.ctrl-panel select.form-control, .ctrl-panel input.form-control {
 		padding: 2px 6px;
 		height: 30px;
 	
