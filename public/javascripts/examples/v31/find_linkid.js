@@ -1,5 +1,5 @@
 /* 
-		author Mykyta
+		author 
 		TCS Melbourne
 		(C) HERE 2015
 		author asadovoy

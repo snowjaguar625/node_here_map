@@ -1,5 +1,5 @@
 /*
-	author Mykyta
+	author 
 	(C) HERE 2016
     author asadovoy
     (C) HERE 2019 -> migrate to 3.1
@@ -261,6 +261,9 @@
 
 		script = document.createElement("script");
 		script.src = urlRoutingReq;
+		console.log("fdsfsdf");
+		console.log(urlRoutingReq);
+		console.log(script);
 		str_Point = new H.geo.Point(start.lat, start.lng);
 		document.body.appendChild(script);
 	}

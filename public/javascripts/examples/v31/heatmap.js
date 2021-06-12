@@ -1,7 +1,7 @@
 /**
 		* author domschuette
 		* (C) HERE 2016
-            author Mykyta
+            author 
             (C) HERE 2019 -> migrate to 3.1
 		*/
 		

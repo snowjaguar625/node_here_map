@@ -1,0 +1,45 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p#mapReleaseTxt This demo can be used to get the intersections along a route.
+            p Set your app_id and app_code for this example to work correctly.
+            p The start and destination can be geocoded or selected via long click in map.
+            p
+                | The CLE isoline search result also contains the Layer LINK_FCN, which can be used to detect intersections.
+            p
+            hr.separator
+            .form-horizontal
+                .form-group
+                    label.control-label.col-sm-4(for='serverURL') Endpoint:
+                    .col-sm-8
+                        input#serverURL.form-control.input-wide(type='text' value='https://cle.api.here.com' onchange='setEnvironment()')
+                .form-group
+                    label.control-label.col-sm-4(for='customAppId') App id:
+                    .col-sm-8
+                        input#customAppId.form-control.input-wide(type='text' value='' placeholder='Set your app_id' autocomplete='off' onchange='setCredentials();')
+                .form-group
+                    label.control-label.col-sm-4(for='customAppCode') App code:
+                    .col-sm-8
+                        input#customAppCode.form-control.input-wide(type='text' value='' placeholder='Set your app_code' autocomplete='off' onchange='setCredentials();')
+                .form-group
+                    label.control-label.col-sm-4(for='start') Start:
+                    .col-sm-8
+                        input#start.form-control.input-wide(type='text' value='Frankfurt am Main' onkeydown='if (event.keyCode == 13)startRouteCalculation();')
+                .form-group
+                    label.control-label.col-sm-4(for='dest') Destination:
+                    .col-sm-8
+                        input#dest.form-control.input-wide(type='text' size='40' value='Darmstadt' onkeydown='if (event.keyCode == 13)startRouteCalculation();')
+                .form-group
+                    label.control-label.col-sm-4(for='routeButton')  
+                    .col-sm-8
+                        input#routeButton.btn.btn-default.btn-sm(type='submit' value='Calculate Route')
+            #feedbackTxt.form-group
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+        #mapContainer
+    script(src='/javascripts/examples/v31/release-requests.js')
+    script(src='/javascripts/examples/v31/find_intersection_along_route.js')

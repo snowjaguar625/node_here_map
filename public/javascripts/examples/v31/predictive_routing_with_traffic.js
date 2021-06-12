@@ -1,5 +1,5 @@
 // (C) dschutte HERE 2016
-    //author Mykyta
+    //author 
     //(C) HERE 2019 -> migrate to 3.1
 
 	var mapContainer = document.getElementById('mapContainer');

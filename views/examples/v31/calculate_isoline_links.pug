@@ -1,0 +1,110 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/v31/center-utils.js')
+    script(src='/javascripts/examples/v31/wellknown.js')
+    #content-padder 
+    #content-real
+        style.
+            a.isoline-record {
+            color: #00ACDC;
+            text-decoration: underline;
+            }
+            .isoline-record {
+            font-size: small;
+            padding: 0.1em;
+            }
+            table.isoline-record td {
+            padding: 0.4em;
+            border: 1px solid white
+            }
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p#mapReleaseTxt
+                | This demo can be used to calculate an isoline of reachability. The isoline is returned as a polygon shape by default. Optionally, the road links defining the isoline can be retrieved in addition or solely.
+            p
+                b
+                    font(color='red') Set your Api Key for this example to work correctly.
+            p The start/destination can be geocoded or selected via long click in map.
+            hr.separator
+            .form-horizontal
+                .form-group
+                    label.control-label.col-sm-3(for='serverURL') Endpoint:
+                    .col-sm-9
+                        input#serverURL.form-control.input-wide(type='text' value='https://fleet.ls.hereapi.com')
+                .form-group
+                    label.control-label.col-sm-3(for='customApiKey') Api Key:
+                    .col-sm-8
+                        input#customApiKey.form-control.input-wide(type='text' value='' placeholder='Set your Api Key' autocomplete='off' onchange='setCredentials();')
+                .form-group
+                    label.control-label.col-sm-3(for='center') Center:
+                    .col-sm-9
+                        label
+                            input#start-radiobutton(type='radio' name='center-type' checked='')
+                            | Start
+                        label
+                            input#des-radiobutton(type='radio' name='center-type')
+                            | Destination
+                        input#center.form-control.input-wide(type='text' value='Frankfurt am Main' onkeydown='if(event.keyCode == 13)startIsolineCalculation();')
+                .form-group
+                    label.control-label.col-sm-3(for='maxDetour') Range type:
+                    .col-sm-9
+                        label
+                            input#time-radio-button(type='radio' name='detour-type' onclick='rangeTypeChanged(this);' value='time' checked='')
+                            | Time
+                        label
+                            input(type='radio' name='detour-type' onclick='rangeTypeChanged(this);' value='distance')
+                            | Distance
+                        label
+                            input(type='radio' name='detour-type' onclick='rangeTypeChanged(this);' value='consumption')
+                            | Consumption
+                        select#range-type-time.form-control.input-wide(style='display: none')
+                            option(value='60') 1 minute
+                            option(value='180' selected='') 3 minutes
+                            option(value='360') 6 minutes
+                            option(value='600') 10 minutes
+                            option(value='900') 15 minutes
+                            option(value='1200') 20 minutes
+                            option(value='1800') 30 minutes
+                            option(value='2700') 45 minutes
+                        select#range-type-distance.form-control.input-wide(style='display: none')
+                            option(value='5000' selected='') 5 km
+                            option(value='10000') 10 km
+                            option(value='30000') 30 km
+                            option(value='50000') 50 km
+                            option(value='60000') 60 km
+                        select#range-type-consumption.form-control.input-wide(style='display: none')
+                            option(value='0.1' selected='') 0.1 &euro;
+                            option(value='0.5') 0.5 &euro;
+                            option(value='1') 1.0 &euro;
+                            option(value='1.5') 1.5 &euro;
+                            option(value='2') 2 &euro;
+                #consumption-details.form-group(style='display: none')
+                    label.control-label.col-sm-3(for='consumption-details-data') Consumption details:
+                    .col-sm-8
+                        textarea#consumption-details-data.form-control.input-wide(rows='4')
+                            | speed,0,0.102,10,0.084,30,0.066,50,0.06,70,0.066,100,0.072,120,0.084,140,0.108;ascent,0.4;descent,0.1
+                #parameters.form-group
+                    label.control-label.col-sm-3(for='parameters-data') Parameters:
+                    .col-sm-8
+                        textarea#parameters-data.form-control.input-wide(rows='3') &amp;mode=fastest;car;traffic:disabled
+                .form-group
+                    label.control-label.col-sm-3(for='display') Display:
+                    .col-sm-9
+                        label
+                            input#links-checkbox(type='checkbox' name='display-type' value='links' checked='')
+                            |  Links
+                        label
+                            input#shape-checkbox(type='checkbox' name='display-type' value='shape')
+                            |  Outline Shape
+                .form-group
+                    label.control-label.col-sm-4(for='startButton')  
+                    .col-sm-8
+                        input#calculateButton.btn.btn-default.btn-sm(type='submit' value='Calculate Isoline')
+            #feedbackTxt.form-group(style='color:#ff0000')
+            // <div>HLP Service releases which are used in this demo:</div>
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+        #mapContainer
+    script(src='/javascripts/examples/v31/release-requests.js')
+    script(src='/javascripts/examples/v31/calculate_isoline_links.js')

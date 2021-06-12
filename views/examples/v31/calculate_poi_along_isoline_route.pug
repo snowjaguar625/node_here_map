@@ -1,0 +1,142 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/v31/custom-location-extension-isoline.js')
+    script(src='/javascripts/examples/v31/center-utils.js')
+    script(src='/javascripts/examples/v31/wellknown.js')
+    script(src='/javascripts/examples/v31/jszip.min.js')
+    #content-padder 
+    #content-real
+        style.
+            .attributes-body {
+            height: 100px;
+            overflow: auto
+            }
+            a.isoline-record {
+            color: #00ACDC;
+            text-decoration: underline;
+            }
+            .isoline-record {
+            font-size: small;
+            padding: 0.1em;
+            }
+            table.isoline-record td {
+            padding: 0.4em;
+            border: 1px solid white
+            }
+            h5 {
+            display: block;
+            font-weight: bold;
+            color: #FFC040;
+            }
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p#mapReleaseTxt This demo can be used to get the POIs along the isoline route.
+            p Set your app_id and app_code for this example to work correctly.
+            p The start and destination can be geocoded or selected via long click in map.
+            p
+                | The POIs can be searched either against CLE (Custom Layer) or PDE layers.
+                br
+                input#more.btn.btn-default.btn-xs(type='button' value='more' onclick='detailsSelect();')
+            #detaildesc.details(style='display: none')
+                p
+                    | To use the Demo with one of the pre-defined examples please follow the below steps:
+                p
+                    ul
+                        li
+                        | For CLE pre-defined example, please choose CLE from the Layer selection and click on the
+                        | &apos;Get POIs along Isoline&apos; button. In case no result is returned, please upload the demo example first
+                        | by clicking on the &apos;Refresh CLE Layer&apos; button.
+                        li
+                        | For PDE pre-defined example, please choose PDE from the Layer selection and choose one of the
+                        | PDE layers from the &apos;Predefined PDE Layers&apos; selection box and click on the &apos;Get POIs along Isoline&apos;
+                        | buton.
+            hr.separator
+            .form-horizontal
+                .form-group
+                    label.control-label.col-sm-4(for='serverURL') Endpoint:
+                    .col-sm-8
+                        input#serverURL.form-control.input-wide(type='text' value='https://fleet.ls.hereapi.com/2/' onchange='setEnvironment()')
+                .form-group
+                    label.control-label.col-sm-4(for='customApiKey') Api Key:
+                    .col-sm-8
+                        input#customApiKey.form-control.input-wide(type='text' value='' placeholder='Set your Api Key' autocomplete='off' onchange='setCredentials();')
+                .form-group
+                    label.control-label.col-sm-4(for='start') Start:
+                    .col-sm-8
+                        input#start.form-control.input-wide(type='text' value='Frankfurt am Main' onkeydown='if (event.keyCode == 13)startRouteCalculation();')
+                .form-group
+                    label.control-label.col-sm-4(for='dest') Destination:
+                    .col-sm-8
+                        input#dest.form-control.input-wide(type='text' size='40' value='Darmstadt' onkeydown='if (event.keyCode == 13)startRouteCalculation();')
+                .form-group
+                    label.control-label.col-sm-4(for='maxDetour') Detour type:
+                    .col-sm-8
+                        label
+                            input#time-radio-button(type='radio' name='detour-type' onclick='detourTypeChanged(this);' value='time' checked='')
+                            | Time
+                        label
+                            input(type='radio' name='detour-type' onclick='detourTypeChanged(this);' value='distance')
+                            | Distance
+                        select#max-detour-time.form-control.input-wide(style='display: none')
+                            option(value='60') 1 minute
+                            option(value='120') 2 minutes
+                            option(value='180' selected='') 3 minutes
+                            option(value='240') 4 minutes
+                            option(value='300') 5 minutes
+                            option(value='360') 6 minutes
+                        select#max-detour-distance.form-control.input-wide(style='display: none')
+                            option(value='1000') 1 km
+                            option(value='2000') 2 km
+                            option(value='3000' selected='') 3 km
+                            option(value='4000') 4 km
+                            option(value='5000') 5 km
+                            option(value='6000') 6 km
+                .form-group
+                    label.control-label.col-sm-4(for='layer') Layer:
+                    .col-sm-8
+                        label
+                            input#layer-radio-button-pde(type='radio' name='layer-in' onclick='environementChanged(this);' value='pde' checked='')
+                            | PDE
+                        label
+                            input#layer-radio-button-cle(type='radio' name='layer-in' onclick='environementChanged(this);' value='cle')
+                            | CLE
+                #predefinedPdeLayersDiv(style='display: none')
+                    .form-group
+                        label.control-label.col-sm-4(for='pdeExampleSelector') Predefined PDE Layers:
+                        .col-sm-8
+                            select#pdeExampleSelector.form-control(onchange='predefinedExample(this)')
+                                option(value='TRUCK_POI' selected='true') TRUCK_POI
+                                option(value='EVCHARGING_POI') EVCHARGING_POI
+                                option(value='FUELSTATION_POI') FUELSTATION_POI
+                                option(value='PUBLIC_TRANSPORT_POI') PUBLIC_TRANSPORT_POI
+                                option(value='POI_SMALL') POI_SMALL
+                                option(value='TRUCK_PARKING_POI') TRUCK_PARKING_POI
+                                option(value='TRUCK_PARKING_POI_STATUS') TRUCK_PARKING_POI_STATUS
+                #customLayerIdDiv(style='display: none')
+                    .form-group
+                        label.control-label.col-sm-4(for='layerId') Custom Layer Id:
+                        .col-sm-8
+                            input#layerId.form-control.input-wide(type='text' value='')
+                .form-group
+                    label.control-label.col-sm-4(for='routeButton')  
+                    .col-sm-8
+                        input#routeButton.btn.btn-default.btn-sm(type='submit' value='Get POIs along Isoline')
+                //
+                    <div class="form-group">
+                    <label class="control-label col-sm-4" for="demoExampleButton">Predefined Demo Example</label>
+                    <div class="col-sm-8">
+                    <input class="btn btn-default btn-sm" type="button" id="demoExampleButton" value="Use Demo Example" onclick="predefinedExample()">
+                    </div>
+                    </div>
+                #noResultDiv(style='display: block')
+                    .form-group
+                        label.control-label.col-sm-4(for='refreshButton') No Result?
+                        .col-sm-8
+                            input#refreshButton.btn.btn-default.btn-sm(type='button' value='Refresh CLE Layer' onclick='refreshDemo()')
+            #feedbackTxt.form-group
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+        #mapContainer
+    script(src='/javascripts/examples/v31/release-requests.js')
+    script(src='/javascripts/examples/v31/calculate_poi_along_isoline_route.js')

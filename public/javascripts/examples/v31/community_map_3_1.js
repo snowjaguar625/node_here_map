@@ -1,5 +1,5 @@
 /**
-	* author boris.guenebaut@here.com, Mykyta
+	* author boris.guenebaut@here.com, 
 	* (C) HERE 2014
 	*/
 

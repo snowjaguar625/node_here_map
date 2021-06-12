@@ -1,0 +1,20 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+            h5 Start: 
+            p
+            input#start(type='text' style='width:230px;' value='東京' onkeydown="if (event.keyCode == 13) geocode(document.getElementById('start').value, true)")
+            p
+            h5 Destination: 
+            p
+            input#dest(type='text' style='width:230px;' value='横浜' onkeydown="if (event.keyCode == 13) geocode(document.getElementById('dest').value, false)")
+            p
+            input#routeButton.btn.btn-default.btn-sm(type='submit' value='Calculate Route' onclick='startRouting();')
+        #mapContainer
+    script(src='/javascripts/examples/v31/simple_map_jp.js')

@@ -1,0 +1,35 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/v31/ctxtextpath.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | This example shows how a matrix Routing 
+                br
+                |         1. Maalbeekweg  3 (Zaventem)
+                br
+                | &#x9;&#x9;2. Kerktorenstraat 9 (Brussels) 
+                br
+                | &#x9;&#x9;3. Koning Albertlaan 106 (Machelen) 
+                br
+                | &#x9;&#x9;4. Warandelaan 308 (Brussels) 
+                br
+                | &#x9;&#x9;5. Potaarde 11 (Brussels) 
+                br
+                | &#x9;&#x9;6. Strombeksesteenweg 214 (Brussels) 
+                br
+                |         7. Groenweg 9 (Brussels) 
+                br
+                |         8. Antoon van Osslaan 14 (Brussels) 
+                br
+            div HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+            #dvTable
+            table#TABLE(border='1' style='border-collapse: collapse;' cellpadding='8')  
+        #mapContainer
+    script(src='/javascripts/examples/v31/release-requests.js')
+    script(src='/javascripts/examples/v31/demo_matrix_routing.js')

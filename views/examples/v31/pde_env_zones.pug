@@ -1,0 +1,14 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | Example loads displayes enviornmental zones using Fleet Telematics Advanced Data Sets API (for zoom level &gt;10)
+            #centerCoordinate
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='No tiles loaded yet')
+        #mapContainer
+    script(src='/javascripts/examples/v31/pde_env_zones.js')

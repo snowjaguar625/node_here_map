@@ -4,7 +4,7 @@
 * please register on https://developer.here.com/
 * and obtain your own API key
 *
-* author Mykyta
+* author 
 * (C) HERE 2015
 */
 

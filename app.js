@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var connect = require('connect');
 var sassMiddleware = require('node-sass-middleware')
+var pug = require('pug');
 
 var srcPath = __dirname + '/scss/base';
 var destPath = __dirname + '/public/stylesheets';
@@ -23,6 +24,14 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(sassMiddleware({
+  src: srcPath,
+  dest: destPath,
+  debug: true,
+  outputStyle: 'expanded',
+})
+);
+// app.use('/styles', express.static(path.join(__dirname, '/public/stylesheets/base')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/'));
@@ -30,15 +39,6 @@ app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/'
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/examples/v3.1', example31Route);
-
-app.use(sassMiddleware({
-      src: srcPath,
-      dest: destPath,
-      debug: true,
-      outputStyle: 'expanded',
-  })
-);
-// app.use('/styles', express.static(path.join(__dirname, '/public/stylesheets/base')));
 
 
 // catch 404 and forward to error handler

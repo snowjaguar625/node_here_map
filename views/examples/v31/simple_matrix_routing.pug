@@ -1,0 +1,34 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | This example shows how a matrix Routing 
+                br
+                | &#x9;&#x9;can be used to calculate a route to: 
+                br
+                b Am Kronberger Hang 8, Schwalbach
+                |  (50.16164,8.53413)
+                br
+                | from: 
+                br
+                | &#x9;&#x9;1. (50.14928,8.52773) 
+                br
+                | &#x9;&#x9;2. (50.14136,8.559) 
+                br
+                | &#x9;&#x9;3. (50.13046,8.5732)
+                br
+                | &#x9;&#x9;4. (50.17979,8.51766) 
+                br
+                | &#x9;&#x9;5. (50.15778,8.55425)
+                br
+                | and push routing result to the map.
+            div HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+        #mapContainer
+    script(src='/javascripts/examples/v31/release-requests.js')
+    script(src='/javascripts/examples/v31/simple_matrix_routing.js')

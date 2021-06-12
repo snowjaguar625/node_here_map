@@ -1,0 +1,26 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p Click on the map to retrieve link details and plot the link Geometry using PDE 
+            .form-group
+                .checkbox
+                label
+                    input#clear-checkbox(type='checkbox')
+                    | Clear objects before load?
+            .form-group
+                | Showing Road geomerty with Street Name
+                #responseMessage
+            #error-message-container.alert.alert-danger(style='display: none')
+                span.glyphicon.glyphicon-exclamation-sign(aria-hidden='true')
+                span.sr-only Error:
+                span#error-message Links not found or incorrect input provided.
+        #mapContainer
+        #spinner
+        #pageblock
+    script(src='/javascripts/examples/v31/pde-manager-tiles.js')
+    script(src='/javascripts/examples/v31/pde_street_details.js')

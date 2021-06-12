@@ -1,0 +1,20 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/v31/ctxtextpath.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | The example uses a custom yaml 
+                a.text-info(href='/sample_data/normal.day.filter.yaml' target='_blank' download='')
+                    b file
+                | &#x9;configured to switch diplay language to greek and filter out any labels which might be rendered in Latin characters by default
+            .form-group
+                label#filter_label.control-label(for='filter_latin_chars') Filter lating script characters
+                input#filter_latin_chars(type='checkbox' name='filter_latin_chars' onchange='changeFilter(this);')
+            #centerCoordinate.form-group
+        #mapContainer
+    script(src='/javascripts/examples/v31/custom_style_filter.js')

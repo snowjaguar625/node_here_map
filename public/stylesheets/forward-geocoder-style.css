@@ -1,0 +1,145 @@
+	#resultContainer  {
+		height: 50%;
+		width: 90%;
+		bottom: 0;
+		border: 0px solid #ebebeb;
+		margin: 0 auto;
+		background: white;
+		color: #66707e;
+	}
+
+	#wrapper {
+		width:100%;
+		height: calc(100% - 80px);
+		overflow:hidden;
+		background-color: #edf3f5;
+		position: absolute;
+		top: 80px;
+		left: 0px;
+	}
+
+	#footer{
+		display:none;
+		/*terms/conditions already displayed on the map. dont need two.*/
+	}
+	div#left-col {
+		padding: 0;
+		width: 310px;
+		float: left;
+		overflow-x: hidden;
+
+		height: calc(100% - 35px);
+		overflow-y: auto;
+	}
+
+	#left-col .form-control,.btn-default:not(.query-btn){
+		font-size:11px;
+	}
+
+	#left-col input.form-control{
+		height:25px;
+	}
+
+
+	#left-col .form-group{
+		margin-bottom: 5px;
+	}
+
+	.modal .checkbox{
+		margin-top: 0px;
+		margin-bottom: 0px;
+	}
+
+	.modal-body{
+		font-size: 11px;
+	}
+
+	.modal-body input.form-control{
+		height:25px;
+	}
+
+	.modal-body .row{
+		margin-bottom: 3px;
+	}
+
+	div#middle-col {
+		padding: 0;
+		margin: 0;
+		float:left;
+		overflow: hidden;
+	}
+
+	div#rightmost-col {
+		padding: 0;
+		width: 310px;
+		float: right;
+		overflow-x: hidden;
+
+		height: calc(100% - 35px);
+		overflow-y: auto;
+	}
+
+	.info-box {
+		background-color: white;
+		padding: 0px 20px;
+		color: #66707e;
+	}
+
+	.info-box p {
+		font-size: .8em;
+	}
+
+	#content {
+		margin: 0 0 0 300px;
+	}
+
+	.badge{
+		background:#00afaa;
+	}
+
+	.info-box .form-control{
+		width:100%;
+	}
+
+	hr{
+		border-color: #00afaa;
+	}
+
+	#urlRequestContainer{
+		width: 100%; 
+		height: 35px; 
+		position: absolute; 
+		bottom: 0; 
+		left: 0px; 
+		overflow:hidden; 
+		background:#00afaa;
+	}
+
+	.border-bottom-grey{
+		border-bottom: 1px solid #ccc;
+	}
+
+	.border-right-grey{
+		border-right: 1px solid #ccc;
+	}
+
+	.border-bottom-accent{
+		border-bottom: 1px dashed #00afaa;
+	}
+
+	.btn-default:not(.query-btn){
+		margin-top:2px;
+		padding-top: 2px;
+		padding-bottom: 2px;
+	}
+
+	#json {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+	.string { color: green; }
+	.number { color: darkorange; }
+	.boolean { color: blue; }
+	.null { color: magenta; }
+	.key { color: red; }
+
+	pre{
+		font-size: 10px;
+	}

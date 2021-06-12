@@ -1,5 +1,5 @@
 /*
-		* authors Mykyta
+		* authors 
 		* (C) HERE 2015
 		*
 		* This is an example implementation of the route toll cost calculation offered by HERE.

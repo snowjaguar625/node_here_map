@@ -1,0 +1,65 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src="https://js.api.here.com/v3/3.1/mapsjs-clustering.js" type="text/javascript" charset="utf-8")
+    #content-padder 
+    #content-real
+        #leftBar.ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p Incidents
+            div
+                ul#listIncidents
+        style(type='text/css').
+            #leftBar {
+            padding: 10px 10px 10px 10px;
+            width: 300px;
+            height: 98%;
+            overflow: auto;
+            border-right: solid 3px #CCC;
+            // background-color: #666;
+            position: absolute;
+            z-index: 999;
+            font-size: 11px;
+            }
+            #listIncidents {
+            padding-left: 5px;
+            }
+            #listIncidents li {
+            height: 100%;
+            width: 260px;
+            padding: 5px 5px 5px 5px;
+            margin-bottom: 10px;
+            border: solid 2px #000;
+            list-style: none;
+            background-color: #FFF;
+            cursor: pointer;
+            border-radius: 10px;
+            }
+            .H_ib {
+            color: #000;
+            font-size: 12px;
+            font-family: Arial;
+            }
+            .H_ib_content {
+            width: 200px;
+            }
+            .H_ib_body {
+            background-color: #FFF;
+            border-radius: 10px;
+            border: dotted 3px #000;
+            padding: 10px 5px 5px 5px;
+            }
+            .H_ib_close .H_icon {
+            fill: #FF0000 !important;
+            }
+            .crit_critical {
+            color: #FF0000;
+            font-weight: bold;
+            }
+            .crit_minor {
+            color: #009933;
+            font-weight: bold;
+            }
+        #mapContainer
+    script(src='/javascripts/examples/v31/traffic_viewer.js')

@@ -1,0 +1,35 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | This example shows how a route manager 
+                br
+                | &#x9;&#x9;can be used to calculate a route from: 
+                br
+                b Frankfurt 
+                | (50.11203,8.68281)
+                br
+                | to: 
+                br
+                b Rodelheim 
+                | (50.1238883,8.6124551)
+                br
+                | push routing result to the map.
+                br
+                | After Route calculation, Incidents are requested
+            p
+                | Routing manager supports various options
+                br
+                | in making a routing request like setting type,
+                br
+                | transport mode and routes to avoid.
+            div HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+        #mapContainer
+    script(src='/javascripts/examples/v31/release-requests.js')
+    script(src='/javascripts/examples/v31/simple_routing_with_traffic.js')

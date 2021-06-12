@@ -1,0 +1,38 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/v31/jszip.min.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            |   The demo shows how to force HLS Router along an actually driven trace.
+            |   Useful to attribute the route e.g. with live traffic or guidance information,
+            |   which currently can&apos;t be added from CLE layers into the RME response.
+            h5 Please provide a trace to match with RME by either:
+            ul
+                li Drag &amp; drop a trace file (CSV, GPX, KML, NMEA or GeoJSON) into below box
+                li Draw a trace by directly clicking onto the map 
+                li
+                    | Check one provided sample:
+                    input#example1.btn.btn-default.btn-sm(type='button' value='Rome (GPX)' onclick="loadFromFile('sample_rome.gpx');")
+                    input#example2.btn.btn-default.btn-sm(type='button' value='Sheffield (CSV)' onclick="loadFromFile('sample_sheffield.csv');")
+            h5 Input trace
+            textarea#tracetextarea.form-control(rows='10')
+            input.btn.btn-default.btn-sm(type='button' value='Clear' onclick='clear();')
+            input#submittracebutton.btn.btn-default.btn-sm(type='button' value='Submit')
+            | &#x9;&#x9;to 
+            input#rmeUrl(type='text' value='https://fleet.api.here.com/2/calculateroute.json?routeMatch=1&mode=fastest;car;traffic:disabled' autocomplete='off' size='40')
+            h5
+                font(color='red') HLS Router&apos;s route
+                |  based on the 
+                font(color='red') red points
+                |  is drawn 
+                font(color='red') red
+                |  underneath the 
+                font(color='green') RME&apos;s green route
+            h5 Warnings
+            textarea#warningstextarea.form-control(autocomplete='off' rows='5') Please submit...
+        #mapContainer
+    script(src='/javascripts/examples/v31/rme_daily_commute.js')

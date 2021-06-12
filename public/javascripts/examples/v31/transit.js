@@ -1,5 +1,5 @@
 /*
-	author Mykyta
+	author 
 	(C) HERE 2015
 	// author asadovoy
 	// (C) HERE 2019 -> migrate to 3.1

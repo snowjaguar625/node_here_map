@@ -7,17 +7,17 @@ block content
     #content-real
         .ctrl-panel
             span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
-                p
-                    | In this example we demonstrate how to
-                    br
-                    |  perform a search and how to handle the results
-                p
-                    | Search allows you to perform geocode
-                    br
-                    | (address to position) and reverse geocode
-                    br
-                    | (position to address) searches.
-                input#geoCode.btn.btn-default.btn-sm(type='button' value='geocode' onclick='geocode();')
+            p
+                | In this example we demonstrate how to
                 br
-                input#reverseGeoCode.btn.btn-default.btn-sm(type='button' value='reverse geocode')
+                |  perform a search and how to handle the results
+            p
+                | Search allows you to perform geocode
+                br
+                | (address to position) and reverse geocode
+                br
+                | (position to address) searches.
+            input#geoCode.btn.btn-default.btn-sm(type='button' value='geocode' onclick='geocode();')
+            br
+            input#reverseGeoCode.btn.btn-default.btn-sm(type='button' value='reverse geocode')
         #mapContainer

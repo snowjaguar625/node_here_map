@@ -57,7 +57,7 @@
   }
    
   
-  //jquery-ui doesn't support themed sass pipeline
+  /* //jquery-ui doesn't support themed sass pipeline */
   .ui-widget {
       font-family: 'Fira Sans';
   }

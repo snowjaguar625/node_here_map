@@ -1,7 +1,5 @@
-$(function(){
-
 	/*
-	author Mykyta
+	author 
 	(C) HERE 2015
 	*/
 	//which color are we on?
@@ -960,6 +958,7 @@ $(function(){
 
 	var switchRegion = function(reg)
 	{
+		console.log(reg)
 		cfg = region[reg];
 		map.setCenter(new H.geo.Point(cfg.center.lat, cfg.center.lng));
 		document.getElementById("input-from").value = cfg.start;
@@ -996,5 +995,3 @@ $(function(){
 			}
 		}, [ui], 0, 0, document.getElementById("mapContainer").offsetWidth, document.getElementById("mapContainer").offsetHeight);
 	}
-
-})

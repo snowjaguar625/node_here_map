@@ -1,0 +1,92 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/v31/jszip.min.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            span
+                p A demo to detect the anomalies by analyzing a trace file. 
+                p
+                    | In addition to the anomalies the demo can also be used to show further information like:
+            ul
+                li How many links belong to an urban area
+                li The functional class of all the roads driven
+                li
+                    | Controlled access links - links with limited entrances and exits that allow uninterrupted high speed traffic flow
+                li
+                    | Road congestion factor (RCF) - RCF = speed in Kmh / Free Flow Speed
+                    ul
+                        li links with RCF <= 0.50 are shown in red color
+                        li links with RCF <= 0.75 are shown in yellow color 
+                        li links with RCF > 0.75 are represented in green color
+                        li If the timestamp is provided in the trace file then this timestamp is taken otherwise the current time is considered to get the links speed
+            h5 Please provide a trace to match with RME by either:
+            ul
+                li Drag &amp; drop a trace file (CSV, GPX, KML, NMEA or GeoJSON) into below box
+                li Draw a trace by directly clicking onto the map 
+                li
+                    | Check one provided sample:
+                    input#example1.btn.btn-default.btn-sm(type='button' value='Rome (GPX)' onclick="loadFromFile('sample_rome.gpx');")
+                    input#example2.btn.btn-default.btn-sm(type='button' value='Sheffield (CSV)' onclick="loadFromFile('sample_sheffield.csv');")
+                    input#example3.btn.btn-default.btn-sm(type='button' value='Oberammergau (GPX)' onclick="loadFromFile('sample_oberammergau.gpx');")
+                    input#example4.btn.btn-default.btn-sm(type='button' value='MTK (GeoJson)' onclick="loadFromFile('sample_mtk.geojson');")
+            h5 Additional Information
+            form#service
+                |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                input#urban(type='radio' name='service' value='Urban' onchange='showAdditionalInfo(this)')
+                label(for='urban' style='color: #CC4499;')  Urban 
+                br
+                |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                input#functionalClass(type='radio' name='service' value='Functional Class' onchange='showAdditionalInfo(this)')
+                label(for='functionalClass')
+                    | Functional Class (
+                    span(style='color: #dc7ba1;') FC1
+                    | , 
+                    span(style='color: #fead9d;') FC2
+                    | , 
+                    span(style='color: #fffca8;') FC3
+                    | , 
+                    span(style='color: #fefee2;') FC4
+                    | , 
+                    span(style='color: #ffffff;') FC5
+                    | )
+                br
+                |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                input#controlledAccess(type='radio' name='service' value='Controlled Access' onchange='showAdditionalInfo(this)')
+                label(for='controlledAccess' style='color: #808000;')  Controlled Access 
+                br
+                |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                input#roadCongestionFactor(type='radio' name='service' value='Road Congestion Factor' onchange='showAdditionalInfo(this)')
+                label(for='Road Congestion Factor')
+                    | Road Congestion Factor (RCF) (
+                    span(style='color: #ea232d;') RCF <= 0.50
+                    |,
+                    span(style='color: #fecf00;') RCF <= 0.75
+                    |,
+                    span(style='color: #61ba72;') RCF > 0.75 
+                    |)
+                br
+                |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                input#nothingToShow(type='radio' name='service' value='Nothing' onchange='showAdditionalInfo(this)' checked='true')
+                label(for='nothingToShow')  Nothing 
+            h5 Input trace
+            textarea#tracetextarea.form-control(rows='10')
+            input.btn.btn-default.btn-sm(type='button' value='Reset' onclick='reset();')
+            input#submittracebutton.btn.btn-default.btn-sm(type='button' value='Submit')
+            | &#x9;&#x9;to 
+            input#rmeUrl(type='text' value='https://fleet.api.here.com/2/calculateroute.json?routeMatch=1&mode=fastest;car;traffic:disabled' autocomplete='off' size='40')
+            h5 Legend
+            ul#legendList
+                li#inputTracePoints(style='color: black;') Input trace points
+                li#matchedPoints(style='color: #0000FF;') Display Matched Points and route
+                li#speedOk(style='color: #2b9c6a;') Speed Ok
+                li#speeding(style='color: #cd1439;') Speeding [km/h]
+            h5 Warnings
+            textarea#warningstextarea.form-control(autocomplete='off' rows='5') Please submit...
+        input#pdeEndPoint(type='hidden' value='https://pde.api.here.com' autocomplete='off')
+        #mapContainer
+    script(src='/javascripts/examples/v31/pde-manager-tiles.js')
+    script(src='/javascripts/examples/v31/rme_trip_anomalies_detection.js')

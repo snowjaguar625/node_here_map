@@ -1,0 +1,75 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        style.
+            a.isoline-record {
+            color: #00ACDC;
+            text-decoration: underline;
+            }
+            .isoline-record {
+            font-size: small;
+            padding: 0.1em;
+            }
+            table.isoline-record td {
+            padding: 0.4em;
+            border: 1px solid white
+            }
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p#mapReleaseTxt This demo can be used to calculate isoline route.
+            p Set your app_id and app_code for this example to work correctly.
+            p The start and destination can be geocoded or selected via long click in map.
+            hr.separator
+            .form-horizontal
+                .form-group
+                    label.control-label.col-sm-3(for='serverURL') Endpoint:
+                    .col-sm-9
+                        input#serverURL.form-control.input-wide(type='text' value='https://fleet.ls.hereapi.com/2')
+                .form-group
+                    label.control-label.col-sm-3(for='customApiKey') Api Key:
+                    .col-sm-8
+                        input#customApiKey.form-control.input-wide(type='text' value='' placeholder='Set your Api Key' autocomplete='off' onchange='setCredentials();')
+                .form-group
+                    label.control-label.col-sm-3(for='start') Start:
+                    .col-sm-9
+                        input#start.form-control.input-wide(type='text' value='Frankfurt am Main' onkeydown='if (event.keyCode == 13)startRouteCalculation();')
+                .form-group
+                    label.control-label.col-sm-3(for='dest') Destination:
+                    .col-sm-9
+                        input#dest.form-control.input-wide(type='text' size='40' value='Darmstadt' onkeydown='if (event.keyCode == 13)startRouteCalculation();')
+                .form-group
+                    label.control-label.col-sm-3(for='maxDetour') Detour type:
+                    .col-sm-9
+                        label
+                            input#time-radio-button(type='radio' name='detour-type' onclick='detourTypeChanged(this);' value='time' checked='')
+                            | Time
+                        label
+                            input(type='radio' name='detour-type' onclick='detourTypeChanged(this);' value='distance')
+                            | Distance
+                        select#max-detour-time.form-control.input-wide(style='display: none')
+                            option(value='60') 1 minute
+                            option(value='120') 2 minutes
+                            option(value='180' selected='') 3 minutes
+                            option(value='240') 4 minutes
+                            option(value='300') 5 minutes
+                            option(value='360') 6 minutes
+                        select#max-detour-distance.form-control.input-wide(style='display: none')
+                            option(value='1000') 1 km
+                            option(value='2000') 2 km
+                            option(value='3000' selected='') 3 km
+                            option(value='4000') 4 km
+                            option(value='5000') 5 km
+                            option(value='6000') 6 km
+                .form-group
+                    label.control-label.col-sm-4(for='startButton')  
+                    .col-sm-8
+                        input#routeButton.btn.btn-default.btn-sm(type='submit' value='Calculate Isoline')
+            #feedbackTxt.form-group
+                // <div>HLP Service releases which are used in this demo:</div>
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+        #mapContainer
+    script(src='/javascripts/examples/v31/release-requests.js')
+    script(src='/javascripts/examples/v31/calculate_route_isoline.js')

@@ -1,0 +1,18 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/v31/random-coordinates.js')
+    script(type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-clustering.js")
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p Showcase of Custom Clustering rendered in Canvas
+            tr
+                td HLP Service releases which are used in this demo:
+                td
+                    #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+        #mapContainer
+    script(src='/javascripts/examples/v31/release-requests.js')
+    script(src='/javascripts/examples/v31/custom_canvas_clustering.js')

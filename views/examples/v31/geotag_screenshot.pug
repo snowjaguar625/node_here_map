@@ -1,0 +1,17 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/v31/piexif.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p Capture HERE Map Display and Geotoag
+            input#capture.btn.btn-default.btn-xm(type='button' value='Capture' onclick='startCapture()')
+            p Dump Exif Data out of an existing File: 
+            input.btn.btn-default.btn-xm(type='File' value='Select Image File' onchange='dumpExif(this.files[0]);')
+            #result
+        #mapContainer
+    script(src='/javascripts/examples/v31/geotag_screenshot.js')
+    

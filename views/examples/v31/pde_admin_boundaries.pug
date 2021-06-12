@@ -1,0 +1,26 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p Using JSAPI Remote Tile Provider
+            div
+                | Admin Level 
+                input#al0(type='radio' value='0' name='adminLevelRadioButtons' onchange='adminLevelChanged(this);')
+                | 0
+                input#al1(type='radio' value='1' name='adminLevelRadioButtons' onchange='adminLevelChanged(this);')
+                | 1
+                input#al2(type='radio' value='2' name='adminLevelRadioButtons' onchange='adminLevelChanged(this);' checked='checked')
+                | 2
+                input#al8(type='radio' value='8' name='adminLevelRadioButtons' onchange='adminLevelChanged(this);')
+                | 8
+                input#al9(type='radio' value='9' name='adminLevelRadioButtons' onchange='adminLevelChanged(this);')
+                | 9
+            #sourceTypeLegend
+            #centerCoordinate
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='No PDE tiles loaded yet')
+        #mapContainer
+    script(src='/javascripts/examples/v31/pde_admin_boundaries.js')

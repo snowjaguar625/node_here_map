@@ -1,6 +1,6 @@
 $(function(){
     /* 
-		author Mykyta
+		author 
 		(C) HERE 2019
 	*/
 

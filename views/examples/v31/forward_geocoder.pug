@@ -1,0 +1,382 @@
+extends ../../layout
+
+block content
+    title= title
+    link(rel='stylesheet' href='/stylesheets/forward-geocoder-style.css' media='screen' data-turbolinks-track='true')
+    #content-padder 
+    #content-real
+        #appContainer
+            #wrapper
+                #left-col
+                    .info-box
+                        .form-horizontal
+                            .form-group
+                                h4 Geocoder Request
+                            .form-group
+                                .col-xs-5
+                                    p.form-control-static Query Type
+                                .col-xs-7
+                                    select#fid_queryType.form-control(name='queryType' size='1')
+                                        option(value='freeformAddressInput' selected='selected')  Freeform Address Input
+                                        option(value='qualifiedAddressInput')  Qualified Address Input
+                            hr
+                            // Parameter input
+                            .form-group
+                                .col-md-12
+                                    #Geocode
+                                        .form-group
+                                            .col-xs-5
+                                                p.form-control-static Seach Text
+                                            .col-xs-7
+                                                textarea#searchTextInput.form-control(type='text' onkeyup='autocompleteSuggestion($(this).val())')
+                                                #suggestionDiv(style='display: block;position: absolute;background-color: #ffffff;font-size: 12px;border-style: solid;border-width: 1px;z-index:9999 ')
+                                                // style="display: block;top: 118.004px;left: 105.008px;position: absolute;background-color: #ecf1f3;font-size: 13px;border-style: solid;border-width: 1px;"
+                                        .form-group
+                                            .col-xs-5
+                                                p.form-control-static Country
+                                            .col-xs-7
+                                                input#countryInput.form-control(type='text')
+                                        #qualifiedAddressInput(style='display: none;')
+                                            .form-group
+                                                .col-xs-5
+                                                    p.form-control-static Country Focus
+                                                .col-xs-7
+                                                    input#countryFocusInput.form-control(type='text')
+                                            .form-group
+                                                .col-xs-5
+                                                    p.form-control-static State
+                                                .col-xs-7
+                                                    input#stateInput.form-control(type='text')
+                                            .form-group
+                                                .col-xs-5
+                                                    p.form-control-static County
+                                                .col-xs-7
+                                                    input#countyInput.form-control(type='text')
+                                            .form-group
+                                                .col-xs-5
+                                                    p.form-control-static City
+                                                .col-xs-7
+                                                    input#cityInput.form-control(type='text')
+                                            .form-group
+                                                .col-xs-5
+                                                    p.form-control-static Postal Code
+                                                .col-xs-7
+                                                    input#postalCodeInput.form-control(type='text')
+                                            .form-group
+                                                .col-xs-5
+                                                    p.form-control-static District
+                                                .col-xs-7
+                                                    input#districtInput.form-control(type='text')
+                                            .form-group
+                                                .col-xs-5
+                                                    p.form-control-static Street
+                                                .col-xs-7
+                                                    input#streetInput.form-control(type='text')
+                                            .form-group
+                                                .col-xs-5
+                                                    p.form-control-static House Number
+                                                .col-xs-7
+                                                    input#houseNumberInput.form-control(type='text')
+                                        // TODO implement this functionality
+                                        //
+                                            <div class="form-group">
+                                            <div class="col-xs-5"><p class="form-control-static">mapview</p></div>
+                                            <div class="col-xs-7"><div class="checkbox"><label><input type="checkbox" value="false" id="mapviewBoolean"></label></div></div>
+                                            </div>
+                                            <div class="form-group">
+                                            <div class="col-xs-5"><p class="form-control-static">prox</p></div>
+                                            <div class="col-xs-7 checkbox"><label><input type="checkbox" value="false" id="proxBoolean"></label></div>
+                                            </div>
+                                        .form-group
+                                            .col-xs-5
+                                                p.form-control-static Additional Data
+                                            .col-xs-7
+                                                button.btn.btn-default(data-toggle='modal' data-target='#myModal') edit
+                                        .form-group
+                                            .col-xs-5
+                                                p.form-control-static Language
+                                            .col-xs-7
+                                                select#fid_language.form-control(name='language' size='1')
+                                                    option(value='') (no selection)
+                                                    option(value='ar-AE')  Arabic (ar-AE)
+                                                    option(value='zh-CN')  Chinese Simplified (zh-CN)
+                                                    option(value='zh-TW')  Chinese Traditional (zh-TW)
+                                                    option(value='en-US' selected='selected')  English (en-US)
+                                                    option(value='fr-FR')  French (fr-FR)
+                                                    option(value='de-DE')  German (de-DE)
+                                                    option(value='it-IT')  &#x9;Italian (it-IT)
+                                                    option(value='ko-KR')  Korean (ko-KR)
+                                                    option(value='pl-PL')  Polish (pl-PL)
+                                                    option(value='ru-RU')  Russian (ru-RU)
+                                                    option(value='es-ES')  Spanish (es-ES)
+                                                    option(value='tr-TR')  Turkish (tr-TR)
+                                        .form-group
+                                            .col-xs-5
+                                                p.form-control-static Political View
+                                            .col-xs-7
+                                                select#fid_politicalview.form-control(name='politicalview' size='1')
+                                                    option(value='' selected='selected') (no selection)
+                                                    option(value='ARE')  ARE: Abu Musa Island, Tunb Islands
+                                                    option(value='ARG')  ARG: Argentina
+                                                    option(value='EGY')  EGY: Halaib Triangle&#x9;
+                                                    option(value='IND')  IND: India
+                                                    option(value='ISR')  ISR: Israel view on East Jerusalem
+                                                    option(value='KEN')  KEN: Ilemi Triangle
+                                                    option(value='MAR')  MAR:Western Sahara
+                                                    option(value='PAK')  PAK: Pakistan
+                                                    option(value='RUS')  RUS: Crimea, Kuril Islands (Shikotan, Iturup, Habomai, and Kunashir)
+                                                    option(value='TUR')  TUR: Southern Cyprus
+                                                    option(value='VNM')  VNM: Vietnam
+                                        .form-group
+                                            .col-xs-12
+                                                button.btn.btn-success.pull-right(onclick='submit()') Submit
+                            hr
+                            .form-group
+                                .col-md-12
+                                    h6  Control Attributes
+                                    #control_attributes
+                                        .form-group
+                                            .col-xs-5
+                                                p.form-control-static Response Attributes
+                                            .col-xs-7
+                                                select#fid_responseattributes.form-control(name='responseattributes' size='5' multiple='multiple')
+                                                    option all
+                                                    option none
+                                                    option parsedRequest
+                                                    option  performedSearch
+                                                    option matchQuality 
+                                                    option  matchType 
+                                                    option matchCode 
+                                        .form-group
+                                            .col-xs-5
+                                                p.form-control-static Location Attributes
+                                            .col-xs-7
+                                                select#fid_locationattributes.form-control(name='locationattributes' size='5' multiple='multiple')
+                                                    option all
+                                                    option none
+                                                    option  address 
+                                                    option  mapReference 
+                                                    option  mapView 
+                                                    option  additionalData 
+                                                    option  addressNames 
+                                                    option  addressNamesBilingual 
+                                                    option  addressDetails 
+                                                    option  adminIds 
+                                                    option  streetDetails 
+                                                    option  linkInfo 
+                                                    option  adminInfo 
+                                        .form-group
+                                            .col-xs-5
+                                                p.form-control-static Address Attributes
+                                            .col-xs-7
+                                                select#fid_addressattributes.form-control(name='addressattributes' size='5' multiple='multiple')
+                                                    option all
+                                                    option none
+                                                    option  country 
+                                                    option  state 
+                                                    option  county 
+                                                    option  city 
+                                                    option  district 
+                                                    option  street 
+                                                    option  houseNumber 
+                                                    option  postalCode 
+                                                    option  addressLines 
+                                                    option  additionalData 
+                            hr
+                            .form-group
+                                .col-md-12
+                                h6 Control Bahavior
+                                #control_behavior
+                                    .form-group
+                                        .col-xs-5
+                                            p.form-control-static Max Results
+                                        .col-xs-7
+                                            input#maxResultsInput.form-control(type='text' value='20')
+                                    .form-group
+                                        .col-xs-5
+                                            p.form-control-static Page Information
+                                        .col-xs-7
+                                            input#pageInfoInput.form-control(type='text' value='')
+                                    .form-group
+                                        .col-xs-5
+                                            p.form-control-static Gen
+                                        .col-xs-7
+                                            input#genInput.form-control(type='text' value='8')
+                // map container
+                #middle-col
+                    #mapContainer(style='width: calc(100% - 620px); height: calc(100% - 35px); position: absolute; top: 0; left: 310px; overflow:hidden')
+                // Result Column
+                #rightmost-col
+                    .info-box
+                        .form-horizontal
+                            .form-group
+                                h4 Geocoder Result
+                            .form-group
+                                .col-xs-12
+                                    button.btn.btn-default(onclick='displayFullResponse()') Show Geocoder Response
+                            .form-group
+                                .col-md-12
+                                    .form-group.border-bottom-grey
+                                        .col-xs-2.border-right-grey
+                                            p No.
+                                        .col-xs-10
+                                            p Location Details
+                                    #results
+            // Segment showing full Geocoder URL
+            #urlRequestContainer
+                .form-horizontal
+                    .form-group
+                        .col-xs-2(style='text-align: right;color: white;')
+                            label.form-control-static Geocoder Api Call
+                        .col-xs-8
+                            input#apiCallUrl.form-control(type='text' style='width:100%;margin-top:2px;')
+                        .col-xs-2
+                            button.btn.btn-default.query-btn(onclick="ajaxCallBegin($('#apiCallUrl').val()) ") Query
+                // Additional Data Modal
+                #myModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='myModalLabel')
+                    .modal-dialog(role='document')
+                        .modal-content
+                            .modal-header
+                                button.close(type='button' data-dismiss='modal' aria-label='Close')
+                                    span(aria-hidden='true') &times;
+                                h4#myModalLabel.modal-title Additional Data
+                        .modal-body
+                            .row
+                                .col-xs-6
+                                    .row
+                                        .col-xs-10
+                                            p Crossing Streets
+                                        .col-xs-2
+                                            .checkbox
+                                                label
+                                                    input#crossingStreetsCheck(type='checkbox' value='false')
+                                        .row
+                                        .col-xs-10
+                                            p Preserve Unit Designators
+                                        .col-xs-2
+                                            .checkbox
+                                                label
+                                                    input#preserveUnitDesignatorsCheck(type='checkbox' value='false')
+                                    .row
+                                        .col-xs-10
+                                            p Country 2
+                                        .col-xs-2
+                                            .checkbox
+                                                label
+                                                    input#country2Check(type='checkbox' value='false')
+                                    .row
+                                        .col-xs-10
+                                            p Flexible Admin Values
+                                        .col-xs-2
+                                            .checkbox
+                                                label
+                                                    input#flexibleAdminValuesCheck(type='checkbox' value='false')
+                                    .row
+                                        .col-xs-10
+                                            p Normalize Names
+                                        .col-xs-2
+                                            .checkbox
+                                                label
+                                                    input#normalizeNamesCheck(type='checkbox' value='false')
+                                .col-xs-6
+                                    .form-group
+                                        .col-xs-10
+                                            p Include Zip Add On
+                                        .col-xs-2
+                                            .checkbox
+                                                label
+                                                    input#includeZipAddOnCheck(type='checkbox' value='false')
+                                    .form-group
+                                        .col-xs-10
+                                            p Include Child POIs
+                                        .col-xs-2
+                                            .checkbox
+                                                label
+                                                    input#includeChildPOIsCheck(type='checkbox' value='false')
+                                    .form-group
+                                        .col-xs-10
+                                            p Include Routing Information
+                                        .col-xs-2
+                                            .checkbox
+                                                label
+                                                    input#includeRoutingInformationCheck(type='checkbox' value='false')
+                                    .form-group
+                                        .col-xs-10
+                                            p Include Distance Markers
+                                        .col-xs-2
+                                            .checkbox
+                                                label
+                                                    input#includeDistanceMarkersCheck(type='checkbox' value='false')
+                            br
+                            .row
+                                .col-xs-5
+                                    p Additional Address Provider
+                                .col-xs-7
+                                    input#additionalAddressProviderInput.form-control(type='text')
+                            .row
+                                .col-xs-5
+                                    p House Number Mode
+                                .col-xs-7
+                                    select#fid_houseNumberMode.form-control(name='language' size='1')
+                                        option(value='' selected='selected') (no selection)
+                                        option(value='extrapolation')  Extrapolation
+                                        option(value='fallback')  Fallback
+                                        option(value='streetlevel') Street Level
+                            .row
+                                .col-xs-5
+                                    p Intersection Snap Tolerance
+                                .col-xs-7
+                                    input#intersectionSnapToleranceInput.form-control(type='text')
+                            .row
+                                .col-xs-5
+                                    p Address Range Squeeze Offset
+                                .col-xs-7
+                                    input#addressRangeSqueezeOffsetInput.form-control(type='text')
+                            .row
+                                .col-xs-5
+                                    p Address Range Squeeze Factor
+                                .col-xs-7
+                                    input#addressRangeSqueezeFactorInput.form-control(type='text')
+                            .row
+                                .col-xs-5
+                                    p Include Shape Level
+                                .col-xs-7
+                                    select#fid_includeShapeLevel.form-control(name='language' size='1')
+                                        option(value='' selected='selected') (no selection)
+                                        option(value='country')  Country
+                                        option(value='state') State
+                                        option(value='county') County
+                                        option(value='city') City
+                                        option(value='district') Disctrict
+                                        option(value='postalcode') Postal Code
+                                        option(value='default') Default
+                            .row
+                                .col-xs-5
+                                    p Restrict Level
+                                .col-xs-7
+                                    select#fid_restrictLevel.form-control(name='language' size='1')
+                                        option(value='' selected='selected') (no selection)
+                                        option(value='country')  Country
+                            .row
+                                .col-xs-5
+                                    p Suppress Street Type
+                                .col-xs-7
+                                    select#fid_suppressStreetType.form-control(name='language' size='1')
+                                        option(value='' selected='selected') (no selection)
+                                        option(value='unnamed')  Unnamed
+                        .modal-footer
+                            button.btn.btn-default(type='button' data-dismiss='modal') Close
+        // Json Modal
+        #jsonResultModal.modal.fade(tabindex='-1' role='dialog' aria-labelledby='jsonResultLabel')
+            .modal-dialog(role='document')
+                .modal-content
+                    .modal-header
+                        button.close(type='button' data-dismiss='modal' aria-label='Close')
+                            span(aria-hidden='true') &times;
+                        h4#jsonModalTitle.modal-title JSON Response
+                    .modal-body
+                        .row
+                            .col-xs-12
+                                pre#json.
+                            
+    script(src='/javascripts/examples/v31/forward-geocoder.js')

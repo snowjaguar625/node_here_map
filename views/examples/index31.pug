@@ -21,7 +21,7 @@ block content
         .container
             each example,index in examples 
                 div(id = 'item' +index class = 'hvr2-overline-reveal hvr2-overline-reveal-min-height' data-type=example['description'] + example['tags'])
-                    a(href= '/examples/v3.1/' + example['filename'])
+                    a(href= '/examples/v3.1/' + example['filename'] target='_blank')
                         img(src = '/images/examples/' + example['filename'] + '.png'  alt='' class='thumb')
                         | #{example['description']}
 

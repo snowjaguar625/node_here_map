@@ -1,0 +1,21 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real 
+        style.
+            .ui-autocomplete
+            {
+            width: 300px;
+            height : 500px;
+            overflow : auto;
+            }
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p This Example Shows the Autosuggest feature of the HERE Places API.
+            p Places must be used with Location Context
+            .form-group
+                input#search.form-control.input-wide(type='text')
+        #mapContainer
+    script(src='/javascripts/examples/v31/places_auto_suggest.js')

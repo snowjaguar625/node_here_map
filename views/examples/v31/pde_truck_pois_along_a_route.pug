@@ -1,0 +1,27 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p#mapReleaseTxt
+                | After route calculation, additional info is retrieved from PDE Web Service and displayed.
+            table(border='0')
+                tr
+                    td Start
+                    td
+                        input#start.form-control(type='text' size='50' value='Hamburg')
+                tr
+                    td Destination
+                    td
+                        input#dest.form-control(type='text' size='50' value='Frankfurt am Main')
+            input#routeButton.btn.btn-default.btn-sm(type='submit' value='Calculate Route')
+            #feedbackTxt(style='left:0; top:0; z-index: 0;')
+            div HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;')
+        #mapContainer
+    script(src='/javascripts/examples/v31/release-requests.js')
+    script(src='/javascripts/examples/v31/pde-manager-tiles.js')
+    script(src='/javascripts/examples/v31/pde_truck_pois_along_a_route.js')

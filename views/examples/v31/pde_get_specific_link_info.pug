@@ -1,0 +1,76 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/v31/jszip.min.js')
+    script(src='/javascripts/examples/v31/traffic-icons.js')
+    #content-padder 
+    #content-real
+        style.
+            a:link {
+            color: green;
+            background-color: transparent;
+            text-decoration: none;
+            }
+            a:visited {
+            color: brown;
+            background-color: transparent;
+            text-decoration: none;
+            }
+            a:hover {
+            color: red;
+            background-color: transparent;
+            text-decoration: underline;
+            }
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            h4 PDE Get specific LinkInformation for Trace from RME &amp; PDE
+            p
+                | The Platform Data Extension (PDE) API offers HERE map data in a series of attribute 
+                | key/value pairs. It uses layers to group attributes thematically. To lookup 
+                | layer/attribute descriptions, visit this 
+                a#URL(href='URL' target='_blank')
+                    b link.
+            script(type='text/javascript').
+                var link = document.getElementById('URL');
+                link.href = "http://pde.api.here.com/1/doc/layers.html?app_id="+app_id+"&app_code="+app_code;
+            hr.separator
+            li
+                | Check one provided sample:
+                input#example1.btn.btn-default.btn-sm(type='button' value='Rome (GPX)' onclick="loadFromFile('sample_rome.gpx');")
+                input#example2.btn.btn-default.btn-sm(type='button' value='Sheffield (CSV)' onclick="loadFromFile('sample_sheffield.csv');")
+                input#example3.btn.btn-default.btn-sm(type='button' value='Frankfurt (KML)' onclick="loadFromFile('sample_frankfurt.kml');")
+            h5 Input trace
+            textarea#tracetextarea.form-control(rows='10')
+            input.btn.btn-default.btn-sm(type='button' value='Reset' onclick='reset();')
+            input#submittracebutton.btn.btn-default.btn-sm(type='button' value='Submit')
+            hr.separator
+            h5 Select Server to retrieve LinkInfo
+            table.form-group(border='0')
+                tr
+                    td RME Server URL
+                    td
+                        input#RMEURL.form-control(type='text' style='width:312px;' value='https://rme.api.here.com/2/matchroute.json?routemode=car')
+                tr
+                    td PDE Server URL
+                    td
+                        input#PDEURL.form-control(type='text' style='width:312px;' value='https://pde.api.here.com/1/')
+            table(border='0')
+                tr
+                    td
+                        input#getLinkInfo.btn.btn-default(type='submit' value='Get PDE Link Info' onclick='submitTrace()')
+            hr.separator
+            h5 Output
+            textarea#outputtextarea.form-control(autocomplete='off' rows='5') Please submit...
+            hr.separator
+            h5 Warnings
+            textarea#warningstextarea.form-control(autocomplete='off' rows='5') Please submit...
+            hr.separator
+            |   HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index:0;')
+        #mapContainer
+        #spinner
+        #pageblock
+    script(src='/javascripts/examples/v31/release-requests.js')
+    script(src='/javascripts/examples/v31/pde-manager-tiles.js')
+    script(src='/javascripts/examples/v31/pde_get_specific_link_info.js')

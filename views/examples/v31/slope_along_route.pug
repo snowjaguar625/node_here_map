@@ -12,26 +12,26 @@ block content
             | &#x9;
             .form-horizontal
                 .form-group
-                label.control-label.col-sm-3(for='start') Start
-                | &#x9;&#x9;&#x9;
-                .col-sm-9
-                    input#start.form-control(type='text', size='50', value='Somerset, PA, USA')
-                | &#x9;&#x9;
+                    label.control-label.col-sm-3(for='start') Start
+                    | &#x9;&#x9;&#x9;
+                    .col-sm-9
+                        input#start.form-control(type='text', size='50', value='Somerset, PA, USA')
+                    | &#x9;&#x9;
                 .form-group
-                label.control-label.col-sm-3(for='dest') Destination
-                | &#x9;&#x9;&#x9;
-                .col-sm-9
-                    input#dest.form-control(type='text', size='50', value='Bedford, PA, USA')
+                    label.control-label.col-sm-3(for='dest') Destination
+                    | &#x9;&#x9;&#x9;
+                    .col-sm-9
+                        input#dest.form-control(type='text', size='50', value='Bedford, PA, USA')
+                    | &#x9;&#x9;
+                .checkbox
+                    label.control-label
+                        input#showSlopeData(type='checkbox', checked='true', onchange='handleMarkerContainer();')
+                        | Display Slope data
                 | &#x9;&#x9;
                 .checkbox
-                label.control-label
-                    input#showSlopeData(type='checkbox', checked='true', onchange='handleMarkerContainer();')
-                    | Display Slope data
-                | &#x9;&#x9;
-                .checkbox
-                label.control-label
-                    input#showSlopePerc(type='checkbox', checked='checked', onchange='switchIcons();')
-                    | Show only Slope Percentage
+                    label.control-label
+                        input#showSlopePerc(type='checkbox', checked='checked', onchange='switchIcons();')
+                        | Show only Slope Percentage
                 | &#x9;&#x9;
                 input#routeButton.btn.btn-default.btn-sm(type='submit', value='Calculate Route')
                 | &#x9;&#x9;

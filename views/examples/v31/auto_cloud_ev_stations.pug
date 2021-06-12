@@ -1,0 +1,22 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            h5 Display for Auto Cloud EV Charging Stations
+            p EV Stations are available at Zoom Level 8 and higher
+        #mapContainer
+        style(type='text/css').
+            .H_ib_body {
+            width: 220px;
+            }
+            textarea
+            {
+            color: black;
+            font-size: 10px;
+            }
+
+    script(src='/javascripts/examples/v31/auto_cloud_ev_stations.js')
