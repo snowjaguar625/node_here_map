@@ -1,5 +1,3 @@
-$(function(){
-   
 	/*
 	author 
 	(C) HERE 2019
@@ -123,6 +121,3 @@ $(function(){
 		});
 	};
     $('#reverseGeoCode').on('click', reverseGeocode() );
-
-
-})

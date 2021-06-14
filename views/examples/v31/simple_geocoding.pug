@@ -2,7 +2,6 @@ extends ../../layout
 
 block content
     title= title
-    script(src='/javascripts/examples/v31/simple_geocoding.js')
     #content-padder 
     #content-real
         .ctrl-panel
@@ -19,5 +18,6 @@ block content
                 | (position to address) searches.
             input#geoCode.btn.btn-default.btn-sm(type='button' value='geocode' onclick='geocode();')
             br
-            input#reverseGeoCode.btn.btn-default.btn-sm(type='button' value='reverse geocode')
+            input#reverseGeoCode.btn.btn-default.btn-sm(type='button' value='reverse geocode' onclick='reverseGeocode();')
         #mapContainer
+    script(src='/javascripts/examples/v31/simple_geocoding.js')

@@ -465,4 +465,8 @@ router.get('/pde_point_address_in_view', function(req, res, next){
   res.render('examples/v31/pde_point_address_in_view', { title: 'PDE: Point Addresses in Map View/selected Area' });
 })
 
+router.get('/simple_map_jp_loc', function(req, res, next){
+  res.render('examples/v31/simple_map_jp_loc', { title: 'Japan HERE Map' });
+})
+
 module.exports = router;

@@ -11,30 +11,30 @@ block content
             hr.separator
             .form-horizontal
                 .form-group
-                label.control-label.col-sm-3(for='start') Start:
-                .col-sm-9
-                    input#start.form-control.input-wide(type='text' value='Lisbon' onkeydown='if (event.keyCode == 13)startRouteCalculation();')
+                    label.control-label.col-sm-3(for='start') Start:
+                    .col-sm-9
+                        input#start.form-control.input-wide(type='text' value='Lisbon' onkeydown='if (event.keyCode == 13)startRouteCalculation();')
                 .form-group
-                label.control-label.col-sm-3(for='dest') Destination:
-                .col-sm-9
-                    input#dest.form-control.input-wide(type='text' size='40' value='Basel' onkeydown='if (event.keyCode == 13)startRouteCalculation();')
+                    label.control-label.col-sm-3(for='dest') Destination:
+                    .col-sm-9
+                        input#dest.form-control.input-wide(type='text' size='40' value='Basel' onkeydown='if (event.keyCode == 13)startRouteCalculation();')
             .form-group
                 .checkbox
-                label
-                    input#chkEnableDTFiltering(type='checkbox' name='chkEnableDTFiltering' onclick='handleDateTimeFilteringClicked()')
-                    | Enable datetime filtering
+                    label
+                        input#chkEnableDTFiltering(type='checkbox' name='chkEnableDTFiltering' onclick='handleDateTimeFilteringClicked()')
+                        | Enable datetime filtering
             #trStartRouteDate.form-horizontal(style='display:none')
                 .form-group
-                label.control-label.col-sm-4(for='startRouteDate') Route start date:
-                .col-sm-8
-                    input#startRouteDate.form-control.input-wide(type='text' name='startRouteDate')
-                    | (yyyy-MM-dd)
+                    label.control-label.col-sm-4(for='startRouteDate') Route start date:
+                    .col-sm-8
+                        input#startRouteDate.form-control.input-wide(type='text' name='startRouteDate')
+                        | (yyyy-MM-dd)
             #trStartRouteTime.form-horizontal(style='display:none')
                 .form-group
-                label.control-label.col-sm-4(for='startRouteTime') Route start time:
-                .col-sm-8
-                    input#startRouteTime.form-control.input-wide(type='text' name='startRouteTime')
-                    | (HH:mm:ss)
+                    label.control-label.col-sm-4(for='startRouteTime') Route start time:
+                    .col-sm-8
+                        input#startRouteTime.form-control.input-wide(type='text' name='startRouteTime')
+                        | (HH:mm:ss)
             #trStartRouteActions(style='display:none')
                 .form-group
                     input.btn.btn-default.btn-sm(type='button' name='btStartRouteApplyNow' value='Apply current datetime' onclick='applyNowToStartRoute()')
@@ -52,9 +52,9 @@ block content
                     td Route Alternatives:
                     td(colspan='3')
                         select#routeAlternatives.form-control(style='width:312px;' onkeydown='if (event.keyCode == 13)startRouteCalculation();')
-                        option(value='0') 0
-                        option(value='1' selected='true') 1
-                        option(value='2') 2
+                            option(value='0') 0
+                            option(value='1' selected='true') 1
+                            option(value='2') 2
                 tr
                     td Vehicle Specification:
                     td(colspan='3')
