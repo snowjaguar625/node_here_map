@@ -1,0 +1,107 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/jszip.min.js')
+    script(src='/javascripts/examples/warning.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel(style='overflow-y:hidden;')
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | Route Match + Routing in a single call. Submit your planned waypoints and the trace driven so far. Get the yet to drive waypoints and the ETA.
+                br
+                b Endpoint:
+                input#endpoint-text-input.input-customer-data(type='text' value='https://fleet.api.here.com' placeholder='URL with http or https and host:port' onchange='updateEndpointUrl()' style='height: 25px; width: 200px;')
+                br
+                b
+                    | 1. Provide a complete trace file: 
+                    input.btn.btn-default.btn-sm(type='button' value='Reset' onclick='reset();' style='height: 25px; overflow-y:hidden;')
+                textarea#tracefilearea.form-control(rows='4' placeholder='Drag & drop trace file here (GPX, NMEA, CSV, KML)')
+                | &#x9;&#x9;Or pick an example trace:
+                input#example1.btn.btn-default.btn-sm(type='button' value='Frankfurt-Goch' onclick="loadFromFile('Frankfurt_Goch_car.gpx');")
+                input#example2.btn.btn-default.btn-sm(type='button' value='Frankfurt-Lisbon' onclick="loadFromFile('Frankfurt_Lisbon.txt');")
+                br
+                b 2. Plan stops (rest, loading...) along the route:
+                textarea#waypointsarea.form-control(style='font-family: monospace;' rows='3' onchange='updateWaypoints()' placeholder="Right click into map to define planned stops along the route. If empty, it will be filled with trace's first and last point.")
+                br
+                b 3. Set stop learning id, e.g. Hamburg-Basel:
+                input#learnId.input-customer-data(type='text' value='' autocomplete='off' placeholder='enter ID to be used for stop learning' style='height: 25px; width: 200px;')
+                br
+                b 4. Set driver rest times:
+                input#resttimes.input-customer-data(type='text' value='EU' autocomplete='off' placeholder='enter driver rest times' style='height: 25px; width: 325px;')
+                br
+                b 5. Other Parameters:
+                input#addParams.input-customer-data(type='text' value='&traverseGates=true&limitedWeight=18t&ignoreWaypointsFarFromNeighbors=false' autocomplete='off' placeholder='Request parameters like &limitedHeight=15t' style='height: 25px; width: 340px;')
+                br
+                b 6. Move slider to see how ETA evolves during driving:
+                table
+                    tr
+                        td
+                            input#previousTracepoint.btn.btn-default.btn-sm(title='previous waypoint' type='button' value='<' onclick='previousTracepoint();')
+                        td
+                            input#slider(type='range' min='0' max='100' value='0')
+                        td
+                            input#nextTracepoint.btn.btn-default.btn-sm(title='next waypoint' type='button' value='>' onclick='nextTracepoint();')
+                            input#simulateDrive.btn.btn-default.btn-sm(title='Simulate the drive except last point' type='button' value='Play' onclick='simulateDriveStart();')
+                            input#simulateDrive.btn.btn-default.btn-sm(title='Simulate the drive except last point' type='button' value='Stop' onclick='simulateDriveStop();')
+            p
+                | Move slider rightwards (or double-click onto route) to simulate driving truck.
+                | Sends part of the trace to the router, gets remaining route. ETA gets more accurate.
+            br
+            b 7. Move slider to right end -&gt; truck arrvied -&gt; learn the stops
+            p
+            hr
+            .form-group
+                div
+                    span(style='color:green') Real elapsed time      
+                    span#fullTraceElapsedTime(style='padding-left:25px;color:green') 00:00:00
+                    |  for the entire journey
+                div
+                    span(style='color:red') - detected breaks      
+                    span#fullTraceSumStopTimes(style='padding-left:26px;color:red;text-decoration:underline') 00:00:00
+                div
+                    span(style='color:black') = real net driving time
+                    span#fullTraceNetDrivingTime(style='padding-left:05px;color:black') 00:00:00
+                p
+                p At the chosen point of time:
+                div
+                    span(style='color:green') Real elapsed time         
+                    span#realDrivingTimeSoFar(style='padding-left:93px;color:green') 00:00:00
+                    |  until this point
+                div
+                    span(style='color:red') - detected breaks         
+                    span#realBreaksTimeSoFar(style='padding-left:95px;color:red;text-decoration:underline') 00:00:00
+                div
+                    span(style='color:black') = real net driving time   
+                    span#realNetDrivingTimeSoFar(style='padding-left:71px;color:black') 00:00:00
+                div
+                    span(style='color:blue') Last detected long rest time 
+                    span#long-rest(style='padding-left:07px;color:blue') 00:00:00
+                div
+                    span(style='color:blue') Last detected short rest time
+                    span#short-rest(style='padding-left:05px;color:blue') 00:00:00
+                    |  (minor stops subtracted)
+            p
+                div
+                    span(style='color:green') Est. remain elapsed time           
+                    span#estimatedRemainingTime(style='padding-left:29px;color:green') 00:00:00
+                    |  calculated by router from this point
+                div
+                    span(style='color:red') - exp. remain rest times           
+                    span#restTimes(style='padding-left:34px;color:red;text-decoration:underline') 00:00:00
+                div
+                    span(style='color:black') = est. remain net driving time     
+                    span#estimatedNetRemainingTime(style='padding-left:04px;color:black') 00:00:00
+                div
+                    span(style='color:green') Est. travel time                  
+                    span#actual(style='padding-left:43px;color:green')  00:00:00
+                    |  for the entire journey
+                div
+                    span(style='color:orange') Overest. travel time              
+                    span#diff(style='padding-left:18px;color:orange')  00:00:00
+            textarea#routingRespText.form-control(rows='10' placeholder='console output' style='overflow-wrap: break-word;')
+        #mapContainer
+        #pageblock
+        #spinner
+    script(src='/javascripts/examples/v3/track_vehicle_to_update_eta.js')

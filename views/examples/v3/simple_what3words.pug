@@ -1,0 +1,17 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | What3Words with HERE (Reverse-) Geocoding based on 
+                a(href='https://what3words.com') https://what3words.com
+            h5 Input / Output
+            textarea#iotextarea.form-control(rows='2')
+            input.btn.btn-default.btn-sm(type='button' value='get' onclick='get();')
+            // input class="btn btn-default btn-sm" type="button" value="reverse" onclick="reverse();"/
+        #mapContainer
+    script(src='/javascripts/examples/v3/simple_what3words.js')

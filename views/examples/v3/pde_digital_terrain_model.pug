@@ -1,0 +1,18 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            .form-group
+                input#loadHeights.btn.btn-default.btn-sm(type='button' value='Load Heights of current View' onclick='loadDtmTiles();')
+            .form-group
+                label.checkbox-inline
+                    input#showHeightValues(type='checkbox' onchange='heightValuesOnOff();' checked='')
+                    | Show height numbers
+            div HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;')
+        #mapContainer
+    script(src='/javascripts/examples/v3/pde_digital_terrain_model.js')

@@ -1,0 +1,114 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.js')
+    link(rel='stylesheet' href='https://npmcdn.com/leaflet@1.0.0-rc.2/dist/leaflet.css' media='screen' data-turbolinks-track='true')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            h3 With Leaflet
+            p
+            h5 1. Start: 
+            p
+            input#start(type='text' style='width:230px;' value='Bormio, Lombardei, Italien' onkeydown="if (event.keyCode == 13) geocode(document.getElementById('start').value, true)")
+            p
+            h5 2. Destination: 
+            p
+            input#dest(type='text' style='width:230px;' value='Trafoi, Stilfs, Süd Tirol, Italien' onkeydown="if (event.keyCode == 13) geocode(document.getElementById('dest').value, false)")
+            p
+            h5 3. Truck Attributes:
+            p
+            table(border='0')
+                tr
+                    td(colspan='2')
+                        input#hasTrailer(type='checkbox')
+                        t Trailer
+                tr
+                    td(colspan='2')
+                        h6 shipped Hazardous Goods
+                tr
+                    td
+                        input#explosive(type='checkbox')
+                        t explosive
+                    td
+                        input#gas(type='checkbox')
+                        t gas
+                tr
+                    td
+                        input#flammable(type='checkbox')
+                        t flammable
+                    td
+                        input#combustible(type='checkbox')
+                        t combustible
+                tr
+                    td
+                        input#organic(type='checkbox')
+                        t organic
+                    td
+                        input#poison(type='checkbox')
+                        t poison
+                tr
+                    td
+                        input#radioActive(type='checkbox')
+                        t radioActive
+                    td
+                        input#corrosive(type='checkbox')
+                        t corrosive
+                tr
+                    td
+                        input#poisonousInhalation(type='checkbox')
+                        t poisonousInh.
+                    td
+                        input#harmfulToWater(type='checkbox')
+                        t water harm.
+                tr
+                    td(colspan='2')
+                        input#other(type='checkbox')
+                        t other
+                tr
+                    td(colspan='2')
+                        h6 height / weight etc. 
+                table(border='0')
+                    tr
+                        td
+                            t cross weight
+                        td
+                            input#grossWeight(type='text' style='height:17px;width:20px;' value='')
+                        td
+                            t limitedWeight
+                        td
+                            input#limitedWeight(type='text' style='height:17px;width:20px;' value='')
+                    tr
+                        td
+                            t weight p. axel
+                        td
+                            input#weightPerAxel(type='text' style='height:17px;width:20px;' value='')
+                        td
+                            t trailer weight
+                        td
+                            input#trailerWeight(type='text' style='height:17px;width:20px;' value='')
+                    tr
+                        td
+                            t height
+                        td
+                            input#height(type='text' style='height:17px;width:20px;' value='')
+                        td
+                            t width
+                        td
+                            input#width(type='text' style='height:17px;width:20px;' value='')
+                    tr
+                        td
+                            t length
+                        td
+                            input#length(type='text' style='height:17px;width:20px;' value='')
+                        td
+                            t departure now
+                        td
+                            input#depatureNow(type='checkbox' style='width:20px;' value='')
+                tr
+                    td(colspan='2')
+                        input#startRouting(type='button' value='route' onclick='startRouting()')
+        #mapContainer(style='position:fixed;width:100%;height:100%;')
+    script(src='/javascripts/examples/v3/leaflet.js')

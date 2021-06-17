@@ -1,0 +1,32 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p With Behavior Control &amp; UI
+            tr
+                td HLP Service releases which are used in this demo:
+                td
+                    #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+        style.
+            #mapContainer
+            {
+            width: 640px;
+            height: 640px;
+            }
+            #pageblock
+            {
+            background: $white;
+            width: 640px;
+            height: 640px;
+            text-align:center;
+            border:1px solid silver;
+            display: table-cell; // this says treat this element like a table cell
+            vertical-align:middle;
+            }
+        #mapContainer
+        #pageblock Use two Fingers to interact with the Map
+    script(src='/javascripts/examples/v3/simple_map_two_fingers.js')

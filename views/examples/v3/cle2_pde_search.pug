@@ -1,0 +1,140 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/custom-location-extension-2.js')
+    script(src='/javascripts/examples/quadkey.js')
+    script(src='/javascripts/examples/jszip.min.js')
+    script(src='/javascripts/examples/center-utils.js')
+    script(src='/javascripts/examples/wellknown.js')
+    #content-padder 
+    #content-real
+        style.
+            li {
+            list-style-type: square;
+            font-size: large;
+            }
+            .caption {
+            background: rgba(0, 85, 170, 0.6);
+            border: 0.1em solid white;
+            border-radius: 0.2em;
+            color: white;
+            font-family: sans-serif;
+            font-size: medium;
+            font-weight: bold;
+            padding: 0.2em;
+            }
+            .distance {
+            background: rgba(0, 85, 170, 0.6);
+            border: 0.05em solid white;
+            border-radius: 0.1em;
+            color: white;
+            font-style: italic;
+            font-family: sans-serif;
+            font-size: smaller;
+            padding: 0.1em;
+            }
+            .smallButton {
+            padding:0;
+            margin:0;
+            }
+            .H_ib_body {
+            width: 220px;
+            }
+            textarea
+            {
+            resize: none;
+            color: black;
+            font-size: 12px;
+            }
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | This demo can be used to retrieve spatial, attributed data from the Custom&nbsp;Location&nbsp;Extension and the Platform Data Extension.
+            p
+                | For CLE, Use the sample layer(already filled).
+            p
+                | For PDE, use the drop downs to select map layers and key attributes.
+            p
+                | The proximity search can be used with a long click into the map.
+            .form-horizontal
+                .form-group
+                    .col-sm-4
+                        label.control-label(for='service') Service
+                    .col-sm-8
+                        form#service
+                            input#pde(type='radio' name='service' value='PDE' onchange='changeenv(this)')
+                            |  PDE 
+                            input#cle(type='radio' name='service' value='CLE' onchange='changeenv(this)' checked='true')
+                            |  CLE
+                .form-group
+                    label.control-label.col-sm-4(for='environment') Endpoint:
+                    .col-sm-8
+                        input#environment(type='text' name='environment' size='33' value='https://cle.api.here.com' placeholder='URL with http or https and host' list='environments' onchange='envSelect()')
+                        datalist#environments
+                            option(value='https://cle.api.here.com')
+                            option(value='https://cle.api.here.com')
+                .form-group
+                    label.control-label.col-sm-4(for='searchType') Search Type:
+                    .col-sm-8
+                        select#searchType.form-control(onchange='searchSelect()')
+                            option(value='bbox') Bounding Box
+                            option(value='proximity' selected='true') Proximity
+                            option(value='quad_key') Quadkey
+                            option(value='corridor') Corridor
+                            option(value='all') All
+                .form-group
+                    label.control-label.col-sm-4(for='customAppId') App id:
+                    .col-sm-8
+                        input#customAppId.form-control.input-wide(type='text' value='' placeholder='Leave empty for demo account' autocomplete='off' onchange='envSelect();')
+                .form-group
+                    label.control-label.col-sm-4(for='customAppCode') App code:
+                    .col-sm-8
+                        input#customAppCode.form-control.input-wide(type='text' value='' placeholder='Leave empty for demo account' autocomplete='off' onchange='envSelect();')
+                #clefields.form-group
+                    label.control-label.col-sm-4(for='layerId') Custom Layer Id:
+                    .col-sm-8
+                        input#layerId.form-control.input-wide(type='text' value='A333666999')
+                    label.control-label.col-sm-4(for='startButton') No Results?
+                    .col-sm-8
+                        input#startButton.btn.btn-default.btn-sm(type='button' value='Refresh Demo Layer' onclick='refreshDemo()')
+                    label.control-label.col-sm-4(for='fullGeometry') Full Geometry:
+                    .col-sm-8
+                        input#fullGeometry(type='checkbox' value='full')
+                #pdefields.form-horizontal(style='display:none')
+                    .form-group
+                        label.control-label.col-sm-4(for='pdelayerId') Map Layer
+                        .col-sm-8
+                            select#pdelayerId.form-control.input-wide(onchange='setAvailableKeyAttributes(this.options[this.selectedIndex].$attributes);')
+                            div
+                                | (only geometry layers,
+                                a(href='http://tcs.ext.here.com/pde/layers?region=&release=&url_root=pde.api.here.com') documented [here]
+                                | )
+                    .form-group
+                        label.control-label.col-sm-4(for='keyAttributeName') Key Attribute:
+                        .col-sm-8
+                            select#keyAttributeName.form-control.input-wide
+                            div (depends on layer, affects the search result)
+                    .form-group
+                        label.control-label.col-sm-4(for='labelfield') Label:
+                        .col-sm-8
+                            select#labelfield.form-control.input-wide
+                            div (Attribute which will be displayed on the map)
+                #searchRadiusLabel.form-group
+                    label.control-label.col-sm-4 Radius in meter:
+                    .col-sm-8
+                        input#searchRadius.form-control.input-wide(type='text' value='3000' autocomplete='off')
+                .form-group
+                    label.control-label.col-sm-4(for='maxDistance') Search Parameters:
+                    .col-sm-8
+                        input#searchclause.form-control.input-wide(type='text' value='proximity=41.9,12.5' autocomplete='off')
+                .form-group
+                    label.control-label.col-sm-4(for='startButton')  
+                    .col-sm-8
+                        input#startButton.btn.btn-default.btn-sm(type='button' value='Get' onclick='callCle()')
+            .form-group
+                label(for='logArea') Request/Response Log:
+                input#startButton.btn.btn-default.btn-xs(type='button' value='Clear' onclick='clearLog()')
+                textarea#logArea.form-control(cols='52' rows='10' autocomplete='off')
+        #mapContainer
+    script(src='/javascripts/examples/v3/cle2_pde_search.js')

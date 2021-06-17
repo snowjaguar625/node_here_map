@@ -1,0 +1,39 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | With Youtube Video and customized colors 
+                br
+                |  and removed closing X
+            div HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;')
+        #mapContainer
+        style(type='text/css').
+            /*
+            overwrite the info bubble content css
+            background color and padding to remove "closing X" display
+            */
+            .H_ib_body {
+            background-color: rgb(18, 65, 145);
+            padding: 0 0 0 0;
+            right: -320px !important;
+            }
+            /* overwrite the info bubble tail css */
+            .H_ib_tail
+            {
+            fill: rgb(18, 65, 145);
+            }
+            /* remove the X, which closes the InfoBubble on click */
+            .H_ib_close
+            {
+            display: none;
+            }
+            .H_ib {
+            color: #0000FF;
+            }
+    script(src='/javascripts/examples/v3/info_bubbles.js')

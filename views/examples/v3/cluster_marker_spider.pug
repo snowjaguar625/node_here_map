@@ -1,0 +1,58 @@
+extends ../../layout
+block content
+    title= title
+    script(src='/javascripts/examples/random-coordinates.js')
+    script(src='/javascripts/examples/ClusterMarkerSpider.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p Showcase of the Cluster Marker Spider Functionality
+            tr
+                td HLP Service releases which are used in this demo:
+                td
+                    #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+        style(type='text/css').
+            /*
+            overwrite the info bubble content css
+            background color and padding to remove "closing X" display
+            */
+            .H_ib_body {
+            background: #3FC8BB;
+            background: -webkit-linear-gradient(#3FC8BB, #2E3038);
+            background: -o-linear-gradient(#3FC8BB, #2E3038);
+            background: -moz-linear-gradient(#3FC8BB, #2E3038);
+            background: linear-gradient(#3FC8BB, #2E3038);
+            }
+            /* overwrite the info bubble tail css */
+            .H_ib_tail
+            {
+            fill: #2E3038;
+            }
+            /* remove the X, which closes the InfoBubble on click */
+            .H_ib_close
+            {
+            font-size: .6em;
+            position: absolute;
+            right: .2em;
+            top: .2em;
+            cursor: pointer;
+            fill: #fff;
+            }
+            .H_ib {
+            position: absolute;
+            left: .91em;
+            background: #000;
+            color: #fff;
+            font-size: 2em;
+            line-height: 1em;
+            fill: #000;
+            left: -100%;
+            -moz-user-select: initial;
+            -khtml-user-select: initial;
+            -webkit-user-select: initial;
+            -o-user-select: initial;
+            -ms-user-select: initial;
+            }
+        #mapContainer
+    script(src='/javascripts/examples/v3/cluster_marker_spider.js')

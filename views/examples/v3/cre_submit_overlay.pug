@@ -1,0 +1,174 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/moment.js')
+    script(src='/javascripts/examples/moment-range.js')
+    script(src='/javascripts/examples/jszip.min.js')
+    script(src='/javascripts/examples/gpx-parser.js')
+    script(src='/javascripts/examples/date-time-parser.js')
+    #content-padder 
+    #content-real
+        style.
+            .H_ui {
+                font-size: 16px;
+                font-family: "Lucida Grande", Arial, Helvetica, sans-serif;
+                -moz-user-select: none;
+                -khtml-user-select: none;
+                -webkit-user-select: none;
+                -o-user-select: none;
+                -ms-user-select: none;
+                z-index: 0;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 100%;
+            }
+            a.link-info {
+                color: #00ACDC;
+                text-decoration: underline;
+            }
+            .link-info {
+                font-size: small;
+                padding: 0.1em;
+            }
+            table.link-info td {
+                padding: 0.4em;
+                border: 1px solid white
+            }
+            .hideContent {
+                overflow: hidden;
+                line-height: 1em;
+                height: 0.5em;
+            }
+            .showContent {
+                height: auto;
+            }
+            .show-more {
+                padding: 5 px 0;
+            }
+        #ctrl-panel.ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            .show-more
+                a(href='#')
+                    h5 Usage Guide &gt; &gt; 
+            .content.hideContent
+                ul(style='list-style-type:square')
+                    li
+                        h5 Routing
+                ul
+                    li Select Routing option.
+                    li
+                        | Can be used to do the routing on the newly created overlays from one point to another by right clicking on the map
+                li
+                    h5  Create and upload overlay 
+                ul
+                    li Select Overlay option
+                    li
+                        | Start drawing a road by right clicking on the map and select &quot;Add Shape&quot;. Continue adding further shape points with left click
+                    li
+                        | As soon as a point is entered on the map it is matched on to the actual road network. The mapped links are shown in green color on the map
+                    li The context menu (right click) provides two options to finalize the roads.
+                    ul
+                        li
+                            | 1. Finalize shape - With this option the entered points will be taken for the overlays.
+                        li
+                            | 2. Finalize shape map matched - With this option the map matched points will be taken for the overlays. If this option is selected then the map matched points will be applied to the entered road.
+                    li
+                    | Once the roads have been created, click on the Upload Overlay button to upload the overlays.
+            br
+            .form-horizontal
+                .form-group
+                    label.control-label.col-sm-4(for='endpoint') CRE Endpoint
+                    .col-sm-8
+                        input#endpoint.form-control.col-sm-6(type='text' size='33' value='https://cre.api.here.com' placeholder='Enter the endpoint for CRE')
+                    label.control-label.col-sm-4(for='mapname')  Custom Map Name
+                    .col-sm-8
+                        input#mapname.form-control.col-sm-6(type='text' size='33' value='OVERLAYBASICDEMO1' placeholder='enter a custom map name')
+                        input#display.btn.btn-default.btn-sm(style='display:none;' type='button' value='Display Overlay' onclick='showAffectedRoads()')
+                    label.control-label.col-sm-4(for='customAppId') App Id
+                    .col-sm-8
+                        input#customAppId.form-control.col-sm-6(type='text' size='33' value='' placeholder='Leave empty for demo account' autocomplete='off' onchange='changeAuth();')
+                    label.control-label.col-sm-4(for='customAppCode') App Code
+                    .col-sm-8
+                        input#customAppCode.form-control.col-sm-6(type='text' size='33' value='' placeholder='Leave empty for demo account' autocomplete='off' onchange='changeAuth();')
+            input#file-input(type='file' name='name' style='display: none;')
+            .form-horizontal
+                label(for='location') 1. Where do you want to add/modify a road?
+                br
+                input#location.form-control.col-sm-6(type='text' size='33' value='Frankfurt, Germany' placeholder='Enter a location' onkeydown="if (event.keyCode == 13)\
+                document.getElementById('geocode').click()")
+                input#geocode.btn.btn-default.btn-sm(type='button' value='Go' onclick='geocode()')
+            br
+            #mode-chooser.form-horizontal(style='display:block')
+                h4
+                    input(type='radio' name='rightclick-mode' value='routing' onclick='rightclickchooser(this)' checked='true')
+                    b Routing
+                    input(type='radio' name='rightclick-mode' value='drawing' onclick='rightclickchooser(this)')
+                    b Overlay
+                    br
+            br
+            #routing-info.form-horizontal(style='display:block')
+                b
+                    | 2. Right click on the map to add start and destination, route, or re calculate last route.
+                br
+                br
+            #shape-mode(style='display:none;')
+                #drawing-chooser.form-horizontal(style='display:block')
+                    label#edit-mode-label(for='edit-mode') 2. Draw a shape on the map to modify or create a new road
+                    br
+                    input(type='radio' name='edit-mode' value='samples' onclick='editmode(this)')
+                    |  Choose from some examples
+                    br
+                    input(type='radio' name='edit-mode' value='drawing' onclick='editmode(this)')
+                    |  Draw your own shape
+                    br
+                    input(type='radio' name='edit-mode' value='text' onclick='editmode(this)')
+                    |  Add shapes as free text
+                    br
+                    br
+                #edit-info.form-horizontal(style='display:block')
+                    b Click on the added shapes to add details about them
+                    br
+                    br
+                #shape-chooser.form-horizontal(style='display:none')
+                    p
+                        | Select an example to upload as overlay
+                        .form-group
+                            .col-sm-10
+                                select#sampleSelector.form-control(onchange='addRoadExample(this)')
+                                    option#-1 Select an example: 
+                #shape-drawing.form-horizontal(style='display:none')
+                p
+                    | Right click on the map to start drawing a road, and click to add more points.
+                #shape-text-area.form-horizontal(style='display:none')
+                p
+                    | Paste a shape here
+                    textarea#shapedrop.form-control(rows='8')
+                    input(type='button' value='Add Shape' onclick='applyShapes();')
+                br
+                br
+                #road-selector.form-horizontal(style='display:none')
+                    p
+                        | Choose selected roads to edit details
+                        .form-group
+                            .col-sm-10
+                                select#roadSelector.form-control(onchange='showFormForRoad(this.selectedOptions[0].id)')
+                                    option#-1 Select a road: 
+                #overlay-def-container.container
+                input.btn.btn-default.btn-sm(type='button' value='Upload Overlay' onclick='overlay_upload()')
+                input.btn.btn-default.btn-sm(type='button' value='Delete Overlay' onclick='delete_overlay()')
+                input#refreshView.btn.btn-default.btn-sm(type='button' value='Display Overlay' onclick='showAffectedRoads()')
+                br
+                input.btn.btn-default.btn-sm(type='button' value='Backup shapes to disk' onclick='backup()')
+                input.btn.btn-default.btn-sm(type='button' value='Restore shapes from disk' onclick='restore()')
+                br
+            #feedbackTxt(style='left:0; top:0; z-index: 0;')
+            br
+            input.btn.btn-default.btn-sm(type='button' value='Clear Map' onclick='clearMap(false,true)')
+            input.btn.btn-default.btn-sm(type='button' value='Clear Log' onclick="feedbackTxt.innerHTML = '';")
+            input.btn.btn-default.btn-sm(type='button' value='Clear Route' onclick='clearRoute()')
+        #mapContainer
+        #pageblock(style='display:none')
+        #spinner
+    script(src='/javascripts/examples/v3/cre_submit_overlay.js')

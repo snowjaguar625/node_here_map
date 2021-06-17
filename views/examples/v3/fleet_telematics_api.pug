@@ -1,0 +1,355 @@
+extends ../../layout
+block content
+    title= title
+    script(src='/javascripts/examples/moment.js')
+    script(src='/javascripts/examples/moment-range.js')
+    script(src='/javascripts/examples/warning.js')
+    script(src='/javascripts/examples/wellknown.js')
+    #content-padder 
+    #content-real
+        style.
+            #notecontent a { color: white; }
+            #notecontent a:hover { color: red; }
+            details { display: none }
+            .input-details { display: none }
+            .endpoint-details { display: none }
+            #custom-rest-times { display: none }
+            table td,
+            table td * { vertical-align: top; }
+            textarea { white-space: pre; word-wrap: normal; overflow: scroll; }
+            ul.timeline { width: 400px; font-size: x-small; list-style-position: inside; padding: 0; vertical-align: middle; font-weight: bold; }
+            ul.timeline li {}
+            li.accStarts,
+            li.accEnds { color: #59b354; }
+            li.stStarts,
+            li.stEnds { color: #1b5fcc; }
+            li.arr { color: red; }
+            li.dep { color: white; }
+            li.at { color: yellow; }
+            .cont-time {
+            z-index: 999;
+            float: left;
+            height: 21px;
+            padding: 7px 10px 1px 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: 10px;
+            display: none;
+            }
+            .menubkg { background-color: #f8f8f8; border-radius: 15px; color: black; }
+            .menubkg select { font-size: 10px; vertical-align: middle; }
+            .menubkg select option:checked { background-color: #999; }
+            .tselect { background-image: url(/assets/examples/traffic_timebw30x34s.png); width: 30px; height: 34px; margin-top: 2px; display: block; z-index: 999; float: left; cursor: pointer; text-decoration: none; }
+            .commentControl { color : #fff; }
+            .commentControl svg { }
+            .commentControl.H_overlay.H_right::after { border-color: transparent transparent transparent #fff; }
+            .form-group    { margin-left: 2px; margin-right: 2px; margin-top: 2px; margin-bottom: 2px; }
+            .form-control,
+            .control-label { margin-left: 0px; margin-right: 0px; margin-top: 0px; margin-bottom: 0px; }
+            .attributes-body {
+            height: 100px;
+            overflow: auto
+            }
+            a.isoline-record {
+            color: #00ACDC;
+            text-decoration: underline;
+            }
+            .isoline-record {
+            font-size: small;
+            padding: 0.1em;
+            }
+            table.isoline-record td {
+            padding: 0.4em;
+            border: 1px solid white
+            }
+            h5 {
+            display: block;
+            font-weight: bold;
+            color: #FFC040;
+            }
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            .form-horizontal
+                label
+                    input#simple-mode-radio(type='radio' name='Simple-Mode' checked='true' onclick='changeInputMode(false);')
+                    |  Simple Mode
+                label
+                    input#expert-mode-radio(type='radio' name='Expert-Mode' onclick='changeInputMode(true);')
+                    |  Expert Mode
+            #simple-mode-div.form-horizontal
+                .form-group
+                    label.control-label.col-sm-4(for='environment') Endpoint:
+                    .col-sm-8
+                        input#endpoint.form-control.col-sm-6(type='text' size='33' value='https://fleet.api.here.com/2/calculateroute.json' placeholder='URL with http or https and host' list='environments')
+                .form-group
+                    label.control-label.col-sm-4(for='addtlparams') Parameters:
+                    .col-sm-8
+                        input#addtlparams.form-control.col-sm-6(type='text' size='33' value='' placeholder='&paramkey=paramvalue' list='environments')
+                .form-group
+                    label.control-label.col-sm-4(for='exampleSelector') Predefined examples:
+                    .col-sm-8
+                        select#exampleSelector.form-control(onchange='exampleSelect(0)')
+                .form-group
+                    label.control-label.col-sm-4(for='ExampleInfo') Example Description:
+                    span#ExampleInfo.glyphicon.glyphicon-chevron-down(style='float:right;cursor: pointer;' onclick='toggleExampleDescription(this)')
+                #ExampleInfoText(style='display:none')
+                .form-group
+                    label.col-sm-4(for='exampleSelector')
+                        | Waypoints:
+                        input#start.btn.btn-default.btn-sm(type='button' value='Redraw' onclick="parseWaypointsFromTextAndUpdateMap('destinations')")
+                    .col-sm-8
+                        textarea#destinations.form-control(rows='3' placeholder='&waypoint1=50.00000,8.00000;optional;taketo:3;value:20\nClick into the map to add waypoints' onchange="parseWaypointsFromTextAndUpdateMap('destinations');" onkeyup="parseWaypointsFromTextAndUpdateMap('destinations');")
+                hr.separator
+                table.form-group(border='0')
+                    tr
+                        td
+                            label.control-label.col-sm-12(for='vehiclecost') Vehicle Cost\km
+                        td
+                            input#vehiclecost.form-control(type='text' style='width:85px;' pattern='[0-9]*\.?[0-9]*' onkeydown='if (event.keyCode == 13)startRouteCalculation();')
+                        td
+                            label.control-label.col-sm-12(for='drivercost') Driver Cost\Hour
+                        td
+                            input#drivercost.form-control(type='text' style='width:85px;' pattern='[0-9]*\.?[0-9]*' onkeydown='if (event.keyCode == 13)startRouteCalculation();')
+                table.form-group(border='0')
+                    tr
+                        td
+                            label.control-label.col-sm-12(for='vehicleType') Vehicle:
+                        td
+                            select#vehicleType.form-control.col-sm-8(onchange='handleVehicleSpecChanged()')
+                                option(value='0') Car
+                                option(value='1') Transporter
+                                option(value='2' selected='true') Truck (7.5t)
+                                option(value='3') Truck (11t)
+                                option(value='4') Truck with one trailer (38t)
+                                option(value='5') Trailer Truck (40t)
+                                option(value='6') Car with Trailer
+                                option(value='7') Bus
+                                option(value='8') Emergency
+                                option(value='9') Pedestrian
+                                option(value='10') Pedestrian / Emergency
+                                option(value='11') Taxi
+                table.form-group(border='0')
+                    tr
+                        td
+                            label.control-label.col-sm-12(for='height') Height [m]
+                        td
+                            input#height.form-control.col-sm-4(type='text' size='8' pattern='[0-9]*\.?[0-9]*')
+                        td
+                            label.control-label.col-sm-12(for='width') Width [m]
+                        td
+                            input#width.form-control.col-sm-4(type='text' size='8' pattern='[0-9]*\.?[0-9]*')
+                    tr
+                        td
+                            label.control-label.col-sm-12(for='length') Length [m]
+                        td
+                            input#length.form-control.col-sm-4(type='text' size='8' pattern='[0-9]*\.?[0-9]*')
+                        td
+                            label.control-label.col-sm-12(for='limitedWeight') Limited Weight [t]
+                        td
+                            input#limitedWeight.form-control.col-sm-4(type='text' size='8' pattern='[0-9]*\.?[0-9]*')
+                    tr
+                        td
+                            label.control-label.col-sm-12(for='weightPerAxle') Weight Per Axle [t]
+                        td
+                            input#weightPerAxle.form-control.col-sm-4(type='text' size='8' pattern='[0-9]*\.?[0-9]*')
+                        td
+                            label.control-label.col-sm-12(for='hasTrailer') Trailer
+                        td
+                            input#hasTrailer(type='checkbox')
+                hr.separator
+                .form-group
+                    .checkbox.col-sm-3
+                        label
+                            input#explosive(type='checkbox')
+                            | explosive
+                    .checkbox.col-sm-3
+                        label
+                            input#gas(type='checkbox')
+                            | gas
+                    .checkbox.col-sm-3
+                        label
+                            input#flammable(type='checkbox')
+                            | flammable
+                    .checkbox.col-sm-3
+                        label
+                            input#combustible(type='checkbox')
+                            | combustible
+                    .checkbox.col-sm-3
+                        label
+                            input#organic(type='checkbox')
+                            | organic
+                    .checkbox.col-sm-3
+                        label
+                            input#poison(type='checkbox')
+                            | poison
+                    .checkbox.col-sm-3
+                        label
+                            input#radioActive(type='checkbox')
+                            | radioactive
+                    .checkbox.col-sm-3
+                        label
+                            input#corrosive(type='checkbox')
+                            | corrosive
+                    .checkbox.col-sm-3
+                        label
+                            input#poisonousInhalation(type='checkbox')
+                            | poisonous Inh.
+                    .checkbox.col-sm-3
+                        label
+                            input#harmfulToWater(type='checkbox')
+                            | water harm.
+                    .checkbox.col-sm-3
+                        label
+                            input#other(type='checkbox')
+                            | other
+                hr.separator
+                table
+                    tr
+                        td
+                            label.control-label(for='traffic') Traffic-aware routing:
+                        td(colspan='2')
+                            select#traffic.form-control.col-sm-8
+                                option(value='enabled') enabled
+                                option(value='disabled' selected='true') disabled
+                    tr
+                        td
+                            label.control-label(for='motorway') Avoid Motorway:
+                        td
+                            select#motorwayAvoid.form-control
+                                option(value='1' selected='true') None
+                                option(value='0') Default
+                                option(value='-1') Avoid
+                                option(value='-2') Soft Exclude
+                                option(value='-3') Strict Exclude
+                        td
+                            label.control-label(for='toll') Avoid Toll Roads:
+                        td
+                            select#tollAvoid.form-control
+                                option(value='1' selected='true') None
+                                option(value='0') Default
+                                option(value='-1') Avoid
+                                option(value='-2') Soft Exclude
+                                option(value='-3') Strict Exclude
+                    tr
+                        td
+                            label.control-label(for='boatFerry') Avoid Boat Ferrys:
+                        td
+                            select#boatFerry.form-control
+                                option(value='1' selected='true') None
+                                option(value='0') Default
+                                option(value='-1') Avoid
+                                option(value='-2') Soft Exclude
+                                option(value='-3') Strict Exclude
+                        td
+                            label.control-label(for='railFerry') Avoid Rail Ferrys:
+                        td
+                            select#railFerry.form-control
+                                option(value='1' selected='true') None
+                                option(value='0') Default
+                                option(value='-1') Avoid
+                                option(value='-2') Soft Exclude
+                                option(value='-3') Strict Exclude
+                    tr
+                        td
+                            label.control-label(for='tunnel') Avoid Tunnels:
+                        td
+                            select#tunnel.form-control
+                                option(value='1' selected='true') None
+                                option(value='0') Default
+                                option(value='-1') Avoid
+                                option(value='-2') Soft Exclude
+                                option(value='-3') Strict Exclude
+                    tr
+                        td
+                            label.control-label(for='alternatives') Alternatives
+                        td(colspan='2')
+                            input#alternatives.form-control(type='text' size='8' value='0' pattern='[0-9]*\.?[0-9]*')
+                .form-group
+                    .col-sm-4
+                        label.control-label(for='traffic') Departure / Arrival
+                    .col-sm-8
+                        .form-inline
+                            input#departure.form-control.col-sm-6(type='text' placeholder="YYYY-MM-DD'T'HH:MM:SS" size='16' pattern='^(19|20)\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$' title="TYYY-MM-DD'T'HH:mm:ss")
+                            input#arrival.form-control.col-sm-6(type='text' placeholder="YYYY-MM-DD'T'HH:MM:SS" size='16' pattern='^(19|20)\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$' title="TYYY-MM-DD'T'HH:mm:ss")
+            #expert-mode-div.form-horizontal(style='display: none;')
+                textarea#completeUrl.form-control(rows='8' placeholder='Paste complete calculate route URL here' onchange="parseWaypointsFromTextAndUpdateMap('completeUrl');" onkeyup="if (event.keyCode == 13) {calculateRoute();} else {parseWaypointsFromTextAndUpdateMap('completeUrl');}")
+            .form-group
+                input#start.btn.btn-default.btn-sm(type='button' value='Calculate' onclick='clearPreviousRoute(); calculateRoute();')
+            |         Show:
+            .form-group
+                input#showManeuvers(type='checkbox' value='on' onchange='maneuversSelect();')
+                |  Maneuvers
+                input#truckrestr(type='checkbox' value='on' checked='checked' onchange='showHideTruckMapDisplay();')
+                |  Truck restrictions
+                input#linkTime(type='checkbox' value='on' onchange='timeAlongRouteSelect();')
+                |  Time along route
+                input#showWarnings(type='checkbox' value='on' checked='checked' onchange='warningsSelect();')
+                |  Warnings
+                input#showOverlay(type='checkbox' value='on' onchange='overlaySelect();')
+                |  Overlays
+            hr.separator
+            .form-group
+                #feedbackTxt
+                #routeSliderDiv
+                    table
+                        tr
+                            td
+                                input#previousLink.btn.btn-default.btn-sm(title='previous link' type='button' value='<' onclick='drawPreviousLink();')
+                            td
+                                input#routeSlider(type='range' min='0' max='100' value='100')
+                            td
+                                input#nextLink.btn.btn-default.btn-sm(title='next link' type='button' value='>' onclick='drawNextLink()')
+            .form-group
+                label(for='logArea') Request URL:
+                textarea#logArea.form-control(cols='52' rows='1' autocomplete='off')
+        #spinner
+        #pageblock
+        #mapContainer
+            .ctrl-time
+                .cont-time.menubkg
+                    label(for='dOfWeek') Day of week: 
+                    select#dOfWeek.nvt_select(name='')
+                        option(value='0') Sunday
+                        option(value='1') Monday
+                        option(value='2') Tuesday
+                        option(value='3') Wednesday
+                        option(value='4') Thursday
+                        option(value='5') Friday
+                        option(value='6') Saturday
+                    span &nbsp;&nbsp;
+                    label(for='hour') Time: 
+                    select#hour.nvt_select(name='')
+                        option(value='0') 0
+                        option(value='1') 1
+                        option(value='2') 2
+                        option(value='3') 3
+                        option(value='4') 4
+                        option(value='5') 5
+                        option(value='6') 6
+                        option(value='7') 7
+                        option(value='8') 8
+                        option(value='9') 9
+                        option(value='10') 10
+                        option(value='11') 11
+                        option(value='12') 12
+                        option(value='13') 13
+                        option(value='14') 14
+                        option(value='15') 15
+                        option(value='16') 16
+                        option(value='17') 17
+                        option(value='18') 18
+                        option(value='19') 19
+                        option(value='20') 20
+                        option(value='21') 21
+                        option(value='22') 22
+                        option(value='23') 23
+                    span :
+                    select#minutes.nvt_select(name='')
+                        option(value='00') 00
+                        option(value='10') 10
+                        option(value='20') 20
+                        option(value='30') 30
+                        option(value='40') 40
+                        option(value='50') 50
+                a.button.trafficTimeBtn.tselect
+    script(src='/javascripts/examples/v3/fleet_telematics_api.js')

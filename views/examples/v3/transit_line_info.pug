@@ -1,0 +1,39 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p(style='width: 350px;')
+                | In this example, we demonstrate how to
+                | use Transit Line Info end point of Transit API to retrieve information about transit lines going through a certain station. Use the checkbox to search station by an Id
+            .form-group.form-inline
+                | Address: 
+                br
+                input#input-start.form-control.input-wide(value='Chicago' type='text')
+            .form-group.form-inline
+                | Station Id :
+                br
+                input#input-stationId.form-control(value='' type='text')
+            .checkbox.nospace
+                label
+                    input#stationId(type='checkbox' value='')
+                    | Search by Station Id
+                br
+                input#routing.btn.btn-default.btn-sm(type='button' value='Search')
+            #lineNumbersHeader.form-group.form-inline.onoffswitch-checkbox
+                b Lines
+                #lineNumbers(style='max-height:100px;overflow-y:auto')
+            #lineInfoHeader.form-group.form-inline.onoffswitch-checkbox
+                b Main Stops (StationId)
+                #lineInfo(style='max-height:100px;overflow-y:auto')
+            div HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;')
+        style.
+            .H_ib_content{
+            max-height:100px; overflow-y:auto;
+            }
+        #mapContainer
+    script(src='/javascripts/examples/v3/transit_line_info.js')

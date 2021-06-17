@@ -1,0 +1,116 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/distance-measurement.js')
+    script(src='/javascripts/examples/overview.js')
+    script(src='/javascripts/examples/zoom-control.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p(style='width: 350px;')
+                | In this example, we demonstrate how to use
+                | the Routing API to calculate and display ETA from a start to a
+                | destination.
+            p(style='width: 350px;')
+                | Into the start and destination boxes, you can
+                | enter either the address of the location or the coordinates like so:
+                | 37.8693928, -122.268892.
+            h5 Start
+            div
+                input#input-start.input-control(type='text' placeholder='My Start' value='')
+                label
+                    input#input-start-mylocation(type='checkbox' onchange='onCheckboxChange(this)')
+                    |  Use my location
+            h5 Destination
+            div
+                // https://www.facebook.com/theatlascafe
+                input#input-destination.input-control(type='text' placeholder='My Destination' value='3049 20th St, San Francisco, California')
+                label
+                    input#input-destination-mylocation(type='checkbox' onchange='onCheckboxChange(this)')
+                    |  Use my location
+            h5 Mode
+            div
+                label
+                    input#input-mode-d(name='input-mode' type='radio' value='car' onclick='onRadioboxChange(this)')
+                    | Drive
+                label
+                    input#input-mode-w(name='input-mode' type='radio' value='pedestrian' onclick='onRadioboxChange(this)')
+                    | Walk
+                label
+                    input#input-mode-pt(name='input-mode' type='radio' value='publicTransport' onclick='onRadioboxChange(this)')
+                    | Public
+                    | &#x9;&#x9;&#x9;Transport
+            button#refreshButton(type='button' onclick='onClickRefresh()') Refresh ETA
+            button#clearRoutesButton(type='button' onclick='clearRoutes()') Clear Routes
+            #errorMessage
+                | Error : 
+                span#errorMessageSpan N/A
+            h5 ETA
+            div
+                #div-base-time
+                    | Base time: 
+                    span#span-base-time N/A
+                #div-traffic-time
+                    | Traffic time: 
+                    span#span-traffic-time N/A
+                a#link-directions(target='_blank' href='https://beta.here.com/directions/drive/mylocation')
+                    | Direction Details
+            table
+                tr
+                    td
+                        br
+                        | HLP Service releases which are used in this demo:
+                    td
+                        #releaseInfoTxt(style='left:0; top:0; z-index: 0;')
+        #pageblock
+        #spinner
+        #mapContainer(style='z-index: 0; left:0; top:0; width: 100%; height: 100%; position: absolute;')
+        style(type='text/css').
+            #refreshButton {
+            margin-top: 10px;
+            margin-right: 30px;
+            }
+            #clearRoutesButton {
+            margin-top: 10px;
+            }
+            .H_ib {
+            font-size: 13.5px;
+            font-family: Times New Roman;
+            line-height: 200%;
+            }
+            .H_ib_content .category {
+            float: left;
+            color:maroon;
+            font-style: bold;
+            font-size: 15px;
+            margin-right: 5px;
+            }
+            .H_ib_content .specific {
+            float:left;
+            color:black;
+            }
+            .H_ib_body {
+            background-color: white;
+            border-radius: 5px;
+            border: solid 1px #000;
+            padding: 10px 5px 5px 5px;
+            width: 300px;
+            margin-bottom: 1 em;
+            border-color: maroon;
+            border-style: outset;
+            border-width: medium;
+            }
+            .H_ib_body .H_ib_close .H_icon {
+            fill: gray;
+            }
+            .ui-autocomplete {
+            font-family: "Verdana";
+            font-size: 12px;
+            }
+            #errorMessage {
+            margin-top: 10px;
+            font-size: 16px;
+            }
+    script(src='/javascripts/examples/v3/eta_provider.js')

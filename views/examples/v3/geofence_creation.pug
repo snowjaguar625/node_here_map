@@ -1,0 +1,12 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/jsts.min.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p Create a Geofence out of a Polyline with usage of JSTS Lib
+        #mapContainer
+    script(src='/javascripts/examples/v3/geofence_creation.js')

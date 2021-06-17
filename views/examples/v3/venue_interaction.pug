@@ -1,0 +1,28 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | In this example we demonstrate how to create an interactive user experience for Venue Maps.
+                | Use the controls below to change floors and click on the venue map to view additional information
+            hr.separator
+            h5 Change floor level
+            .form-group.plus-minus-widget
+                .input-group
+                    span.input-group-btn
+                        button#minus.btn.btn-default(type='button')
+                            span.glyphicon.glyphicon-minus.here_green
+                    input#venue-level.form-control.here_green(type='text' value='0')
+                    span.input-group-btn
+                        button#plus.btn.btn-default(type='button')
+                            span.glyphicon.glyphicon-plus.here_green
+            hr.separator
+            p
+                div HLP Service releases which are used in this demo:
+                #releaseInfoTxt(value='Used Service Releases:/n')
+        #mapContainer
+    script(src='/javascripts/examples/v3/venue_interaction.js')

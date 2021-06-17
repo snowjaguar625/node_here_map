@@ -1,0 +1,79 @@
+.custom1 .H_ib_body{
+     background: rgba(140, 127, 238, 0.96);
+     margin-right : -3em;
+     border-radius : 4em;
+     padding-left: 1em;
+}
+
+.custom1 .H_ib_tail{
+     fill: rgba(140, 127, 238, 0.96);
+     z-index:-1;
+}
+
+.custom1 .H_ib {
+     color: #000000;
+}
+
+.custom1 .H_ib_close{
+     display:none;
+}
+
+/*green #3FC8BB
+grey #2E3038*/
+
+.custom2 .H_ib_body{
+    background: #3FC8BB; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#3FC8BB, #2E3038); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#3FC8BB, #2E3038); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#3FC8BB, #2E3038); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#3FC8BB, #2E3038); /* Standard syntax (must be last) */
+}
+.custom2 .H_ib_tail{
+     fill: #2E3038;
+     z-index:-1;
+}
+
+.custom2 .H_ib_content{
+	text-align: center;
+	text-decoration: underline;
+	text-transform: uppercase;
+}
+
+.custom3 .H_ib_body{
+     background: rgba(140, 127, 238, 0.96);
+     margin-right : -3em;
+     border-radius : 2em;
+     padding-left: 1em;
+}
+
+.H_ib.H_ib_top.custom3 .H_ib_tail::after{
+	border-top-color: rgba(140, 127, 238, 0.96);
+	border-bottom-color :rgba(140, 127, 238, 0.96 );
+}
+
+/*classes used in JS API 3.1*/
+.custom3 .H_ib {
+     color: #000000;
+}
+
+.custom3 .H_ib_close{
+     display:none;
+}
+
+.custom4 .H_ib_body{
+    background: #3FC8BB; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#3FC8BB, #2E3038); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#3FC8BB, #2E3038); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#3FC8BB, #2E3038); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#3FC8BB, #2E3038); /* Standard syntax (must be last) */
+}
+
+.H_ib.H_ib_top.custom4 .H_ib_tail::after{
+	border-top-color: #2E3038;
+	border-bottom-color :#2E3038;
+}
+.custom4 .H_ib_content{
+	text-align: center;
+	text-decoration: underline;
+	text-transform: uppercase;
+}

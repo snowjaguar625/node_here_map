@@ -1,0 +1,25 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | In this example we demonstrate how to
+                br
+                |  set the marker at the center of the view
+                br
+                | and return its corresponding  address (reverse geocoding). 
+                br
+            | &#x9;Marker Location: 
+            br
+            input#markerLocationText(style='width:100%;' type='text' name='markerLocationText' value='')
+            | &#x9;Address: 
+            br
+            input#addressText(style='width:100%;' type='text' name='addressText' value='')
+            div HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+        #mapContainer(style='width: 100%; height: 100%')
+    script(src='/javascripts/examples/v3/reverse_geocoding_center_view.js')

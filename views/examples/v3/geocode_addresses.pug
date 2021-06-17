@@ -1,0 +1,30 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            form(name='geocodeForm')
+                .form-group
+                    textarea#addresses.form-control(rows='10' placeholder='Enter addresses and hit go ...')
+                .form-inline.form-group
+                    label(for='delimiter') Delimiter
+                    input#delimiter.form-control(type='text' size='1' maxlength='1' value=',')
+                    label#counter
+                .form-group
+                    button.btn.btn-default.btn-sm(type='button' onclick='go()') Go
+                    button.btn.btn-default.btn-sm(type='button' onclick='zoomTo()') Zoom to current address
+                hr.separator
+                h5 Notes
+                p
+                    | On hitting &apos;Go&apos; the tool will add a lat long next to each address that it can geocode.  It also adds the relevance score (value between 0 and 1 - 1 indicates most relevant) and the matchLevel (most detailed address field that matches the query e.g. country, state, county, city, district, street, intersection, houseNumber, postalCode, landmark).
+                p
+                    | This tool returns the first (most relevant match found by the Enterprise Geocoder REST service.  See developer.here.com for more details.
+                p
+                    | Delimiter - this is the character which you want to use to seperate the fields/columns.
+                p
+                    | If you want to check a geocoded result out click the line that the result is on and hit &apos;Zoom to current address&apos;.
+        #mapContainer
+    script(src='/javascripts/examples/v3/geocode_addresses.js')

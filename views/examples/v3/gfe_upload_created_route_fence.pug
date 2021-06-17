@@ -1,0 +1,40 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/jsts.min.js')
+    script(src='/javascripts/examples/geofence-extension.js')
+    script(src='/javascripts/examples/jszip.min.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p Create a Geofence out of a Polyline with usage of JSTS Lib
+            .form-horizontal
+                .form-group
+                    label.control-label.col-sm-4(for='start') Start:
+                    .col-sm-8
+                        input#input-from.form-control(size='100' value='Am Kronberger Hang 8, Schwalbach' type='text')
+                .form-group
+                    label.control-label.col-sm-4(for='unit') Destination:
+                    .col-sm-8
+                        input#input-to.form-control(size='100' value='Frankfurt' type='text')
+                .form-group
+                    label.control-label.col-sm-4(for='unit') Offset:
+                    .col-sm-8
+                        select#offset.form-control(name='offset')
+                         each val in ["1500", "2000", "2500", "3000", "3500", "4000", "4500", "5000"]
+                            option(value=val)=val
+                .form-group
+                    label.col-sm-4.control-label(for='layerId') Upload to Geofence Layer Id:
+                    .col-sm-8
+                        input#layerId.form-control(type='number' value='1')
+            .form-group
+                input#isorouting.btn.btn-default.btn-sm(type='button' value='Calculate Route' onclick='startRouting()')
+                input#simulateRouteButton.btn.btn-default.btn-sm(type='submit' value='Simulate Asset' onclick='startStopRouteSimulation();' disabled='')
+            .form-group
+                #feedbackTxt
+                div HLP Service releases which are used in this demo:
+                #releaseInfoTxt(value='Used Service Releases:/n')
+        #mapContainer
+    script(src='/javascripts/examples/v3/gfe_upload_created_route_fence.js')

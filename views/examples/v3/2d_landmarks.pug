@@ -1,0 +1,12 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/berlin.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p including Berlin Marathon Track
+        #mapContainer
+    script(src='/javascripts/examples/v3/2d_landmarks.js')

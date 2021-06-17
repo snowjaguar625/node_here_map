@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  #content-padder 
+  #content-real
+    .content-block
+      .wrapper
+        #cookie-welcome(style='display: block;')
+          h2 Welcome to HERE Technical Customer Support
+          p
+            | HERE helps people navigate their lives and make sense of the world with intelligent and personal maps. HERE Technical Customer Support is the company&rsquo;s official Support Team for 
+            u all
+            |  HERE products.
+    ul.here-menu-modern
+      li
+        #message.hvr-overline-reveal
+          | To view the page please Sign In with your HERE Account. Click 
+          a(href='#' onclick='javascript:openLogin()')
+            b here
+          | &#x9;&#x9;&#x9;to Sign In or Register for your HERE Account.
+      li(style='display:none')
+        .hvr-overline-reveal
+          | If not redirected automatically after Sign In click 
+          a#redirect(href='/')
+            u
+              b here
+    script.
+      document.getElementById("logoutButton").style.display="none";
+      $(function(){openLogin();})

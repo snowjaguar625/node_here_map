@@ -1,0 +1,44 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/InvertedPolygon.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p#mapReleaseTxt
+                | After selection, additional info is retrieved from PDE Web Service and displayed.
+            .form-horizontal
+                .form-group
+                    .col-sm-9
+                        p
+                            | In this example we demonstrate how to 
+                            br
+                            |  perform a search and how to handle the results including 
+                            br
+                            |  the shape of the AdminBoundary
+                        p
+                            | Search allows you to perform geocode (address to position) 
+                            br
+                            | and reverse geocode (position to address) searches.
+                        p
+                            | The polygon will show the next admin level. If the Address is on MatchLevel 
+                            br
+                            | house number and/or street only a marker  will be shown. 
+                            br
+                            | Please notice that for ReverseGeocoding the service only supports the postal code area.
+                        br
+                        | Search for an address: 
+                        p
+                        input#geoCode(type='text' size='25' value='Schwalbach Taunus DE' onkeyup='if (event.keyCode == 13) geocode();')
+                        br
+                        br
+                        | Or do for 50.1802815,8.474503934 a: 
+                        p
+                        input#reverseGeoCode(type='button' value='ReverseGeocode' onclick='reverseGeocode();')
+                        div HLP Service releases which are used in this demo:
+                div HLP Service releases which are used in this demo:
+                #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+        #mapContainer
+    script(src='/javascripts/examples/v3/admin_boundaries_inverted.js')

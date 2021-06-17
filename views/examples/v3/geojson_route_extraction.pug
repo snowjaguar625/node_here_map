@@ -1,0 +1,27 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p#mapReleaseTxt
+                | After route calculation, additional info is retrieved from PDE Web Service and displayed.
+            table(border='0')
+                tr
+                    td Start
+                    td
+                        input#start.form-control(type='text' size='50' value='Wiesbaden')
+                tr
+                    td Destination
+                    td
+                        input#dest.form-control(type='text' size='50' value='Frankfurt')
+            input#routeButton.btn.btn-default.btn-sm(type='submit' value='Calculate Route')
+            p GeoJSon Output:
+            textarea#textArea.form-control(rows='4')
+            button#save.btn.btn-default.btn-sm(type='button' value='save') Save
+            div HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;')
+        #mapContainer
+    script(src='/javascripts/examples/v3/geojson_route_extraction.js')

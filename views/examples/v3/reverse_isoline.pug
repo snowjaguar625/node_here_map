@@ -1,0 +1,51 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            .form-group
+                input#start.form-control(type='text' value='Am Kronberger Hang 8, Schwalbach' onkeydown="if (event.keyCode == 13) geocode(document.getElementById('start').value);" autofocus='')
+            .form-group
+                select#rangetype(onchange="document.getElementById('rangeunit').innerHTML = this.value == 'time' ? 'min' : 'KM'; calculateReverseFlow(document.getElementById('rangevalue').value); return false;")
+                    option(value='time' selected='') Time
+                    option(value='distance') Distance
+                select#rangevalue(size='1' onchange="calculateReverseFlow(document.getElementById('rangevalue').value);" style="margin-left: 3px")
+                    option 1
+                    option 2
+                    option 3
+                    option 4
+                    option 5
+                    option 6
+                    option 7
+                    option 8
+                    option 9
+                    option(selected='') 10
+                    option 11
+                    option 12
+                    option 13
+                    option 14
+                    option 1
+                    option 16
+                    option 17
+                    option 18
+                    option 19
+                    option 20
+                    option 21
+                    option 22
+                    option 23
+                    option 24
+                    option 25
+                span#rangeunit(style="margin-left: 2px") min
+            div
+                label
+                    input#traffic(type='checkbox' onchange="calculateReverseFlow(document.getElementById('rangevalue').value); return false;" checked='')
+                    |  Traffic Enabled?
+            tr
+                td HLP Service releases which are used in this demo:
+                td
+                    #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+        #mapContainer
+    script(src='/javascripts/examples/v3/reverse_isoline.js')

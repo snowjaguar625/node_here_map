@@ -1,0 +1,211 @@
+extends ../../layout
+block content
+    title= title
+    script(src='/javascripts/examples/moment.js')
+    script(src='/javascripts/examples/moment-range.js')
+    script(src='/javascripts/examples/warning.js')
+    script(src='/javascripts/examples/demos/restAPICaller.js')
+    #content-padder 
+    #content-real
+        style.
+            #notecontent a { color: white; }
+            #notecontent a:hover { color: red; }
+            details { display: none }
+            .input-details { display: none }
+            .endpoint-details { display: none }
+            #custom-rest-times { display: none }
+            table td,
+            table td * { vertical-align: top; }
+            textarea { white-space: pre; word-wrap: normal; overflow: scroll; }
+            ul.timeline { width: 400px; font-size: x-small; list-style-position: inside; padding: 0; vertical-align: middle; font-weight: bold; }
+            ul.timeline li {}
+            li.accStarts,
+            li.accEnds { color: #59b354; }
+            li.stStarts,
+            li.stEnds { color: #1b5fcc; }
+            li.arr { color: red; }
+            li.dep { color: white; }
+            li.at { color: yellow; }
+            .cont-time {
+            z-index: 999;
+            float: left;
+            height: 21px;
+            padding: 7px 10px 1px 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: 10px;
+            display: none;
+            }
+            .menubkg { background-color: #f8f8f8; border-radius: 15px; color: black; }
+            .menubkg select { font-size: 10px; vertical-align: middle; }
+            .menubkg select option:checked { background-color: #999; }
+            .tselect { background-image: url(/assets/examples/traffic_timebw30x34s.png); width: 30px; height: 34px; margin-top: 2px; display: block; z-index: 999; float: left; cursor: pointer; text-decoration: none; }
+            .commentControl { color : #fff; }
+            .commentControl svg { }
+            .commentControl.H_overlay.H_right::after { border-color: transparent transparent transparent #fff; }
+            .form-group    { margin-left: 2px; margin-right: 2px; margin-top: 2px; margin-bottom: 2px; }
+            .form-control,
+            .control-label { margin-left: 0px; margin-right: 0px; margin-top: 0px; margin-bottom: 0px; }
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            #simple-mode-div.form-horizontal
+                .form-group
+                    label.control-label.col-sm-4(for='environment') Endpoint:
+                    .col-sm-8
+                        input#endpointUrl.form-control.col-sm-6(type='text' size='33' value='https://fleet.api.here.com' placeholder='URL with http or https and host' list='environments')
+                .form-group
+                    label.control-label.col-sm-4(for='addtlparams') Parameters:
+                    .col-sm-8
+                        input#addtlparams.form-control.col-sm-6(type='text' size='33' value='' placeholder='&paramkey=paramvalue' list='environments')
+                .form-group
+                    label.control-label.col-sm-4(for='exampleSelector') Predefined examples:
+                    .col-sm-8
+                        select#exampleSelector.form-control(onchange='exampleSelect(0)')
+                .form-group
+                    label.control-label.col-sm-4(for='ExampleInfo') Example Description:
+                    span#ExampleInfo.glyphicon.glyphicon-chevron-down(style='float:right;cursor: pointer;' onclick='toggleExampleDescription(this)')
+                #ExampleInfoText(style='display:none')
+                .form-group
+                    label.col-sm-4(for='exampleSelector')
+                        | Waypoints:
+                        input#start.btn.btn-default.btn-sm(type='button' value='Redraw' onclick="parseWaypointsFromTextAndUpdateMap('destinations')")
+                    .col-sm-8
+                        textarea#destinations.form-control(rows='3' placeholder='&waypoint1=50.00000,8.00000;optional;taketo:3;value:20\nClick into the map to add waypoints' onchange="parseWaypointsFromTextAndUpdateMap('destinations');" onkeyup="parseWaypointsFromTextAndUpdateMap('destinations');")
+                hr.separator
+                .form-group
+                    .col-sm-4
+                        label.control-label(for='customConsumptionDetails') Custom Consumption Details
+                    .col-sm-8
+                        input#customConsumptionDetails.form-control(type='text' size='8' value='' placeholder='speed,0,0.102,10,0.084,30,0.066,50,0.06,70,0.066,100,0.072,120,0.084,140,0.108;ascent,0.4;descent,0.1')
+                #customEvPoiLayerText
+                    small
+                        | Name of custom layer which can be searched for electric charging stations during routing. (optional)
+                .form-group
+                    .col-sm-4
+                        label.control-label(for='evPoiLayerName') Custom Layer Name
+                    .col-sm-8
+                        input#evPoiLayerName.form-control(type='text' size='8' value='')
+                .form-group
+                    .col-sm-4
+                        label.control-label Battery Details:
+                .form-group
+                    .col-sm-4
+                        label.control-label(for='initialCharge') &nbsp;&nbsp;&nbsp;Initial Charge
+                    .col-sm-8
+                        input#initialCharge.form-control(type='text' size='8' value='' placeholder='30' onkeyup='validateInput(this)')
+                .form-group
+                    .col-sm-4
+                        label.control-label(for='maxCharge') &nbsp;&nbsp;&nbsp;Maximum Charge
+                    .col-sm-8
+                        input#maxCharge.form-control(type='text' size='8' value='' placeholder='45' onkeyup='validateInput(this)')
+                .form-group
+                    .col-sm-4
+                        label.control-label(for='chargingCurve') &nbsp;&nbsp;&nbsp;Charging Curve (charging profile of vehicle)
+                    .col-sm-8
+                        input#chargingCurve.form-control(type='text' size='8' value='' placeholder='0,6.67,20,0' onkeyup='validateInput(this)')
+                .form-group
+                    .col-sm-4
+                        label.control-label(for='minChargeAtStop') &nbsp;&nbsp;&nbsp;Minimum charge At Stop
+                    .col-sm-8
+                        input#minChargeAtStop.form-control(type='text' size='8' value='' placeholder='4' onkeyup='validateInput(this)')
+                .form-group
+                    .col-sm-4
+                        label.control-label(for='chargingStopDepartureCharge') &nbsp;&nbsp;&nbsp;Charging stop Departure Charge
+                    .col-sm-8
+                        input#chargingStopDepartureCharge.form-control(type='text' size='8' value='' placeholder='16' onkeyup='validateInput(this)')
+                .form-group
+                    label.control-label.col-sm-4(for='connectorType') Connector Types (comma separated):
+                    .col-sm-8
+                        input#connectorType.form-control(type='text' size='8' list='connector')
+                        datalist#connector
+                            option(value='')
+                            option(value='IEC 62196-2 type 2 (Mennekes)') IEC 62196-2 type 2 (Mennekes)
+                            option(value='IEC 62196-2 type 2 combo (Mennekes)') IEC 62196-2 type 2 combo (Mennekes)
+                            option(value='Tesla Connector (high power wall)') Tesla Connector (high power wall)
+                            option(value='IEC 62196-2	type 3c (SCAME)') IEC 62196-2 type 3c (SCAME)
+                            option(value='IEC 62196-2 type 1 (SAE J1772)') IEC 62196-2 type 1 (SAE J1772)
+                            option(value='IEC 62196-2 type 1 combo (SAE J1772)') IEC 62196-2 type 1 combo (SAE J1772)
+                            option(value='JEVS G 105 (CHAdeMO)') JEVS G 105 (CHAdeMO)
+                .form-group
+                    .col-sm-4
+                        label.control-label(for='traffic') Traffic-aware routing:
+                    .col-sm-8
+                        select#traffic.form-control
+                            option(value='enabled') enabled
+                            option(value='disabled' selected='true') disabled
+                .form-group
+                    .col-sm-4
+                        label.control-label(for='traffic') Departure
+                    .col-sm-8
+                        .form-inline
+                            input#departure.form-control.col-sm-6(type='text' placeholder="YYYY-MM-DD'T'HH:MM:SS" size='16' pattern='^(19|20)\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$' title="TYYY-MM-DD'T'HH:mm:ss")
+                            // <input class="form-control col-sm-6" id="arrival"   type="text" placeholder="YYYY-MM-DD'T'HH:MM:SS" size="16" pattern="^(19|20)\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$" title="TYYY-MM-DD'T'HH:mm:ss">
+            .form-group
+                input#start.btn.btn-default.btn-sm(type='button' value='Calculate' onclick='clearPreviousRoute(); calculateRoute();')
+            .form-group
+                | Show:
+                input#showWarnings(type='checkbox' value='on' checked='checked' onchange='warningsSelect();')
+                |  Warnings
+            hr.separator
+            .form-group
+                #legend
+                    label.control-label(for='traffic') Legend:
+                    div
+                        font(color='#0000ff')  Selected electric vehicle charging station 
+                    div
+                        font(color='#808080')  Possible charging stations along route 
+                    div
+                        font(color='#FF0000')  Private charging stations along route (if there is any) 
+            hr.separator
+            .form-group
+                #feedbackTxt
+        #spinner
+        #pageblock
+        #mapContainer
+        .ctrl-time
+            .cont-time.menubkg
+                label(for='dOfWeek') Day of week: 
+                select#dOfWeek.nvt_select(name='')
+                    option(value='0') Sunday
+                    option(value='1') Monday
+                    option(value='2') Tuesday
+                    option(value='3') Wednesday
+                    option(value='4') Thursday
+                    option(value='5') Friday
+                    option(value='6') Saturday
+                span &nbsp;&nbsp;
+                label(for='hour') Time: 
+                select#hour.nvt_select(name='')
+                    option(value='0') 0
+                    option(value='1') 1
+                    option(value='2') 2
+                    option(value='3') 3
+                    option(value='4') 4
+                    option(value='5') 5
+                    option(value='6') 6
+                    option(value='7') 7
+                    option(value='8') 8
+                    option(value='9') 9
+                    option(value='10') 10
+                    option(value='11') 11
+                    option(value='12') 12
+                    option(value='13') 13
+                    option(value='14') 14
+                    option(value='15') 15
+                    option(value='16') 16
+                    option(value='17') 17
+                    option(value='18') 18
+                    option(value='19') 19
+                    option(value='20') 20
+                    option(value='21') 21
+                    option(value='22') 22
+                    option(value='23') 23
+                span :
+                select#minutes.nvt_select(name='')
+                    option(value='00') 00
+                    option(value='10') 10
+                    option(value='20') 20
+                    option(value='30') 30
+                    option(value='40') 40
+                    option(value='50') 50
+    script(src='/javascripts/examples/v3/ev_charging_along_route.js')

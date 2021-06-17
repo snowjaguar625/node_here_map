@@ -1,0 +1,13 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p(style='width: 350px;')
+                | In this example, we demonstrate how to
+                | update a marker icon color and size on map view change.
+        #mapContainer
+    script(src='/javascripts/examples/v3/update_marker_on_mapview_change.js')

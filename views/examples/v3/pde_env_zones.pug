@@ -1,0 +1,37 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | This demo shows the environmental zone polgyon data available via PDE using JSAPI Remote Tile Provider. Environmental Zones can be only applicable to certain emmission classes, fuel type, licence plate endings or only valid for a certain Day/Time period.
+                br
+                | Environmental Zone polygons that match the given vehicle parameters will be shown in 
+                font(color='red') red
+                | , not applicable ones in 
+                font(color='gray') grey
+                | .
+                br
+                | Environmental Zone polygons will be shown in lower zoomlevels only.
+            hr.separator
+            h5 Vehicle Parameters
+            table
+                tr
+                    td Emission Type
+                    td
+                        select#emissionType.form-control(style='width:89px;' onchange='setNewVehicleEmmisionClass(true)')
+                            option(value='1') EURO I
+                            option(value='2') EURO II
+                            option(value='3') EURO III
+                            option(value='4' selected='true') EURO IV
+                            option(value='5') EURO V
+                            option(value='6') EURO VI
+                            option(value='7') Electric Vehicle
+            #centerCoordinate
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='No PDE tiles loaded yet')
+        #mapContainer
+    script(src='/javascripts/examples/v3/pde_env_zones.js')
+

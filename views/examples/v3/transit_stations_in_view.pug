@@ -1,0 +1,43 @@
+
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/convexHull.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p Display of Transit Stations around Center Position
+            #centerCoordinate
+            div(style='padding: 15px 0px 0px 0px;')
+                input#isIsochrone(type='checkbox' onclick='chIsochrone(this)')
+                label(for='isIsochrone') Isochrone
+            #isochrone(style='display: none;')
+                #bar1(style='position:relative;')
+                    #text1 Maximum duration of the journeys: 90 min
+                div
+                    div Depature:
+                    input#date(type='date' value='' onclick='dateTimeChg()')
+                    script.
+                        document.getElementById('date').value = new Date().toISOString().substring(0, 10);
+                    input#time(type='time' value='' onclick='dateTimeChg()')
+                    script.
+                        var d = new Date(),
+                        h = d.getHours(),
+                        m = d.getMinutes();
+                        if(h < 10) h = '0' + h;
+                        if(m < 10) m = '0' + m;
+                        document.getElementById("time").value = h + ":" + m;
+        #mapContainer
+        style(type='text/css').
+            .H_ib_body {
+            width: 220px;
+            }
+            textarea
+            {
+            color: black;
+            font-size: 12px;
+            }
+
+    script(src='/javascripts/examples/v3/transit_stations_in_view.js')

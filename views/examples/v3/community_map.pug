@@ -1,0 +1,19 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/random-coordinates.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            form#form-address(action='')
+                input#input-address(type='text' style='width: 97.5%;' placeholder="e.g. 16 Place de l'Iris, Courbevoie..." onkeydown='if (event.keyCode == 13) geocode(this.value);')
+                input(type='submit' value='GO!')
+            table
+                tr
+                    td HLP Service releases which are used in this demo:
+                    td
+                        #releaseInfoTxt(style='left:0; top:0; z-index: 0;')
+        #mapContainer
+    script(src='/javascripts/examples/v3/community_map.js')

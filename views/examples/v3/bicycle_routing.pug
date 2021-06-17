@@ -1,0 +1,51 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/levels_new.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | In this example we demonstrate bicycle routing (Beta version) between two waypoints in HLP.
+            .form-horizontal
+                .form-group
+                    label.control-label.col-sm-3(for='start') Start:
+                    .col-sm-9
+                        input#start.form-control.input-wide(type='text' value='533 Church St, Richmond VIC 3121, Australia' onkeydown='if (event.keyCode == 13)startRouteCalculation();')
+                .form-group
+                    label.control-label.col-sm-3(for='dest') Destination:
+                    .col-sm-9
+                        input#dest.form-control.input-wide(type='text' value='90A Brighton St, Richmond VIC 3121, Australia' onkeydown='if (event.keyCode == 13) startRouteCalculation();')
+                .form-group
+                    label.control-label.col-sm-3(for='transportMode') Transportation Mode:
+                    .col-sm-9
+                        select#transportMode.form-control.input-wide(name='transportMode' size='1')
+                            option(value='bicycle' selected='') bicycle
+                            option(value='car') car
+                            option(value='pedestrian') pedestrian
+                input#routeButton.btn.btn-default.btn-sm(type='submit' value='Calculate Route')
+                #feedbackTxt(style='left:0; top:0; z-index: 0;')
+                hr.separator
+                .form-group
+                    table(style='')
+                        tr
+                        td
+                            #distTextId(style='margin:5px; float:; margin-right:') Travel distance (m):
+                        td
+                            #distTextPointText(style='margin:3px; float:left; margin-right:')
+                        tr
+                        td
+                            #timeTextId(style='margin:5px; float:; margin-right:') Travel time (hh:mm:ss):
+                        td
+                            #timeTextPointText(style='margin:3px; float:left; margin-right:')
+                hr.separator
+                div HLP Service releases which are used in this demo:
+                #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+                hr.separator
+                .form-group
+                    label.control-label.col-sm-3 Link IDs:
+                    #warningscontainer(style='margin: 3px;')
+        #mapContainer
+    script(src='/javascripts/examples/v3/bicycle_routing.js')

@@ -1,0 +1,25 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | In this example we demonstrate how to
+                br
+                |  perform a search and how to handle the results
+            p
+                | Search allows you to perform geocode
+                br
+                | (address to position) and reverse geocode
+                br
+                | (position to address) searches.
+            input#geoCode.btn.btn-default.btn-sm(type='button' value='geocode' onclick='geocode();')
+            br
+            input#reverseGeoCode.btn.btn-default.btn-sm(type='button' value='reverse geocode' onclick='reverseGeocode();')
+            div HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+        #mapContainer
+    script(src='/javascripts/examples/v3/simple_geocoding.js')

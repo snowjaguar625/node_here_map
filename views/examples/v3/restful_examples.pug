@@ -1,0 +1,314 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        style.
+            body { color: #fff;}
+            a {color: #fff }
+            table { border-collapse: collapse; }
+            table, th, td { border: 1px solid white; }
+            td:nth-child(1) { padding: 10px; }
+        .subheader Format can be changed to .json
+        table
+            tr
+                td Postal Code shape via the ReverseGeocoding
+                td
+                    a(href='https://reverse.geocoder.api.here.com/search/6.2/reversegeocode.xml?mode=retrieveAddresses&prox=41.382464,-87.19387,100&additionaldata=IncludeShapeLevel,postalCode&maxresults=1&languages=de-DE&app_code=R-6GpAMCOkJQz53QdDPoKw&app_id=inyuthEGubEh3CHUgUch&gen=4' target='_blank')
+                        p
+                            | https://reverse.geocoder.api.here.com/search/6.2/reversegeocode.xml?
+                            br
+                            |  mode=retrieveAddresses
+                            br
+                            |           &amp;prox=41.382464,-87.19387,100
+                            br
+                            |           &amp;additionaldata=IncludeShapeLevel,postalCode
+                            br
+                            |           &amp;maxresults=1
+                            br
+                            |           &amp;languages=de-DE
+                            br
+                            |           &amp;app_code=***
+                            br
+                            |           &amp;app_id=***
+            tr.alt
+                td
+                    | Some more information like map version &amp; linkID (&amp;gen=4).
+                    p
+                    |  Please be aware that linkID is here showed under ReferenceId!
+                td
+                    a(href='https://geocoder.api.here.com/search/6.2/geocode.xml?app_id=inyuthEGubEh3CHUgUch&app_code=R-6GpAMCOkJQz53QdDPoKw&searchtext=DE+Sch%C3%B6nau+69250+In+den+Kreuzwiesen+23&verboseMode=0&responseattributes=none&locationattributes=mr&requestid=0001002840&gen=2' target='_blank')
+                        p
+                            | https://geocoder.api.here.com/search/6.2/geocode.xml?app_id=***
+                            br
+                            |           &amp;app_id=***
+                            br
+                            |           &amp;app_code=***
+                            br
+                            |           &amp;searchtext=DE+Sch%C3%B6nau+69250+In+den+Kreuzwiesen+23
+                            br
+                            |           &amp;verboseMode=0
+                            br
+                            |           &amp;responseattributes=none
+                            br
+                            |           &amp;locationattributes=mr
+                            br
+                            |           &amp;requestid=0001002840
+                            br
+                            |           &amp;gen=2
+            tr
+                td Places:
+                td
+                    a(href='https://places.api.here.com/places/v1/discover/search/?size=20&q=restaurants+koenigstein%20im%20taunus&at=50.1763276,8.4932587&Accept=application/json&app_code=QH84skPqWHMgyOv1xZ_nCQ&app_id=36f-mNus3tuci4bvP5tw' target='_blank')
+                        p
+                            | https://places.api.here.com/places/v1/discover/search/?size=20
+                            br
+                            |             &amp;q=restaurants+koenigstein%20im%20taunus
+                            br
+                            |             &amp;at=50.1763276,8.4932587
+                            br
+                            |             &amp;Accept=application/json
+                            br
+                            |             &amp;app_code=***
+                            br
+                            |             &amp;app_id=***
+            tr.alt
+                td Places:
+                td
+                    a(href='https://places.api.here.com/places/v1/discover/search/?size=20&q=restaurants+Cour%20de%20l%27Ours%205,%20Paris,%20Bastille-Popincourt&at=48.851,2.375&Accept=application/json&app_code=QH84skPqWHMgyOv1xZ_nCQ&app_id=36f-mNus3tuci4bvP5tw' target='_blank')
+                        p
+                            | https://places.api.here.com/places/v1/discover/search/?size=20
+                            br
+                            |               &amp;q=restaurants+Cour%20de%20l%27Ours%205,%20Paris,%20Bastille-Popincourt
+                            br
+                            |               &amp;at=48.851,2.375&amp;Accept=application/json
+                            br
+                            |               &amp;app_code=***
+                            br
+                            |               &amp;app_id=***
+            tr
+                td Routing with public transport data:
+                td
+                    a(href='https://route.api.here.com/routing/7.2/calculateroute.xml?routeattributes=sh,wp,sm,bb,lg,no&maneuverattributes=po,ix,tt,le,rn,nr,ru,nu,sp,ac,bt,tm&jsonAttributes=41&verboseMode=5&metricSystem=metric&waypoint0=geo!48.8536048,2.3341656&waypoint1=geo!48.8537443,2.333715&waypoint2=geo!48.8459229,2.3736906&waypoint3=geo!48.8519252,2.3757589&language=fr-FR&mode=fastest;pedestrian;boatFerry:-3&departure=2013-03-26T10%3A27%3A30&app_id=inyuthEGubEh3CHUgUch&app_code=R-6GpAMCOkJQz53QdDPoKw' target='_blank')
+                        p
+                            | https://route.api.here.com/routing/7.2/calculateroute.xml?
+                            br
+                            |                 routeattributes=sh,wp,sm,bb,lg,no
+                            br
+                            |                 &amp;maneuverattributes=po,ix,tt,le,rn,nr,ru,nu,sp,ac,bt,tm
+                            br
+                            |                 &amp;jsonAttributes=41
+                            br
+                            |                 &amp;verboseMode=5
+                            br
+                            |                 &amp;metricSystem=metric
+                            br
+                            |                 &amp;waypoint0=geo!48.8536048,2.3341656
+                            br
+                            |                 &amp;waypoint1=geo!48.8537443,2.333715
+                            br
+                            |                 &amp;waypoint2=geo!48.8459229,2.3736906
+                            br
+                            |                 &amp;waypoint3=geo!48.8519252,2.3757589
+                            br
+                            |                 &amp;language=fr-FR
+                            br
+                            |                 &amp;mode=fastest;pedestrian;boatFerry:-3
+                            br
+                            |                 &amp;departure=2013-03-26T10%3A27%3A30
+                            br
+                            |                 &amp;app_id=***
+                            br
+                            |                 &amp;app_code=***
+            tr.alt
+                td Berlin map tile in Russian:
+                td
+                    a(href='https://1.base.maps.api.here.com/maptile/2.1/maptile/newest/carnav.day.grey/12/2200/1343/256/png8?lg=RUS&padding=0&app_id=inyuthEGubEh3CHUgUch&app_code=R-6GpAMCOkJQz53QdDPoKw' target='_blank')
+                        p
+                            | https://1.base.maps.api.here.com/maptile/2.1/maptile/newest/carnav.day.grey/12/2200/1343/256/png8?
+                            br
+                            |                   lg=RUS
+                            br
+                            |                   &amp;padding=0
+                            br
+                            |                   &amp;app_id=***
+                            br
+                            |                   &amp;app_code=***
+            tr
+                td Fleet style map:
+                td
+                    a(href='https://1.base.maps.api.here.com/maptile/2.1/maptile/newest/normal.day/16/35201/21490/256/png8?style=fleet&app_id=inyuthEGubEh3CHUgUch&app_code=R-6GpAMCOkJQz53QdDPoKw' target='_blank')
+                        p
+                            | https://1.base.maps.api.here.com/maptile/2.1/maptile/newest/normal.day/16/35201/21490/256/png8?
+                            br
+                            |                     style=fleet
+                            br
+                            |                     &amp;app_id=***
+                            br
+                            |                     &amp;app_code=***
+            tr.alt
+                td Truck restriction overlay:
+                td
+                    a(href='https://1.base.maps.api.here.com/maptile/2.1/truckonlytile/newest/normal.day/16/35201/21490/256/png8?style=fleet&app_id=inyuthEGubEh3CHUgUch&app_code=R-6GpAMCOkJQz53QdDPoKw' target='_blank')
+                        p
+                            | https://1.base.maps.api.here.com/maptile/2.1/truckonlytile/newest/normal.day/16/35201/21490/256/png8?
+                            br
+                            |                       style=fleet
+                            br
+                            |                       &amp;app_id=***
+                            br
+                            |                       &amp;app_code=***
+            tr
+                td Requesting a route with truck attributes:
+                td
+                    a(href='https://route.api.here.com/routing/7.2/calculateroute.xml?waypoint0=geo!52.21843,-2.19668&waypoint1=geo!51.61934,-1.25620&mode=fastest;truck;traffic:disabled;&shippedhazardousgoods=flammable,harmfulToWater&limitedweight=20&weightperaxle=10&height=4&width=2.5&length=7&app_id=inyuthEGubEh3CHUgUch&app_code=R-6GpAMCOkJQz53QdDPoKw' target='_blank')
+                        p
+                            | https://route.api.here.com/routing/7.2/calculateroute.xml?
+                            br
+                            |                         waypoint0=geo!52.21843,-2.19668
+                            br
+                            |                         &amp;waypoint1=geo!51.61934,-1.25620
+                            br
+                            |                         &amp;mode=fastest;truck;traffic:disabled;
+                            br
+                            |                         &amp;shippedhazardousgoods=flammable,harmfulToWater
+                            br
+                            |                         &amp;limitedweight=20
+                            br
+                            |                         &amp;weightperaxle=10
+                            br
+                            |                         &amp;height=4
+                            br
+                            |                         &amp;width=2.5
+                            br
+                            |                         &amp;length=7
+                            br
+                            |                         &amp;app_id=***
+                            br
+                            |                         &amp;app_code=***
+            tr.alt
+                td Requesting details of the route attributes (Toll per country):
+                td
+                    a(href='https://route.api.here.com/routing/7.2/calculateroute.xml?app_id=inyuthEGubEh3CHUgUch&app_code=R-6GpAMCOkJQz53QdDPoKw&waypoint0=52.7105932%2C8.6818642&waypoint1=48.1105932%2C2.6818642&departure=2013-09-14T11%3A19%3A53%2B01%3A00&language=en-US&routeattributes=wp,sm,sc,sh,bb,lg,no,ri&maneuverattributes=all&instructionformat=text&mode=fastest;truck;traffic:enabled;&jsonAttributes=1&legattributes=all' target='_blank')
+                        p
+                            | https://route.api.here.com/routing/7.2/calculateroute.xml?
+                            br
+                            |                           app_id=***
+                            br
+                            |                           &amp;app_code=***
+                            br
+                            |                           &amp;waypoint0=52.7105932%2C8.6818642
+                            br
+                            |                           &amp;waypoint1=48.1105932%2C2.6818642
+                            br
+                            |                           &amp;departure=2013-09-14T11%3A19%3A53%2B01%3A00
+                            br
+                            |                           &amp;language=en-US
+                            br
+                            |                           &amp;routeattributes=wp,sm,sc,sh,bb,lg,no,ri
+                            br
+                            |                           &amp;maneuverattributes=all
+                            br
+                            |                           &amp;instructionformat=text
+                            br
+                            |                           &amp;mode=fastest;truck;traffic:enabled;
+                            br
+                            |                           &amp;jsonAttributes=1
+                            br
+                            |                           &amp;legattributes=all
+            tr
+                td GetRoute request:
+                td
+                    a(href='https://route.api.here.com/routing/7.2/getroute.xml?app_id=inyuthEGubEh3CHUgUch&app_code=R-6GpAMCOkJQz53QdDPoKw&mode=fastest;truck;traffic:enabled;&routeId=AMUACAAAAB4AAAA6AAAApQAAAPwAAAB42mP4w8DOxAAEYMKoRqdtw+rqVAYo6F4YLsbAYG/D8P8/RODDfgYkwAXEp7/ff8nE8M78RaOai1kSTKYqQVnMncHOGo9G0ciAFYxQe8FgxiUOj1hmBgZWBl8GhgZODgYGDgYuA6CEAFi6AYi5oUoPgEkHZZ4XLDwgZycyCDSwMDA0OwA1APUxvG5g4ABKGHCBNLEwglUr2DCIKaxUAxrRoCDIAjajgQEAm+ImSYtHaCE=' target='_blank')
+                        p
+                            | https://route.api.here.com/routing/7.2/getroute.xml?
+                            br
+                            |                                   app_id=***
+                            br
+                            |                                   &amp;app_code=***
+                            br
+                            |                                   &amp;mode0=fastest;truck;traffic:enabled;
+                            br
+                            |                                   &amp;routeid=AMUACAAAAB4AAAA6AAAApQAAAPw....
+            tr.alt
+                td Isoline routing:
+                td
+                    a(href='https://isoline.route.api.here.com/routing/7.2/calculateisoline.xml?app_id=inyuthEGubEh3CHUgUch&app_code=R-6GpAMCOkJQz53QdDPoKw&verboseMode=0&mode=fastest;car;traffic:disabled;&start=52.5160713,13.3769798&rangetype=distance&range=4000' target='_blank')
+                        p
+                            | https://isoline.route.api.here.com/routing/7.2/calculateisoline.xml?
+                            br
+                            |                                     app_id=***
+                            br
+                            |                                     &amp;app_code=***
+                            br
+                            |                                     &amp;verboseMode=0
+                            br
+                            |                                     &amp;mode=fastest;car;traffic:disabled;
+                            br
+                            |                                     &amp;start=52.5160713,13.3769798
+                            br
+                            |                                     &amp;rangetype=distance
+                            br
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&amp;range=4000
+            tr
+                td Calculate a Matrix of routes:
+                td
+                    a(href='https://matrix.route.api.here.com/routing/7.2/calculatematrix.xml?start0=52.57283,8.00189&destination0=53.77074,8.80017&destination1=51.53418,8.20485&destination2=52.3352,7.27392&mode=fastest;truck;traffic:disabled&summaryAttributes=all&app_id=inyuthEGubEh3CHUgUch&app_code=R-6GpAMCOkJQz53QdDPoKw' target='_blank')
+                        p
+                            | https://matrix.route.api.here.com/routing/7.2/calculatematrix.xml?
+                            br
+                            |                                       start0=52.57283,8.00189
+                            br
+                            |                                       &amp;destination0=53.77074,8.80017
+                            br
+                            |                                       &amp;destination1=51.53418,8.20485
+                            br
+                            |                                       &amp;destination2=52.3352,7.27392
+                            br
+                            |                                       &amp;mode=fastest;truck;traffic:disabled
+                            br
+                            | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  &amp;summaryAttributes=all
+                            br
+                            |                                       &amp;app_id=***
+                            br
+                            |                                       &amp;app_code=***
+            tr.alt
+                td
+                    | Requesting a route and display it afterwards in a static image via the MIA service:
+                td
+                    a(href='https://route.api.here.com/routing/7.2/calculateroute.xml?waypoint0=geo!52.21843,-2.19668&waypoint1=geo!52.21834,-2.195620&mode=fastest;truck;traffic:disabled;&app_id=inyuthEGubEh3CHUgUch&app_code=R-6GpAMCOkJQz53QdDPoKw&routeattributes=bb,sh' target='_blank')
+                        p
+                            | https://route.api.here.com/routing/7.2/calculateroute.xml?
+                            br
+                            |                                         waypoint0=geo!52.21843,-2.19668
+                            br
+                            |                                         &amp;waypoint1=geo!52.21834,-2.195620
+                            br
+                            |                                         &amp;mode=fastest;truck;traffic:disabled;
+                            br
+                            |                                         &amp;app_id=***
+                            br
+                            |                                         &amp;app_code=***
+                            br
+                            |                                         &amp;routeattributes=bb,sh
+            tr.alt
+                td Out of the response you get the shape of the route:
+                td
+                    a(href='https://image.maps.api.here.com/mia/1.6/route?app_id=inyuthEGubEh3CHUgUch&app_code=R-6GpAMCOkJQz53QdDPoKw&r0=52.2183762,-2.1966884,52.2182884,-2.19612,52.2182617,-2.1958201,52.2182007,-2.1956201,52.2183418,-2.1956046&m0=52.2183762,-2.1966884,52.2183418,-2.1956046&lc0=440000ff&sc0=440000ff&lw0=6' target='_blank')
+                        p
+                            | https://image.maps.api.here.com/mia/1.6/route?
+                            br
+                            |                                           app_id=***
+                            br
+                            |                                           &amp;app_code=***
+                            br
+                            |                                           &amp;r0=52.2183762,-2.1966884,52.2182884,-2.19612,52.2182617,-2.1958201,52.2182007,-2.1956201,52.2183418,-2.1956046
+                            br
+                            |                                           &amp;m0=52.2183762,-2.1966884,52.2183418,-2.1956046
+                            br
+                            |                                           &amp;lc0=440000ff
+                            br
+                            |                                           &amp;sc0=440000ff
+                            br
+                            |                                           &amp;lw0=6

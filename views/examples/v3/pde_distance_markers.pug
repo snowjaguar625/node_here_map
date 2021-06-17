@@ -1,0 +1,62 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p#txt
+                | After loading the distance markers are shown with their value, the streetname and the direction indication on the link.
+            input#loadDistanceMarkers.btn.btn-default.btn-sm(type='button' value='Load Distance Markers for current View' onclick='loadDistanceMarkers();')
+            br
+            p#txt Alternatively, you can search using the indexes
+            .form-horizontal
+                .form-group
+                    label.control-label.col-sm-4(for='dest') DISTANCE_VALUE
+                    .col-sm-8
+                        input#dvText.form-control.input(type='text' value='20')
+                .form-group
+                    label.control-label.col-sm-4(for='dest') STREET_NAME
+                    .col-sm-8
+                        input#snText.form-control.input(type='text' value='A67')
+                .form-group
+                    label.control-label.col-sm-4(for='dest') ISO_COUNTRY_CODE
+                    .col-sm-8
+                        input#iccText.form-control.input(type='text' value='DEU')
+            input#loadDistanceMarkersViaIndex.btn.btn-default.btn-sm(type='button' value='Search Distance Markers using Indices' onclick='loadDistanceMarkersViaIndex();')
+            div HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;')
+        #mapContainer
+        #pageblock
+        #spinner
+        style(type='text/css').
+            .PO {
+            position: absolute;
+            display: none;
+            background: white;
+            padding: 10px 10px 0px;
+            margin-left: -10px;
+            margin-top: 2em;
+            border-radius: 15px;
+            left: 50%;
+            top: 50%;
+            border: solid #a1a1a1 1px;
+            padding: 10px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            text-align: justify;
+            font-size: 12px;
+            color: #1F2C35;
+            z-index: 1;
+            }
+            #page_block {
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background: white;
+            opacity: 0.6;
+            position: absolute;
+            display: none;
+            }
+    script(src='/javascripts/examples/v3/pde_distance_markers.js')

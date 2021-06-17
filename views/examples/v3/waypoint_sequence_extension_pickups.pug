@@ -1,0 +1,294 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | This demo presents the Waypoints Sequence Extension calculating the best route through a sequence of waypoints with
+                | pickups and optional waypoints.
+                input#more.btn.btn-default.btn-xs(type='button' value='more' onclick='detailsSelect();')
+            #detaildesc.details(style='display: none')
+                | Each line in the destinations text has semi-colon separated values:
+                ul
+                    li Unique identified for waypoint (MANDATORY)
+                    li Latitude coordinate of waypoint (MANDATORY)
+                    li Longitude coordinate of waypoint (MANDATORY)
+                    li
+                        | Pickup/drop information (MANDATORY for intermediate waypoints), only one of:
+                        ul
+                            li pickup:UNIQUE_LOAD_ID[;st:NUMBER][;load:NUMBER]
+                            li drop:UNIQUE_LOAD_ID[,value:NUMBER][;st:NUMBER][;load:NUMBER]
+                |     If a drop waypoint is given, a pickup waypoint using same unique load id must exist.
+                br
+                |     Options:
+                ul
+                    li value:NUMBER - the value (cost benefit) of delivering (dropping) good
+                    li
+                        | load:NUMBER - required free capacity to pick up the load (to be used together with capacity limitation)
+                    li st:NUMBER - service time in seconds to fulfill operations at waypoint
+            hr.separator
+            .form-horizontal
+                .form-group
+                    label.control-label.col-sm-4(for='exampleSelector') Predefined examples:
+                    .col-sm-8
+                        select#exampleSelector.form-control(onchange='exampleSelect(this)')
+                            // PLEASE ADD ANY NEW DEMO INPUT AS A TEST AS WELL
+                            option(value='ex0') None
+                            option(value='ex1' selected='true') Simple pickup with convenient bonus
+                            option(value='ex2') Simple pickup with convenient bonus delivering at end
+                            option(value='ex3') Simple pickup with non convenient bonus
+                            // <option value="ex4">Multiple valuable shippings all dropped at destination</option>
+                            option(value='ex5')
+                                | Multiple valuable and unvaluable shippings all dropped at destination if convenient
+                            option(value='ex6') Multiple valuable shippings flowing from/to different waypoints
+                            option(value='ex7') Multiple valuable shippings with weight (specify capacity=29 or 30)
+                            option(value='ex8') Big example solving with pickups and drops
+                            option(value='ex9') Simple pickup with convenient bonus and service time
+                .form-group
+                    label.col-sm-12(for='exampleSelector') Destinations: WAYPOINT_ID;LATITUDE,LONGITUDE[;OPTIONS]
+                    .col-sm-12
+                        textarea#destinations.form-control(rows='8' placeholder='(ID;)address or Lat°,Lng°(;constraints)')
+                            | waypoint0;50.115620,8.631210
+                            | waypoint1;50.122540,8.631070;pickup:LOAD2
+                            | waypoint2;50.128920,8.629830;drop:LOAD2,value:200
+                            | waypoint3;50.132540,8.649280
+                        .checkbox
+                            label
+                                input#addCoords(type='checkbox' value='on')
+                                | Add coordinates by clicking into the map
+                .form-group
+                    label.control-label.col-sm-4(for='departure') Departure Date/Time:
+                    .col-sm-8
+                        input#departure.form-control(type='text' value='2016-10-14T07:30:00' placeholder='YYYY-MM-DD' size='12' pattern='^(19|20)\d\d[-](0[1-9]|1[012])[-](0[1-9]|[12][0-9]|3[01])T([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$' title='Date/Time YYYY-MM-DDTHH:MM:SS')
+                        div
+                            br
+                            | local time at start waypoint
+                .form-group
+                    label.control-label.col-sm-4(for='arrival') Arrival Date/Time:
+                    .col-sm-8
+                        input#arrival.form-control(type='text' value='')
+                        div OPTIONAL, deadline, local time at start waypoint
+                .form-group
+                    label.control-label.col-sm-4(for='capacity') Vehicle capacity:
+                    .col-sm-8
+                        input#capacity.form-control(type='text' value='')
+                        div OPTIONAL, vehicle capacity in user-defined unit
+                .form-group
+                    label.control-label.col-sm-4(for='vehicleType') Vehicle:
+                    .col-sm-8
+                        select#vehicleType.form-control(onchange='truckSelect();')
+                            option(value='car' selected='true') car
+                            option(value='truck') truck
+                            option(value='pedestrian') pedestrian
+                        #truckRestDiv.checkbox.input-details
+                            label
+                                input#truckrestr(type='checkbox' value='on' checked='checked' onchange='truckSelect();')
+                                | Display
+                                |             truck restrictions
+            #vehicleDetails.form-horizontal.input-details
+                hr.separator
+                h5 Truck Attributes:
+                .form-group
+                    .col-sm-4
+                        label.control-label(for='height') Height [m]
+                    .col-sm-8
+                        input#height.form-control(type='text' size='8' value='3.80' pattern='[0-9]*\.?[0-9]*')
+                .form-group
+                    .col-sm-4
+                        label.control-label(for='width') Width [m]
+                    .col-sm-8
+                        input#width.form-control(type='text' size='8' value='2.30' pattern='[0-9]*\.?[0-9]*')
+                .form-group
+                    .col-sm-4
+                        label.control-label(for='length') Length [m]
+                    .col-sm-8
+                        input#length.form-control(type='text' size='8' value='8.35' pattern='[0-9]*\.?[0-9]*')
+                .form-group
+                    .col-sm-4
+                        label.control-label(for='limitedWeight') Limited Weight [t]
+                    .col-sm-8
+                        input#limitedWeight.form-control(type='text' size='8' value='18' pattern='[0-9]*\.?[0-9]*')
+                .form-group
+                    .col-sm-4
+                        label.control-label(for='weightPerAxle') Weight Per Axle [t]
+                    .col-sm-8
+                        input#weightPerAxle.form-control(type='text' size='8' value='10' pattern='[0-9]*\.?[0-9]*')
+                .form-group
+                    .col-sm-4
+                        label.control-label(for='hasTrailer') Trailer
+                    .col-sm-8
+                        input#hasTrailer(type='checkbox')
+                hr.separator
+                h5 Shipped Hazardous Goods
+                .form-group
+                    .checkbox.col-sm-3
+                        label
+                            input#explosive(type='checkbox')
+                            | explosive
+                    .checkbox.col-sm-3
+                        label
+                            input#gas(type='checkbox')
+                            | gas
+                    .checkbox.col-sm-3
+                        label
+                            input#flammable(type='checkbox')
+                            | flammable
+                    .checkbox.col-sm-3
+                        label
+                            input#combustible(type='checkbox')
+                            | combustible
+                    .checkbox.col-sm-3
+                        label
+                            input#organic(type='checkbox')
+                            | organic
+                    .checkbox.col-sm-3
+                        label
+                            input#poison(type='checkbox')
+                            | poison
+                    .checkbox.col-sm-3
+                        label
+                            input#radioActive(type='checkbox')
+                            | radioactive
+                    .checkbox.col-sm-3
+                        label
+                            input#corrosive(type='checkbox')
+                            | corrosive
+                    .checkbox.col-sm-3
+                        label
+                            input#poisonousInhalation(type='checkbox')
+                            | poisonous Inh.
+                    .checkbox.col-sm-3
+                        label
+                            input#harmfulToWater(type='checkbox')
+                            | water harm.
+                    .checkbox.col-sm-3
+                        label
+                            input#other(type='checkbox')
+                            | other
+                hr.separator
+            .form-horizontal
+                .form-group
+                    .col-sm-4
+                        label.control-label(for='traffic') Driver/Vehicle cost:
+                    .col-sm-8
+                        .form-inline
+                            input#driverCost.form-control.col-sm-6(type='text' value='20' size='12' pattern='^([[1-9][0-9]*)$' title='Driver cost')
+                            input#vehicleCost.form-control.col-sm-6(type='text' value='0.29' size='12' pattern='^([1-9][0-9]*)$' title='Vehicle cost')
+                            br
+                        div
+                            br
+                            | Driver: cost per hour; Vehicle: cost per km
+            .form-group
+                input#start.btn.btn-default.btn-sm(type='button' value='Calculate' onclick='startOptimize()')
+            hr.separator
+            .form-group
+                #feedbackTxt
+            div
+                | Endpoint 
+                input#host(style='font-size:8px; margin:0;height:20px;' type='text' name='host' value='https://fleet.api.here.com')
+                |   app_id   
+                input#custom-app-id(style='font-size:8px; margin:0;height:20px;' type='text' name='custom-app-id' value='')
+                |   app_code 
+                input#custom-app-code(style='font-size:8px; margin:0;height:20px;' type='password' name='custom-app-code' value='')
+        style.
+            #notecontent a {
+            color: white;
+            }
+            #notecontent a:hover {
+            color: red;
+            }
+            details {
+            display: none
+            }
+            .input-details {
+            display: none
+            }
+            .endpoint-details {
+            display: none
+            }
+            #custom-rest-times {
+            display: none
+            }
+            table td, table td * {
+            vertical-align: top;
+            }
+            textarea {
+            white-space: pre;
+            word-wrap: normal;
+            overflow: scroll;
+            }
+            ul.timeline {
+            width: 400px;
+            font-size: x-small;
+            list-style-position: inside;
+            padding: 0;
+            vertical-align: middle;
+            font-weight: bold;
+            }
+            ul.timeline li {
+            }
+            li.accStarts, li.accEnds {
+            color: #59b354;
+            }
+            li.stStarts, li.stEnds {
+            color: #1b5fcc;
+            }
+            li.arr {
+            color: red;
+            }
+            li.dep {
+            color: white;
+            }
+            li.at {
+            color: yellow;
+            }
+            li.before {
+            color: orange;
+            }
+            li.pickup {
+            color: orange;
+            }
+            li.drop {
+            color: lightgreen;
+            }
+            .cont-time {
+            z-index: 999;
+            float: left;
+            height: 21px;
+            padding: 7px 10px 1px 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            font-size: 10px;
+            display: none;
+            }
+            .menubkg {
+            background-color: #f8f8f8;
+            border-radius: 15px;
+            color: black;
+            }
+            .menubkg select {
+            font-size: 10px;
+            vertical-align: middle;
+            }
+            .menubkg select option:checked {
+            background-color: #999;
+            }
+            .tselect {
+            background-image: url(/assets/examples/traffic_timebw30x34s.png);
+            width: 30px;
+            height: 34px;
+            margin-top: 2px;
+            display: block;
+            z-index: 999;
+            float: left;
+            cursor: pointer;
+            text-decoration: none;
+            }
+            .cursorPointer {
+            cursor: pointer;
+            }
+        #mapContainer
+    script(src='/javascripts/examples/v3/waypoint_sequence_extension_pickups.js')

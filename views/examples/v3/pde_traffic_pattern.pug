@@ -1,0 +1,32 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/momecenter-utilsnt.js')
+    script(src='/javascripts/examples/pde-layer-provider.js')
+    #content-padder 
+    #content-real
+        style.
+            li { list-style-type: square; font-size: medium; }
+            a.speed-record { color: #00ACDC; text-decoration: underline; }
+            .speed-record { font-size: small; padding: 0.1em; }
+            table.speed-record td { padding: 0.4em; border: 1px solid white; }
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p Zoom in to see more traffic from higher functional classes.
+            p Links with traffic information show an info bubble with details when clicked.
+            input#endpoint(type='hidden' value='https://pde.api.here.com' autocomplete='off')
+            p
+                div
+                    select#day
+                        option(value='0') Sunday
+                        option(value='1') Monday
+                        option(value='2') Tuesday
+                        option(value='3') Wednesday
+                        option(value='4') Thursday
+                        option(value='5') Friday
+                        option(value='6') Saturday
+                #patternTimeText 00:00a
+                #bar(style='position:relative')
+        #mapContainer
+    script(src='/javascripts/examples/v3/pde_traffic_pattern.js')

@@ -1,0 +1,22 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p#infoTxt
+                | This demo shows the postal code boundaries available via PDE. They will be shown in lower zoomlevels only.
+            .form-horizontal
+                .form-group
+                    label.control-label.col-sm-3(for='location') Center map in:
+                    .col-sm-9
+                        input#location.form-control.input-wide(type='text' size='50' value='Jakarta' onkeydown='if(event.keyCode == 13) geocode();')
+                input#geoCode.btn.btn-default.btn-sm(type='button' value='geocode' onclick='geocode();')
+            div HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;')
+        #mapContainer
+        #pageblock
+        #spinner
+    script(src='/javascripts/examples/v3/pde_postal_bounds.js')

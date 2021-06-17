@@ -1,0 +1,49 @@
+extends ../../layout
+block content
+    title= title
+    script(src='/javascripts/examples/pde-layer-provider.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | Showing how to use Geofencing on map data to match the transport used at given trace points.
+            p
+                | Each trace point is matched to a different transport based on the nearest feature among: roads, railways,
+                | water ways, airports. Click on a the matched trace point icon for more details.
+            h5 Please provide a trace to match by either:
+            ul
+                li Drag &amp; drop a trace file (CSV) into below box
+                li Draw a trace by directly clicking onto the map
+                li
+                    | Use existing sample:
+                    input#example1.btn.btn-default.btn-sm(type='button' value='Multi Modal' onclick="gfeMatcher.loadFromFile('sample_ubi_multimodal.csv');")
+                    input#example2.btn.btn-default.btn-sm(type='button' value='Road trip' onclick="gfeMatcher.loadFromFile('sample_ubi_roadtrip.csv');")
+            h5 Input trace
+            textarea#trace-area.form-control(rows='10')
+            input.btn.btn-default.btn-sm(type='button' value='Reset' onclick='gfeMatcher.reset();')
+            input.btn.btn-default.btn-sm(type='button' value='Submit' onclick='gfeMatcher.match({fitBounds:true})')
+            input#gfe-maps-endpoint(type='hidden' value='https://maps.gfe.api.here.com/1/search/proximity.json')
+            h5 Legend
+            h5
+                span.label(style='background-color: red') Road
+                span.label(style='background-color: yellow; color: black') Railway
+                span.label(style='background-color: green') Unknown/walking
+                span.label(style='background-color: lightblue; color: black') Water/Boat
+                span.label(style='background-color: lightgrey; color: black') Airport/Plane
+                span.label(style='background-color: orange; color: black') Public Transport
+        style.
+            a.pt-record {
+            color: #00ACDC;
+            text-decoration: underline;
+            }
+            .pt-record {
+            font-size: small;
+            padding: 0.1em;
+            }
+            table.pt-record td {
+            padding: 0.4em;
+            border: 1px solid white
+            }
+        #mapContainer
+    script(src='/javascripts/examples/v3/gfe_match_transport.js')

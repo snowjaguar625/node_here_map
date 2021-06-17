@@ -1,0 +1,69 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/night-overlay.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p#explanation
+                | After route calculation, ADAS Curvature data and Speedlimits are retrieved from
+                br
+                | PDE Web Service. For each point on the route the maximal drivable speed is calculated
+                br
+                | out of the curvature data. If this maximum possible speed is lower than the legal
+                br
+                | speedlimit, warning signs are displayed. Vehicles could monitor the current speed
+                br
+                | and show a warning to the driver if the vehicle is much faster than the suggested speed.
+                br
+                | The start and destination can be geocoded or selected via long click in map.
+            table(border='0')
+                tr
+                    td Start
+                    td
+                        input#start(type='text' size='35' value='Oberammergau' onkeydown='if (event.keyCode == 13) startRouteCalculation();')
+                    // td><input type='text' id='start' size='35' value='Schmalkalden' onkeydown="if (event.keyCode == 13) startRouteCalculation();"/></td
+                tr
+                    td Destination
+                    td
+                        input#dest(type='text' size='35' value='Farchant' onkeydown='if (event.keyCode == 13) startRouteCalculation();')
+                    // td><input type='text' id='dest'  size='35' value='Struth Helmershof' onkeydown="if (event.keyCode == 13) startRouteCalculation();"/></td
+                tr
+                    td Speed unit
+                    td
+                        select#speedUnit(name='speedUnit' size='1' onchange='handleUnitChange();')
+                            option(selected='' value='1') km/h
+                            option(value='2') mph
+                tr
+                    td
+                    td
+                        input#routeButton(type='submit' value='Calculate Route' onclick='startRouteCalculation();')
+                tr
+                    td Show link curvature
+                    td
+                        input#linkCurvature(type='checkbox' checked='' onchange='handleLinkCurvatureChanged();')
+                tr
+                    td Show speed warning
+                    td
+                        input#shapeSpeedlimit(type='checkbox' checked='' onchange='handleSpeedlimitChanged();')
+                tr
+                    td
+                    td
+                        input#simulateRouteButton(type='submit' value='Simulate Route' onclick='startStopRouteSimulation();' disabled='')
+            #feedbackTxt(style='left:0; top:0; z-index: 0;')
+            #simulationContainer.simulationContainer(style='display:none')
+                hr.separator
+                p
+                    | In simulation mode the legal speedlimit of the vehicle is shown here. A warning will be
+                    br
+                    | shown if 200m upfront the route a curve cannot be driven with the allowed speed and
+                    br
+                    | the simulation vehicle will reduce its speed.
+                p#simulationSpeedTxt(style='left:0; top:0; z-index: 0;')
+            hr.separator
+            div HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;')
+        #mapContainer
+    script(src='/javascripts/examples/v3/pde_adas_curvature_along_route.js')

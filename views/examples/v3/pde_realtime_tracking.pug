@@ -1,0 +1,71 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/gpx-parser.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p#infoTxt
+                | This demo shows a real time tracking use case. A CSV/GPX trace file will be used
+                br
+                |  to simulate the GPS input. Those GPS Coordinates are map matched
+                br
+                | (via ReverseGeocode) and the current speed limit is getting loaded via PDE.
+                br
+                | A speeding warning is shown if the GPS trace point indicates speeding
+                br
+                | (speedpoints in trace must be in m/s).
+                br
+                | Download an example file 
+                a(title="Right Click and Use 'Save Link as' option to download the file" href='/sample_data/lat-lon-speed-small.gpx') here
+            p
+                input(type='File' onchange='readInputTraceFile(this.files[0]);')
+            table
+                tr
+                    td Speed unit
+                    td
+                        select#speedUnit(name='speedUnit' size='1' onchange='handleUnitChange();')
+                            option(selected='' value='1') km/h
+                            option(value='2') mph
+            div
+                input#simulateRouteButton(type='submit' value='Simulate GPS Trace' onclick='startStopSimulation();' disabled='')
+            #colors(style='margin: 5px 0')
+                span.colorbox(style='margin-left: 5px; background: #000000')
+                | Unmatched
+                span.colorbox(style='margin-left: 5px; background: #0000FF')
+                | Matched
+                span.colorbox(style='margin-left: 5px; background: #00FF00')
+                | Speed Ok
+                span.colorbox(style='margin-left: 5px; background: #FF0000')
+                | Speeding Warning
+            #feedbackTxt
+            #simulationContainer(style='display:none')
+                table
+                    tr
+                        td
+                            | In simulation mode the legal speedlimit of the vehicle is shown here (green). A warning will be shown if the driver is speeding (red). The blue bounding boxes show the used PDE tiles (for visualization purposes). Green boxes indicates the usage of the implemented PDE cache (no tile request made).
+                    tr
+                        td Current Vehicle Position:
+                    tr
+                        td#simulationAddressTxt
+                    tr
+                        td#simulationSpeedTxt
+                div HLP Service releases which are used in this demo:
+                #releaseInfoTxt(value='Used Service Releases:/n')
+        #mapContainer
+        #pageblock
+        #spinner
+        style.
+            #notecontent a {
+            color : white;
+            }
+            #notecontent a:hover {
+            color : red;
+            }
+            #simulateRouteButton {
+            color: black;
+            }
+    script(src='/javascripts/examples/v3/pde_realtime_tracking.js')
+

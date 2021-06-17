@@ -1,0 +1,22 @@
+extends ../../layout
+
+block content
+    title= title
+    link(rel='stylesheet' href='/stylesheets/marker_css.css' media='screen' data-turbolinks-track='true')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | In this example we demostrate how to draw different markers:
+                br
+                ul
+                    li A normal marker 
+                    li A normal marker which rotates
+                    li A SVG marker
+                    li A SVG marker with image
+                    li A SVG marker with image which rotates
+            div HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+        #mapContainer
+    script(src='/javascripts/examples/v3/several_markers.js')

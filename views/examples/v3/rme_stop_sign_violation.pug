@@ -1,0 +1,48 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/jszip.min.js')
+    script(src='/javascripts/examples/traffic-icons.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            h4 RME Stop Detection and Stop Sign Violation
+            p
+                | This demo detects stops/breaks from RME trace provided and also detects Traffic Signals &amp; Stop Signs along route for any violation.
+            h5 Please provide a trace to match with RME by either
+            ul
+                li Drag &amp; drop a trace file (CSV, GPX, KML, NMEA or GeoJSON) into below box
+                li Draw a trace by directly clicking onto the map 
+                li
+                    | Check one of the provided samples below:
+                    br
+                    input#example1.btn.btn-default.btn-sm(type='button' value='Frankfurt-Goch' onclick="loadFromFile('Frankfurt_Goch_car.gpx');")
+                    input#example2.btn.btn-default.btn-sm(type='button' value='Liederbach' onclick="loadFromFile('Liederbach_car.gpx');")
+                    input#example3.btn.btn-default.btn-sm(type='button' value='Bielefeld' onclick="loadFromFile('Bielefeld_car.gpx');")
+            h5 Input trace
+            textarea#tracetextarea.form-control(rows='10' placeholder='Drag & drop trace file here')
+            h5 Server URL
+            input#rmeUrl.form-control(type='text' value='https://fleet.api.here.com/2/calculateroute.json?routeMatch=1&mode=car' autocomplete='off' size='50')
+            input.btn.btn-default.btn-sm(type='button' value='Reset' onclick='reset();')
+            input#submittracebutton.btn.btn-default.btn-sm(type='button' value='Submit')
+            h5 Customize view
+            ul
+                input#toggleTracePoints(type='checkbox' autocomplete='off' onclick='toggleCheckbox(this)')
+                label(for='toggleTracePoints') Show Trace Points
+                br
+                input#toggleStopsDetected(type='checkbox' checked='checked' autocomplete='off' onclick='toggleCheckbox(this)')
+                label(for='toggleStopsDetected') Show Stops detected on route
+                br
+                input#toggleTrafficLights(type='checkbox' checked='checked' autocomplete='off' onclick='toggleCheckbox(this)')
+                label(for='toggleTrafficLights') Show all Traffic Lights on route
+                br
+                input#toggleStopSigns(type='checkbox' checked='checked' autocomplete='off' onclick='toggleCheckbox(this)')
+                label(for='toggleStopSigns') Show all Stop Signs on route
+                br
+                // <li style="color: red;"><input id="allTrafficSigns" type="checkbox" autocomplete="off" onclick="toggleAllTrafficSigns(this)"/> Show all Traffic Signs on route</li>
+            h5 Warnings
+            textarea#warningstextarea.form-control(autocomplete='off' rows='5' placeholder='Please submit trace...')
+        #mapContainer
+    script(src='/javascripts/examples/v3/rme_stop_sign_violation.js')

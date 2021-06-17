@@ -1,0 +1,80 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            .form-group
+                p Simple Park and Ride Demo
+            #entries.form-group
+                table(border='0')
+                    tr
+                        td Start
+                        td
+                            input#start.form-control(type='text' size='50' value='Darmstadt')
+                    tr
+                        td Destination
+                        td
+                            input#dest.form-control(type='text' size='50' value='Frankfurt am Main')
+                    tr
+                        td Depature:
+                        td
+                            input#date(type='date' value='')
+                            script.
+                                document.getElementById('date').value = new Date().toISOString().substring(0, 10);
+                            input#time(type='time' value='')
+                            script.
+                                var d = new Date(),
+                                h = d.getHours(),
+                                m = d.getMinutes();
+                                if(h < 10) h = '0' + h;
+                                if(m < 10) m = '0' + m;
+                                document.getElementById("time").value = h + ":" + m;
+                    tr
+                        td Car change Strategy:
+                        td
+                            select#strategy.form-control.input-wide(name='strategy' size='1')
+                                option(value='park_late') park_late
+                                option(value='park_early' selected='') park_early
+                    //- //
+                    //-     tr>
+                    //-     <td>Intermodal max:</td>
+                    //-     <td>
+                    //-     <select class="form-control input-wide" name="intermodal_max" id="intermodal_max" size="1">
+                    //-     <option value="1" selected>1</option>
+                    //-     <option value="2">2</option>
+                    //-     <option value="3">3</option>
+                    //-     </select>
+                    //-     </td>
+                    //-     </tr
+                    tr
+                        td
+                            input.btn.btn-default.btn-sm(type='button' value='route' onclick='route();')
+            hr.separator
+            .form-group
+                #connections
+                    table#connections_table(border='0')
+        style.
+            ul.segments li {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            width: 15px;
+            height: 15px;
+            background: url("/assets/icons/pt_generic_15x15_header.png");
+            }
+            ul.segments li.walk { background-position: 0 -240px; }
+            ul.segments li.rail { background-position: 0 -255px; }
+            ul.segments li.bus { background-position: 0 -270px; }
+            ul.segments li.metro { background-position: 0 -285px; }
+            ul.segments li.tram { background-position: 0 -300px; }
+            ul.segments li.monorail, ul.segments li.funicular { background-position: 0 -315px; }
+            ul.segments li.aerial { background-position: 0 -330px; }
+            ul.segments li.ferry { background-position: 0 -345px; }
+            ul.segments li.car, ul.segments li.car share, ul.segments li.taxi {background-position: 0 -360px;}
+            ul.segments li.bike, ul.segments li.bike share { background-position: 0 -375px; }
+            ul.segments li.flight, ul.segments li.spaceship { background-position: 0 -390px; }
+        #mapContainer
+    script(src='/javascripts/examples/v3/simple_p_and_r.js')

@@ -1,0 +1,21 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | Geohash encode / decode based on 
+                a(href='https://github.com/chrisveness/latlon-geohash/blob/master/latlon-geohash.js') https://github.com/chrisveness/latlon-geohash/blob/master/latlon-geohash.js
+            h5 Input / Output
+            textarea#iotextarea.form-control(rows='2')
+            input.btn.btn-default.btn-sm(type='button' value='Encode' onclick='encode();')
+            input.btn.btn-default.btn-sm(type='button' value='Decode' onclick='decode();')
+            hr.separator
+            input#toogle(type='checkbox' onchange='handleOverlay(this.checked);')
+            | Overlay on / off 
+            br
+        #mapContainer
+    script(src='/javascripts/examples/v3/simple_map_incl_overlay_geohash.js')

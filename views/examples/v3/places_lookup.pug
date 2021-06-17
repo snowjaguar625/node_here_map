@@ -1,0 +1,30 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        style(type='text/css').
+            .H_ib_body {
+            width: 220px;
+            }
+            textarea
+            {
+            resize: none;
+            color: black;
+            font-size: 12px;
+            }
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p Search Places API by a given Name, PlaceID or PVID. 
+            input#term.form-control(type='text' size='25' value='840if4l9-72b9d34f46ca052d12b425d162f9201c' onkeyup='if (event.keyCode == 13) lookup();')
+            p
+                br
+                | Source:
+                select#source
+                    option(value='name') Name
+                    option(value='pvid') PVID
+                    option(value='sharing' selected='') PlaceID
+            input#search.btn.btn-default.btn-xm(type='button' value='lookup' onclick='lookup()')
+        #mapContainer
+    script(src='/javascripts/examples/v3/places_lookup.js')

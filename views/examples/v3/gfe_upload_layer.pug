@@ -1,0 +1,70 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/geofence-extension.js')
+    script(src='/javascripts/examples/jszip.min.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | This demo calculates an isoline around given address which then gets uploaded to GFE. An Asset can be simulated. If the asset is inside the isoline the isoline color changes to green.
+            .form-horizontal
+                .form-group
+                    label.control-label.col-sm-4(for='start') Address:
+                    .col-sm-8
+                        input#start.form-control(size='35' value='Am Kronberger Hang 8, Schwalbach' type='text')
+                .form-group
+                    label.control-label.col-sm-4(for='unit') Unit:
+                    .col-sm-8
+                        select#unit.form-control
+                            option(value='1') KM
+                            option(value='2') Minute
+                .form-group
+                    label#text1.col-sm-4.control-label Distance: 15 km
+                    .col-sm-8
+                        input#unit-slider(type='range' name='unit-slider' value='15' min='0' max='20' style='margin-top: 12px')
+                .form-group
+                    .col-sm-4
+                    .col-sm-8
+                        .form-inline
+                        label Resolution:
+                        select#select1.form-control(name='select1')
+                .form-group
+                    label.col-sm-4.control-label(for='layerId') Upload to Geofence Layer Id:
+                    .col-sm-8
+                        input#layerId.form-control(type='number' value='1')
+            .form-group
+                input#isorouting.btn.btn-default.btn-sm(type='button' value='Calculate Isoline')
+                input#simulateRouteButton.btn.btn-default.btn-sm(type='submit' value='Simulate Asset' onclick='startStopRouteSimulation();' disabled='')
+            .form-group
+                #feedbackTxt
+                div HLP Service releases which are used in this demo:
+                #releaseInfoTxt(value='Used Service Releases:/n')
+        #mapContainer
+        style.
+            input[type=range] {
+            /*removes default webkit styles*/
+            -webkit-appearance: none;
+            }
+            input[type=range]::-webkit-slider-runnable-track {
+            width: 200px;
+            height: 2px;
+            background: #ccc;
+            border: none;
+            border-radius: 3px;
+            }
+            input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            border: none;
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            background: #ccc;
+            margin-top: -6px;
+            }
+            input[type=range]:focus {
+            outline: none;
+            }
+    script(src='/javascripts/examples/v3/gfe_upload_layer.js')

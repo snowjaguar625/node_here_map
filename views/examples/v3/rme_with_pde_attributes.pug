@@ -1,0 +1,97 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/jszip.min.js')
+    #content-padder 
+    #content-real
+        style.
+            label {
+            font-weight: inherit;
+            }
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | This demo can be used to retrieve attribute data from CLE or PDE layer for RME route links.
+            p
+                | To make link attributes retrievable from CLE layer, the uploaded CLE layer must include relevant link IDs under a &apos;LINK_ID&apos; column,
+                | and the relevant link geometry must be defined under a mandatory &apos;WKT&apos; column.
+            h5 Use your own app_id and app_code
+            .form-inline
+                .form-group
+                    label.control-label(for='appId') App id:
+                    input#appId.form-control(type='text' value='' autocomplete='off' placeholder='app id' onchange='app_id= this.value')
+                    label.control-label(for='appCode') App code:
+                    input.form-control(type='text' value='' autocomplete='off' placeholder='app code' onchange='app_code= this.value')
+            h5 Select PDE or CLE layer to retrieve LinkInfo
+            .form-inline(style='margin-bottom: 5px;')
+                .form-group
+                label.control-label(style='width:50px;') Source:
+                label.control-label(style='width:50px;')
+                    input.form-control(type='radio' name='source' value='pde' onclick='layerSourceChanged(this);' checked='')
+                    |  PDE
+                label.control-label
+                    input#checkCle.form-control(type='radio' name='source' value='cle' onclick='layerSourceChanged(this);')
+                    |  CLE
+            #pdeLayerList.form-inline(style='display: block;')
+                .form-group
+                    label.control-label(style='width:50px;') Layer:
+                    select#pdeLayerSelected.form-control(style='width:180px;margin-top:8px;margin-bottom:8px;' onchange='getLayerSelected();')
+                        option(value='ROAD_GEOM_FC') ROAD_GEOM_FCn
+                        option(value='LINK_ATTRIBUTE_FC' selected='true') LINK_ATTRIBUTE_FCn
+                        option(value='LINK_ATTRIBUTE2_FC') LINK_ATTRIBUTE2_FCn
+                        option(value='SPEED_LIMITS_FC') SPEED_LIMITS_FCn
+                        option(value='SPEED_LIMITS_COND_FC') SPEED_LIMITS_COND_FCn
+                        option(value='SPEED_LIMITS_VAR_FC') SPEED_LIMITS_VAR_FCn
+                        option(value='TRAFFIC_PATTERN_FC') TRAFFIC_PATTERN_FCn
+                        option(value='TRUCK_SPEED_LIMITS_FC') TRUCK_SPEED_LIMITS_FCn
+                        option(value='ADAS_ATTRIB_FC') ADAS_ATTRIB_FCn
+                        option(value='BASIC_HEIGHT_FC') BASIC_HEIGHT_FCn
+                        option(value='LANE_FC') LANE_FCn
+                        option(value='LINK_FC') LINK_FCn
+                        option(value='LINK_TMC_FC') LINK_TMC_FCn
+                        option(value='ROAD_ADMIN_FC') ROAD_ADMIN_FCn
+                        option(value='ROUNDABOUT_FC') ROUNDABOUT_FCn
+                .form-group
+                    label.control-label(style='width:50px;')
+                    label#infoTextPde.control-label
+            #cleLayerList.form-inline(style='display: none;')
+                .form-group
+                    label.control-label(style='width:50px;') Layer:
+                    select#cleLayerSelected.form-control(style='width:200px;margin-top:8px;margin-bottom:8px;')
+                    input.btn.btn-default(type='button' value='Re-Upload Sample Layer' onclick='reloadCleLayer();')
+                .form-group
+                    label.control-label(style='width:50px;')
+                    label#infoTextCle.control-label(style='font-weight:bold')
+            h5 Please provide a trace to match with RME by either:
+            ul.list-unstyled
+                li * Drag &amp; drop a trace file (CSV, GPX, KML, NMEA or GeoJSON) into below box
+                li * Draw a trace by directly clicking onto the map 
+                li
+                    | * Check one provided sample:
+                    input#example1.btn.btn-default.btn-sm(type='button' value='Rome (GPX)' onclick="loadFromFile('sample_rome.gpx');")
+                    input#example2.btn.btn-default.btn-sm(type='button' value='Sheffield (CSV)' onclick="loadFromFile('sample_sheffield.csv');")
+                    input#example3.btn.btn-default.btn-sm(type='button' value='MTK (GeoJson)' onclick="loadFromFile('sample_mtk.geojson');")
+            h5 Input trace
+            textarea#tracetextarea.form-control(rows='10')
+            input.btn.btn-default.btn-sm(type='button' value='Reset' onclick='reset();')
+            input#submittracebutton.btn.btn-default.btn-sm(type='button' value='Submit')
+            | &#x9;&#x9;to 
+            input#rmeUrl(type='text' value='https://fleet.api.here.com/2/calculateroute.json?routeMatch=1&mode=car' autocomplete='off' size='40')
+            h5 Customize view
+            ul
+                li(style='color: black;') Input trace points
+                li(style='color: green;')
+                // input id="matchedCheckbox" type="checkbox" checked="checked" autocomplete="off" onclick="toggleShowRmeMatchedTraceAndPoints(this)"/>
+                | Display Matched Points and route
+                li(style='color: #48dad0;') Route links with attributes loaded from CLE layer
+                li(style='color: red;')
+                input#geocodedWithHeadingCheckbox(type='checkbox' autocomplete='off' onclick='toggleReverseGeocodeWithHeading(this)')
+                |  Display Reverse geocoding (trackPosition with heading)
+                li(style='color: blue;')
+                input#geocodedWithoutHeadingCheckbox(type='checkbox' autocomplete='off' onclick='toggleReverseGeocodeWithoutHeading(this)')
+                |  Display Reverse geocoding (trackPosition without heading)
+            h5 Warnings/Errors
+            textarea#warningstextarea.form-control(autocomplete='off' rows='5') Please submit...
+        #mapContainer
+    script(src='/javascripts/examples/v3/rme_with_pde_attributes.js')

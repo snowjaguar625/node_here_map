@@ -1,0 +1,68 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p#explanation
+                | After route calculation, JunctionView info is retrieved from PDE Web
+                br
+                | Service and displayed.
+                br
+                | The start and destination can be geocoded or selected via long click in map.
+            table(border='0')
+                tr
+                    td Start
+                    td
+                        input#start.form-control(type='text' size='35' value='Chicago' onkeydown='if (event.keyCode == 13) startRouteCalculationAndGetJvImagesLocations();')
+                tr
+                    td Destination
+                    td
+                        input#dest.form-control(type='text' size='35' value='South Barrington' onkeydown='if (event.keyCode == 13) startRouteCalculationAndGetJvImagesLocations();')
+                tr
+                    td View
+                    td
+                        select#view.form-control(onchange='handleViewChanged();')
+                            option(value='D' selected='true') Driver View
+                            option(value='B') Bird View
+                tr
+                    td MultiArrow
+                    td
+                        input#multiArrow(type='checkbox' checked='' onchange='handleArrowChanged();')
+                tr
+                    td Ratio
+                    td
+                        input#ratio(type='radio' name='ratio' value='4x3' onchange='handleRatioChanged();')
+                        | 4x3
+                        br
+                        input#ratio(type='radio' name='ratio' value='5x3' onchange='handleRatioChanged();')
+                        | 5x3
+                        br
+                        input#ratio(type='radio' name='ratio' value='3x5' onchange='handleRatioChanged();')
+                        | 3x5
+                        br
+                        input#ratio(type='radio' name='ratio' value='16x9' onchange='handleRatioChanged();' checked='')
+                        | 16x9
+                        br
+                tr
+                    td DayNight
+                    td
+                        select#dayNight.form-control(onchange='handleDayNight();')
+                            option(value='NIGHT' selected='true') Day
+                            option(value='DAY') Night
+                tr
+                    td
+                    td
+                        input#routeButton.btn.btn-default.btn-sm(type='submit' value='Calculate Route' onclick='startRouteCalculationAndGetJvImagesLocations();')
+                tr
+                    td
+                    td
+                        input#simulateRouteButton.btn.btn-default.btn-sm(type='submit' value='Simulate Route' onclick='startStopRouteSimulation();' disabled='')
+            #feedbackTxt(style='left:0; top:0; z-index: 0;')
+            #jvContainer
+            div HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+        #mapContainer
+    script(src='/javascripts/examples/v3/pde_junction_view_along_route.js')

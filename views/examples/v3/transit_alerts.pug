@@ -1,0 +1,32 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p(style='width: 350px;')
+                | In this example, we demonstrate how to
+                | use Transit Alerts end point of Transit API to retrieve alerts issued in the area
+            .form-group.form-inline
+                | Address: 
+                br
+                input#input-start.form-control.input-wide(value='Chicago' type='text')
+            .checkbox.nospace
+                input#routing.btn.btn-default.btn-sm(type='button' value='Search')
+            #lineNumbersHeader.form-group.form-inline.onoffswitch-checkbox
+                b Lines
+                #lineNumbers(style='max-height:100px;overflow-y:auto')
+            #lineInfoHeader.form-group.form-inline.onoffswitch-checkbox
+                b Alerts
+                #lineInfo(style='max-height:200px;overflow-y:auto')
+            div HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;')
+        style.
+            .H_ib_content{
+            max-height:100px; overflow-y:auto;
+            }
+        #mapContainer
+    script(src='https://platform.twitter.com/widgets.js')
+    script(src='/javascripts/examples/v3/transit_alerts.js')

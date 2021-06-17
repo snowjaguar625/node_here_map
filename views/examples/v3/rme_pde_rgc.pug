@@ -1,0 +1,29 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/jszip.min.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            h5 Please provide a trace to match with RME by either:
+            ul
+                li Drag &amp; drop a trace file (CSV, GPX, KML, NMEA or GeoJSON) into below box
+                li
+                    | Check one provided sample:
+                    input#example1.btn.btn-default.btn-sm(type='button' value='Rome (GPX)' onclick="loadFromFile('sample_rome.gpx');")
+                    input#example2.btn.btn-default.btn-sm(type='button' value='Sheffield (CSV)' onclick="loadFromFile('sample_sheffield.csv');")
+                    input#example3.btn.btn-default.btn-sm(type='button' value='MTK (GeoJson)' onclick="loadFromFile('sample_mtk.geojson');")
+            h5 Input trace
+            textarea#tracetextarea.form-control(rows='10')
+            input.btn.btn-default.btn-sm(type='button' value='Reset' onclick='reset();')
+            input#submittracebutton.btn.btn-default.btn-sm(type='button' value='Submit')
+            | &#x9;to 
+            input#rmeUrl(type='text' value='https://fleet.api.here.com/2/matchroute.json?routemode=car' autocomplete='off' size='40')
+            h5 Result
+            textarea#resulttextarea.form-control(autocomplete='off' rows='5') Please submit...
+            h5 Warnings
+            textarea#warningstextarea.form-control(autocomplete='off' rows='5') Please submit...
+        #mapContainer
+    script(src='/javascripts/examples/v3/rme_pde_rgc.js')

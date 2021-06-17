@@ -1,0 +1,25 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p(style='width: 350px;')
+                | In this example, we demonstrate how to
+                | show an infobubble on map object hover.
+            div HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+        #mapContainer
+        style(type='text/css').
+            .H_ib {
+            color: #1F1710;
+            }
+            .H_ib_body{
+            background: rgba(140, 127, 238, 0.85);
+            border-radius : 4em;
+            margin-right : -5em;
+            padding-left :1em;
+            }
+    script(src='/javascripts/examples/v3/show_info_on_hover.js')

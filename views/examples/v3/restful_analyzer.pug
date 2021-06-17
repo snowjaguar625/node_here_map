@@ -1,0 +1,43 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        head
+            meta(charset='utf-8')
+            meta(name='viewport' content='width=device-width,initial-scale=1,shrink-to-fit=no')
+            meta(name='theme-color' content='#000000')
+            link(rel='manifest' href='/manifest.json')
+            link(rel='shortcut icon' href='/Here.png')
+            link(rel='stylesheet' href='https://js.api.here.com/v3/3.0/mapsjs-ui.css')
+            script(type='text/javascript' src='https://js.api.here.com/v3/3.0/mapsjs-core.js')
+            script(type='text/javascript' src='https://js.api.here.com/v3/3.0/mapsjs-service.js')
+            script(type='text/javascript' src='https://js.api.here.com/v3/3.0/mapsjs-ui.js')
+            script(type='text/javascript' src='https://js.api.here.com/v3/3.0/mapsjs-mapevents.js')
+            script(type='text/javascript' src='https://js.api.here.com/v3/3.0/mapsjs-clustering.js')
+            link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+            link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css')
+            link(rel='stylesheet' href='https://npmcdn.com/react-bootstrap-table/dist/react-bootstrap-table-all.min.css')
+            title Here Restful API Analyzer
+            link(rel='stylesheet' href='/stylesheets/restfulapi_analyzer.css' media='screen' data-turbolinks-track='true')
+        body
+            noscript You need to enable JavaScript to run this app.
+            script.
+                let _body = document.getElementsByTagName("body");
+                let onLoad = () => {
+                let {childNodes} = _body[0];
+                for(let idx=0; idx < childNodes.length; idx++){
+                let {nodeName} = childNodes[idx];
+                console.log(childNodes[idx]);
+                if((nodeName.toLowerCase() === 'nav') || (nodeName.toLowerCase() === 'footer')){
+                childNodes[idx].style.display = 'none';
+                }
+                }
+                }
+                console.log(_body);
+                _body[0].onload = onLoad;
+                onLoad();
+            #root(style='position:absolute; top:0; left:0')
+            script(src='/javascripts/examples/restfulapi_analyzer.js')
+           

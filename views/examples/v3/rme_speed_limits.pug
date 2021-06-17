@@ -1,0 +1,16 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/gpx-parser.js')
+    script(src='https://js.datalens.api.here.com/2.3/mapsjs-datalens.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            h5 Click on the map to retrieve Speed Limits for the clicked position
+            #linkId
+            #fromRefSpeedLimit
+            #toRefSpeedLimit
+        #mapContainer
+    script(src='/javascripts/examples/v3/rme_speed_limits.js')

@@ -1,0 +1,84 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+
+
+/* 
+    Created on : Aug 24, 2018, 2:27:44 PM
+    Author     : Alex Sadovoy
+*/
+
+
+/* Safari 4.0 - 8.0 */
+
+@-webkit-keyframes dropmove {
+    from {
+        top: -200px;
+        opacity: 0;
+    }
+    to {
+        top: 0px
+    }
+}
+
+
+/* Standard syntax */
+
+@keyframes dropmove {
+    from {
+        top: -200px;
+        opacity: 0;
+    }
+    to {
+        top: 0px
+    }
+}
+
+.drop {
+    /*drop class applies a falling behavior/visualisation of DomMarker to map
+    is added to html element of DomIcon
+    */
+    cursor: pointer;
+    position: relative;
+    -webkit-animation: dropmove 0.5s ease-in 1;
+    /* Safari 4.0 - 8.0 */
+    animation: dropmove 0.5s ease-in 1;
+}
+
+@-webkit-keyframes jump {
+    0% {
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    }
+    40% {
+        transform: translate3d(0, 5%, 0) scale3d(0.9, 1.2, 1);
+    }
+    100% {
+        transform: translate3d(0, 15%, 0) scale3d(1.2, 0.9, 1);
+    }
+}
+
+@keyframes jump {
+    0% {
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+    }
+    40% {
+        transform: translate3d(0, 5%, 0) scale3d(0.9, 1.2, 1);
+    }
+    100% {
+        transform: translate3d(0, 15%, 0) scale3d(1.2, 0.9, 1);
+    }
+}
+
+.jump {
+    /*jump class applies a jumping behavior/visualisation of DomMarker on the map
+    is added to html element of DomIcon
+    */
+    cursor: pointer;
+    position: relative;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    animation: jump .5s linear alternate infinite;
+    -webkit-animation: jump .5s linear alternate infinite;
+}

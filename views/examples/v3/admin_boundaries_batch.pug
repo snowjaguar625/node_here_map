@@ -1,0 +1,27 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p(style='width: 350px;')
+                | In this example, we demonstrate how to
+                | perform parallel Geocoder searches and how to handle the results including
+                | the shape of the admin boundaries.
+            div
+                h5 Search for city area:
+                .form-group
+                    input#input-ci.form-control(type='text' placeholder='Your city... e.g. Seattle, WA' value='Seattle, WA')
+                h5 Search for postal code areas:
+                .form-group
+                    textarea#input-pc.form-control(rows='5' placeholder='Your postal codes (one per line)... e.g. 98103, USA') 98103, USA
+                .form-group
+                    button.btn.btn-default.btn-sm(onclick='geocodeAll();') Go!
+            tr
+                td HLP Service releases which are used in this demo:
+                td
+                    #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+        #mapContainer
+    script(src='/javascripts/examples/v3/admin_boundaries_batch.js')

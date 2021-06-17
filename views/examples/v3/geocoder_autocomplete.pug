@@ -1,0 +1,48 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p This Example Shows the Autocomplete feature of the HERE Geocoder
+            .form-group
+                input#search.form-control.input-wide(type='text')
+            .checkbox
+                label
+                    input#useMapview-checkbox(type='checkbox')
+                    | Restrict Geocoder search to current Mapview
+            .checkbox
+                label
+                    input#useCountry-checkbox(type='checkbox' checked='')
+                    | Use Country filter
+            div
+                table#table1
+                    tr
+                        td(height='' valign='' width='')
+                            | Select a country to filter the results within the country:
+                            br
+                            select#chk_c(multiple='')
+                                option(value='GBR' selected='') United Kingdom
+                                option(value='BEL') Belgium
+                                option(value='SWE') Sweden
+                                option(value='AUS') Australia
+                                option(value='NZL') New Zealand
+                                option(value='USA') USA
+                                option(value='DEU') Germany
+            div
+                table#table1
+                    tr
+                        td(height='' valign='' width='')
+                            | Select the result language:
+                            br
+                            select#language(multiple='')
+                                option(value='EN' selected='') English
+                                option(value='DE') German
+                                option(value='RU') Russian
+                                option(value='BG') Bulgarian
+            div HLP Service releases which are used in this demo:
+            #releaseInfoTxt(value='Used Service Releases:/n')
+        #mapContainer
+    script(src='/javascripts/examples/v3/geocoder_autocomplete.js')

@@ -1,0 +1,18 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | Click on map to start, Double click to stop adding coordinates.
+                | Click &quot;clear &amp; start&quot; button to clear existing polygon and start painting a new one.
+                | At least 3 coordinates are required to show a polygon.
+            input#clear.btn.btn-default.btn-sm(type='button' value='clear & start')
+            br
+            div HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+        #mapContainer
+    script(src='/javascripts/examples/v3/polygon_shaper.js')

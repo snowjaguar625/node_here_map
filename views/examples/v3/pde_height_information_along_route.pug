@@ -1,0 +1,27 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/canvasjs.min.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p#mapReleaseTxt
+                | After route calculation, additional info is retrieved from PDE Web Service and displayed.
+            .form-horizontal
+                .form-group
+                    label.control-label.col-sm-3(for='start') Start:
+                    .col-sm-9
+                        input#start.form-control.input-wide(type='text' value='Bormio, Lombardei, Italien' onkeydown='if (event.keyCode == 13) go();')
+                .form-group
+                    label.control-label.col-sm-3(for='dest') Destination:
+                    .col-sm-9
+                        input#dest.form-control.input-wide(type='text' value='Trafoi, Stilfs, Süd Tirol, Italien' onkeydown='if (event.keyCode == 13) go();')
+                input#routeButton.btn.btn-default.btn-sm(type='submit' value='Calculate route and display height information')
+                #feedbackTxt(style='left:0; top:0; z-index: 0;')
+                div HLP Service releases which are used in this demo:
+                #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+            #chartContainer
+        #mapContainer
+    script(src='/javascripts/examples/v3/pde_height_information_along_route.js')

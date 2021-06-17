@@ -1,0 +1,27 @@
+extends ../layout
+block content
+    script(src='/javascripts/examples/index.js')
+    - var objExamples = JSON.stringify(examples3)
+    - var examples = JSON.parse(objExamples).examples
+    title= title
+    #content-padder
+    #content-real
+      .content-block(style='margin-top: 49px;')
+        .wrapper
+          .subheader.bb(style='display: block;')
+            p
+              | These examples are provided by HERE Technical Customer Support to demonstrate features of the JS API and the Platform Web services.
+          .form-group
+            .search-container.form-inline
+              select#operator-select.form-control
+                option(value='and' selected='selected') AND
+                option(value='or') OR
+              input#search.form-control(type='text' style='margin-left: 4px' placeholder='Add text to filter results (geocoder, marker etc.)')
+        .container
+            each example,index in examples 
+                div(id = 'item' +index class = 'hvr2-overline-reveal hvr2-overline-reveal-min-height' data-type=example['description'] + example['tags'])
+                    a(href= '/examples/v3/' + example['filename'] target='_blank')
+                        img(src = '/images/examples/' + example['filename'] + '.png'  alt='' class='thumb')
+                        | #{example['description']}
+
+                    

@@ -1,0 +1,33 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            .form-group
+                label(for='start') Start:
+                input#start.form-control.input-sm.input-wide(type='text' value='48.83793,2.23733' onkeydown='updateRoute(event)')
+            .form-group
+                label(for='destination') End:
+                input#destination.form-control.input-sm.input-wide(type='text' value='Square Louis Bleriot Paris France' onkeydown='updateRoute(event)')
+            .form-group
+                label(for='day') Day:
+                select#day_selector.form-control.input-sm.input-wide(onchange='updateTrafficTiles()')
+                    option(value='0') Sunday
+                    option(value='1') Monday
+                    option(value='2') Tuesday
+                    option(value='3') Wednesday
+                    option(value='4') Thursday
+                    option(value='5') Friday
+                    option(value='6') Saturday
+            .form-group
+                .form-group
+                    #time_output Time of Day: 00:00
+                    input#time_slider(type='range' min='0' value='0' max='240' step='1' onmouseup='updateTrafficTiles()')
+                .form-group
+                    #baseTime Base Time: 00:00:00
+                    #trafficTime Traffic Time: 00:00:00
+        #mapContainer
+    script(src='/javascripts/examples/v3/predictive_routing_with_traffic.js')

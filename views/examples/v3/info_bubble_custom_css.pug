@@ -1,0 +1,48 @@
+extends ../../layout
+
+block content
+    title= title
+    link(rel='stylesheet' href='/stylesheets/info_bubble_custom_css.css' media='screen' data-turbolinks-track='true')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p#mapReleaseTxt
+                | In this example we apply css classes to info bubble for customization. The styleSheet with the classes used here is located in assets-&gt;info_bubble_custom_css.css
+            .form-horizontal
+                .form-group
+                    .col-sm-12
+                        input#defaultBtn.btn.btn-default.btn-sm(type='submit' value='Default Bubble' onclick='applyCustomClass()')
+                        input#custom1Btn.btn.btn-default.btn-sm(type='submit' value='Custom Class 1' onclick="applyCustomClass('custom1')")
+                        input#custom2Btn.btn.btn-default.btn-sm(type='submit' value='Custom Class 2' onclick="applyCustomClass('custom2')")
+                hr(style='border-top-color:#274190')
+                p
+                    | Or apply styles to the info bubble elements directly using Javascript (Pre-filled with example style)
+                .col-sm-offset-1.col-sm-11
+                    .form-group
+                        label.control-label.col-sm-3 H_ib_body style:
+                        .col-sm-9
+                            textarea#h_ib_body_style.col-sm-12(style='margin: 3px;')
+                                | background:-webkit-linear-gradient(#F29E0D, #2E3038);background:-o-linear-gradient(#F29E0D, #2E3038);background:-moz-linear-gradient(#F29E0D, #2E3038);background:linear-gradient(#F29E0D, #2E3038)
+                    .form-group
+                        label.control-label.col-sm-3 H_ib_content style:
+                        .col-sm-9
+                            textarea#h_ib_content_style.col-sm-12(style='margin: 3px;') text-align:right;font-size:small
+                    .form-group
+                        label.control-label.col-sm-3 H_ib_close style:
+                        .col-sm-9
+                            textarea#h_ib_close_style.col-sm-12(style='margin: 3px;') display:none;
+                    .form-group
+                        label.control-label.col-sm-3 H_ib_tail style:
+                        .col-sm-9
+                            textarea#h_ib_tail_style.col-sm-12(style='margin: 3px;') z-index:-1;
+                    .form-group
+                        .col-sm-offset-3.col-sm-9
+                            input#custom_style_btn.btn.btn-default.btn-sm(type='submit' value='Apply Custom Styles')
+                            input#reset_custom_style_btn.btn.btn-default.btn-sm(type='submit' value='Reset')
+                hr
+                #feedbackTxt(style='left:0; top:0; z-index: 0;')
+                div HLP Service releases which are used in this demo:
+                #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+        #mapContainer
+    script(src='/javascripts/examples/v3/info_bubble_custom_css.js')

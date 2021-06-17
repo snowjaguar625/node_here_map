@@ -1,0 +1,50 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p#mapReleaseTxt
+                | After route calculation, additional info is retrieved from PDE Web Service and displayed.
+            .form-horizontal
+                .form-group
+                    label.control-label.col-sm-3(for='start') Start
+                    .col-sm-9
+                        input#start.form-control(type='text' size='50' value='Somerset, PA, USA')
+                .form-group
+                    label.control-label.col-sm-3(for='dest') Destination
+                    .col-sm-9
+                        input#dest.form-control(type='text' size='50' value='Bedford, PA, USA')
+                .checkbox
+                    label.control-label
+                        input#showSlopeData(type='checkbox' checked='true' onchange='handleMarkerContainer();')
+                        | Display Slope data
+                .checkbox
+                    label.control-label
+                        input#showSlopePerc(type='checkbox' checked='checked' onchange='switchIcons();')
+                        | Show only Slope Percentage
+                input#routeButton.btn.btn-default.btn-sm(type='submit' value='Calculate Route')
+                div HLP Service releases which are used in this demo:
+                #releaseInfoTxt(style='left:0; top:0; z-index: 0;')
+        #mapContainer
+        #pageblock
+        #spinner
+        style(type='text/css').
+            .colorbox {
+            width: 10px;
+            height: 10px;
+            background: green;
+            display: inline-block;
+            margin-right: 10px;
+            }
+            .green {
+            background: green;
+            }
+            .red {
+            background: red;
+            }
+
+    script(src='/javascripts/examples/v3/slope_along_route.js')
+

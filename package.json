@@ -7,9 +7,12 @@
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
+    "cors": "2.8.5",
     "debug": "~2.6.9",
+    "dotenv": "10.0.0",
     "ejs": "3.1.6",
     "express": "~4.16.1",
+    "express-session": "1.17.2",
     "jquery-ui": "1.12.1",
     "morgan": "~1.9.1",
     "nodemon": "2.0.7"

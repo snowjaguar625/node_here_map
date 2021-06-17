@@ -1,0 +1,28 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/distance-measurement.js')
+    script(src='/javascripts/examples/overview.js')
+    script(src='/javascripts/examples/zoom-control.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            .form-group
+                .input-group
+                    span.input-group-btn
+                        span.btn.btn-default.btn-sm.btn-file
+                            | Browse&mldr; 
+                            input.form-control(type='file')
+                    input.form-control(type='text' placeholder='Choose KML Files to Load' value='sample.kml' readonly='')
+            .form-group
+                .checkbox
+                    label
+                        input#clear-checkbox(type='checkbox')
+                        | Clear objects before load?
+            button#btn-load.btn.btn-default.btn-sm(type='button') Load
+        #mapContainer
+        #spinner
+        #pageblock
+    script(src='/javascripts/examples/v3/draggable_kml_shapes.js')

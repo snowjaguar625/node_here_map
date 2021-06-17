@@ -1,0 +1,659 @@
+{
+  "examples":[
+    {
+      "filename":"restful_examples",
+      "description":"RESTFul Request Examples",
+	  "tags" : ""
+    },
+    {
+      "filename":"simple_map",
+      "description":"Simple Map View with Behavior Component",
+	  "tags" : ""
+    },
+    {
+      "filename":"mrs_options",
+      "description":"Map Rendering Service with all available options",
+	  "tags" : "mrs_options"
+    },
+    {
+      "filename":"simple_routing",
+      "description":"Simple Routing Example (A to B)",
+	  "tags" : ""
+    },
+    {
+      "filename":"simple_geocoding",
+      "description":"Simple Geocoding Example (Forward And Reverse Geocoding)",
+	  "tags" : ""
+    },
+    {
+      "filename":"several_markers",
+      "description":"Different markers",
+	  "tags" : "several markers"
+    },
+    {
+      "filename":"marker_performance",
+      "description":"Shows the Performance of the Map while using 8000 Markers",
+	  "tags" : "marker performance"
+    },
+    {
+      "filename":"reverse_isoline",
+      "description":"Demonstrate the usage of Reverse Isoline in Routing",
+	  "tags" : ""
+    },
+    {
+      "filename":"auto_cloud_weather",
+      "description":"Shows weather information (from the HERE Auto weather service) on a map",
+	  "tags" : "auto cloud weather"
+    },
+    {
+      "filename":"admin_boundaries",
+      "description":"Example to retrieve and display admin area boundaries via Geocode & ReverseGeocode",
+	  "tags" : ""
+    },
+    {
+      "filename":"admin_boundaries_inverted",
+      "description":"Example to retrieve and display inverted admin area boundaries via Geocode & RGC",
+	  "tags" : ""
+    },
+    {
+      "filename":"slope_along_route",
+      "description":"Shows Slopes along the Route using PDE",
+	  "tags" : "ADAS,PDE,Fleet"
+    },
+    {
+      "filename":"road_types_along_route",
+      "description":"Shows route types along the Route using PDE - with urban flag",
+	  "tags" : "PDE,Fleet,urban,ADAS"
+    },
+    {
+      "filename":"speed_limits_along_gps_trace",
+      "description":"Speed tracking demo",
+	  "tags" : "speed limits along gps trace,speedlimits,PDE,Fleet,truck"
+    },
+    {
+      "filename":"polygon_shaper",
+      "description":"Example showing how polygons can be created interactively using mouse events",
+	  "tags" : "polygon shaper"
+    },
+    {
+      "filename":"info_bubble_custom_css",
+      "description":"Toggle CSS and style on Info Bubble to customize",
+	  "tags" : "info bubble custom css"
+    },
+    {
+      "filename":"info_bubbles",
+      "description":"Demonstrates the integration of a YouTube Video into a customized info bubble",
+	  "tags" : "customized custom info bubble"
+    },
+    {
+      "filename":"2d_landmarks",
+      "description":"Shows the 2D Landmarks Product in Berlin with Berlin Marathon Track",
+	  "tags" : ""
+    },
+    {
+      "filename":"zoom_rectangle",
+      "description":"Shows the usage of the Rectangle Zoom including UI",
+	  "tags" : ""
+    },
+    
+    {
+      "filename":"geocode_addresses",
+      "description":"Geocode addresses - append coordinates to a list of addresses",
+	  "tags" : ""
+    },
+    {
+      "filename":"pde_traffic_signs",
+      "description":"Show traffic signs along the Route using PDE Service",
+	  "tags" : "PDE,traffic,sign,Fleet,route"
+    },
+    {
+      "filename":"pde_speed_limits_along_route",
+      "description":"Shows SpeedLimits along the Route using PDE",
+	  "tags" : "speed limits,PDE,Fleet,route"
+    },
+    {
+      "filename":"pde_speed_limits_in_view",
+      "description":"Shows SpeedLimits in a Map View or in selected area using PDE",
+	  "tags" : "speed limits,PDE,Fleet,view"
+    },
+    {
+      "filename":"isoline_routing",
+      "description":"Demonstration of Isoline Routing",
+	  "tags" : ""
+    },
+    {
+      "filename":"fleet",
+      "description":"Everything for Fleet tracking, Truck Routing, Traffic Flow and Incidents etc.",
+	  "tags" : "Truck Routing"
+    },
+    {
+      "filename":"geofencing",
+      "description":"Geofencing, Tracking an animated map object entering and leaving a geoshape",
+	  "tags" : "animated map object entering and leaving a geoshape"
+    },
+    {
+      "filename":"clustering",
+      "description":"Simple Marker Cluster Example",
+	  "tags" : "clustering"
+    },
+    {
+      "filename":"admin_boundaries_batch",
+      "description":"Parallel Geocoder searches, result handling including the shape of the admin boundaries.",
+	  "tags" : "Parallel Geocoder searches"
+    },
+    {
+      "filename":"update_marker_on_mapview_change",
+      "description":"How to update a SVG marker on map view change like zoom",
+	  "tags" : ""
+    },
+    {
+      "filename":"show_info_on_hover",
+      "description":"How to show an infobubble on map object hover",
+	  "tags" : ""
+    },
+    {
+      "filename":"pde_postal_bounds",
+      "description":"Show postal code boundaries using PDE Service",
+	  "tags" : "PDE,polygon,Fleet"
+    },
+    {
+      "filename":"pde_census_boundaries",
+      "description":"Show Census Boundaries using PDE Service",
+	  "tags" : "PDE,polygon,Fleet"
+    },
+    {
+      "filename":"pde_digital_terrain_model",
+      "description":"PDE Digital Terrain Model Layer",
+	  "tags" : "PDE,DTM,Fleet,height"
+    },
+    {
+      "filename":"pde_distance_markers",
+      "description":"Show Distance Markers using PDE Service",
+	  "tags" : "PDE,Fleet,Marker"
+    },
+    {
+      "filename":"custom_components",
+      "description":"Zoomcontrol / Distance Measurement / Overview Components",
+	  "tags" : "custom components"
+    },
+    {
+      "filename":"pde_junction_view_along_route",
+      "description":"Show 2D Junction Views along a route PDE Service",
+	  "tags" : "PDE,Fleet,route,SVG"
+    },
+    {
+      "filename":"rme_basic",
+      "description":"RME Basic Demo: Match a GPS Trace",
+	  "tags" : "RME,Fleet,Route Match,Trace"
+    },
+    {
+      "filename":"rme_pde_speeding_along_gps_trace",
+      "description":"RME + PDE: Match GPS Trace and lookup Speed Limits",
+	  "tags" : "PDE,RME,Fleet,Route Match, rme pde speeding along,Trace"
+    },
+    {
+      "filename":"night_overlay",
+      "description":"How to show a Night Overlay with UI",
+	  "tags" : ""
+    },
+    {
+      "filename":"geodesic_polyline",
+      "description":"How to draw a Geodesic Polyline",
+	  "tags" : ""
+    },
+    {
+      "filename":"pde_adas_curvature_along_route",
+      "description":"Show curvature warnings if legal speedlimit is higher than maximum possible driving speed",
+	  "tags" : "PDE,Fleet,ADAS,route,curvature,warning,SVG"
+    },
+    {
+      "filename":"reverse_geocoding_center_view",
+      "description":"Geocoding at center of View",
+	  "tags" : "reverse"
+    },
+    {
+      "filename":"community_map",
+      "description":"Show the community map and allow Places search by URL param q",
+	  "tags" : ""
+    },
+    {
+      "filename":"places_next_departure",
+      "description":"Using Places API for finding next departures at Public Transit",
+	  "tags" : ""
+    },
+    {
+      "filename":"pde_realtime_tracking",
+      "description":"Real time tracking demo (reverse geocoding, speed, PDE)",
+	  "tags" : "PDE,Fleet,tracking,trace"
+    },
+    {
+      "filename":"waypoint_sequence_extension",
+      "description":"WSE: Finding a way through several wayppoints. Also Known as Traveling Salesman Problem.",
+	  "tags" : "Waypoints Sequence Extension (WSE),Fleet,Traveling Salesman"
+    },
+    {
+      "filename":"draggable_kml_shapes",
+      "description":"Shows How to Load KML Shapes and Drag and Drop them onto the Map Afterwards",
+	  "tags" : "draggable"
+    },
+    {
+      "filename":"eta_provider",
+      "description":"Shows Estimated Time of Arrival (ETA) and Route Based on Start, Destination, and Mode",
+	  "tags" : "eta provider"
+    },
+    {
+      "filename":"geocoder_autocomplete",
+      "description":"Shows Autocomplete feature of the HERE Geocoder",
+	  "tags" : ""
+    },
+    {
+      "filename":"geocoder_checkout",
+      "description":"Geocoder Autocomplete Address verification fix the result via drag-n-drop",
+	  "tags" : ""
+    },
+    {
+      "filename":"gfe_draw_upload_layer",
+      "description":"Draw polygons on the map, and upload them to GFE. Then Geofence using it",
+	  "tags" : "GFE,CLE,Fleet,custom data,layer,upload"
+    },
+    {
+      "filename":"gfe_check_asset_position",
+      "description":"Check whether asset is in Geofence using GFE on custom layers",
+	  "tags" : "GFE,Fleet,custom,asset,trace,track"
+    },
+    {
+      "filename":"check_asset_position_on_core_maps",
+      "description":"Check whether asset is in Geofence using GFE on maps",
+	  "tags" : "GFE Maps,Fleet,PDE,asset,trace,track,public"
+    },
+    {
+      "filename":"gfe_upload_layer",
+      "description":"Create Isoline Geofence Polygon, upload it into GFE, simulate truck drive",
+	  "tags" : "GFE,CLE,Fleet,custom data, layer,upload"
+    },
+    {
+      "filename":"transit",
+      "description":"Simple Transit API Example",
+	  "tags" : ""
+    },
+    {
+      "filename":"cost_optimized_route",
+      "description":"Calculate cost optimized route via Toll Cost Extension (TCE) Service",
+	  "tags" : "TCE,Fleet,cost optimize,COR,routing, toll"
+    },
+    {
+      "filename":"link_speed_locator",
+      "description":"Find speed limit and average speed for a link using PDE",
+	  "tags" : "PDE,Fleet,link speed locator"
+    },
+    {
+      "filename":"venue_interaction",
+      "description":"Display interactive venue map",
+	  "tags" : "change floors more details interaction"
+    },
+    {
+      "filename":"meta_layer",
+      "description":"Display interactive Meta Layer in Map Display",
+	  "tags" : ""
+    },
+    {
+      "filename":"context_menu",
+      "description":"How to add a context menu to map on right click",
+	  "tags" : ""
+    },
+    {
+      "filename":"geojson_reader",
+      "description":"How to display objects from GeoJSON file on the map using built in parser",
+	  "tags" : "reader"
+    },
+    {
+      "filename":"route_with_tce",
+      "description":"Calculate route + Toll Cost via Toll Cost Extension (TCE) Service",
+	  "tags" : "TCE,Fleet,routing,toll"
+    },
+    {
+      "filename":"find_linkid",
+      "description":"Example to extract / find LinkId's from Routing Responses",
+	  "tags" : ""
+    },
+    {
+      "filename":"heatmap",
+      "description":"Example for Heatmaps based on search results",
+	  "tags" : ""
+    },
+    {
+      "filename":"flow_heatmap",
+      "description":"Shows a Traffic (Jam Factor) Heatmap for current Map View",
+	  "tags" : ""
+    },
+    {
+      "filename":"predictive_routing_with_traffic",
+      "description":"Predictive Routing using Traffic Patterns and Pattern Display",
+	  "tags" : ""
+    },
+    {
+      "filename":"pde_height_information_along_route",
+      "description":"Show height information along a route using PDE",
+	  "tags" : "PDE,Fleet,Height,ADAS,route"
+    },
+    {
+      "filename":"geofence_creation",
+      "description":"Create a Geofence out of a Polyline with usage of JSTS Lib",
+	  "tags" : ""
+    },
+    {
+      "filename":"cle_rme_fleet_tracking",
+      "description":"Custom Location Extension (CLE) and Route Match Extension (RME) for Fleet Tracking",
+	  "tags" : "RME,Fleet,Route Match,CLE,track"
+    },
+    {
+      "filename":"rme_pde_java_example",
+      "description":"RME PDE example written in JAVA",
+	  "tags" : "RME, Route Match"
+    },
+    {
+      "filename":"geotag_screenshot",
+      "description":"Capture the Center of a MapView and store the GPS Coordinate into EXIF Header",
+	  "tags" : "geotag screenshot"
+    },
+    {
+      "filename":"gfe_upload_created_route_fence",
+      "description":"Upload a created route fence to GFE and simulate an moving asset",
+	  "tags" : "GFE,CLE,upload,geofence,simulating,asset"
+    },
+    {
+      "filename":"cle2_pde_search",
+      "description":"CLE And PDE search functions",
+	  "tags" : "CLE,PDE,Fleet,search,bounding box,proximity,quadkey,isoline,polygon,layer,custom data"
+    },
+    {
+      "filename":"bicycle_routing",
+      "description":"Routing 7.2: Bicycle Routing (BETA)",
+	  "tags" : ""
+    },
+    {
+      "filename":"pde_admin_poly_union",
+      "description":"PDE + Geocoder: PostalCode Bounds with Union of Polygons",
+	  "tags" : "PDE,Fleet,polygon,admin"
+    },
+    {
+      "filename":"cluster_marker_spider",
+      "description":"Simple Cluster Spider Demo",
+	  "tags" : "marker"
+    },
+	{
+      "filename":"pde_street_details",
+      "description":"Reverse Geocoder + PDE to get Street geometries",
+	  "tags" : "PDE,Fleet,details"
+    },
+    {
+      "filename":"simple_matrix_routing",
+      "description":"Simple matrix routing",
+	  "tags" : ""
+    },
+    {
+      "filename":"simple_routing_with_traffic",
+      "description":"Example for a simple route including live traffic",
+	  "tags" : "traffic routing"
+    },
+    {
+      "filename":"leaflet",
+      "description":"Usage of the Leaflet API together with HERE Back-End Services",
+	  "tags" : "leaflet"
+    },
+    {
+      "filename":"pde_admin_boundaries",
+      "description":"Using PDE to get the Admin Boundaries and render on a canvas",
+	  "tags" : "PDE,Fleet,admin,polygon,canvas"
+    },
+    {
+      "filename":"rectangle_selection",
+      "description":"Shows the usage of the Rectangle Selection of Markers",
+	  "tags" : ""
+    },
+    {
+      "filename":"pde_truck_pois_along_a_route",
+      "description":"Using PDE to get Truck POIs along a route",
+	  "tags" : "PDE,Fleet,POI,along route,truck"
+    },
+    {
+      "filename":"meta_layer_in_canvas",
+      "description":"Display Meta Layer on Canvas with a filter",
+	  "tags" : "filter"
+    },
+    {
+      "filename":"auto_cloud_ev_stations",
+      "description":"Display for Auto Cloud EV Charging Stations",
+	  "tags" : ""
+    },
+    {
+      "filename":"ev_charging_along_route",
+      "description":"Electric Vehicle charging along the route",
+      "tags" : "EV,Charging"
+    },
+  
+    {
+      "filename":"open_layers",
+      "description":"Using Open Layers API to Display HERE Tiles",
+	  "tags" : "OSM"
+    },
+    {
+      "filename":"custom_canvas_clustering",
+      "description":"Custom Canvas Clustering for more performance in Cluster Rendering",
+	  "tags" : ""
+    },
+	{
+      "filename":"pde_get_any_link_info",
+      "description":"PDE Get (any) LinkInfo: Demonstrates the usage of PDE to get any Link Info",
+	  "tags" : "PDE,Fleet,OLP,Topoplogy,Segment,link id"
+    },
+	{
+      "filename":"rme_speed_limits",
+      "description":"Use RME to retrieve Speed Limits",
+	  "tags" : "RME,Fleet,Speed,Speedlimits"
+    },
+    {
+      "filename":"track_vehicle_to_update_eta",
+      "description":"Track Vehicle to update ETA",
+	  "tags" : "RME,CRE,ETA,Fleet,routing,route match"
+    },
+	{
+      "filename":"pde_tmc_linkid",
+      "description":"Use PDE to retrieve LinkIDs and TMC Codes",
+	  "tags" : "PDE LinkID Linkids tmc tmccodes"
+    },
+	{
+      "filename":"geojson_route_extraction",
+      "description":"Extract the Routing Shape as GeoJSON",
+	  "tags" : "GeoJSON JSON"
+    },
+	{
+      "filename":"places_lookup",
+      "description":"Lookup for POIs using Places by PlaceID, PVID or Name",
+	  "tags" : "POI Places Search"
+    },
+	{
+      "filename":"transit_line_info",
+      "description":"Demonstrate the usage of Line Info in Transit API",
+	  "tags" : "Transit Line Station"
+    },
+	{
+      "filename":"transit_alerts",
+      "description":"Demonstrate the usage of Alerts end point in Transit API",
+	  "tags" : "Transit Line Station"
+    },
+	{
+      "filename":"rme_with_pde_attributes",
+      "description":"Use RME to retrive PDE attributes as well for matched LinkIDs",
+	  "tags" : "RME,PDE,Fleet,custom,CLE"
+    },
+	{
+      "filename":"custom_routing_basic",
+      "description":"Shows Custom Route Extension",
+	  "tags" : "Fleet,CLE,CRE,routing,overlay,custom,submit"
+    },
+	{
+      "filename":"cre_submit_overlay",
+      "description":"Custom Route Extension - submit overlay",
+	  "tags" : "Fleet,CLE,CRE,routing,overlay,custom,submit"
+    },
+	{
+      "filename":"fleet_telematics_api",
+      "description":"Fleet Telematics API - calculate route",
+	  "tags" : "routing,router,cle,cre,wse,telematics,fleet,api"
+    },
+	{
+      "filename":"pde_live_traffic_speed_record",
+      "description":"PDE Live traffic speed record",
+	  "tags" : "PDE,Fleet,layer,traffic,archive,snapshot"
+    },
+	{
+      "filename":"pde_traffic_pattern",
+      "description":"PDE Traffic Patterns",
+	  "tags" : "PDE,Fleet,layer,traffic,archive,snapshot"
+    },
+    {
+      "filename":"forward_geocoder",
+      "description":"Geocoder with parameters",
+      "tags" : "geocoding"
+    },
+    {
+      "filename":"gfe_match_transport",
+      "description":"GFE: Match transport",
+      "tags" : "Fleet,GFE,geofencing,fence,ubi,vbi"
+    },
+    {
+      "filename":"rme_trip_anomalies_detection",
+      "description":"RME: Trip Anomalies Detection",
+      "tags" : "RME,Fleet,Route Match,trace,track"
+    },
+    {
+      "filename":"transit_stations_in_view",
+      "description":"Show Transit Stations by Map Center",
+      "tags" : "transit"
+    },
+    {
+      "filename":"demo_matrix_routing",
+      "description":"Show the Result for a Matrix Route",
+      "tags" : "Matrix,demo"
+    },
+    {
+      "filename":"calculate_route_isoline",
+      "description":"CLE Show Links along Route Isoline",
+      "tags" : "CLE,Fleet,isoline,route"
+    },
+    {
+      "filename":"calculate_poi_along_isoline_route",
+      "description":"PDE/CLE Show POIs along Route Isoline",
+      "tags" : "PDE,Fleet,CLE,isoline,route,calculate,POI,fuel,ev,charging,truck,distance,time,public,transport"
+    },
+	{
+      "filename":"calculate_isoline_links",
+      "description":"Show Link Isoline per time, distance or cost",
+      "tags" : "Fleet,isoline,route,routing,distance,time,cost"
+    },
+    {
+      "filename":"waypoint_sequence_extension_pickups",
+      "description":"WSE Pickup along Route",
+      "tags" : "WSE,Fleet,route,pickup"
+    },
+    {
+      "filename":"rme_daily_commute",
+      "description":"RME for Daily Commutes",
+      "tags" : "RME,Fleet,Route Match,route"
+    },
+    {
+      "filename":"restful_analyzer",
+      "description":"Restful APIs",
+      "tags" : ""
+    },
+    {
+      "filename":"simple_map_incl_overlay_geohash",
+      "description":"GeoHash Encode / Decode incl. (Reverse-) Geocoding",
+      "tags" : "geohash,hash"
+    },
+    {
+      "filename":"simple_what3words",
+      "description":"what3words with HERE (Reverse-) Geocoding",
+      "tags" : "what3words,words,what,3"
+    },
+    {
+      "filename":"simple_map_two_fingers",
+      "description":"Two Fingers needed to start map interaction",
+      "tags" : "Events,interaction,map,gestures"
+    },
+    {
+      "filename":"pde_road_roughness_in_view",
+      "description":"PDE Show Road Roughness",
+      "tags" : "PDE,Fleet,layer,road,roughness,rr"
+    },
+    {
+      "filename":"pde_var_speed_signs_in_view",
+      "description":"PDE Show Variable Speed Sign Data",
+      "tags" : "PDE,Fleet,layer,speed,variable"
+    },
+    {
+      "filename":"traffic_viewer",
+      "description":"Traffic Viewer with Clustering and no Filter",
+      "tags" : "traffic,cluster,filter"
+    },
+    {
+      "filename":"simple_p_and_r",
+      "description":"Park and Ride Demo",
+      "tags" : "park,ride,p&r"
+    },
+    {
+      "filename":"magnifier",
+      "description":"Magnifier for Layer selection",
+      "tags" : "custom,components,layer"
+    },
+    {
+      "filename":"rme_pde_rgc",
+      "description":"Shows the combination of RME, PDE and RGC",
+      "tags" : "RME,PDE,Fleet,RGC,Reverse,Geocoder"
+    },
+    {
+      "filename":"pde_env_zones",
+      "description":"Shows PDE Environmental Zones in Canvas Rendering",
+      "tags" : "PDE,Fleet,ENV,Environmental"
+    },
+    {
+      "filename":"simple_map_jp",
+      "description":"Shows the Usage of the Japan IPC Proxy with HERE Services",
+      "tags" : "Japan,JP,IPC,Proxy"
+    },
+	{
+      "filename":"rme_stop_sign_violation",
+      "description":"Route Match detects Stop Sign Violations",
+	  "tags" : "RME,Fleet,Route Match"
+    },
+	{
+	  "filename":"find_intersection_along_route",
+      "description":"Find intersections along a route",
+	  "tags" : "Isoline,Routing"
+	}
+  ],
+  "_currentlyNotWorking":[
+    {
+      "filename":"transit_isoline_routing",
+      "description":"Demonstrate the usage of Isoline in Transit API",
+	  "tags" : "Transit Isoline"
+    },
+	{
+      "filename":"dp_esri_sli_sync",
+      "description":"Demonstrates the ability to synchronize the HERE Street Level Imaging with an Esri Map",
+	  "tags" : "sli"
+    },
+	 {
+      "filename":"dp_sli_coverage_map",
+      "description":"HERE Street Level Imagery (SLI) Coverage Map with Behavior Component",
+	  "tags" : ""
+    },
+	{
+      "filename":"dp_street_level_imagery",
+      "description":"Street-Level Imagery",
+	  "tags" : "SLI"
+    }
+    
+  ]
+}
