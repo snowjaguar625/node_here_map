@@ -52,9 +52,9 @@ block content
                     td Route Alternatives:
                     td(colspan='3')
                         select#routeAlternatives.form-control(style='width:312px;' onkeydown='if (event.keyCode == 13)startRouteCalculation();')
-                        '    option(value='0') 0
+                            option(value='0') 0
                             option(value='1' selected='true') 1
-                            option('value='2') 2
+                            option(value='2') 2
                 tr
                     td Vehicle Specification:
                     td(colspan='3')
@@ -66,9 +66,6 @@ block content
                             option(value='4') Truck with one trailer (38t)
                             option(value='5') Trailer Truck (40t)
                             option(value='6') Car with Trailer
-                            //
-                                option value="7">Bus</option>
-                                <option value="8">Motor Home</option
                             option(value='99' disabled='' style='display:none;') User defined
                 tr
                     td Custom Parameters:
@@ -80,26 +77,13 @@ block content
                             option(value='verbosemode=0&metricsystem=metric&maneuverAttributes=none&mode=shortest;car&jsonattributes=41&combinechange=true&linkAttributes=none,sh&legAttributes=none,li&language=en-us&alternatives=3')
                                 | Managed
                             option(value='') Custom
-                            // option value="param1=value1&param2=value2" selected>Example</option
                 tr
                     td Vehicle
                     td
                         select#vehicles.form-control(style='width:89px;' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
-                            // option value="1">Motorcycle</option
                             option(value='2' selected='true') Car
                             option(value='3') Truck
                             option(value='9') Delivery Truck
-                        //
-                            option value="4">Motor Home</option>
-                            <option value="5">Minibus</option>
-                            <option value="6">Bus</option>
-                            <option value="7">Motorcycle Sidecar</option>
-                            <option value="8">Tricycle</option>
-                            <option value="10">Snowmobile</option>
-                            <option value="11">Pick-Up</option>
-                            <option value="12">Tractor</option
-                            <option value="13">Taxi</option>
-                            <option value="14">HCM/EME</option>
                     td Total Number Of Tires
                     td
                         input#nrOfTotalTires.form-control(type='text' style='width:85px;' value='4' onkeydown='if (event.keyCode == 13)startRouteCalculation();' onchange='setUserdefinedVehicleSpec(true)')
@@ -226,5 +210,6 @@ block content
             div HLP Service releases which are used in this demo:
             #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
         #mapContainer
+
     script(src='/javascripts/examples/v31/release-requests.js')
     script(src='/javascripts/examples/v31/route_with_tce.js')

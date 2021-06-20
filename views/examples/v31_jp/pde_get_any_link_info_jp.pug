@@ -1,0 +1,111 @@
+extends ../../layout
+block content
+    title= title
+    script(src='/javascripts/examples/jszip.min.js')
+    #content-padder 
+    #content-real
+        style.
+            a:link {
+            color: green;
+            background-color: transparent;
+            text-decoration: none;
+            }
+            a:visited {
+            color: brown;
+            background-color: transparent;
+            text-decoration: none;
+            }
+            a:hover {
+            color: red;
+            background-color: transparent;
+            text-decoration: underline;
+            }
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            h4 PDE Get any LinkInfo for single or multiple LINK_IDs
+            p
+                | The Platform Data Extension (PDE) API offers HERE map data in a series of attribute 
+                | key/value pairs. It uses layers to group attributes thematically. To lookup 
+                | layer/attribute descriptions, visit this 
+                a#URL(href='URL' target='_blank')
+                    b link.
+            script(type='text/javascript').
+                var link = document.getElementById('URL');
+                link.href = "http://fleet.ls.hereapi.com/1/doc/layers.html?apikey="+api_key_jp;
+            hr.separator
+            p
+                | Provide a single Link_Id or list of comma separated Link_Ids, count limited to &quot;maxTilesPerRequest&quot; value 
+                | from 
+                a#congigURL(href='congigURL' target='_blank')
+                    b ServiceConfiguration Response
+            p Alternatively, a list of comma separated Stable Topology Ids can be provided
+            script(type='text/javascript').
+                var link = document.getElementById('congigURL');
+                link.href = "http://fleet.ls.hereapi.com/serviceconfiguration.json?apikey="+api_key_jp;
+            #link-or-topo.form-horizontal(style='display:block')
+                label#link-or-topo-label(for='link-or-topo') Search based on: 
+                br
+                input(type='radio' name='search-mode' value='link' checked='true' onclick='changemode(this)')
+                |  Link_ids
+                br
+                input(type='radio' name='search-mode' value='topo' onclick='changemode(this)')
+                |  Topology Segment Ids
+                br
+            h5 Link_Id(s)
+            .form-group
+                input#link-input.form-control(type='text' value='52298144,52298166,783446246,1184709577,52298156' height='50px' placeholder='' onkeypress='handle(event)')
+            h5 Topology Segment Id(s)
+            .form-group
+                input#topo-seg-input.form-control(type='text' value='95983133' height='50px' placeholder='' disabled='true' onkeypress='handle(event)')
+            hr.separator
+            h5 Select PDE Layer and Server to retrieve LinkInfo
+            table.form-group(border='0')
+                tr
+                    td PDE Layer:
+                    td(colspan='3')
+                        select#layerSelected.form-control(style='width:312px;' onchange='getLayerSelected()')
+                            option(value='LINK_ATTRIBUTE_FC' selected='true') LINK_ATTRIBUTE_FCn
+                            option(value='LINK_ATTRIBUTE2_FC') LINK_ATTRIBUTE2_FCn
+                            option(value='LINK_FC') LINK_FCn
+                            option(value='LANE_FC') LANE_FCn
+                            option(value='LINK_TMC_FC') LINK_TMC_FCn
+                            option(value='ADAS_ATTRIB_FC') ADAS_ATTRIB_FCn
+                            option(value='BASIC_HEIGHT_FC') BASIC_HEIGHT_FCn
+                            option(value='ROAD_GEOM_FC') ROAD_GEOM_FCn
+                            option(value='ROAD_ADMIN_FC') ROAD_ADMIN_FCn
+                            option(value='ROAD_ADMIN_NAMES_FC') ROAD_ADMIN_NAMES_FC
+                            option(value='ROAD_NAME_FC') ROAD_NAME_FC
+                            option(value='SPEED_LIMITS_FC') SPEED_LIMITS_FCn
+                            option(value='SPEED_LIMITS_COND_FC') SPEED_LIMITS_COND_FCn
+                            option(value='SPEED_LIMITS_VAR_FC') SPEED_LIMITS_VAR_FCn
+                            option(value='TRAFFIC_PATTERN_FC') TRAFFIC_PATTERN_FCn
+                            option(value='TRUCK_SPEED_LIMITS_FC') TRUCK_SPEED_LIMITS_FCn
+                            option(value='TRUCK_RESTR_FC') TRUCK_RESTR_FC
+                            option(value='ROUNDABOUT_FC') ROUNDABOUT_FCn
+                            option(value='TURN_RESTR_FC') TURN_RESTR_FCn
+                            option(value='ROAD_ROUGHNESS_FC') ROAD_ROUGHNESS_FCn
+                            option(value='TOPO_SEG_ID_FC') TOPO_SEG_ID_FCn
+                            option(value='CELL_SIGNALS_FC') CELL_SIGNALS_FC
+                tr
+                    td Server URL
+                    td
+                        input#serverURL.form-control(type='text' style='width:312px;' value='https://fleet.ls.hereapi.com/1/' onchange='getBaseUrl()' <='' input='')
+                tr
+                    // <td><input id="includeStabTopo" type="checkbox" autocomplete="off" onclick=""/><label for="includeStabTopo" >Include Stable Topology ID</label><br></td>
+                    td
+                        input#includeStabTopo(type='checkbox' autocomplete='off' onclick='')
+                    td
+                        label(for='includeStabTopo') Include Stable Topology ID
+            table(border='0')
+                tr
+                    td
+                        input#getLinkInfo.btn.btn-default(type='submit' value='Get PDE Link Info' onclick='prepareGetLinkInfoCall()')
+            #outputcontainer(style='margin: 3px;')
+            hr.separator
+            |   HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index:0;')
+        #mapContainer
+        #spinner
+        #pageblock
+    script(src='/javascripts/examples/release-requests.js')
+    script(src='/javascripts/examples/v31_jp/pde_get_any_link_info_jp.js')

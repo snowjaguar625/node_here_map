@@ -1,0 +1,108 @@
+{
+	"examples": [{
+			"filename": "simple_geocoding_jp",
+			"description": "Simple Geocoding Example (Forward And Reverse Geocoding)",
+			"tags": ""
+		},
+		{
+			"filename": "custom_routing_basic_jp",
+			"description": "Shows Custom Route Extension",
+			"tags": "Fleet,CLE,CRE,byod,routing,overlay,custom,submit"
+		},
+		{
+			"filename": "fleet_telematics_api_jp",
+			"description": "Fleet Telematics API - calculate route",
+			"tags": "routing,router,cle,cre,wse,telematics,fleet,api"
+		},
+		{
+			"filename": "demo_matrix_routing_jp",
+			"description": "Show the Result for a Matrix Route",
+			"tags": "Matrix,demo"
+		},
+		{
+			"filename": "gfe_draw_upload_layer_jp",
+			"description": "Draw polygons on the map, and upload them to GFE. Then Geofence using it",
+			"tags": "GFE,CLE,Fleet,custom data,layer,upload"
+		},
+		{
+			"filename": "gfe_check_asset_position_jp",
+			"description": "Check whether asset is in Geofence using GFE on custom layers",
+			"tags": "GFE,Fleet,custom,asset,trace,track"
+		},
+		{
+			"filename": "gfe_upload_layer_jp",
+			"description": "Create Isoline Geofence Polygon, upload it into GFE, simulate truck drive",
+			"tags": "GFE,CLE,Fleet,custom data, layer,upload"
+		},
+		{
+			"filename": "link_speed_locator_jp",
+			"description": "Find speed limit and average speed for a link using PDE",
+			"tags": "PDE,Fleet,link speed locator"
+		},
+		{
+			"filename": "pde_get_any_link_info_jp",
+			"description": "PDE Get (any) LinkInfo: Demonstrates the usage of PDE to get any Link Info",
+			"tags": "PDE,Fleet,OLP,Topoplogy,Segment,link id"
+		},
+		{
+			"filename": "pde_height_information_along_route_jp",
+			"description": "Show height information along a route using PDE",
+			"tags": "PDE,Fleet,Height,ADAS,route"
+		},
+		{
+			"filename": "pde_speed_limits_along_route_jp",
+			"description": "Shows SpeedLimits along the Route using PDE",
+			"tags": "speed limits,PDE,Fleet,route"
+		},
+		{
+			"filename": "pde_traffic_signs_jp",
+			"description": "Show traffic signs along the Route using PDE Service",
+			"tags": "PDE,traffic,sign,Fleet,route"
+		},
+		{
+			"filename": "rme_basic_jp",
+			"description": "RME Basic Demo: Match a GPS Trace",
+			"tags": "RME,Fleet,Route Match,Trace"
+		},
+		{
+			"filename": "rme_pde_rgc_jp",
+			"description": "Shows the combination of RME, PDE and RGC",
+			"tags": "RME,PDE,Fleet,RGC,Reverse,Geocoder"
+		},
+		{
+			"filename": "rme_trip_anomalies_detection_jp",
+			"description": "RME: Trip Anomalies Detection",
+			"tags": "RME,Fleet,Route Match,trace,track"
+		},
+		{
+			"filename": "rme_with_pde_attributes_jp",
+			"description": "Use RME to retrive PDE attributes as well for matched LinkIDs",
+			"tags": "RME,PDE,Fleet,custom,CLE"
+		},
+		{
+			"filename": "simple_geocoding_jp",
+			"description": "Simple Geocoding Example (Forward And Reverse Geocoding)",
+			"tags": ""
+		},
+		{
+			"filename": "simple_map_jp",
+			"description": "Shows the Usage of the Japan Map using HERE Vector Tile API",
+			"tags": "Japan,JP,IPC,Proxy"
+		},
+		{
+			"filename": "speed_limits_along_gps_trace_jp",
+			"description": "Speed tracking demo",
+			"tags": "speed limits along gps trace,speedlimits,PDE,Fleet,truck"
+		},
+		{
+			"filename": "waypoint_sequence_extension_jp",
+			"description": "WSE: Finding a way through several wayppoints. Also Known as Traveling Salesman Problem.",
+			"tags": "Waypoints Sequence Extension (WSE),Fleet,Traveling Salesman"
+		},
+		{
+			"filename": "rme_stop_sign_violation_jp",
+			"description": "Route Match detects Stop Sign Violations",
+			"tags": "RME,Fleet,Route Match"
+		}
+	]
+}

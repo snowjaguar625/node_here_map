@@ -1,0 +1,100 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/geofence-extension.js')
+    script(src='/javascripts/examples/jszip.min.js')
+    script(src='/javascripts/examples/center-utils.js')
+    script(src='/javascripts/examples/wellknown.js')
+    #content-padder 
+    #content-real
+        style.
+            li {
+            list-style-type: square;
+            font-size: medium;
+            }
+            a {
+            color: #00ACDC;
+            }
+            .caption {
+            background: rgba(0, 85, 170, 0.6);
+            border: 0.1em solid white;
+            border-radius: 0.2em;
+            color: white;
+            font-family: sans-serif;
+            font-size: medium;
+            font-weight: bold;
+            padding: 0.2em;
+            }
+            .distance {
+            background: rgba(0, 85, 170, 0.6);
+            border: 0.05em solid white;
+            border-radius: 0.1em;
+            color: white;
+            font-style: italic;
+            font-family: sans-serif;
+            font-size: smaller;
+            padding: 0.1em;
+            }
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            h4 First upload some Geofences by either
+            ul
+                li
+                    a(href='./gfe_draw_upload_layer_jp') drawing them on the map
+                //- //
+                //- li>
+                //- <a href="/sample_data/sampleRect_50_8.zip" download="sampleRect_50_8.zip">Upload sample "Oestrich"</a>
+                //- </li>
+                //- <li>
+                //- <a href="/sample_data/sampleWktRects.zip" download="sampleWktRects.zip">Upload sample "Ruedesheim"</a>
+                //- </li
+                li
+                    a(href='#advanced-options' data-toggle='collapse') uploading existing layer (advanced)
+            h4 Click on the map to position virtual asset
+            p
+                | Once the virtual asset is positioned, Geofeicing Extension will be called and matching Geofences within given search radius will show on the map.
+            .form-horizontal
+                .form-group
+                    label.control-label.col-sm-4(for='maxDistance') Search Radius:
+                    .col-sm-8
+                        input#maxDistance.form-control.input-wide(type='number' value='250' autocomplete='off')
+                        div (meters)
+                ul.legend
+                    li(style='color: rgba(  0, 150, 0, 1)') Asset in Fence (border outside search radius)
+                    li(style='color: rgba(  0, 255, 0, 1)') Asset in Fence (border within search radius)
+                    li(style='color: rgba(230, 200, 0, 1)') Nearby Fence (distance &lt; search radius)
+            h4
+                a(href='#advanced-options' data-toggle='collapse' aria-expanded='false') Advanced... (click to toggle)
+            #advanced-options.form-horizontal.collapse
+                .form-group
+                    label.control-label.col-sm-4(for='geocodeInput') Geocode to Location
+                    .col-sm-8
+                        input#geocodeInput.form-control.input-wide(type='text' size='25' value='Frankfurt, DE' onkeyup='event.keyCode === 13 && geoCoderV8(this.value);')
+                        div (press Enter to Geocode to location)
+                .form-group
+                    label.control-label.col-sm-4(for='layerId') Geofence Layer Id
+                    .col-sm-8
+                        input#layerId.form-control.input-wide(type='text')
+                        div (set before uploading, value will be used for searching)
+                .form-group
+                    label.control-label.col-sm-4(for='labelAttributes') Label Attributes:
+                    .col-sm-8
+                        input#labelAttributes.form-control.input-wide(type='text' value='' autocomplete='off')
+                        div (comma separated, optional, used when searching)
+                .form-group
+                    label.control-label.col-sm-4(for='gfeUrl') Custom GFE engine endpoint:
+                    .col-sm-8
+                        input#gfeUrl.form-control.input-wide(type='text' value='https://fleet.ls.hereapi.com/2' autocomplete='off')
+                        div (will be used for upload and search)
+                .form-group
+                    label.control-label.col-sm-4 Upload custom Geofences
+                    .col-sm-8
+                        input(type='file' onchange='uploadLayer(this.files[0]);')
+                        div (plain TSV with WKT column or zipped shapefile)
+            .form-group
+                label(for='logArea') Response Log:
+                textarea#logArea.form-control(cols='50' rows='6' autocomplete='off')
+        #mapContainer
+    script(src='/javascripts/examples/v31_jp/gfe_check_asset_position_jp.js')
+

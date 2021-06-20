@@ -1,0 +1,49 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/moment.js')
+    script(src='/javascripts/examples/moment-range.js')
+    script(src='/javascripts/examples/jszip.min.js')
+    script(src='/javascripts/examples/gpx-parser.js')
+    script(src='/javascripts/examples/date-time-parser.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p Endpoint:
+            input#endpoint-text-input.form-control(type='text' value='https://fleet.ls.hereapi.com' placeholder='URL with http or https and host:port')
+            p 1. Submit changes as overlay. Block a link &amp; add a link:
+            textarea#overlay-submit-area.form-control(rows='11')
+            p [long click into the map to paste a coordinate into the log]
+            input.btn.btn-default.btn-sm(type='button' value='Submit' onclick='submit_overlay();')
+            p 2. Display your overlay map:
+            textarea#overlay-display-area.form-control(rows='5')
+            input#overlay-display-color(name='Color Picker' style='vertical-align:middle' value='#B22222' type='color')
+            input#overlay-display-linkids(type='checkbox' name='LinkId Checker' onchange='handleSecondary(this)' checked='')
+            select#selected-attribute
+                option(value='LINK_ID' selected='') LinkIds
+                option(value='CUSTOM_RESTRICTION_PAIRS') Cust. Restr.
+            input#overlay-display-clean(type='checkbox' name='Erase Checker' checked='')
+            | Erase previous
+            br
+            input.btn.btn-default.btn-sm(type='button' value='Display' onclick='display_overlay();')
+            br
+            p 3. Route along the changes:
+            textarea#route-area.form-control(rows='4')
+            input.btn.btn-default.btn-sm(type='button' value='Route' onclick='request_route();')
+            input#route-display-maneuvers(type='checkbox' name='maneuvers')
+            |  Show maneuvers
+            br
+            p 4. Delete overlay map:
+            textarea#overlay-delete-area.form-control(rows='3')
+            input.btn.btn-default.btn-sm(type='button' value='Delete' onclick='delete_overlay();')
+            #feedbackTxt(style='left:0; top:0; z-index: 0;')
+            input.btn.btn-default.btn-sm(type='button' value='Clear Log' onclick="feedbackTxt.innerHTML = '';")
+        #mapContainer
+        style.
+            input[type='checkbox']{
+            margin-left: 15px;
+            }
+
+    script(src='/javascripts/examples/v31_jp/custom_routing_basic_jp.js')

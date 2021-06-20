@@ -1,0 +1,35 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/traffic-icons.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p#mapReleaseTxt
+                | After route calculation, additional info is retrieved from PDE Web Service and displayed.
+            table(border='0')
+                tr
+                    td Start
+                    td
+                        input#start.form-control(type='text' size='50' value='豊島区 東池袋')
+                tr
+                    td via
+                    td
+                        input#via.form-control(type='text' size='50' value='江東区 北砂')
+                tr
+                    td Destination
+                    td
+                        input#dest.form-control(type='text' size='50' value='品川区 上大崎')
+            input#routeButton.btn.btn-default.btn-sm(type='submit' value='Calculate Route')
+            #feedbackTxt(style='left:0; top:0; z-index: 0;')
+            #resultArea(style='display:none')
+            div HLP Service releases which are used in this demo:
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;')
+        #mapContainer
+        #pageblock
+        #spinner
+    script(src='/javascripts/examples/release-requests.js')
+    script(src='/javascripts/examples/pde-manager-tiles.js')
+    script(src='/javascripts/examples/v31_jp/pde_traffic_signs_jp.js')

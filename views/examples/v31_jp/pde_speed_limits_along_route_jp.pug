@@ -1,0 +1,77 @@
+extends ../../layout
+
+block content
+    title= title
+    script(src='/javascripts/examples/moment.js')
+    script(src='/javascripts/examples/moment-range.js')
+    script(src='/javascripts/examples/jszip.min.js')
+    script(src='/javascripts/examples/gpx-parser.js')
+    script(src='/javascripts/examples/date-time-parser.js')
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            .form-horizontal
+                .form-group
+                    label.control-label.col-sm-3(for='examples') Examples:
+                    .col-sm-9
+                        select#examples.form-control.input-wide(name='examples' size='1' onchange='loadExample();')
+                            option(value='1') Route with speed limits - Japan
+                .form-group
+                    label.control-label.col-sm-3(for='start') Start:
+                    .col-sm-9
+                        input#start.form-control.input-wide(type='text' value='東京' onkeydown='if (event.keyCode == 13) go();')
+                .form-group
+                    label.control-label.col-sm-3(for='dest') Destination:
+                    .col-sm-9
+                        input#dest.form-control.input-wide(type='text' value='横浜市' onkeydown='if (event.keyCode == 13) go();')
+                .form-group
+                    label.control-label.col-sm-3(for='vehicletype') Vehicle Type:
+                    .col-sm-9
+                        select#vehicletype.form-control.input-wide(name='vehicletype' size='1' onchange='handleTruck();')
+                            option(value='1' selected='') Automobiles
+                            option(value='2') Buses
+                            option(value='4') Taxis
+                            option(value='8') Car Pools
+                            option(value='16') Pedestrian
+                            option(value='32') Trucks
+                            option(value='64') deliveries
+                            option(value='128') emergency vehicles
+                            option(value='256') Through Traffic
+                            option(value='512') Motorcycles
+                            option(value='1024') Road Trains
+                            option(value='2048') Trucks Speed Limit Only
+                .form-group
+                    label.control-label.col-sm-3(for='date') Departure:
+                    .col-sm-9
+                        input#date(type='date' value='')
+                        input#time(type='time' value='')
+                .form-group(style='margin-bottom: 3px;')
+                    label.control-label.col-sm-3(for='region') Map region:
+                    .col-sm-9
+                        input#region.form-control.input-wide(type='text' value='JPN' onchange='changeRegion()')
+                .form-group
+                    label.control-label.col-sm-3
+                    .col-sm-9(style='font-style:italic;font-size: 10px;') Japan
+                #truckoptions(style='display:none')
+                    .form-group
+                        label.control-label.col-sm-3(for='date') Trailer:
+                        .col-sm-9
+                            input#trailer.form-control.input-wide(type='number' min='0' max='999' step='1' value='0')
+                    .form-group
+                        label.control-label.col-sm-3(for='truck_weight') Truck Weight (tons):
+                        .col-sm-9
+                            input#truck_weight.form-control.input-wide(type='number' min='0' max='999' step='0.1' value='0')
+                    .form-group
+                        label.control-label.col-sm-3(for='length') Length (meters):
+                        .col-sm-9
+                            input#length.form-control.input-wide(type='number' min='0' max='999' step='0.1' value='0')
+                    .form-group
+                        label.control-label.col-sm-3(for='expl_dang_material') Dangerous Material:
+                        .col-sm-9.checkbox
+                            input#expl_dang_material(type='checkbox' name='expl_dang_material')
+                input#routeButton.btn.btn-default.btn-sm(type='submit' value='Calculate Route')
+                #feedbackTxt(style='left:0; top:0; z-index: 0;')
+        #mapContainer
+    script(src='/javascripts/examples/pde-manager-tiles.js')
+    script(src='/javascripts/examples/v31_jp/pde_speed_limits_along_route_jp.js')

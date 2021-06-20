@@ -1,0 +1,34 @@
+extends ../../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .ctrl-panel
+            span#toggle-ctrl-panel.glyphicon.glyphicon-menu-left
+            p
+                | &#x3053;&#x306E;&#x4F8B;&#x306F;&#x3001;&#x30DE;&#x30C8;&#x30EA;&#x30C3;&#x30AF;&#x30B9;&#x30EB;&#x30FC;&#x30C6;&#x30A3;&#x30F3;&#x30B0;&#x304C;&#x3069;&#x306E;&#x3088;&#x3046;&#x306B;&#x6A5F;&#x80FD;&#x3059;&#x308B;&#x304B;&#x3092;&#x793A;&#x3057;&#x3066;&#x3044;&#x307E;&#x3059; 
+                br
+                |         1. &#x3057;&#x306A;&#x306E;&#x3061;&#x3087;&#x3001; &#x3068;&#x3064;&#x304B; &#x308F;&#xFF52;&#xFF44;
+                br
+                | &#x9;&#x9;2. &#x307F;&#x306A;&#x307F;&#x30FC;&#x307E;&#x304D;&#x304C;&#x306F;&#x3089; &#xFF33;&#x305F;&#x3061;&#x304A;&#x3093; 
+                br
+                | &#x9;&#x9;3. &#x6CC9;&#x533A; 
+                br
+                | &#x9;&#x9;4. &#x6D77;&#x8001;&#x540D; 
+                br
+                | &#x9;&#x9;5. &#x85E4;&#x6CA2; 
+                br
+                | &#x9;&#x9;6. &#x938C;&#x5009; 
+                br
+                |         7. &#x56F3;&#x793A; 
+                br
+                |         8. &#x9DB4;&#x5CA1;&#x516B;&#x5E61;&#x5BAE; 
+                br
+            div &#x3053;&#x306E;&#x30C7;&#x30E2;&#x3067;&#x4F7F;&#x7528;&#x3055;&#x308C;&#x308B;HLP&#x30B5;&#x30FC;&#x30D3;&#x30B9;&#x30EA;&#x30EA;&#x30FC;&#x30B9;&#xFF1A;
+            #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
+            #dvTable
+            table#TABLE(border='1' style='border-collapse: collapse;' cellpadding='8')  
+        #mapContainer
+    script(src='/javascripts/examples/release-requests.js')
+    script(src='/javascripts/examples/v31_jp/demo_matrix_routing_jp.js')

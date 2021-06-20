@@ -11,7 +11,14 @@ head
   script(src='/javascripts/app-key.js')
   script(src='/javascripts/cookiebuilder.js')
   script(src='/javascripts/initlogin.js')
-  if version_num == 'v3'
+  if version_num == 'v3' && is_china_example == 'true'
+    script(src="https://js.hereapi.cn/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8")
+    script(src="https://js.hereapi.cn/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8")
+    script(src="https://js.hereapi.cn/v3/3.0/mapsjs-mapevents.js" type="text/javascript" charset="utf-8")
+    script(src="https://js.hereapi.cn/v3/3.0/mapsjs-ui.js" type="text/javascript" charset="utf-8")
+    script(src="https://js.hereapi.cn/v3/3.0/mapsjs-clustering.js" type="text/javascript" charset="utf-8")
+    link(rel="stylesheet" type="text/css"  href="https://js.hereapi.cn/v3/3.0/mapsjs-ui.css")
+  else if version_num == 'v3'
     script(type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-core.js")
     script(type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-service.js")
     script(type="text/javascript" charset="UTF-8" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js")
@@ -23,13 +30,6 @@ head
     script(src='/javascripts/examples/release-requests.js')
     script(src='/javascripts/examples/pde-manager-tiles.js')
 
-  else if version_num == 'v3' && is_china_example == 'true'
-    script(src="https://js.hereapi.cn/v3/3.0/mapsjs-core.js" type="text/javascript" charset="utf-8")
-    script(src="https://js.hereapi.cn/v3/3.0/mapsjs-service.js" type="text/javascript" charset="utf-8")
-    script(src="https://js.hereapi.cn/v3/3.0/mapsjs-mapevents.js" type="text/javascript" charset="utf-8")
-    script(src="https://js.hereapi.cn/v3/3.0/mapsjs-ui.js" type="text/javascript" charset="utf-8")
-    script(src="https://js.hereapi.cn/v3/3.0/mapsjs-clustering.js" type="text/javascript" charset="utf-8")
-    link(rel="stylesheet" type="text/css"  href="https://js.hereapi.cn/v3/3.0/mapsjs-ui.css")
   else
     script(type='text/javascript' src='https://js.api.here.com/v3/3.1/mapsjs-core.js')
     script(type='text/javascript' src='https://js.api.here.com/v3/3.1/mapsjs-core-legacy.js')
