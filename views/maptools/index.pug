@@ -1,0 +1,67 @@
+extends ../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .wrapper
+            #tabs
+                ul
+                    li
+                        a(href='#tabs-1') Official Release
+                    li
+                        a(href='#tabs-2') CI release
+                    li
+                        a(href='#tabs-3') Documentation
+                    li
+                        a(href='#tabs-4') RDF Installer
+                    li
+                        a(href='#tabs-5') RDF Clipper
+                #tabs-1
+                    p
+                        .subheader Latest release on top
+                        ul.list-no-style
+                            - var link = "/maptools/distributions/";
+                            each file in payload.maptools_version 
+                                li.hvr-overline-reveal 
+                                    a(href=link + file) #{file}
+                #tabs-2
+                    p
+                        .subheader
+                            | Daily Continuous Integration Release, Latest release on top.
+                            br
+                            | Naming Convention : Map_Tools_ci_subversion_YYYYMMDD.zip
+                        ul.list-no-style
+                            - var link_ci = "/maptools/ci/";
+                            each file in payload.maptools_version_ci 
+                                li.hvr-overline-reveal 
+                                    a(href=link_ci + file) #{file}
+                #tabs-3
+                    p
+                        .subheader Documentation for MapTools and Relase Notes for the latest build.
+                        ul.list-no-style
+                            - var link_docs = "/maptools/docs/";
+                            each file in payload.maptools_version_docs 
+                                li.hvr-overline-reveal 
+                                    a(href=link_docs + file) #{file}
+                #tabs-4
+                    p
+                        .subheader RDF Installer builds.
+                        ul.list-no-style
+                            - var link_installer = "/maptools/rdfinstaller/";
+                            each file in payload.maptools_version_installer 
+                                li.hvr-overline-reveal 
+                                    a(href=link_installer + file) #{file}
+                #tabs-5
+                    p
+                        .subheader RDF Clipper builds.
+                        ul.list-no-style
+                            - var link_clipper = "/maptools/rdfclipper/";
+                            each file in payload.maptools_version_clipper 
+                                li.hvr-overline-reveal 
+                                    a(href=link_clipper + file) #{file}
+        #{JSON.stringify(payload)}
+        script.
+            $( function() {
+            $( "#tabs" ).tabs();
+            } );

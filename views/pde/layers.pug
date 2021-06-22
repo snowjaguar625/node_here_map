@@ -1,0 +1,26 @@
+extends ../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .subheader Layers in #{payload.release}
+        table.pde_table(cellpadding='4' cellspacing='0' border='1' width='90%')
+            thead
+                tr
+                    th(width='15%') Layer
+                    th(width='70%') Attributes
+                    th(width='15%') PDE Package
+            tbody#maps_table_body
+                - var parameters = "?" + "region=" + payload.region + "&release=" +  payload.release  + "&url_root=" + url_root;
+                each layer in json
+                    if !layer['type'].includes('static')
+                        tr 
+                            td
+                                a(href='/pde/layer' + parameters + '&layer=' + layer.name)
+                                    |#{layer.name}
+                            td 
+                                |#{layer['attributes'].concat(', ')}
+                            td 
+                                |#{layer['featureMapping']}
+    //- |#{JSON.stringify(json)}

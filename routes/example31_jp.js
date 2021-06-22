@@ -7,7 +7,6 @@ var router = express.Router();
 
 let rawdexamplesv31_jp = fs.readFileSync(path.resolve(__dirname, '../config/tcs_examples31_jp.json'));
 let examples31_jp = JSON.parse(rawdexamplesv31_jp);
-// console.log(examples31);
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('examples/index31_jp.pug', { title: 'TCS examples (Japan)', examples31_jp: examples31_jp });

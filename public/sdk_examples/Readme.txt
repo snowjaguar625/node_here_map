@@ -1,0 +1,1 @@
+This is folder to add sdk examples as zip files. 

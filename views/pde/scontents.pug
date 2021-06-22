@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .subheader Static contents in #{payload.region} [#{payload.release}]
+        table.pde_table(cellpadding='4' cellspacing='0' border='1' width='90%')
+            thead
+                tr
+                    th(width='15%') Content
+                    th(width='70%') Attributes
+                    th(width='15%') Referencing Layers
+            tbody#maps_table_body
+                each scontent in json
+                    - var parameters = "?region=" + payload.region + "&release=" + payload.release + "&url_root=" + url_root;
+                    tr 
+                        td 
+                            a(href="/pde/scontent" + parameters + "&content=" + scontent['name'])
+                                |#{scontent['name']}
+                        td 
+                            |#{scontent['attributes'].join(", ")}
+                        td 
+                            each layer, index in scontent['referencingLayers']
+                                if(index != 0)
+                                    |, 
+                                a(href="/pde/layer" + parameters + "&layer=" layer)
+                                    |#{layer}
+                    if !json
+                        tr 
+                            td.empty(colspan="3") No static content for this layer
+    //- |#{JSON.stringify(json)}

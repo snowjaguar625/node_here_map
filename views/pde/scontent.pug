@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .subheader Static content #{payload.content}
+        p.content-text
+            |!{json['description']}
+        table.pde_table(cellpadding='4' cellspacing='0' border='1' width='90%')
+            thead
+                tr
+                    th(width='30%') Attribute
+                    th(width='70%') Description
+            tbody#maps_table_body
+                each description, attribute in json['attributes']
+                    tr 
+                        td #{attribute}
+                        td !{description}  
+                if !json
+                    tr 
+                        td.empty(colspan="2") No static content for this layer
+        p.content-text Show table content as:
+            - var parameters = "?" + "region=" + payload.region + "&release=" +  payload.release  + "&url_root=" + url_root;
+            - var sampleTypes = ["json", "txt"];
+            each sampleType in sampleTypes 
+                a.pde(href="https://" + url_root + "/1/static." + sampleType + parameters +"&content=" + payload.content + "&app_id=" + payload.app_id + "&app_code=" + payload.app_code) #{" " + sampleType + "\n"}
+        p.content-text Layers referencing this static content 
+        ul 
+            each layer in json['referencingLayers']
+                li 
+                    td 
+                        a(href="/pde/layer" + "?layer=" + layer + "&" + parameters) #{layer}

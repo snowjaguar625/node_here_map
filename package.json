@@ -13,9 +13,11 @@
     "ejs": "3.1.6",
     "express": "~4.16.1",
     "express-session": "1.17.2",
+    "faraday": "1.12.0",
     "jquery-ui": "1.12.1",
     "morgan": "~1.9.1",
-    "nodemon": "2.0.7"
+    "nodemon": "2.0.7",
+    "superagent": "6.1.0"
   },
   "devDependencies": {
     "bootstrap": "^5.0.1",

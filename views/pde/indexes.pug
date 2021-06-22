@@ -1,0 +1,33 @@
+extends ../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .subheader Indexes in #{payload.region + " [" + payload.release + "]"}
+        table.pde_table(cellpadding='4' cellspacing='0' border='1' width='90%')
+            thead
+                tr
+                    th(width='15%') Layers
+                    th(width='70%') Index Columns
+                    th(width='15%') Example Requests
+            tbody
+                each index in json
+                    tr 
+                        - var parameters = "?" + "region=" + payload.region + "&release=" +  payload.release  + "&url_root=" + url_root;
+                        td 
+                            a(href="/pde/layer" + parameters + "&layer=" + index['indexedLayerName']) #{index['indexedLayerName']}
+                        td 
+                            |#{index['indexedColumnNames']}
+
+                        - var exampleNames = index['exampleNames'].split(',');
+                        - var exampleUrlParams = index['exampleUrlParams'].split(',');
+                        td 
+                            each exampleName, i in exampleNames 
+                                a(href="http://" + url_root + "/1/" + exampleUrlParams[i].replace("%2C", ",") + parameters +"&app_id=" + payload.app_id + "&app_code=" + payload.app_code) #{exampleName + "\n"}
+                            if !index['exampleNames']
+                                |Layer is empty
+                if !json
+                    tr 
+                        td.empty(colspan="3")
+                            |No static content for this layer

@@ -20,6 +20,10 @@ var usersRouter = require('./routes/users');
 var example3Route = require('./routes/example3');
 var example31Route = require('./routes/example31');
 var example31JpRoute = require('./routes/example31_jp');
+var mobileSDKRoute = require('./routes/mobileSDKRoute');
+var pdeRoute = require('./routes/pdeRoute');
+var maptoolsRoute = require('./routes/maptoolsRoute');
+var gdfRoute = require('./routes/gdfRoute');
 
 var app = express();
 
@@ -60,7 +64,10 @@ app.use('/users', usersRouter);
 app.use('/examples/v3', example3Route);
 app.use('/examples/v3.1', example31Route);
 app.use('/examples/v3.1_jp', example31JpRoute);
-
+app.use('/mobilesdk_examples', mobileSDKRoute);
+app.use('/pde', pdeRoute);
+app.use('/maptools', maptoolsRoute);
+app.use('/gdf',gdfRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,0 +1,54 @@
+extends ../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .subheader List of available maps
+        table.pde_table(cellpadding='4' cellspacing='0' border='1' width='90%')
+            thead
+                tr
+                    th(width=payload.detail ? '80%' : '20%') Region
+                    th(width='20%') Release
+                    th(width='60%' colspan='4') Content
+            tbody#maps_table_body
+                each map in json.maps
+                    tr 
+                        td(width='20%')
+                            |#{map.coverage}
+                            if payload.detail
+                                |#{map.name ? map.name : ""}
+                        - var parameters = "?" + "region=" + map.coverage + "&release=" +  (map.releaseYearAndQuarter ? map.releaseYearAndQuarter : "" )  + "&url_root=" + url_root;
+                        td(width='20%')=map.releaseYearAndQuarter
+                        td.center(width='15%')
+                            a(href='/pde/layers' + parameters) View Layers
+                        td.center(width='15%')
+                            a(href='/pde/attributes' + parameters) View Attributes
+                        td.center(width='15%')
+                            a(href='/pde/scontents' + parameters) View Static Contents
+                        td.center(width='15%')
+                            a(href='/pde/indexes' + parameters) View Indexes
+                //- |#{JSON.stringify(json)}
+        if payload.detail 
+            - var mapFiles = {"localFiles" : "Local Map Files", "repositoryFiles" : "Repository Map Files"};
+            each value, key in mapFiles 
+                .subheader.bb=value
+                    table.pde_table(cellpadding='4' cellspacing='0' border='1' width='90%')
+                        thead 
+                            tr 
+                                th(width='80%') Map file 
+                                th(width='20%') Size (in MB)
+                        tbody 
+                            - var sum = 0;
+                            each file in json[key]
+                                tr 
+                                    td(width='20%')
+                                        |#{file['name']}
+                                    td(width='20%')
+                                        |#{file['size']}
+                                    - sum += file['size']
+                            tr 
+                                td(width='20%')
+                                td(width='20%')
+                                    b
+                                        |#{sum}

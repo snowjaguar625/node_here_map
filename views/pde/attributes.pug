@@ -1,0 +1,36 @@
+extends ../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .subheader Attributes in #{payload.region} [#{payload.release}]
+        table.pde_table(cellpadding='4' cellspacing='0' border='1' width='90%')
+            thead
+                tr
+                    th(width='15%') Attribute
+                    th(width='40%') Description
+                    th(width='45%') Layers
+            tbody#attributes_table_body
+                - var bookmark = "";
+                each attribute in json
+                    - var new_bookmark = attribute['name'][0];
+                    if new_bookmark != bookmark
+                        - bookmark = new_bookmark;
+                        tr 
+                            td.merged(colspan="3" align="center")
+                                b 
+                                    |#{bookmark}
+                    - var parameters = "?region=" + payload.region + "&release=" + payload.release + "&url_root=" + url_root + "&layer=";
+                    tr 
+                        td 
+                            |#{attribute['name']}
+                        td 
+                            |!{attribute['description']}
+                        td 
+                            each layer, index in attribute['layers']
+                                if(index != 0)
+                                    |, 
+                                a(href="/pde/layer" + parameters + layer)
+                                    |#{layer}
+    //- |#{JSON.stringify(json)}

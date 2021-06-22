@@ -9,8 +9,6 @@ let rawdexamplesv3 = fs.readFileSync(path.resolve(__dirname, '../config/tcs_exam
 let examples3 = JSON.parse(rawdexamplesv3);
 /* GET home page. */
 router.use(function(req, res, next){
-    console.log("here is middlewareaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-    console.log(req.originalUrl)
     var page_url = req.originalUrl;
     if(page_url.includes('fleet_china'))
         req.session.is_china_example = 'true';

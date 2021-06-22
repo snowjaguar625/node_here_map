@@ -1,0 +1,14 @@
+extends ../layout
+
+block content
+    title= title
+    #content-padder 
+    #content-real
+        .content-block(style='margin-top: 49px;')
+            .wrapper
+                #cookie-welcome(style='display: block;')
+                    h2 Maps &amp; Layers Reference
+        ul.here-menu-modern
+            li
+                a.hvr-overline-reveal(href='/pde/maps?url_root=pde.api.here.com') Production
+            // li><a class="hvr-overline-reveal" href="/pde/maps?url_root=pde.cit.api.here.com">Staging</a></li

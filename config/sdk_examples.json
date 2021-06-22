@@ -1,0 +1,83 @@
+{
+    "sdk_examples": [{
+            "filename": "BasicMapSolutionGradle",
+            "description": "Simple example of using HERE Mobile SDK with Gradle for Android development"
+        },
+        {
+            "filename": "GeocoderSample",
+            "description": "Example of usage Geocoding REST API with suggestions for iOS"
+        },
+        {
+            "filename": "TtsAndNavigation",
+            "description": "Example of working with Positioning, TTS and Voice Guidance (default TTS and Nuance) for Android"
+        },
+        {
+            "filename": "CustomPositionMarker",
+            "description": "Positioning example with custom position and accuracy indicator, including pointing to compass north direction for Android"
+        },
+        {
+            "filename": "GeoAutoComplete",
+            "description": "Example of usage Geocoding REST API with suggestions for Android"
+        },
+        {
+            "filename": "SLIExample",
+            "description": "Example of SLI usage for Android"
+        },
+        {
+            "filename": "FleetConnectivitySample",
+            "description": "Example of FleetConnectivityService usage for Android"
+        },
+        {
+            "filename": "Venues3DExample",
+            "description": "Example of Venues3D with a basic floor switcher for Android"
+        },
+        {
+            "filename": "MapDownloader",
+            "description": "Example of working with map files for Android"
+        },
+        {
+            "filename": "NavigateMap",
+            "description": "Example of navigation for iOS"
+        },
+        {
+            "filename": "OfflineMaps",
+            "description": "Example of downloading offline maps for iOS"
+        },
+        {
+            "filename": "SwiftExample",
+            "description": "Basic iOS map example using Swift 3"
+        },
+        {
+            "filename": "MapCustomization",
+            "description": "Basic iOS example about how to use Map Customization feature"
+        },
+        {
+            "filename": "ExtendedSwiftExample",
+            "description": "Extended Swift 3 example, using routing, voice guidance, map display adaption, background navigation and event handling"
+        },
+        {
+            "filename": "MapCustomizationExample",
+            "description": "Basic Android example of using Map Customization feature"
+        },
+        {
+            "filename": "PlatformDataExtensionExample",
+            "description": "Android example of usage Platform Data Extension service"
+        },
+        {
+            "filename": "CustomPositionIndicator",
+            "description": "iOS example of using Custom Position Indicator feature."
+        },
+        {
+            "filename": "UrbanMobilityRoutingTest",
+            "description": "iOS example of using Urban Mobility Routing feature."
+        },
+        {
+            "filename": "ElectronicHorizonExample",
+            "description": "Android example for Electronic Horizon"
+        },
+        {
+            "filename": "MSDKUIDemo",
+            "description": "Android example for using UI Kit"
+        }
+    ]
+}

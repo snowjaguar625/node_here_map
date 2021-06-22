@@ -1,0 +1,38 @@
+extends ../layout
+
+block content
+    script(src='/javascripts/examples/index.js')
+    - var objExamples = JSON.stringify(examples)
+    - var examplesMobile = JSON.parse(objExamples).sdk_examples
+    title= title
+    #content-padder
+    #content-real
+        div
+            .subheader
+                | These examples are provided by HERE to demonstrate features of the HERE Mobile SDK.
+            .form-group
+                .search-container.form-inline
+                    select#operator-select.form-control
+                        option(value='and' selected='selected') AND
+                        option(value='or') OR
+                    input#search.form-control(type='text' placeholder='Add text to filter results (geocoder, marker etc.)')
+            table.sdk-examples-table
+                each example,index in examplesMobile 
+                    tr
+                        td
+                            a(href= '/images/sdk_examples/' + example['filename'] + "_pre.png", class="fancybox", title=example['filename'], rel="group")
+                                img(src = '/images/sdk_examples/' + example['filename'] + '_pre.png'  alt='' class='thumb-longer')
+                        td 
+                            | #{example['description']}
+                        td 
+                            a(href= '/sdk_examples/' + example['filename'] + ".zip", target='_blank')
+                                |#{example['filename'] + ".zip"}
+                        td 
+                            if example['app'] != null 
+                                a(href= '/sdk_examples/' + example['app'] target='_blank')
+                                    |#{example['app']}
+    style.
+        input[id='search']{
+        margin-left: 3px;
+        }
+    script(src='/javascripts/examples/mobileSDKRoute.js')
