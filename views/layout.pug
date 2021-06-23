@@ -2,6 +2,16 @@ doctype html
 html
   include  ./header.pug
   body
+    script(type='text/javascript').
+      var serverconfig =!{JSON.stringify(jtest)};
+      var sl_env = !{JSON.stringify(env)};
+      var sl_root_url = !{JSON.stringify(root_url)};
+      var sl_original_url = !{JSON.stringify(original_url)};
+      var sl_hideLogOut = !{JSON.stringify(hideLogOut)};
+      console.log("client: evironment: ")
+      console.log(sl_env)
+      initLogin(login_clientId, sl_env == 'development' ? login_dev_environment : login_environment, login_type, login_lang, login_screenconfig, sl_root_url, sl_hideLogOut) ;
+
     include ./navbar.pug
     block content
     include ./footer.pug

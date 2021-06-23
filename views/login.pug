@@ -21,9 +21,11 @@ block content
       li(style='display:none')
         .hvr-overline-reveal
           | If not redirected automatically after Sign In click 
-          a#redirect(href='/')
+          a#redirect(href= original_url)
             u
               b here
     script.
       document.getElementById("logoutButton").style.display="none";
-      $(function(){openLogin();})
+      $(function(){
+        openLogin();
+        })

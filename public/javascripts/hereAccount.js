@@ -26,6 +26,7 @@ function checkAuth()
 
 function openLogin()
 {
+	console.log("here is opernlogin method")
 	// Only open login if already not logged in
 	if (hideLogout == "false") 
 	{
@@ -44,8 +45,19 @@ function logOut()
 	//window.location.href = rootUrl;
 }
 
+function testfunc(){ 
+	console.log("I am a test function");
+}
 function initLogin(id,environment,type,lang,signInScreenConfig,url,logout)
 {
+	console.log('here is initLogin part')
+	console.log(id)
+	console.log(environment)
+	console.log(type)
+	console.log(lang)
+	console.log(signInScreenConfig)
+	console.log(url)
+	console.log(logout)
 	hereAccount= new here.Account(
 	{
 		node : document.getElementById('frame-container'),
