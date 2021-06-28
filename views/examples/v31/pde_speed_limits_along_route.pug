@@ -2,11 +2,19 @@ extends ../../layout
 
 block content
     title= title
-    script(src='/javascripts/examples/v31/moment.js')
-    script(src='/javascripts/examples/v31/moment-range.js')
-    script(src='/javascripts/examples/v31/jszip.min.js')
-    script(src='/javascripts/examples/v31/gpx-parser.js')
-    script(src='/javascripts/examples/v31/date-time-parser.js')
+    //- script(src='/javascripts/examples/v31/release-requests.js')
+    //- script(src='/javascripts/examples/v31/pde-manager-tiles.js')
+    //- script(src='/javascripts/examples/v31/moment.js')
+    //- script(src='/javascripts/examples/v31/moment-range.js')
+    //- script(src='/javascripts/examples/v31/jszip.min.js')
+    //- script(src='/javascripts/examples/v31/gpx-parser.js')
+    //- script(src='/javascripts/examples/v31/date-time-parser.js')
+    ///////////////////////
+    script(src='/javascripts/application-9f310ad318b7d09aa85ebe741c510d1a039bbe0a9d4fc99953e08940f1fd76dd.js' data-turbolinks-track='true')
+    script(src='/javascripts/gpx-parser.js' data-turbolinks-track='true')
+    script(src='/javascripts/jszip.min.js' data-turbolinks-track='true')
+    script(src='/javascripts/date-time-parser.js' data-turbolinks-track='true')
+    //- script(src='/javascripts/rectangle_selection.js' data-turbolinks-track='true')
     #content-padder 
     #content-real
         .ctrl-panel
@@ -70,8 +78,6 @@ block content
                             input#expl_dang_material(type='checkbox' name='expl_dang_material')
                 input#routeButton.btn.btn-default.btn-sm(type='submit' value='Calculate Route')
                 #feedbackTxt(style='left:0; top:0; z-index: 0;')
-                div HLP Service releases which are used in this demo:
-                #releaseInfoTxt(style='left:0; top:0; z-index: 0;' value='Used Service Releases:/n')
         #mapContainer
 
     script(src='/javascripts/examples/v31/release-requests.js')

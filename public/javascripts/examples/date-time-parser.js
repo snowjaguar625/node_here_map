@@ -55,6 +55,8 @@ DateTimeParser.prototype.parse = function()
 		l = this.dateTimeStrings.length,
 		r = new Array();
 		
+	console.log("uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu");
+	console.log(this.dateTimeStrings)
 	for(;i < l; i++)
 	{
 		var dateTimeString = this.dateTimeStrings[i].split(":"),
@@ -313,6 +315,8 @@ DateTimeParser.prototype.check = function()
 	for(;i < l; i++)
 	{
 		currentObject = dateTimeObj[i];
+		console.log("7777777777777777777777777777777777777")
+		console.log(currentObject.dateTimeType)
 		switch(currentObject.dateTimeType)
 		{
 			// day range

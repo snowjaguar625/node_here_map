@@ -1,16 +1,10 @@
 const app = require("../app");
 
 var loginVerifyMiddleware = function(req, res, next) {
-  // app.locals({localtest: "hahahahhahahahahahahaaha"});
-  res.locals.jtest = "ahahahahahahahah";
-  console.log("here is middlewareeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
   console.log(req.protocol);
   console.log(req.hostname);
   console.log(req.get('host'));
   console.log(req.originalUrl);
-  res.cookie("testcookie", "rcmetestcookievalue");
-
-
   console.log(req.app.get("env"))
 
   var page_url = req.originalUrl;
@@ -21,13 +15,14 @@ var loginVerifyMiddleware = function(req, res, next) {
   res.locals.root_url = c_root_url;
   var checkCookie = false;
   var sessionCookie;
+  // req.app.set('env', 'production');
+  console.log("env:ppppppppppppppppppppppppppppppppppp");
+  console.log(req.app.get('env'));
   var c_environment = req.app.get("env");
   // res.cookie('environment', c_environment);
   res.locals.env = c_environment ? c_environment : '';
   var useragent = req.header('User-Agent');
   
-  console.log("env:ppppppppppppppppppppppppppppppppppp");
-  console.log(req.app.get('env'));
   if(req.app.get('env') == 'development'){
     // # un-comment the following to enable login in dev
     // checkCookie = true;

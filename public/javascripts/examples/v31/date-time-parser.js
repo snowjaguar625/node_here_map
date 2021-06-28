@@ -54,7 +54,7 @@ DateTimeParser.prototype.parse = function()
 	var i = 0,
 		l = this.dateTimeStrings.length,
 		r = new Array();
-		
+
 	for(;i < l; i++)
 	{
 		var dateTimeString = this.dateTimeStrings[i].split(":"),
@@ -114,6 +114,15 @@ DateTimeParser.prototype.parse = function()
 						{
 							start_date = this.parseDayOfMonthOfYear(dateTimeString[3]);
 							end_date = this.parseDayOfMonthOfYear(dateTimeString[4]);
+						}
+						break;
+			case "A" :
+						{
+							console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+							console.log(dateTimeString[3])
+							console.log(dateTimeString[4])
+							start_date = moment(dateTimeString[3]);
+							end_date = moment(dateTimeString[4]);
 						}
 						break;
 		}
@@ -309,7 +318,6 @@ DateTimeParser.prototype.check = function()
 		i = 0,
 		currentObject, 
 		ret = false;
-	
 	for(;i < l; i++)
 	{
 		currentObject = dateTimeObj[i];
@@ -512,6 +520,24 @@ DateTimeParser.prototype.check = function()
 								break;
 							}
 						}
+					}
+					break;
+			case "A":
+					{
+						var
+							start = currentObject.start_date,
+							end = currentObject.end_date;
+						start.hour(currentObject.start_time.hour);
+						start.minute(currentObject.start_time.min);
+						end.hour(currentObject.end_time.hour);
+						end.minute(currentObject.end_time.min);
+						var range = moment().range(start, end);
+						if(range.contains(checkDate))
+						{
+							ret = true;
+						}else{
+						}
+						break;
 					}
 			default: throw("Invalid dateTimeType");
 		}

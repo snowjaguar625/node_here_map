@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var session = require('express-session');
+var MemoryStore = require('memorystore')(session);
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -41,7 +42,15 @@ app.use(function(req, res, next) {
 // app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
-app.use(session({secret: 'rrrccccmmmmm',saveUninitialized: true,resave: true}));
+app.use(session({
+  secret: 'rrrccccmmmmm',
+  cookie: { maxAge: 86400000 },
+    store: new MemoryStore({
+      checkPeriod: 86400000 // prune expired entries every 24h
+    }),
+  saveUninitialized: true,
+  resave: true
+}));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(sassMiddleware({
@@ -55,6 +64,8 @@ app.use(sassMiddleware({
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/'));
+
+app.locals.pretty = true;
 
 
 app.use(loginVerifyMiddleware);

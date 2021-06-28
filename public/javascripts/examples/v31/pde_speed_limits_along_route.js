@@ -6,12 +6,22 @@
 	// check if the site was loaded via secure connection
 	var secure = (location.protocol === 'https:') ? true : false;
 
+	var custom_app_id=   getUrlParameter( 'app_id' );
+	var custom_app_code= getUrlParameter( 'app_code' );
+	var custom_api_key = getUrlParameter( 'api_key' );
+	
+	if( custom_app_id !== null || custom_app_code !== null || custom_api_key !== null)
+	{
+		app_id = custom_app_id;
+		app_code = custom_app_code;
+		api_key = custom_api_key;
+	}
+
 	var mapContainer = document.getElementById('mapContainer'),
 		// position of route start
 		pointA,
 		// position of route destination
 		pointB,
-
 
 		platform = new H.service.Platform({
             apikey: api_key,
@@ -33,12 +43,6 @@
 	// Do not draw under control panel
 	map.getViewPort().setPadding(0, 0, 0, $('.ctrl-panel').width());
 	
-	//add JS API Release information
-	releaseInfoTxt.innerHTML+="<br />JS API: 3."+ H.buildInfo().version;
-	
-	//add MRS Release information
-	loadMRSVersionTxt();
-
 	// add behavior control
 	new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
@@ -57,7 +61,6 @@
 		time = document.getElementById("time"),
 		trucks = document.getElementById("trucks"),
 		truckOptions = document.getElementById("truckoptions"),
-		mapReleaseTxt = document.getElementById("mapReleaseTxt"),
 		pointA,
 		pointB,
 		routeBBox,
@@ -66,7 +69,7 @@
 		conditionalSpeeds = new Object(),
 		speeds = new Object(),
 		variableSpeeds = new Object(),
-		pdeManager = new PDEManager(app_id, app_code, layers),
+		pdeManager = new PDEManager(null, null, layers, api_key),
 		group = new H.map.Group(),
 		now = moment(),
 		truck = false,
@@ -75,7 +78,8 @@
 		startMarker,
 		destMarker,
 		bLongClickUseForStartPoint = true; // for long click in map we toggle start/destination;
-
+	
+	pdeManager.setRegion(document.getElementById("region").value);
 	pdeManager.setFeedbackTxt(feedbackTxt);
 	
 	date.value = now.format("YYYY-MM-DD");
@@ -98,9 +102,32 @@
 			truckOptions.style.display = "none";
 		}
 	};
+
+	var changeRegion = function()
+	{
+		if (document.getElementById("region").value != "") pdeManager.setRegion(document.getElementById("region").value);
+		else pdeManager.setRegion(null);
+	};
 	
-	var releaseRoutingShown=false;
-	var releaseGeocoderShown=false;
+	var loadExample = function()
+	{
+		switch (document.getElementById("examples").value){
+			case "1":
+					document.getElementById("start").value = "Kasel";
+					document.getElementById("dest").value = "Frankfurt";
+					document.getElementById("region").value = "";
+					changeRegion();
+					break;
+		
+			case "2": 
+					document.getElementById("start").value = "Tokyo";
+					document.getElementById("dest").value = "Yokohama";
+					document.getElementById("region").value = "JPN";
+					changeRegion();
+					break;
+			}
+		
+	};
 	
 	/********************************************************
 	Start/Destination selectin via LongClick in map
@@ -230,12 +257,7 @@
 						geocode(dest.value, false);
 					else
 					{
-						//add Geocoder Release information
-						if(!releaseGeocoderShown){
-								loadGeocoderVersionTxt();
-						}
 						calculateRouteDirect(pointA, pointB);
-						
 					}	
 			},
 			function(error) {
@@ -246,46 +268,45 @@
 
 	var calculateRouteDirect = function(start, destination)
 	{
-		
-		var urlRoutingReq = "https://route.api.here.com/routing/7.2/calculateroute.json?jsonAttributes=1&waypoint0="+
+		var urlRoutingReq = "https://fleet.ls.hereapi.com/2/calculateroute.json?waypoint0="+
 			start.lat + "," + start.lng + "&waypoint1="+destination.lat+","+ destination.lng +
-			"&departure=" + depature +"&routeattributes=sh,lg&legattributes=li&linkattributes=nl,fc&mode=fastest;" +
-			(truck||truckSpeedLimitOnly ? "truck" : "car") + ";traffic:enabled&app_id=" + app_id + "&app_code=" + app_code+ "&jsoncallback=gotRoutingResponse";
+			"&departure=" + depature +"&legAttributes=li&linkAttributes=fc&routeAttributes=sh&mode=fastest;" +
+			(truck ? "truck" : "car") + ";traffic:enabled&apikey=" + api_key + "&jsoncallback=gotRoutingResponse";
 
+		if (document.getElementById("region").value != "") urlRoutingReq += "&region=" + document.getElementById("region").value;
 		script = document.createElement("script");
 		script.src = urlRoutingReq;
-		document.body.appendChild(script);
+		document.body.appendChild(script);		
 	};
 
 	// parse the routing response
-	var gotRoutingResponse = function (respJsonRouteObj)
+	var gotRoutingResponse = function (resp)
 	{
-		if (respJsonRouteObj.error != undefined)
+	if (resp.error_id != undefined)
 		{
-			alert (respJsonRouteObj.error);
-			feedbackTxt.innerHTML = respJsonRouteObj.error;
+			alert (resp.issues[0].message);
+			feedbackTxt.innerHTML = resp.issues[0].message;
 			return;
 		}
-		//add Routing Release number if not already done
-		if (releaseRoutingShown == false){
-			releaseInfoTxt.innerHTML+="<br />HLP Routing: "+respJsonRouteObj.response.metaInfo.moduleVersion;
-			routerMapRelease = respJsonRouteObj.response.metaInfo.mapVersion;
-			mapReleaseTxt.innerHTML = "HLP Routing Service based on "+routerMapRelease+ " map release";
-			releaseRoutingShown = true;
-		}
+	for (var r = 0; r < resp.response.route.length; r++) {
 
-
-		var strip = new H.geo.LineString(),
-		shape = respJsonRouteObj.response.route[0].shape,
-		i,
-		l = shape.length;
-
-		for(i = 0; i < l; i++)
-		{
-			strip.pushLatLngAlt.apply(strip, shape[i].split(',').map(function(item) { return parseFloat(item); }));
-		}
-
-		var polyline = new H.map.Polyline(strip,
+		for(var k = 0; k<resp.response.route[r].leg.length; k++){
+			if( resp.response.route[r].leg[k].link === undefined) {
+				feedbackTxt.innerHTML = "<font color=\"red\">Route response contains no link information. Try to add &legAttributes=links</font>";
+				feedbackTxt.innerHTML += "<br/>";
+				Spinner.hideSpinner();
+				return;
+			}
+			for (var m = 0; m < resp.response.route[r].leg[k].link.length; m++) {
+				var linkId = (resp.response.route[r].leg[k].link[m].linkId.lastIndexOf("+", 0) === 0 ? resp.response.route[r].leg[k].link[m].linkId.substring(1) : resp.response.route[r].leg[k].link[m].linkId);
+				var strip = new H.geo.LineString();
+				var shape = resp.response.route[r].leg[k].link[m].shape;
+				var l = shape.length;
+				for (var i = 0; i < l; i += 2) {
+					strip.pushLatLngAlt(shape[i], shape[i + 1], 0);
+				}
+			
+   				var polyline = new H.map.Polyline(strip,
 			{
 				style:
 				{
@@ -294,11 +315,13 @@
 					lineJoin: "round"
 				}
 			});
-
+			}
+		}
+	}
 			group.addObject(polyline);
 
 			pdeManager.setBoundingBoxContainer(group);
-			pdeManager.setLinks(respJsonRouteObj.response.route[0].leg[0].link);
+			pdeManager.setLinks(resp.response.route[0].leg[0].link);
 			pdeManager.setOnTileLoadingFinished(pdeManagerFinished);
 			pdeManager.start();
 	};
@@ -360,7 +383,7 @@
 
 		for(;ii < ll; ii++)
 		{
-			var linkID = links[ii].linkId,
+			var linkID = links[ii].linkId.replace("+", ""), // normalization: omit directional plus sign
 			validCondition = false,
 			clink = conditionalSpeeds[linkID],
 			dtp,
@@ -368,7 +391,6 @@
 			if(variableSpeeds[linkID])
 			{
 				variable = variableSpeeds[linkID];
-
 			}
 			if(clink)
 			{
@@ -383,6 +405,7 @@
 					vehicleMask = (clink[c].VEHICLE_TYPES != undefined) ? clink[c].VEHICLE_TYPES : clink[c].TRUCK_TYPES; // compatible with older maps
 					if(clink[c].DATE_TIMES)
 					{
+
 						dtp = new DateTimeParser(clink[c].DATE_TIMES, time);
 						if(!(truck||truckSpeedLimitOnly))
 						{
@@ -433,15 +456,16 @@
 
 					if(validCondition)
 					{
-						var routeLink = pdeManager.getRouteLinks()[linkID.replace("+", "")],
+						var routeLink = pdeManager.getRouteLinks()[linkID],
 						strip = new H.geo.LineString(),
 						shape = routeLink.shape,
 						i,
 						l = shape.length;
 
-						for(i = 0; i < l; i++)
-						{
-							strip.pushLatLngAlt.apply(strip, shape[i].split(','));
+						for(i = 0; i < l; i += 2)
+						{	
+							strip.pushLatLngAlt(shape[i], shape[i+1], 0);
+							// strip.pushLatLngAlt.apply(strip, shape[i].split(','));
 						}
 
 						var polyline = new H.map.Polyline(strip,
@@ -502,21 +526,22 @@
 			}
 
 			if(!validCondition)
-			{
-				linkID = linkID.replace("+", "");
+			{										   
 				var routeLink = pdeManager.getRouteLinks()[linkID],
 				strip = new H.geo.LineString(),
 				shape = routeLink.shape,
 				i,
 				l = shape.length,
-				resp = speeds[links[ii].linkId];
+				resp = speeds[linkID];
 
-				for(i = 0; i < l; i++)
+				for(i = 0; i < l; i += 2)
 				{
-					strip.pushLatLngAlt.apply(strip, shape[i].split(','));
+					strip.pushLatLngAlt(shape[i], shape[i+1], 0);
 				}
 
-				var startPoint = shape[0].split(',');
+				var startPoint = new Array();
+				startPoint.push(shape[0]);
+				startPoint.push(shape[1]);
 
 				// set the color per route type
 				var unit = resp ? resp.SPEED_LIMIT_UNIT : "M",
@@ -656,7 +681,7 @@
 		for (var r = 0; r < resp.Rows.length; r++)
 		{
 			var linkId = parseInt(resp.Rows[r].LINK_ID),
-			routeLinkDir = '+',
+			routeLinkDir = '',
 			routeLink = pdeManager.getRouteLinks()[linkId];
 			if (routeLink == null) // maybe route is driving it to ref node
 			{
@@ -689,7 +714,7 @@
 		for (var r = 0; r < resp.Rows.length; r++)
 		{
 			var linkId = parseInt(resp.Rows[r].LINK_ID),
-			routeLinkDir = '+',
+			routeLinkDir = '',
 			routeLink = pdeManager.getRouteLinks()[linkId];
 			if (routeLink == null) // maybe route is driving it to ref node
 			{
@@ -722,7 +747,7 @@
 		for (r = 0; r < resp.Rows.length; r++)
 		{
 			var linkId = parseInt(resp.Rows[r].LINK_ID),
-			routeLinkDir = '+',
+			routeLinkDir = '',						// normally positive directions are given without a literal sign
 			routeLink = pdeManager.getRouteLinks()[linkId];
 
 			if (routeLink == null) // maybe route is driving it to ref node
