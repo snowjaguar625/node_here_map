@@ -5,8 +5,6 @@
 	// Fill combo with available layers from CENSUSWORLD.
 	var addCensusLayersFinished = Kefir.fromCallback(finishLayerSet => {
 		addCensusLayersOptions = function(layers) {
-            console.log("ffffggg");
-            console.log(layers);
 			var censusLayers = document.getElementById('censusLayers');
 			layers.forEach(function (l) {
                 if (!(l.name.substr(0, 4) === 'CEN_')) return;

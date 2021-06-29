@@ -53,13 +53,13 @@ app.use(session({
 }));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(sassMiddleware({
-  src: srcPath,
-  dest: destPath,
-  debug: true,
-  outputStyle: 'expanded',
-})
-);
+// app.use(sassMiddleware({
+//   src: srcPath,
+//   dest: destPath,
+//   debug: true,
+//   outputStyle: 'expanded',
+// })
+// );
 // app.use('/styles', express.static(path.join(__dirname, '/public/stylesheets/base')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));

@@ -118,9 +118,6 @@ DateTimeParser.prototype.parse = function()
 						break;
 			case "A" :
 						{
-							console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
-							console.log(dateTimeString[3])
-							console.log(dateTimeString[4])
 							start_date = moment(dateTimeString[3]);
 							end_date = moment(dateTimeString[4]);
 						}
